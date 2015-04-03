@@ -28,7 +28,7 @@
 		classes without needing to do any special configuration. The most commonly 
 		used annotation is @Autowired, which instructs Spring to dependency inject 
 		an object into your class. -->
-	<context:component-scan base-package="com.aberaty">
+	<context:component-scan base-package="com.inspiracode.nowgroup.scspro">
 		<context:exclude-filter expression="org.springframework.stereotype.Controller"
 			type="annotation" />
 		<context:exclude-filter expression="org.springframework.stereotype.Repository"
@@ -36,7 +36,7 @@
 	</context:component-scan>
 
 	<beans:import resource="spring/spring-datasource.xml" />
-	<beans:import resource="spring/spring-web-aberaty.xml" />
+	<beans:import resource="spring/spring-web-scspro.xml" />
 	<beans:import resource="spring/spring-hibernate.xml" />
 
 	<!-- This will ensure that hibernate or jpa exceptions are automatically 
