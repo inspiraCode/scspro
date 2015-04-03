@@ -10,21 +10,21 @@
 		<sec:intercept-url pattern="/rest/*" access="hasRole('USERS_ADMIN')" />
 		<sec:form-login authentication-failure-handler-ref="loginFailureHandler"
 			authentication-success-handler-ref="loginSucessHandler"
-			login-processing-url="/" />
+			login-processing-url="/login" />
 		<sec:logout logout-url="/logout" logout-success-url="/" />
-		<sec:access-denied-handler error-page="/error.aty" />
+		<sec:access-denied-handler error-page="/error.do" />
 		<sec:intercept-url pattern="/**"
 			access="hasRole('ACCESS_RESOURCES')" />
 	</sec:http>
 
 	<bean id="authenticationEntryPoint"
-		class="com.inspiracode.nowgroup.scspro.authentication.authority.AberatyAuthenticationEntryPoint" />
+		class="com.inspiracode.nowgroup.scspro.authentication.authority.ScsproAuthenticationEntryPoint" />
 	<bean id="loginSucessHandler"
-		class="com.inspiracode.nowgroup.scspro.authentication.authority.AberatyAuthenticationSuccessHandler" />
+		class="com.inspiracode.nowgroup.scspro.authentication.authority.ScsproAuthenticationSuccessHandler" />
 	<bean id="loginFailureHandler"
-		class="com.inspiracode.nowgroup.scspro.authentication.authority.AberatyAuthenticationFailureHandler" />
+		class="com.inspiracode.nowgroup.scspro.authentication.authority.ScsproAuthenticationFailureHandler" />
 	<bean id="scsproUserDetailsService"
-		class="com.inspiracode.nowgroup.scspro.authentication.authority.AberatyUserDetailService" />
+		class="com.inspiracode.nowgroup.scspro.authentication.authority.ScsproUserDetailService" />
 
 	<bean id="passwordEncoder"
 		class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
