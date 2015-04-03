@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://www.springframework.org/schema/security	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<sec:http auto-config="false" use-expressions="true"
+		entry-point-ref="authenticationEntryPoint" authentication-manager-ref="authenticationManager">
+		<sec:intercept-url pattern="/" access="permitAll" />
+		<sec:intercept-url pattern="/rest/*" access="hasRole('USERS_ADMIN')" />
+		<sec:form-login authentication-failure-handler-ref="loginFailureHandler"
+			authentication-success-handler-ref="loginSucessHandler"
+			login-processing-url="/" />
+		<sec:logout logout-url="/logout" logout-success-url="/" />
+		<sec:access-denied-handler error-page="/error.aty" />
+		<sec:intercept-url pattern="/**"
+			access="hasRole('ACCESS_RESOURCES')" />
+	</sec:http>
+
+	<bean id="authenticationEntryPoint"
+		class="com.aberaty.authentication.authority.AberatyAuthenticationEntryPoint" />
+	<bean id="loginSucessHandler"
+		class="com.aberaty.authentication.authority.AberatyAuthenticationSuccessHandler" />
+	<bean id="loginFailureHandler"
+		class="com.aberaty.authentication.authority.AberatyAuthenticationFailureHandler" />
+	<bean id="aberatyUserDetailsService"
+		class="com.aberaty.authentication.authority.AberatyUserDetailService" />
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+		<constructor-arg value="256" />
+	</bean>
+	
+	<!-- <bean id="permissionDao" class="com.aberaty.authentication.dao.hibernate.PermissionDaoHibernate"/>
+	<bean id="roleDao" class="com.aberaty.authentication.dao.hibernate.RoleDaoHibernate"/>
+	<bean id="userDao" class="com.aberaty.authentication.dao.hibernate.UserDaoHibernate"/>  -->
+
+	<sec:authentication-manager id="authenticationManager">
+		<sec:authentication-provider
+			user-service-ref="aberatyUserDetailsService">
+			<sec:password-encoder ref="passwordEncoder" />
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+
+	<sec:global-method-security
+		pre-post-annotations="enabled" />
+
+</beans>
