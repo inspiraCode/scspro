@@ -7,7 +7,7 @@
                            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
 
     <!-- Basic DataSource -->
-    <bean id="aberatyDataSource"
+    <bean id="scsproDataSource"
           class="org.apache.commons.dbcp.BasicDataSource" 
           p:driverClassName="${jdbc.driverClassName}" 
           p:url="${jdbc.url}" 

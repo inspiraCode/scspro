@@ -14,13 +14,13 @@
 
     <!-- Hibernate SessionFactory -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
-          p:dataSource-ref="aberatyDataSource"
+          p:dataSource-ref="scsproDataSource"
           p:lobHandler-ref="defaultLobHandler">
         <property name="annotatedClasses">
             <list>
-              <value>com.aberaty.authentication.model.domain.Permission</value>
-              <value>com.aberaty.authentication.model.domain.Role</value>
-              <value>com.aberaty.authentication.model.domain.User</value>
+              <value>com.inspiracode.nowgroup.scspro.authentication.model.domain.Permission</value>
+              <value>com.inspiracode.nowgroup.scspro.authentication.model.domain.Role</value>
+              <value>com.inspiracode.nowgroup.scspro.authentication.model.domain.User</value>
             </list>
         </property>
 
@@ -53,7 +53,7 @@
     <bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"/>
 
     <!-- Read in DAOs from the hibernate package -->
-    <context:component-scan base-package="com.aberaty.authentication.dao.hibernate"/>
+    <context:component-scan base-package="com.inspiracode.nowgroup.scspro.authentication.dao.hibernate"/>
 
     <!-- Transaction Config -->
     <bean id="transactionManager"

@@ -18,26 +18,22 @@
 	</sec:http>
 
 	<bean id="authenticationEntryPoint"
-		class="com.aberaty.authentication.authority.AberatyAuthenticationEntryPoint" />
+		class="com.inspiracode.nowgroup.scspro.authentication.authority.AberatyAuthenticationEntryPoint" />
 	<bean id="loginSucessHandler"
-		class="com.aberaty.authentication.authority.AberatyAuthenticationSuccessHandler" />
+		class="com.inspiracode.nowgroup.scspro.authentication.authority.AberatyAuthenticationSuccessHandler" />
 	<bean id="loginFailureHandler"
-		class="com.aberaty.authentication.authority.AberatyAuthenticationFailureHandler" />
-	<bean id="aberatyUserDetailsService"
-		class="com.aberaty.authentication.authority.AberatyUserDetailService" />
+		class="com.inspiracode.nowgroup.scspro.authentication.authority.AberatyAuthenticationFailureHandler" />
+	<bean id="scsproUserDetailsService"
+		class="com.inspiracode.nowgroup.scspro.authentication.authority.AberatyUserDetailService" />
 
 	<bean id="passwordEncoder"
 		class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
 		<constructor-arg value="256" />
 	</bean>
-	
-	<!-- <bean id="permissionDao" class="com.aberaty.authentication.dao.hibernate.PermissionDaoHibernate"/>
-	<bean id="roleDao" class="com.aberaty.authentication.dao.hibernate.RoleDaoHibernate"/>
-	<bean id="userDao" class="com.aberaty.authentication.dao.hibernate.UserDaoHibernate"/>  -->
 
 	<sec:authentication-manager id="authenticationManager">
 		<sec:authentication-provider
-			user-service-ref="aberatyUserDetailsService">
+			user-service-ref="scsproUserDetailsService">
 			<sec:password-encoder ref="passwordEncoder" />
 		</sec:authentication-provider>
 	</sec:authentication-manager>
