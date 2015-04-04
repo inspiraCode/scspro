@@ -24,7 +24,7 @@
 	<bean id="loginFailureHandler"
 		class="com.inspiracode.nowgroup.scspro.authentication.authority.ScsproAuthenticationFailureHandler" />
 	<bean id="scsproUserDetailsService"
-		class="com.inspiracode.nowgroup.scspro.authentication.authority.ScsproUserDetailService" />
+		class="com.inspiracode.nowgroup.scspro.authentication.authority.ScsproUserDetailsService" />
 
 	<bean id="passwordEncoder"
 		class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
