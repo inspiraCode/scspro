@@ -7,13 +7,14 @@
 	<sec:http auto-config="false" use-expressions="true"
 		entry-point-ref="authenticationEntryPoint" authentication-manager-ref="authenticationManager">
 		<sec:intercept-url pattern="/" access="permitAll" />
+		<sec:intercept-url pattern="/**" access="permitAll" />
 		<sec:intercept-url pattern="/rest/*" access="hasRole('USERS_ADMIN')" />
 		<sec:form-login authentication-failure-handler-ref="loginFailureHandler"
 			authentication-success-handler-ref="loginSucessHandler"
 			login-processing-url="/login" />
 		<sec:logout logout-url="/logout" logout-success-url="/" />
-		<sec:access-denied-handler error-page="/error.do" />
-		<sec:intercept-url pattern="/**"
+		<sec:access-denied-handler error-page="/loginerr" />
+		<sec:intercept-url pattern="/program/*"
 			access="hasRole('ACCESS_RESOURCES')" />
 	</sec:http>
 

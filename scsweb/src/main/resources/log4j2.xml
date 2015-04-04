@@ -12,7 +12,7 @@
 		<RollingFile append="false" name="RollingFile1" fileName="${log-path}/scspro.log"
 			filePattern="${log-path}/scspro-%d{yyyy-MM-dd}-%i.log">
 			<PatternLayout>
-				<pattern>%d %p [%t] %C{1} %m%n</pattern>
+				<pattern>%d %p [%t] %C %m%n</pattern>
 			</PatternLayout>
 			<Policies>
 				<OnStartupTriggeringPolicy />
@@ -25,9 +25,13 @@
 	</Appenders>
 
 	<Loggers>
-		<Logger name="com.inspiracode" level="trace" additivity="false">
+	    <Logger name="org.springframework.web.servlet.handler.AbstractHandlerMethodMapping" level="trace">
 			<AppenderRef ref="RollingFile1" level="DEBUG" />
-			<AppenderRef ref="Console" level="INFO" />
+			<AppenderRef ref="Console" level="DEBUG" />
+		</Logger>
+		<Logger name="com.inspiracode" level="trace">
+			<AppenderRef ref="RollingFile1" level="DEBUG" />
+			<AppenderRef ref="Console" level="DEBUG" />
 		</Logger>
 		<Root level="trace">
 			<AppenderRef ref="RollingFile1" level="INFO" />

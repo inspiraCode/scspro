@@ -13,7 +13,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/scspro/</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
 	<!-- Enables Spring Security -->
@@ -24,10 +24,6 @@
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/rest/*</url-pattern>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>springSecurityFilterChain</filter-name>
-		<url-pattern>/scspro/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>

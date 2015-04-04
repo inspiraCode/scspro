@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +8,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="/scspro/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/scspro/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/scspro/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/scspro/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/scspro/images/ico/apple-touch-icon-57-precomposed.png">
+    
     <link type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800">
     <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
-    <link type="text/css" rel="stylesheet" href="styles/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/animate.css">
-    <link type="text/css" rel="stylesheet" href="styles/all.css">
-    <link type="text/css" rel="stylesheet" href="styles/main.css">
-    <link type="text/css" rel="stylesheet" href="styles/style-responsive.css">
+    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/styles/font-awesome.min.css" />'>
+    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/styles/bootstrap.min.css" />' href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/styles/animate.css" />' href="styles/animate.css">
+    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/styles/all.css" />' href="styles/all.css">
+    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/styles/main.css" />' href="styles/main.css">
+    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/styles/style-responsive.css" />'>
 </head>
-<body style="background: url('images/bg/bg.png') center center fixed;">
+<body style="background: url('<c:url value="/resources/images/bg/bg.png" />') center center fixed;">
     <div class="page-form">
         <div class="panel panel-blue">
             <div class="panel-body pan">
@@ -22,19 +32,19 @@
                 <div class="form-body pal">
                     <div class="col-md-12 text-center">
                         <h1 style="margin-top: -90px; font-size: 48px;">
-                            KAdmin</h1>
+                            SCS Pro</h1>
                         <br />
                     </div>
                     <div class="form-group">
                         <div class="col-md-3">
-                            <img src="images/avatar/profile-pic.png" class="img-responsive" style="margin-top: -35px;" />
+                            <img src='<c:url value="/resources/images/avatar/profile-pic.png" />' class="img-responsive" style="margin-top: -35px;" />
                         </div>
                         <div class="col-md-9 text-center">
                             <h1>
                                 Hold on, please.</h1>
                             <br />
                             <p>
-                                Just sign in and we’ll send you on your way</p>
+                                Just sign in and we'll send you on your way</p>
                         </div>
                     </div>
                     <div class="form-group">
@@ -52,7 +62,7 @@
                         <div class="col-md-9">
                             <div class="input-icon right">
                                 <i class="fa fa-lock"></i>
-                                <input id="inputPassword" type="text" placeholder="" class="form-control" /></div>
+                                <input type="password" id="inputPassword" type="text" placeholder="" class="form-control" /></div>
                         </div>
                     </div>
                     <div class="form-group mbn">
@@ -62,7 +72,7 @@
                                     &nbsp;
                                 </div>
                                 <div class="col-lg-9">
-                                    <a href="Login.html" class="btn btn-default">Go back</a>&nbsp;&nbsp;
+                                    <a href="/scspro/" class="btn btn-default">Go back</a>&nbsp;&nbsp;
                                     <button type="submit" class="btn btn-default">
                                         Sign In</button>
                                 </div>
