@@ -18,9 +18,9 @@
           p:lobHandler-ref="defaultLobHandler">
         <property name="annotatedClasses">
             <list>
-              <value>com.inspiracode.nowgroup.scspro.authentication.model.domain.Permission</value>
-              <value>com.inspiracode.nowgroup.scspro.authentication.model.domain.Role</value>
-              <value>com.inspiracode.nowgroup.scspro.authentication.model.domain.User</value>
+              <value>com.inspiracode.nowgroup.scspro.authentication.domain.Permission</value>
+              <value>com.inspiracode.nowgroup.scspro.authentication.domain.Role</value>
+              <value>com.inspiracode.nowgroup.scspro.authentication.domain.User</value>
             </list>
         </property>
 
@@ -53,7 +53,7 @@
     <bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"/>
 
     <!-- Read in DAOs from the hibernate package -->
-    <context:component-scan base-package="com.inspiracode.nowgroup.scspro.authentication.dao.hibernate"/>
+    <context:component-scan base-package="com.inspiracode.nowgroup.scspro.authentication.domain.dao.hibernate"/>
 
     <!-- Transaction Config -->
     <bean id="transactionManager"
