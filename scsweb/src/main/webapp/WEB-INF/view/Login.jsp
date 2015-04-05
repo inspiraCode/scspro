@@ -43,7 +43,7 @@
 	<div class="page-form">
 		<div class="panel panel-blue">
 			<div class="panel-body pan">
-				<form name="f" action="login.do" method="post" class="form-horizontal">
+				<form name="f" action='<c:url value="/login.do" />' method="post" class="form-horizontal">
 					<div class="form-body pal">
 						<div class="col-md-12 text-center">
 							<h1 style="margin-top: -90px; font-size: 48px;">SCS Pro</h1>
