@@ -49,4 +49,6 @@
 		The located property files are parsed and their values can then be used within 
 		application context files in the form of ${propertyKey}. -->
 	<context:property-placeholder location="classpath*:META-INF/spring/*.properties" />
+	
+	<mvc:default-servlet-handler/>
 </beans:beans>

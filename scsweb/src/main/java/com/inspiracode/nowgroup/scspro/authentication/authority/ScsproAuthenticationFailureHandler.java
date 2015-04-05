@@ -48,7 +48,7 @@ import com.inspiracode.nowgroup.scspro.logger.ScsproLoggeableFactory;
 public class ScsproAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
     private static final ScsproLoggeable logger = ScsproLoggeableFactory.getLoggeableInstance(ScsproAuthenticationFailureHandler.class.getName());
-    private static final String LOGIN_ERROR_PAGE = "/error.jsp?status=403";
+    private static final String LOGIN_ERROR_PAGE = "/login/err?status=403";
 
     /*
      * (non-Javadoc)

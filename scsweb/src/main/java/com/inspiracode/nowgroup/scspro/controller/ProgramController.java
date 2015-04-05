@@ -21,15 +21,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.inspiracode.nowgroup.scspro.logger.ScsproLoggeable;
 import com.inspiracode.nowgroup.scspro.logger.ScsproLoggeableFactory;
 
 /**
- * Performs login related requests.
- * "/login" is requested.
- * "/" configuration from dispatcher "/" configuration at web.xml
+ * Performs main program related requests.
+ * program.do is requested.
+ * program.do configuration from dispatcher *.do configuration at web.xml
  *
  * <B>Revision History:</B>
  * 
@@ -46,30 +45,18 @@ import com.inspiracode.nowgroup.scspro.logger.ScsproLoggeableFactory;
  *
  */
 @Controller
-@RequestMapping("login")
-public class LoginController {
-    private static final ScsproLoggeable logger = ScsproLoggeableFactory.getLoggeableInstance(LoginController.class.getName());
+@RequestMapping("program")
+public class ProgramController {
+    private static final ScsproLoggeable logger = ScsproLoggeableFactory.getLoggeableInstance(ProgramController.class.getName());
     
     /**
      * Loads the view/Login.jsp when login.do is requested
      * @return
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String showLogin(HttpServletRequest request, HttpServletResponse response) {
-	logger.debug("loading login page.");
-	return "Login";
+    public String showDashboard(HttpServletRequest request, HttpServletResponse response) {
+	logger.debug("loading main program dashboard page.");
+	return "index";
     }
-    
-    /**
-     * Loads the view/Login.jsp when login.do is requested
-     * @return
-     */
-    @RequestMapping(method = RequestMethod.GET, value="/err")
-    public ModelAndView showLoginError(HttpServletRequest request, HttpServletResponse response) {
-	ModelAndView mav = new ModelAndView("Login");
-	logger.debug("loading loging error description page.");
-	mav.addObject("loginErr", "Invalid username or password");
-	return mav;
-    }
-    
+
 }
