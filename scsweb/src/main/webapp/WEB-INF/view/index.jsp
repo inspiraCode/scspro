@@ -80,8 +80,9 @@
 								class="badge badge-orange">7</span></a></li>
 						<li class="dropdown"><a data-hover="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-tasks fa-fw"></i><span
 								class="badge badge-yellow">8</span></a></li>
-						<li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="images/avatar/48.jpg" alt=""
-								class="img-responsive img-circle" />&nbsp;<span class="hidden-xs">Robert John</span>&nbsp;<span class="caret"></span></a>
+						<li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img
+								src='<c:url value="/resources/images/avatar/48.jpg" />' alt="" class="img-responsive img-circle" />&nbsp;<span class="hidden-xs">Robert
+									John</span>&nbsp;<span class="caret"></span></a>
 							<ul class="dropdown-menu dropdown-user pull-right">
 								<li><a href="#"><i class="fa fa-user"></i>My Profile</a></li>
 								<li><a href="#"><i class="fa fa-calendar"></i>My Calendar</a></li>
@@ -208,7 +209,7 @@
 						<ul class="chat-box-body">
 							<li>
 								<p>
-									<img src="images/avatar/128.jpg" class="avt" /><span class="user">John Doe</span><span class="time">09:33</span>
+									<img src='<c:url value="/resources/images/avatar/128.jpg" />' class="avt" /><span class="user">John Doe</span><span class="time">09:33</span>
 								</p>
 								<p>Hi Swlabs, we have some comments for you.</p>
 							</li>
@@ -693,53 +694,53 @@
 			<!--END PAGE WRAPPER-->
 		</div>
 	</div>
-	<script src="script/jquery-1.10.2.min.js"></script>
-	<script src="script/jquery-migrate-1.2.1.min.js"></script>
-	<script src="script/jquery-ui.js"></script>
-	<script src="script/bootstrap.min.js"></script>
-	<script src="script/bootstrap-hover-dropdown.js"></script>
-	<script src="script/html5shiv.js"></script>
-	<script src="script/respond.min.js"></script>
-	<script src="script/jquery.metisMenu.js"></script>
-	<script src="script/jquery.slimscroll.js"></script>
-	<script src="script/jquery.cookie.js"></script>
-	<script src="script/icheck.min.js"></script>
-	<script src="script/custom.min.js"></script>
-	<script src="script/jquery.news-ticker.js"></script>
-	<script src="script/jquery.menu.js"></script>
-	<script src="script/pace.min.js"></script>
-	<script src="script/holder.js"></script>
-	<script src="script/responsive-tabs.js"></script>
-	<script src="script/jquery.flot.js"></script>
-	<script src="script/jquery.flot.categories.js"></script>
-	<script src="script/jquery.flot.pie.js"></script>
-	<script src="script/jquery.flot.tooltip.js"></script>
-	<script src="script/jquery.flot.resize.js"></script>
-	<script src="script/jquery.flot.fillbetween.js"></script>
-	<script src="script/jquery.flot.stack.js"></script>
-	<script src="script/jquery.flot.spline.js"></script>
-	<script src="script/zabuto_calendar.min.js"></script>
-	<script src="script/index.js"></script>
+	<script src='<c:url value="/resources/script/jquery-1.10.2.min.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery-migrate-1.2.1.min.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery-ui.js" />'></script>
+	<script src='<c:url value="/resources/script/bootstrap.min.js" />'</script>
+	<script src='<c:url value="/resources/script/bootstrap-hover-dropdown.js" />'</script>
+	<script src='<c:url value="/resources/script/html5shiv.js" />'></script>
+	<script src='<c:url value="/resources/script/respond.min.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.metisMenu.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.slimscroll.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.cookie.js" />'></script>
+	<script src='<c:url value="/resources/script/icheck.min.js" />'></script>
+	<script src='<c:url value="/resources/script/custom.min.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.news-ticker.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.menu.js" />'></script>
+	<script src='<c:url value="/resources/script/pace.min.js" />'></script>
+	<script src='<c:url value="/resources/script/holder.js" />'></script>
+	<script src='<c:url value="/resources/script/responsive-tabs.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.flot.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.flot.categories.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.flot.pie.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.flot.tooltip.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.flot.resize.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.flot.fillbetween.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.flot.stack.js" />'></script>
+	<script src='<c:url value="/resources/script/jquery.flot.spline.js" />'></script>
+	<script src='<c:url value="/resources/script/zabuto_calendar.min.js" />'></script>
+	<script src='<c:url value="/resources/script/index.js" />'></script>
 	<!--LOADING SCRIPTS FOR CHARTS-->
-	<script src="script/highcharts.js"></script>
-	<script src="script/data.js"></script>
-	<script src="script/drilldown.js"></script>
-	<script src="script/exporting.js"></script>
-	<script src="script/highcharts-more.js"></script>
-	<script src="script/charts-highchart-pie.js"></script>
-	<script src="script/charts-highchart-more.js"></script>
+	<script src='<c:url value="/resources/script/highcharts.js" />'></script>
+	<script src='<c:url value="/resources/script/data.js" />'></script>
+	<script src='<c:url value="/resources/script/drilldown.js" />'></script>
+	<script src='<c:url value="/resources/script/exporting.js" />'></script>
+	<script src='<c:url value="/resources/script/highcharts-more.js" />'></script>
+	<script src='<c:url value="/resources/script/charts-highchart-pie.js" />'></script>
+	<script src='<c:url value="/resources/script/charts-highchart-more.js" />'></script>
 	<!--CORE JAVASCRIPT-->
-	<script src="script/main.js"></script>
+	<script src='<c:url value="/resources/script/main.js" />'></script>
 	<script>
 		(function(i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r;
 			i[r] = i[r] || function() {
-				(i[r].q = i[r].q || []).push(arguments)
+				(i[r].q = i[r].q || []).push(arguments);
 			}, i[r].l = 1 * new Date();
 			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
 			a.async = 1;
 			a.src = g;
-			m.parentNode.insertBefore(a, m)
+			m.parentNode.insertBefore(a, m);
 		})(window, document, 'script',
 				'//www.google-analytics.com/analytics.js', 'ga');
 		ga('create', 'UA-145464-12', 'auto');
