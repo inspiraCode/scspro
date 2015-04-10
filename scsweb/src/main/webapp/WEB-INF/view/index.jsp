@@ -697,8 +697,8 @@
 	<script src='<c:url value="/resources/script/jquery-1.10.2.min.js" />'></script>
 	<script src='<c:url value="/resources/script/jquery-migrate-1.2.1.min.js" />'></script>
 	<script src='<c:url value="/resources/script/jquery-ui.js" />'></script>
-	<script src='<c:url value="/resources/script/bootstrap.min.js" />'</script>
-	<script src='<c:url value="/resources/script/bootstrap-hover-dropdown.js" />'</script>
+	<script src='<c:url value="/resources/script/bootstrap.min.js" />'></script>
+	<script src='<c:url value="/resources/script/bootstrap-hover-dropdown.js" />'></script>
 	<script src='<c:url value="/resources/script/html5shiv.js" />'></script>
 	<script src='<c:url value="/resources/script/respond.min.js" />'></script>
 	<script src='<c:url value="/resources/script/jquery.metisMenu.js" />'></script>
