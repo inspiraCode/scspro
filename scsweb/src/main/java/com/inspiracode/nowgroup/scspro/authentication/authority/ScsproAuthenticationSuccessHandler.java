@@ -51,7 +51,7 @@ import com.inspiracode.nowgroup.scspro.logger.ScsproLoggeableFactory;
  */
 public class ScsproAuthenticationSuccessHandler extends AbstractAuthenticationTargetUrlRequestHandler implements AuthenticationSuccessHandler {
     private static final ScsproLoggeable logger = ScsproLoggeableFactory.getLoggeableInstance(ScsproAuthenticationSuccessHandler.class.getName());
-    private static final String DEFAULT_TARGET = "/program.do";
+    private static final String DEFAULT_TARGET = "/profile.do";
 
     /*
      * (non-Javadoc)
