@@ -52,7 +52,7 @@ public class ReceiptMerchandise implements BaseDTO {
 	@Column(name = "PRG_WEIGHT_POUNDS", precision = 7, scale = 3, nullable = false)
 	private BigDecimal pounds = new BigDecimal(0);
 
-	@Column(name = "PRG_WEIGHT_POUNDS", precision = 7, scale = 3, nullable = false)
+	@Column(name = "PRG_WEIGHT_KILOS", precision = 7, scale = 3, nullable = false)
 	private BigDecimal kilos = new BigDecimal(0);
 
 	@IndexedEmbedded
