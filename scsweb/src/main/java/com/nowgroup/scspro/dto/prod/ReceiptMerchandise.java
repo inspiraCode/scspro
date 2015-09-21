@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -56,17 +57,17 @@ public class ReceiptMerchandise implements BaseDTO {
 
 	@IndexedEmbedded
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@Column(name = "PRG_RECEIPT_ID", nullable = false)
+	@JoinColumn(name = "PRG_RECEIPT_ID", nullable = false)
 	private Receipt receipt;
 
 	@IndexedEmbedded
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@Column(name = "PRG_LOAD_MU", nullable = false)
+	@JoinColumn(name = "PRG_LOAD_MU", nullable = false)
 	private MeasurementUnit loadMeasurementUnit;
 
 	@IndexedEmbedded
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@Column(name = "PRG_IDUN", nullable = false)
+	@JoinColumn(name = "PRG_IDUN", nullable = false)
 	private UNLabel unLabel;
 
 	public int getId() {

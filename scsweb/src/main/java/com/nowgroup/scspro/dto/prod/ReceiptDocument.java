@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -38,7 +39,7 @@ public class ReceiptDocument implements BaseDTO {
 	
 	@IndexedEmbedded
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@Column(name="PRD_RECEIPT_ID", nullable=false)
+	@JoinColumn(name="PRD_RECEIPT_ID", nullable=false)
 	private Receipt receipt;
 	
 	@Field
@@ -61,7 +62,7 @@ public class ReceiptDocument implements BaseDTO {
 	
 	@Field
 	@ManyToOne(fetch=FetchType.LAZY, optional=true)
-	@Column(name="PRD_PURCHASE_ORDER", nullable=true)
+	@JoinColumn(name="PRD_PURCHASE_ORDER", nullable=true)
 	private Company purchaser;
 
 	@Column(name="PRD_QUANTITY", nullable=false)
@@ -69,7 +70,7 @@ public class ReceiptDocument implements BaseDTO {
 	
 	@IndexedEmbedded
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@Column(name="PRD_PACK_MU", nullable=false)
+	@JoinColumn(name="PRD_PACK_MU", nullable=false)
 	private MeasurementUnit packingMU;
 
 	public int getId() {

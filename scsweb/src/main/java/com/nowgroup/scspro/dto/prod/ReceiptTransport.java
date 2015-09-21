@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -55,17 +56,17 @@ public class ReceiptTransport implements BaseDTO {
 
 	@IndexedEmbedded
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Column(name = "PRT_RECEIPT_ID", nullable = false)
+	@JoinColumn(name = "PRT_RECEIPT_ID", nullable = false)
 	private Receipt receipt;
 
 	@IndexedEmbedded
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Column(name = "PRT_FREIGHTER", nullable = false)
+	@JoinColumn(name = "PRT_FREIGHTER", nullable = false)
 	private Company freighter;
 
 	@IndexedEmbedded
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Column(name = "PRT_PAYMENT_CONDITION", nullable = false)
+	@JoinColumn(name = "PRT_PAYMENT_CONDITION", nullable = false)
 	private PaymentCondition paymentCondition;
 
 	public int getId() {
