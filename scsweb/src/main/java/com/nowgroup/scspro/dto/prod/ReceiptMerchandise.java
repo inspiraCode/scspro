@@ -38,7 +38,7 @@ public class ReceiptMerchandise implements BaseDTO {
 	private String item;
 
 	@Field
-	@Column(name = "PRG_ITEM", nullable = false)
+	@Column(name = "PRG_QUANTITY", nullable = false)
 	private int quantity = 0;
 
 	@Field
