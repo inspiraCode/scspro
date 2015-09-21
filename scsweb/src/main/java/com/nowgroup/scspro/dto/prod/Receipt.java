@@ -73,7 +73,7 @@ public class Receipt implements BaseDTO {
 	@IndexedEmbedded
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "log_receipt", catalog = "supply_chain", joinColumns = { @JoinColumn(name = "RECEIPT_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "PROD_LOG_ID", nullable = false, updatable = false) })
-	private DbLog dbLog;
+	private Set<DbLog> dbLog;
 
 	public Receipt() {
 	}
