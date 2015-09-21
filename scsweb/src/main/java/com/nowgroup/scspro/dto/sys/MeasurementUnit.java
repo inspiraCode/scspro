@@ -43,7 +43,7 @@ public class MeasurementUnit implements BaseDTO {
 	
 	@IndexedEmbedded
 	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	@JoinTable(name="sys_measurement_unit_role", catalog="supply_chain",
+	@JoinTable(name="sys_cross_measurement_unit_role", catalog="supply_chain",
 			joinColumns={ @JoinColumn(name="MU_ID", nullable=false, updatable=false)},
 			inverseJoinColumns={ @JoinColumn( name="MU_ROLE_ID", nullable=false, updatable=false ) },
 			uniqueConstraints={ @UniqueConstraint(name="MU_ROLE_IDX", columnNames={"MU_ID", "MU_ROLE_ID"}) })
