@@ -21,7 +21,7 @@ public class DbLog implements BaseDTO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "EVENT_DETAIL", nullable = false, unique = true)
+	@Column(name = "EVENT_ID", nullable = false, unique = true)
 	private int id;
 
 	@Field(analyze = Analyze.YES)
