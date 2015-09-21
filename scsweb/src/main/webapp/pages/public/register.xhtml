@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />   
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="#{resource['favico/favicon.ico']}"/>
+    <link rel="icon" type="image/x-icon" href="#{resource['favico/favicon.ico']}"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="#{resource['favico/apple-touch-icon-57x57.png']}"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="#{resource['favico/apple-touch-icon-60x60.png']}"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="#{resource['favico/apple-touch-icon-72x72.png']}"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="#{resource['favico/apple-touch-icon-76x76.png']}"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="#{resource['favico/apple-touch-icon-114x114.png']}"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="#{resource['favico/apple-touch-icon-120x120.png']}"/>
+    <link rel="icon" type="image/png" href="#{resource['favico/favicon-32x32.png']}" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="#{resource['favico/favicon-96x96.png']}" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="#{resource['favico/favicon-16x16.png']}" sizes="16x16"/>
+    <link rel="manifest" href="#{resource['favico/manifest.json']}" />
+    <meta name="msapplication-TileColor" content="#da532c"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+    <title>SCS Pro - Registrarse</title>
+    <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+    <h:outputStylesheet name="css/sb-admin-2.css" />
+    <h:outputStylesheet name="css/font-awesome.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+    <h:outputScript name="bootstrap/js/bootstrap.js" />
+    <h:outputScript name="js/sb-admin-2.js" />
+</h:head>
+<h:body>
+    <f:view locale="#{localeBean.locale}">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><h:outputText id="outTxtTitleId" value="#{i18n_register['register.title']}: " name="outTxtTitleNm"></h:outputText></h3>
+                    </div>
+                    <div class="panel-body">
+                        <h:form>
+                            <fieldset>
+                                <div class="control-group">
+                                    <!-- Username -->
+                                    <h:outputLabel id="outLblUserNameId" for="userName" value="#{i18n_register['register.username']}: " name="outLblUserNameNm" styleClass="control-label"></h:outputLabel>
+                                    <div class="controls">
+                                        <h:inputText styleClass="input-xlarge" id="userName" required="true" value="#{userController.model.name}" requiredMessage="#{i18n_login['register.username.required']}"></h:inputText>
+                                        <p class="help-block"><h:outputText id="outTxtUserInstructionsId" value="#{i18n_register['register.username.instructions']}" name="outTxtUserInstructionsNm"></h:outputText></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <!-- E-mail -->
+                                    <h:outputLabel id="outLblEmailId" for="email" value="#{i18n_register['register.email']}: " name="outLblEmailNm" styleClass="control-label"></h:outputLabel>
+                                    <div class="controls">
+                                        <h:inputText styleClass="input-xlarge" id="email" required="true" value="#{userController.model.email}" requiredMessage="#{i18n_login['register.email.required']}"></h:inputText>
+                                        <p class="help-block"><h:outputText id="outTxtEmailInstructionsId" value="#{i18n_register['register.email.instructions']}" name="outTxtEmailInstructionsNm"></h:outputText></p>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <!-- Password -->
+                                    <h:outputLabel id="outLblPasswordId" for="password" value="#{i18n_register['register.password']}: " name="outLblPasswordNm" styleClass="control-label"></h:outputLabel>
+                                    <div class="controls">
+                                        <h:inputSecret styleClass="input-xlarge" id="password" required="true" value="#{userController.model.password}" requiredMessage="#{i18n_login['register.password.required']}"></h:inputSecret>
+                                        <p class="help-block"><h:outputText id="outTxtPasswordInstructionsId" value="#{i18n_register['register.password.instructions']}" name="outTxtPasswordInstructionsNm"></h:outputText></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <!-- Password -->
+                                    <h:outputLabel id="outLblConfirmId" for="confirm" value="#{i18n_register['register.confirm']}: " name="outLblConfirmdNm" styleClass="control-label"></h:outputLabel>
+                                    <div class="controls">
+                                        <h:inputSecret styleClass="input-xlarge" id="confirm" required="true" value="#{userController.model.confirmPassword}" requiredMessage="#{i18n_login['register.confirm.required']}"></h:inputSecret>
+                                        <p class="help-block"><h:outputText id="outTxtConfirmInstructionsId" value="#{i18n_register['register.confirm.instructions']}" name="outTxtConfirmInstructionsNm"></h:outputText></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <!-- Button -->
+                                    <div class="controls">
+                                        <h:commandButton id="btnRegisterId" value="#{i18n_register['register.register']}" action="#{userController.register}" styleClass="btn btn-success"></h:commandButton>&nbsp;&nbsp;
+                                        <a href="login.xhtml"><h:outputText id="outTxtLoginId" value="#{i18n_register['register.login']}" name="outTxtLoginNm"></h:outputText></a>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <input type="hidden"
+                                name="${_csrf.parameterName}"
+                                value="${_csrf.token}"/>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h:messages></h:messages>
+    </div>
+    <h:form styleClass="form-horizontal">
+        <h:outputText id="outTxtLanguageId" value="#{i18n_global['global.language']}: " name="outTxtLanguageNm"></h:outputText>
+        <h:selectOneMenu styleClass="input-large" value="#{localeBean.locale}" onchange="submit()" valueChangeListener="#{localeBean.changeLanguage}">
+            <f:selectItems value="#{localeBean.availableLanguages}"></f:selectItems>
+        </h:selectOneMenu>
+        <!-- CSRF Security token -->
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </h:form>
+    </f:view>
+</h:body>
+</html>

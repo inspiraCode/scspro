@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+        xmlns:h="http://xmlns.jcp.org/jsf/html" 
+        xmlns:f="http://xmlns.jcp.org/jsf/core" 
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" 
+        xmlns:p="http://primefaces.org/ui">
+    <div class="row">
+        <div class="control-group col-md-12">
+            <!-- Company Name -->
+            <h:outputLabel id="outLblCompanyNameId" for="companyName" value="#{i18n_companies['company.name']}: " name="outLblCompanyNameNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <h:inputText styleClass="form-control" id="companyName" value="#{companyBean.company.name}" pt:placeholder="#{i18n_companies['company.name']}"></h:inputText>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="control-group col-md-12">
+            <!-- Company Alias -->
+            <h:outputLabel id="outLblCompanyAliasId" for="alias" value="#{i18n_companies['company.alias']}: " name="outLblCompanyAliasNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <h:inputText styleClass="form-control" id="alias" value="#{companyBean.company.alias}" pt:placeholder="#{i18n_companies['company.alias']}"></h:inputText>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="control-group col-md-12">
+            <!-- Address -->
+            <h:outputLabel id="outLblAddressId" for="address" value="#{i18n_companies['company.address']}: " name="outLblAddressNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <h:inputText styleClass="form-control col-md-10" id="address" value="#{companyBean.company.addressStreet}" pt:placeholder="#{i18n_companies['company.address.street']}"></h:inputText>
+                <h:inputText styleClass="form-control col-md-10" id="addressAdditional" value="#{companyBean.company.addressAdditional}" pt:placeholder="#{i18n_companies['company.address.additional']}"></h:inputText>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="control-group col-md-6">
+            <!-- Country -->
+            <h:outputLabel id="outLblCompanyCountryId" for="companyCountry" value="#{i18n_companies['company.country']}: " name="outLblCompanyCountryNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <p:selectOneMenu id="companyCountry" value="#{companyBean.countryId}" style="width:90%">
+                    <f:selectItem itemLabel="#{i18n_companies['company.country.selectOne']}" itemValue="0" noSelectionOption="true" />
+                    <f:selectItems value="#{companyBean.countries}" />
+                    <p:ajax listener="#{companyBean.onCountryChange}" update="companyState" />
+                </p:selectOneMenu>
+            </div>
+        </div>
+        <div class="control-group col-md-6">
+            <!-- Company Alias -->
+            <h:outputLabel id="outLblCompanyStateId" for="companyState" value="#{i18n_companies['company.state']}: " name="outLblCompanyStateNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <p:selectOneMenu id="companyState" value="#{companyBean.stateId}" style="width:90%">
+                    <f:selectItem itemLabel="#{i18n_companies['company.state.selectOne']}" itemValue="0" noSelectionOption="true" />
+                    <f:selectItems value="#{companyBean.states}" />
+                </p:selectOneMenu>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="control-group col-md-8">
+            <!-- Company City -->
+            <h:outputLabel id="outLblCompanyCityId" for="companyCity" value="#{i18n_companies['company.city']}: " name="outLblCompanyCityNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <h:inputText styleClass="form-control" id="companyCity" value="#{companyBean.company.city}" pt:placeholder="#{i18n_companies['company.city']}"></h:inputText>
+            </div>
+        </div>
+        <div class="control-group col-md-4">
+            <!-- Company Zip -->
+            <h:outputLabel id="outLblCompanyZipId" for="companyZip" value="#{i18n_companies['company.zip']}: " name="outLblCompanyZipNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <h:inputText styleClass="form-control" id="companyZip" value="#{companyBean.company.zip}" pt:placeholder="#{i18n_companies['company.zip']}"></h:inputText>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="control-group col-md-4">
+            <!-- Company Phone -->
+            <h:outputLabel id="outLblCompanyPhoneId" for="companyPhone" value="#{i18n_companies['company.phone']}: " name="outLblCompanyPhoneNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <h:inputText styleClass="form-control" id="companyPhone" value="#{companyBean.company.phone}" pt:placeholder="#{i18n_companies['company.phone']}"></h:inputText>
+            </div>
+        </div>
+        <div class="control-group col-md-4">
+            <!-- Company Phone Secondary -->
+            <h:outputLabel id="outLblCompanyPhoneSecId" for="companyPhoneSec" value="#{i18n_companies['company.phone.secondary']}: " name="outLblCompanyPhoneSecNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <h:inputText styleClass="form-control" id="companyPhoneSec" value="#{companyBean.company.phoneSecondary}" pt:placeholder="#{i18n_companies['company.phone.secondary']}"></h:inputText>
+            </div>
+        </div>
+        <div class="control-group col-md-4">
+            <!-- Company Fax -->
+            <h:outputLabel id="outLblCompanyFaxId" for="companyFax" value="#{i18n_companies['company.fax']}: " name="outLblCompanyFaxNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <h:inputText styleClass="form-control" id="companyFax" value="#{companyBean.company.fax}" pt:placeholder="#{i18n_companies['company.fax']}"></h:inputText>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="control-group col-md-6">
+            <!-- Company Email -->
+            <h:outputLabel id="outLblCompanyEmail" for="companyEmail" value="#{i18n_companies['company.email']}: " name="outLblCompanyEmailNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <h:inputText styleClass="form-control" id="companyEmail" value="#{companyBean.company.email}" pt:type="email" pt:placeholder="#{i18n_companies['company.email']}"></h:inputText>
+            </div>
+        </div>
+        <div class="control-group col-md-6">
+            <!-- Company Web -->
+            <h:outputLabel id="outLblCompanyWebId" for="companyWeb" value="#{i18n_companies['company.web']}: " name="outLblCompanyWebNm" styleClass="control-label"></h:outputLabel>
+            <div class="controls">
+                <h:inputText styleClass="form-control" id="companyWeb" value="#{companyBean.company.web}" pt:placeholder="#{i18n_companies['company.web']}"></h:inputText>
+            </div>
+        </div>
+    </div>
+</html>

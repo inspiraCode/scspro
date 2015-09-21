@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans 
+	xmlns="http://www.springframework.org/schema/security" 
+	xmlns:b="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security.xsd">
+	<!-- Enable method level Spring Security by annotations -->
+	<global-method-security pre-post-annotations="enabled" />
+	
+    <http auto-config="true" use-expressions="true">
+    	<!-- Page level Spring Security: Intercept access to resources in /pages/secure/** -->
+    	<intercept-url pattern="/pages/secure/**" access="isAuthenticated()"/>
+    	
+    	<!-- Page level Spring Security: Permit access to resources in /pages/public/** -->
+    	<intercept-url pattern="/pages/public/**" access="permitAll"/>
+    	
+    	<!-- Page Level Spring Security: Enable Primefaces -->
+        <intercept-url pattern="/javax.faces.resource/**" access="permitAll"/>
+    	
+    	<!-- Page level Spring Security: Intercept access to resources in /** -->
+    	<intercept-url pattern="/**" access="isAuthenticated()"/>
+    	
+        <!-- Define login page for Spring Security -->
+        <form-login login-page="/pages/public/login.xhtml" />
+        
+        <!-- Define logout properties for Spring Security -->
+        <logout invalidate-session="true" delete-cookies="true" logout-success-url="/pages/public/login.xhtml" />
+    </http>
+	
+	<!-- LOGIN PASSWORD ENCRYPTION -->
+    <!-- String encryptor for passwords -->
+    <b:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+    	<b:constructor-arg name="strength" value="11"/>
+    </b:bean>
+    
+    <!-- Set ScsproUserDetailsService class as the authentication Manager for Spring Security -->
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="scsproUserDetailsService">
+			<password-encoder hash="bcrypt"/>
+		</authentication-provider>
+	</authentication-manager>
+	
+	<!-- Inject authentication Manager to our LoginBean -->
+	<b:bean id="loginBean" name="loginBean" class="com.nowgroup.scspro.faces.beans.LoginBean" scope="prototype">
+		<b:property name="authenticationManager" ref="authenticationManager"/>
+	</b:bean>
+</b:beans>

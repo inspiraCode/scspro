@@ -1,0 +1,11 @@
+http://marco-ng.blogspot.mx/2014/02/primefaces-jsf2-spring-security-spring.html
++ TODO
+- Show companies list in Companies menu. 	(2)
+- Load company by clicking and edit. 		(1)
+- Try to remove company						(1)
+- Filter, sort and search companies.		(included in show list)
+- Apply company profile						(1)
+* Storages
+* Payment Conditions
+* Measurement Units
+** RECEIPT
