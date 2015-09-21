@@ -62,7 +62,7 @@ public class ReceiptDocument implements BaseDTO {
 	
 	@Field
 	@ManyToOne(fetch=FetchType.LAZY, optional=true)
-	@JoinColumn(name="PRD_PURCHASE_ORDER", nullable=true)
+	@JoinColumn(name="PRD_PURCHASER", nullable=true)
 	private Company purchaser;
 
 	@Column(name="PRD_QUANTITY", nullable=false)
