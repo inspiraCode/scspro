@@ -15,10 +15,10 @@ CREATE TABLE `supply_chain`.`geo_state` (
 
 ALTER TABLE `supply_chain`.`geo_state` 
 ADD INDEX `FK_STATE_idx` (`STATE_COUNTRY` ASC)  COMMENT '';
-ALTER TABLE `supply_chain`.`cat_state` 
+ALTER TABLE `supply_chain`.`geo_state` 
 ADD CONSTRAINT `FK_STATE_COUNTRY`
   FOREIGN KEY (`STATE_COUNTRY`)
-  REFERENCES `supply_chain`.`cat_country` (`COUNTRY_ID`)
+  REFERENCES `supply_chain`.`geo_country` (`COUNTRY_ID`)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
 

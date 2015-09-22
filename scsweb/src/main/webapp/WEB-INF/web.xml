@@ -2,6 +2,20 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="SCSPRO" version="2.5" metadata-complete="true">
     <display-name>Supply Chain Software Professional</display-name>
+    <!-- ERROR PAGES -->
+    <error-page>
+    	<error-code>404</error-code>
+    	<location>/pages/public/error.xhtml</location>
+    </error-page>
+    <error-page>
+    	<error-code>500</error-code>
+    	<location>/pages/public/error.xhtml</location>
+    </error-page>
+    <error-page>
+    	<exception-type>java.lang.Exception</exception-type>
+    	<location>/pages/public/error.xhtml</location>
+    </error-page>
+    
     <!-- Spring Security Facelets Tag Library -->
     <context-param>
         <description>Sprig Security Facelets Tag Library</description>

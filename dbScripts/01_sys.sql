@@ -41,6 +41,13 @@ INSERT INTO `supply_chain`.`sys_role` (`ROLE_NAME`) VALUES ('REG_USER');
 INSERT INTO `supply_chain`.`sys_role` (`ROLE_NAME`) VALUES ('ROLE_SUPER');
 INSERT INTO `supply_chain`.`sys_role` (`ROLE_NAME`) VALUES ('ROLE_ADMIN');
 
+INSERT INTO `supply_chain`.`sys_user` (`USER_ID`, `USER_NAME`, `PASSWORD`, `USER_ENABLED`, `LOGIN_ATTEMPTS`, `EXPIRATION_DATE`, `EMAIL`) 
+VALUES ('1', 'admin', '$2a$11$9yN7dr2iG8HAIYs4dFcfm.ANBJ8tQrQZZuSvCJE4M5JSJyOzNP/F.', 1, '0', '2035-01-01', 'admin@mydomain.com');
+
+INSERT INTO `supply_chain`.`sys_user_role`(`USER_ID`, `ROLE_ID`) VALUES(1,1);
+INSERT INTO `supply_chain`.`sys_user_role`(`USER_ID`, `ROLE_ID`) VALUES(1,2);
+INSERT INTO `supply_chain`.`sys_user_role`(`USER_ID`, `ROLE_ID`) VALUES(1,3);
+
 CREATE TABLE `supply_chain`.`sys_payment_condition` (
   `PAY_CND_ID` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `PAY_CND_CODE` VARCHAR(6) NOT NULL COMMENT '',
