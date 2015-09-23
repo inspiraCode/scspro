@@ -17,30 +17,30 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class LocaleBean implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private static Map<String, String> languages;
-	static {
-		languages = new LinkedHashMap<String, String>();
-		languages.put("English", "en");
-		languages.put("Español", "es");
-	}
+    private static Map<String, String> languages;
+    static {
+	languages = new LinkedHashMap<String, String>();
+	languages.put("English", "en");
+	languages.put("Español", "es");
+    }
 
-	public Map<String, String> getAvailableLanguages() {
-		return languages;
-	}
+    public Map<String, String> getAvailableLanguages() {
+	return languages;
+    }
 
-	private String locale = "es";
+    private String locale = "es";
 
-	public String getLocale() {
-		return locale;
-	}
+    public String getLocale() {
+	return locale;
+    }
 
-	public void setLocale(String locale) {
-		this.locale = locale;
-	}
-	
-	public String changeLanguage(){
-		return "changedLanguage";
-	}
+    public void setLocale(String locale) {
+	this.locale = locale;
+    }
+
+    public String changeLanguage() {
+	return "changedLanguage";
+    }
 }

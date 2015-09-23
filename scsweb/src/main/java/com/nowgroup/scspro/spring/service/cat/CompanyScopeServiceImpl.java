@@ -14,36 +14,36 @@ import com.nowgroup.scspro.service.cat.CompanyScopeService;
 @Transactional(readOnly = true)
 public class CompanyScopeServiceImpl implements CompanyScopeService {
 
-	@Autowired
-	private CompanyScopeDAO companyScopeDAO;
+    @Autowired
+    private CompanyScopeDAO companyScopeDAO;
 
-	@PreAuthorize("hasRole('ROLE_SUPER')")
-	@Transactional(readOnly = false)
-	public void removeScope(CompanyScope scope) {
-		companyScopeDAO.delete(scope);
-	}
+    @PreAuthorize("hasRole('ROLE_SUPER')")
+    @Transactional(readOnly = false)
+    public void removeScope(CompanyScope scope) {
+	companyScopeDAO.delete(scope);
+    }
 
-	@PreAuthorize("hasRole('ROLE_SUPER')")
-	@Transactional(readOnly = false)
-	public int addScope(CompanyScope scope) {
-		companyScopeDAO.add(scope);
-		return scope.getId();
-	}
+    @PreAuthorize("hasRole('ROLE_SUPER')")
+    @Transactional(readOnly = false)
+    public int addScope(CompanyScope scope) {
+	companyScopeDAO.add(scope);
+	return scope.getId();
+    }
 
-	public CompanyScopeDAO getCompanyScopeDAO() {
-		return companyScopeDAO;
-	}
+    public CompanyScopeDAO getCompanyScopeDAO() {
+	return companyScopeDAO;
+    }
 
-	public void setCompanyScopeDAO(CompanyScopeDAO companyScopeDAO) {
-		this.companyScopeDAO = companyScopeDAO;
-	}
+    public void setCompanyScopeDAO(CompanyScopeDAO companyScopeDAO) {
+	this.companyScopeDAO = companyScopeDAO;
+    }
 
-	public CompanyRole getRoleInCompanyScope(int id) {
-		CompanyScope dbScope = this.companyScopeDAO.get(id);
-		CompanyRole result = dbScope.getCompanyRole();
-		result.setId(dbScope.getCompanyRole().getId());
-		result.setName(dbScope.getCompanyRole().getName());
-		return result;
-	}
+    public CompanyRole getRoleInCompanyScope(int id) {
+	CompanyScope dbScope = this.companyScopeDAO.get(id);
+	CompanyRole result = dbScope.getCompanyRole();
+	result.setId(dbScope.getCompanyRole().getId());
+	result.setName(dbScope.getCompanyRole().getName());
+	return result;
+    }
 
 }

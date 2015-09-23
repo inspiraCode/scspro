@@ -27,122 +27,122 @@ import com.nowgroup.scspro.dto.sys.MeasurementUnit;
 
 @Indexed
 @Entity
-@Table(name = "prod_receipt_documents", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "PRD_FOLIO_IDX", columnNames = {
-		"PRD_FOLIO", "PRD_PURCHASER" }) })
+@Table(name = "prod_receipt_documents", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "PRD_FOLIO_IDX", columnNames = { "PRD_FOLIO",
+	"PRD_PURCHASER" }) })
 public class ReceiptDocument implements BaseDTO {
-	private static final long serialVersionUID = -8327363518133489364L;
+    private static final long serialVersionUID = -8327363518133489364L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="PRD_ID", nullable=false, unique=true)
-	private int id;
-	
-	@IndexedEmbedded
-	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn(name="PRD_RECEIPT_ID", nullable=false)
-	private Receipt receipt;
-	
-	@Field
-	@Column(name="PRD_FOLIO", nullable=false)
-	private String folio;
-	
-	@Field
-	@DateBridge(resolution=Resolution.DAY)
-	@Temporal(TemporalType.DATE)
-	@Column(name="PRD_DATE", nullable=false)
-	private Date documentDate = new Date();
-	
-	@Field
-	@Column(name="PRD_PURCHASE_ORDER")
-	private String purchaseOrder;
-	
-	@Field
-	@Column(name="PRD_SALE_ORDER")
-	private String salesOrder;
-	
-	@Field
-	@ManyToOne(fetch=FetchType.LAZY, optional=true)
-	@JoinColumn(name="PRD_PURCHASER", nullable=true)
-	private Company purchaser;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PRD_ID", nullable = false, unique = true)
+    private int id;
 
-	@Column(name="PRD_QUANTITY", nullable=false)
-	private int quantity = 0;
-	
-	@IndexedEmbedded
-	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn(name="PRD_PACK_MU", nullable=false)
-	private MeasurementUnit packingMU;
+    @IndexedEmbedded
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "PRD_RECEIPT_ID", nullable = false)
+    private Receipt receipt;
 
-	public int getId() {
-		return id;
-	}
+    @Field
+    @Column(name = "PRD_FOLIO", nullable = false)
+    private String folio;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @Field
+    @DateBridge(resolution = Resolution.DAY)
+    @Temporal(TemporalType.DATE)
+    @Column(name = "PRD_DATE", nullable = false)
+    private Date documentDate = new Date();
 
-	public Receipt getReceipt() {
-		return receipt;
-	}
+    @Field
+    @Column(name = "PRD_PURCHASE_ORDER")
+    private String purchaseOrder;
 
-	public void setReceipt(Receipt receipt) {
-		this.receipt = receipt;
-	}
+    @Field
+    @Column(name = "PRD_SALE_ORDER")
+    private String salesOrder;
 
-	public String getFolio() {
-		return folio;
-	}
+    @Field
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "PRD_PURCHASER", nullable = true)
+    private Company purchaser;
 
-	public void setFolio(String folio) {
-		this.folio = folio;
-	}
+    @Column(name = "PRD_QUANTITY", nullable = false)
+    private int quantity = 0;
 
-	public Date getDocumentDate() {
-		return documentDate;
-	}
+    @IndexedEmbedded
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "PRD_PACK_MU", nullable = false)
+    private MeasurementUnit packingMU;
 
-	public void setDocumentDate(Date documentDate) {
-		this.documentDate = documentDate;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public String getPurchaseOrder() {
-		return purchaseOrder;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public void setPurchaseOrder(String purchaseOrder) {
-		this.purchaseOrder = purchaseOrder;
-	}
+    public Receipt getReceipt() {
+	return receipt;
+    }
 
-	public String getSalesOrder() {
-		return salesOrder;
-	}
+    public void setReceipt(Receipt receipt) {
+	this.receipt = receipt;
+    }
 
-	public void setSalesOrder(String salesOrder) {
-		this.salesOrder = salesOrder;
-	}
+    public String getFolio() {
+	return folio;
+    }
 
-	public Company getPurchaser() {
-		return purchaser;
-	}
+    public void setFolio(String folio) {
+	this.folio = folio;
+    }
 
-	public void setPurchaser(Company purchaser) {
-		this.purchaser = purchaser;
-	}
+    public Date getDocumentDate() {
+	return documentDate;
+    }
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public void setDocumentDate(Date documentDate) {
+	this.documentDate = documentDate;
+    }
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+    public String getPurchaseOrder() {
+	return purchaseOrder;
+    }
 
-	public MeasurementUnit getPackingMU() {
-		return packingMU;
-	}
+    public void setPurchaseOrder(String purchaseOrder) {
+	this.purchaseOrder = purchaseOrder;
+    }
 
-	public void setPackingMU(MeasurementUnit packingMU) {
-		this.packingMU = packingMU;
-	}
+    public String getSalesOrder() {
+	return salesOrder;
+    }
+
+    public void setSalesOrder(String salesOrder) {
+	this.salesOrder = salesOrder;
+    }
+
+    public Company getPurchaser() {
+	return purchaser;
+    }
+
+    public void setPurchaser(Company purchaser) {
+	this.purchaser = purchaser;
+    }
+
+    public int getQuantity() {
+	return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+	this.quantity = quantity;
+    }
+
+    public MeasurementUnit getPackingMU() {
+	return packingMU;
+    }
+
+    public void setPackingMU(MeasurementUnit packingMU) {
+	this.packingMU = packingMU;
+    }
 
 }

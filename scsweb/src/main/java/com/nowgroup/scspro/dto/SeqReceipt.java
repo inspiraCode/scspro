@@ -8,33 +8,32 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="seq_receipt", catalog="supply_chain")
+@Table(name = "seq_receipt", catalog = "supply_chain")
 public class SeqReceipt implements BaseDTO {
-	private static final long serialVersionUID = 7633468126979032209L;
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="SEQ_ID", nullable=false, unique=true)
-	private int id;
-	
-	@Column(name="SEQ_BY", nullable=false)
-	private int seqBy;
-	
+    private static final long serialVersionUID = 7633468126979032209L;
 
-	public int getSeqBy() {
-		return seqBy;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "SEQ_ID", nullable = false, unique = true)
+    private int id;
 
-	public void setSeqBy(int seqBy) {
-		this.seqBy = seqBy;
-	}
+    @Column(name = "SEQ_BY", nullable = false)
+    private int seqBy;
 
-	public int getId() {
-		return id;
-	}
+    public int getSeqBy() {
+	return seqBy;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setSeqBy(int seqBy) {
+	this.seqBy = seqBy;
+    }
+
+    public int getId() {
+	return id;
+    }
+
+    public void setId(int id) {
+	this.id = id;
+    }
 
 }

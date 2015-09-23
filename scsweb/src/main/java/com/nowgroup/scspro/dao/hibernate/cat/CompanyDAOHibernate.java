@@ -7,10 +7,9 @@ import com.nowgroup.scspro.dao.hibernate.BaseHibernateDAO;
 import com.nowgroup.scspro.dto.cat.Company;
 
 @Repository("companyDAO")
-public class CompanyDAOHibernate extends BaseHibernateDAO<Company> implements
-		CompanyDAO {
+public class CompanyDAOHibernate extends BaseHibernateDAO<Company> implements CompanyDAO {
 
-	public CompanyDAOHibernate() {
-		super(Company.class);
-	}
+    public CompanyDAOHibernate() {
+	super(Company.class);
+    }
 }

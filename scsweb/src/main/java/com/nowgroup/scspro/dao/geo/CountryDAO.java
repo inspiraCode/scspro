@@ -7,12 +7,12 @@ import com.nowgroup.scspro.dto.geo.Country;
 import com.nowgroup.scspro.dto.geo.State;
 
 public interface CountryDAO extends BaseDAO<Country> {
-	String QUERY_STATES_BY_COUNTRY = "from Country c where c.id = :countryId";
+    String QUERY_STATES_BY_COUNTRY = "from Country c where c.id = :countryId";
 
-	/**
-	 * Get states list in a given country by Id
-	 * @param countryId
-	 * @return List of related states.
-	 */
-	public List<State> getStatesByCountry(int countryId);
+    /**
+     * Get states list in a given country by Id
+     * @param countryId
+     * @return List of related states.
+     */
+    public List<State> getStatesByCountry(int countryId);
 }

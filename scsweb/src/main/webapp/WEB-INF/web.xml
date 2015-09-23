@@ -4,6 +4,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="SCSPRO" version="2.5" met
     <display-name>Supply Chain Software Professional</display-name>
     <!-- ERROR PAGES -->
     <error-page>
+    	<error-code>403</error-code>
+    	<location>/pages/public/error.xhtml</location>
+    </error-page>
+    <error-page>
     	<error-code>404</error-code>
     	<location>/pages/public/error.xhtml</location>
     </error-page>
@@ -12,9 +16,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="SCSPRO" version="2.5" met
     	<location>/pages/public/error.xhtml</location>
     </error-page>
     <error-page>
+    	<exception-type>org.springframework.security.authentication.AccountExpiredException</exception-type>
+    	<location>/pages/public/user-expired.xhtml</location>
+    </error-page>
+    <error-page>
     	<exception-type>java.lang.Exception</exception-type>
     	<location>/pages/public/error.xhtml</location>
     </error-page>
+    
     
     <!-- Spring Security Facelets Tag Library -->
     <context-param>

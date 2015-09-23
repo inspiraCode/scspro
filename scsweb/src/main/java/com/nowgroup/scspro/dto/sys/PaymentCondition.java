@@ -22,57 +22,56 @@ import com.nowgroup.scspro.dto.BaseDTO;
 
 @Indexed
 @Entity
-@Table(name = "sys_payment_condition", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "PAY_CND_CODE_IDX", columnNames = "PAY_CND_CODE") })
+@Table(name = "sys_payment_condition", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "PAY_CND_CODE_IDX",
+	columnNames = "PAY_CND_CODE") })
 public class PaymentCondition implements BaseDTO {
-	private static final long serialVersionUID = 4005765551264037029L;
+    private static final long serialVersionUID = 4005765551264037029L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "PAY_CND_ID", nullable = false, unique = true)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PAY_CND_ID", nullable = false, unique = true)
+    private int id;
 
-	@Field
-	@Column(name = "PAY_CND_CODE", nullable = false, unique = true)
-	private String code;
+    @Field
+    @Column(name = "PAY_CND_CODE", nullable = false, unique = true)
+    private String code;
 
-	@Field
-	@Column(name = "PAY_CND_DESCRIPTION", nullable = false)
-	private String description;
+    @Field
+    @Column(name = "PAY_CND_DESCRIPTION", nullable = false)
+    private String description;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "sys_cross_payment_condition_role", catalog = "supply_chain", 
-		joinColumns = { @JoinColumn(name = "PAY_CND_ID", nullable = false, updatable = false) }, 
-		inverseJoinColumns = { @JoinColumn(name = "PAY_CND_ROLE_ID", nullable = false, updatable = false) }, 
-		uniqueConstraints = { @UniqueConstraint(name = "PAY_CND_ROLE_IDX", columnNames = { "PAY_CND_ID", "PAY_CND_ROLE_ID" }) })
-	private Set<PaymentConditionRole> roles;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "sys_cross_payment_condition_role", catalog = "supply_chain", joinColumns = { @JoinColumn(name = "PAY_CND_ID", nullable = false,
+	    updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "PAY_CND_ROLE_ID", nullable = false, updatable = false) },
+	    uniqueConstraints = { @UniqueConstraint(name = "PAY_CND_ROLE_IDX", columnNames = { "PAY_CND_ID", "PAY_CND_ROLE_ID" }) })
+    private Set<PaymentConditionRole> roles;
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public String getCode() {
+	return code;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public void setCode(String code) {
+	this.code = code;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+	return description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setDescription(String description) {
+	this.description = description;
+    }
 
-	@Override
-	public String toString() {
-		return "{id:" + id + ";code:" + code + ";description:" + description
-				+ ";}";
-	}
+    @Override
+    public String toString() {
+	return "{id:" + id + ";code:" + code + ";description:" + description + ";}";
+    }
 }

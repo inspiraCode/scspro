@@ -19,85 +19,83 @@ import com.nowgroup.scspro.dto.BaseDTO;
 
 @Indexed
 @Entity
-@Table(name="geo_state", catalog="supply_chain", 
-	uniqueConstraints={@UniqueConstraint(
-			name="STATE_NAME_UNIQUE", 
-			columnNames={"STATE_NAME", "STATE_COUNTRY"})})
+@Table(name = "geo_state", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "STATE_NAME_UNIQUE", columnNames = { "STATE_NAME",
+	"STATE_COUNTRY" }) })
 public class State implements BaseDTO {
-	private static final long serialVersionUID = -5205132724577261015L;
+    private static final long serialVersionUID = -5205132724577261015L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="STATE_ID")
-	private int id;
-	
-	@Field
-	@Column(name="STATE_NAME", nullable=false)
-	private String name;
-	
-	@Field
-	@Column(name="STATE_CODE", nullable=false)
-	private String code;
-	
-	@IndexedEmbedded
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="STATE_COUNTRY", nullable=false)
-	private Country country;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "STATE_ID")
+    private int id;
 
-	public int getId() {
-		return id;
-	}
+    @Field
+    @Column(name = "STATE_NAME", nullable = false)
+    private String name;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @Field
+    @Column(name = "STATE_CODE", nullable = false)
+    private String code;
 
-	public String getName() {
-		return name;
-	}
+    @IndexedEmbedded
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "STATE_COUNTRY", nullable = false)
+    private Country country;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public String getName() {
+	return name;
+    }
 
-	public Country getCountry() {
-		return country;
-	}
+    public void setName(String name) {
+	this.name = name;
+    }
 
-	public void setCountry(Country country) {
-		this.country = country;
-	}
+    public String getCode() {
+	return code;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (!this.getClass().equals(obj.getClass()))
-			return false;
+    public void setCode(String code) {
+	this.code = code;
+    }
 
-		State oState = (State) obj;
-		if (this.id == oState.getId())
-			return true;
-		return false;
-	}
+    public Country getCountry() {
+	return country;
+    }
 
-	@Override
-	public int hashCode() {
-		int tmp = 0;
-		tmp = (id + code).hashCode();
-		return tmp;
-	}
+    public void setCountry(Country country) {
+	this.country = country;
+    }
 
-	@Override
-	public String toString() {
-		return "{id:" + id + ";name:" + name + ";code:" + code + ";}";
-	}
+    @Override
+    public boolean equals(Object obj) {
+	if (obj == null)
+	    return false;
+	if (!this.getClass().equals(obj.getClass()))
+	    return false;
+
+	State oState = (State) obj;
+	if (this.id == oState.getId())
+	    return true;
+	return false;
+    }
+
+    @Override
+    public int hashCode() {
+	int tmp = 0;
+	tmp = (id + code).hashCode();
+	return tmp;
+    }
+
+    @Override
+    public String toString() {
+	return "{id:" + id + ";name:" + name + ";code:" + code + ";}";
+    }
 }

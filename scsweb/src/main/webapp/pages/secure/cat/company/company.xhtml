@@ -17,9 +17,7 @@
                 </h1>
             </div>
         </div>
-        <h:panelGroup styleClass="alert alert-danger alert-dismissible fade in" pt:role="alert" rendered="#{not empty facesContext.getMessageList()}">
-            <h:messages></h:messages>
-        </h:panelGroup>
+        <p:messages id="msg" style="text-decoration: overline;" />
         <!-- Form content -->
         <h:form>
             <fieldset> 

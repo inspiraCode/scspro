@@ -17,51 +17,51 @@ import com.nowgroup.scspro.service.sys.UserService;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-	
-	@Autowired
-	private UserDAO userDAO;
-	
-	@Autowired
-	private BCryptPasswordEncoder encoder;
-	
-	public User getUser(String userName) throws ItemByNameException {
-		return userDAO.getByName(userName);
-	}
-	
-	public void register(UserModel model) {
-		User user = new User();
-		user.setName(model.getName());
-		user.setEmail(model.getEmail());
-		
-		String hashedPassword = encoder.encode(model.getPassword());
-		user.setPassword(hashedPassword);
-		
-		user.setEnabled(false);
-		user.setLoginAttempts(0);
-		
-		// Expire in 1 week if not attended by admins to allow access.
-		Calendar c = Calendar.getInstance();
-		c.setTime(new Date());
-		c.add(Calendar.DATE, 7);
-		
-		user.setExpirationDate(c.getTime());
-		userDAO.add(user);
-	}
 
-	public UserDAO getUserDAO() {
-		return userDAO;
-	}
+    @Autowired
+    private UserDAO userDAO;
 
-	public void setUserDAO(UserDAO userDAO) {
-		this.userDAO = userDAO;
-	}
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
-	public BCryptPasswordEncoder getEncoder() {
-		return encoder;
-	}
+    public User getUser(String userName) throws ItemByNameException {
+	return userDAO.getByName(userName);
+    }
 
-	public void setEncoder(BCryptPasswordEncoder encoder) {
-		this.encoder = encoder;
-	}
+    public void register(UserModel model) {
+	User user = new User();
+	user.setName(model.getName());
+	user.setEmail(model.getEmail());
+
+	String hashedPassword = encoder.encode(model.getPassword());
+	user.setPassword(hashedPassword);
+
+	user.setEnabled(false);
+	user.setLoginAttempts(0);
+
+	// Expire in 1 week if not attended by admins to allow access.
+	Calendar c = Calendar.getInstance();
+	c.setTime(new Date());
+	c.add(Calendar.DATE, 7);
+
+	user.setExpirationDate(c.getTime());
+	userDAO.add(user);
+    }
+
+    public UserDAO getUserDAO() {
+	return userDAO;
+    }
+
+    public void setUserDAO(UserDAO userDAO) {
+	this.userDAO = userDAO;
+    }
+
+    public BCryptPasswordEncoder getEncoder() {
+	return encoder;
+    }
+
+    public void setEncoder(BCryptPasswordEncoder encoder) {
+	this.encoder = encoder;
+    }
 
 }

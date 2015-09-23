@@ -12,23 +12,21 @@ import com.nowgroup.scspro.service.sys.MeasurementUnitRoleService;
 
 @Service
 @Transactional(readOnly = true)
-public class MeasurementUnitRoleServiceImpl implements
-		MeasurementUnitRoleService {
+public class MeasurementUnitRoleServiceImpl implements MeasurementUnitRoleService {
 
-	@Autowired
-	private MeasurementUnitRoleDAOHibernate measurementUnitRoleDAO;
+    @Autowired
+    private MeasurementUnitRoleDAOHibernate measurementUnitRoleDAO;
 
-	public List<MeasurementUnitRole> getMeasurementUnitRoles() {
-		return getMeasurementUnitRoleDAO().getAll();
-	}
+    public List<MeasurementUnitRole> getMeasurementUnitRoles() {
+	return getMeasurementUnitRoleDAO().getAll();
+    }
 
-	public MeasurementUnitRoleDAOHibernate getMeasurementUnitRoleDAO() {
-		return measurementUnitRoleDAO;
-	}
+    public MeasurementUnitRoleDAOHibernate getMeasurementUnitRoleDAO() {
+	return measurementUnitRoleDAO;
+    }
 
-	public void setMeasurementUnitRoleDAO(
-			MeasurementUnitRoleDAOHibernate measurementUnitRoleDAO) {
-		this.measurementUnitRoleDAO = measurementUnitRoleDAO;
-	}
+    public void setMeasurementUnitRoleDAO(MeasurementUnitRoleDAOHibernate measurementUnitRoleDAO) {
+	this.measurementUnitRoleDAO = measurementUnitRoleDAO;
+    }
 
 }

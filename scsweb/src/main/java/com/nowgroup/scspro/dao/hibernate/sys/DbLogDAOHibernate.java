@@ -7,9 +7,8 @@ import com.nowgroup.scspro.dao.sys.DbLogDAO;
 import com.nowgroup.scspro.dto.sys.DbLog;
 
 @Repository("dbLogDAO")
-public class DbLogDAOHibernate extends BaseHibernateDAO<DbLog> implements
-		DbLogDAO {
-	public DbLogDAOHibernate() {
-		super(DbLog.class);
-	}
+public class DbLogDAOHibernate extends BaseHibernateDAO<DbLog> implements DbLogDAO {
+    public DbLogDAOHibernate() {
+	super(DbLog.class);
+    }
 }

@@ -8,14 +8,13 @@ import com.nowgroup.scspro.dto.geo.Country;
 import com.nowgroup.scspro.dto.geo.State;
 
 @Repository("stateDAO")
-public class StateDAOHibernate extends BaseHibernateDAO<State> implements
-		StateDAO {
+public class StateDAOHibernate extends BaseHibernateDAO<State> implements StateDAO {
 
-	public StateDAOHibernate() {
-		super(State.class);
-	}
+    public StateDAOHibernate() {
+	super(State.class);
+    }
 
-	public Country getCountryInState(int stateId) {
-		return get(stateId).getCountry();
-	}
+    public Country getCountryInState(int stateId) {
+	return get(stateId).getCountry();
+    }
 }

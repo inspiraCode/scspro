@@ -7,10 +7,9 @@ import com.nowgroup.scspro.dao.sys.MeasurementUnitDAO;
 import com.nowgroup.scspro.dto.sys.MeasurementUnit;
 
 @Repository("measurementUnitDAO")
-public class MeasurementUnitDAOHibernate extends
-		BaseHibernateDAO<MeasurementUnit> implements MeasurementUnitDAO {
+public class MeasurementUnitDAOHibernate extends BaseHibernateDAO<MeasurementUnit> implements MeasurementUnitDAO {
 
-	public MeasurementUnitDAOHibernate() {
-		super(MeasurementUnit.class);
-	}
+    public MeasurementUnitDAOHibernate() {
+	super(MeasurementUnit.class);
+    }
 }

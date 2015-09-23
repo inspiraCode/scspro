@@ -8,18 +8,20 @@ import com.nowgroup.scspro.dto.geo.State;
 
 public interface CompanyService {
 
-	void addCompany(Company company);
+    void addCompany(Company company);
 
-	void deleteCompany(Company company);
+    void deleteCompany(Company company);
 
-	void updateCompany(Company company);
+    void deleteCompanies(List<Company> company);
 
-	Company getCompanyById(int id);
+    void updateCompany(Company company);
 
-	State getStateInCompanyId(int id);
+    Company getCompanyById(int id);
 
-	List<Company> getCompanies();
+    State getStateInCompanyId(int id);
 
-	List<CompanyScope> getCompanyScope(int id);
+    List<Company> getCompanies();
+
+    List<CompanyScope> getCompanyScope(int id);
 
 }

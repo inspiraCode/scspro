@@ -15,58 +15,58 @@ import com.nowgroup.scspro.dto.BaseDTO;
 
 @Indexed
 @Entity
-@Table(name="sys_measurement_unit_role", catalog="supply_chain", 
-	uniqueConstraints={@UniqueConstraint(name="MU_ROLE_NAME_IDX", columnNames="MU_ROLE_NAME")})
+@Table(name = "sys_measurement_unit_role", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "MU_ROLE_NAME_IDX",
+	columnNames = "MU_ROLE_NAME") })
 public class MeasurementUnitRole implements BaseDTO {
-	private static final long serialVersionUID = -2817028189475229567L;
+    private static final long serialVersionUID = -2817028189475229567L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="MU_ROLE_ID", nullable = false, unique=true)
-	private int id;
-	
-	@Field
-	@Column(name="MU_ROLE_NAME", nullable = false, unique=true)
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "MU_ROLE_ID", nullable = false, unique = true)
+    private int id;
 
-	public int getId() {
-		return id;
-	}
+    @Field
+    @Column(name = "MU_ROLE_NAME", nullable = false, unique = true)
+    private String name;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+	return name;
+    }
 
-	@Override
-	public String toString() {
-		return "{id:" + id + ";name:" + name + ";}";
-	}
+    public void setName(String name) {
+	this.name = name;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (!(obj instanceof MeasurementUnitRole))
-			return false;
+    @Override
+    public String toString() {
+	return "{id:" + id + ";name:" + name + ";}";
+    }
 
-		MeasurementUnitRole oRole = (MeasurementUnitRole) obj;
-		if (this.id == oRole.getId())
-			return true;
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj) {
+	if (obj == null)
+	    return false;
+	if (!(obj instanceof MeasurementUnitRole))
+	    return false;
 
-	@Override
-	public int hashCode() {
-		int tmp = 0;
-		tmp = (id + name).hashCode();
-		return tmp;
-	}
+	MeasurementUnitRole oRole = (MeasurementUnitRole) obj;
+	if (this.id == oRole.getId())
+	    return true;
+	return false;
+    }
+
+    @Override
+    public int hashCode() {
+	int tmp = 0;
+	tmp = (id + name).hashCode();
+	return tmp;
+    }
 }

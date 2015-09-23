@@ -8,7 +8,7 @@
         xmlns:p="http://primefaces.org/ui">
     <div class="row" style="margin-top:15px;">
         <div class="control-group col-md-12">
-            <p:growl id="growl" styleClass="alert alert-danger alert-dismissible fade in" escape="true"/>
+            <p:messages id="msg" />
             <h:panelGroup id="availableRoles" layout="block" styleClass="panel panel-primary" style="overflow:hidden;">
                 <p class="panel-heading">#{i18n_companies['companies.profiles.available']}</p>
                 <h:panelGroup layout="block" style="padding:10px;" rendered="#{empty companyBean.availableRolesList}">
@@ -22,7 +22,7 @@
                     <p:draggable for="item" revert="true" cursor="move" opacity="0.3" helper="clone" />
                 </ui:repeat>
                 <p:droppable id="dropSelected" for="availableRoles" accept=".btn-success" tolerance="touch" activeStyleClass="panel-selected">
-                    <p:ajax listener="#{companyBean.onRemoveRole}" update="availableRoles selectedRoles growl" />
+                    <p:ajax listener="#{companyBean.onRemoveRole}" update="availableRoles selectedRoles msg" />
                 </p:droppable>
             </h:panelGroup>
 
@@ -39,7 +39,7 @@
                     <p:draggable for="item" revert="true" cursor="move" opacity="0.3" helper="clone"  />
                 </ui:repeat>
                 <p:droppable id="dropAvailable" for="selectedRoles" accept=".btn-primary" tolerance="touch" activeStyleClass="panel-selected">
-                    <p:ajax listener="#{companyBean.onAddRole}" update="availableRoles selectedRoles growl" />
+                    <p:ajax listener="#{companyBean.onAddRole}" update="availableRoles selectedRoles msg" />
                 </p:droppable>
             </h:panelGroup>
         </div>

@@ -20,123 +20,121 @@ import com.nowgroup.scspro.dto.geo.State;
 
 @Indexed
 @Entity
-@Table(name="cat_storage", catalog="supply_chain",
-		uniqueConstraints={
-			@UniqueConstraint(name="STORAGE_CODE_IDX", columnNames="STORAGE_CODE"), 
-			@UniqueConstraint(name="STORAGE_NAME_IDX", columnNames="STORAGE_NAME")})
+@Table(name = "cat_storage", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "STORAGE_CODE_IDX", columnNames = "STORAGE_CODE"),
+	@UniqueConstraint(name = "STORAGE_NAME_IDX", columnNames = "STORAGE_NAME") })
 public class Storage implements BaseDTO {
-	private static final long serialVersionUID = -2077370864453678425L;
+    private static final long serialVersionUID = -2077370864453678425L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="STORAGE_ID")
-	private int id;
-	
-	@Field
-	@Column(name="STORAGE_NAME")
-	private String name;
-	
-	@Field
-	@Column(name="STORAGE_CODE")
-	private String code;
-	
-	@Field
-	@Column(name="STORAGE_STREET_ADDRESS")
-	private String addressStreet;
-	
-	@Field
-	@Column(name="STORAGE_ADDITIONAL_ADDRESS")
-	private String addressAdditional;
-	
-	@Field
-	@Column(name="STORAGE_CITY")
-	private String city;
-	
-	@Field
-	@Column(name="STORAGE_ZIP")
-	private String zip;
-	
-	@IndexedEmbedded
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="STORAGE_STATE", nullable = true)
-	private State state;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "STORAGE_ID")
+    private int id;
 
-	public int getId() {
-		return id;
-	}
+    @Field
+    @Column(name = "STORAGE_NAME")
+    private String name;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @Field
+    @Column(name = "STORAGE_CODE")
+    private String code;
 
-	public String getName() {
-		return name;
-	}
+    @Field
+    @Column(name = "STORAGE_STREET_ADDRESS")
+    private String addressStreet;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @Field
+    @Column(name = "STORAGE_ADDITIONAL_ADDRESS")
+    private String addressAdditional;
 
-	public String getCode() {
-		return code;
-	}
+    @Field
+    @Column(name = "STORAGE_CITY")
+    private String city;
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    @Field
+    @Column(name = "STORAGE_ZIP")
+    private String zip;
 
-	public String getAddressStreet() {
-		return addressStreet;
-	}
+    @IndexedEmbedded
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "STORAGE_STATE", nullable = true)
+    private State state;
 
-	public void setAddressStreet(String addressStreet) {
-		this.addressStreet = addressStreet;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public String getAddressAdditional() {
-		return addressAdditional;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public void setAddressAdditional(String addressAdditional) {
-		this.addressAdditional = addressAdditional;
-	}
+    public String getName() {
+	return name;
+    }
 
-	public String getCity() {
-		return city;
-	}
+    public void setName(String name) {
+	this.name = name;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public String getCode() {
+	return code;
+    }
 
-	public String getZip() {
-		return zip;
-	}
+    public void setCode(String code) {
+	this.code = code;
+    }
 
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
+    public String getAddressStreet() {
+	return addressStreet;
+    }
 
-	public State getState() {
-		return state;
-	}
+    public void setAddressStreet(String addressStreet) {
+	this.addressStreet = addressStreet;
+    }
 
-	public void setState(State state) {
-		this.state = state;
-	}
+    public String getAddressAdditional() {
+	return addressAdditional;
+    }
 
-	@Override
-	public String toString() {
-		StringBuffer sb = new StringBuffer();
-		sb.append("{");
-		sb.append("id :" + id);
-		sb.append(", name : '" + name + "'");
-		sb.append(", code : '" + code + "'");
-		sb.append(", addressStreet : '" + addressStreet + "'");
-		sb.append(", addressAdditional : '" + addressAdditional + "'");
-		sb.append(", city : '" + city + "'");
-		sb.append(", zip : '" + zip + "'");
-		sb.append("}");
-		return sb.toString();
-	}
+    public void setAddressAdditional(String addressAdditional) {
+	this.addressAdditional = addressAdditional;
+    }
+
+    public String getCity() {
+	return city;
+    }
+
+    public void setCity(String city) {
+	this.city = city;
+    }
+
+    public String getZip() {
+	return zip;
+    }
+
+    public void setZip(String zip) {
+	this.zip = zip;
+    }
+
+    public State getState() {
+	return state;
+    }
+
+    public void setState(State state) {
+	this.state = state;
+    }
+
+    @Override
+    public String toString() {
+	StringBuffer sb = new StringBuffer();
+	sb.append("{");
+	sb.append("id :" + id);
+	sb.append(", name : '" + name + "'");
+	sb.append(", code : '" + code + "'");
+	sb.append(", addressStreet : '" + addressStreet + "'");
+	sb.append(", addressAdditional : '" + addressAdditional + "'");
+	sb.append(", city : '" + city + "'");
+	sb.append(", zip : '" + zip + "'");
+	sb.append("}");
+	return sb.toString();
+    }
 }

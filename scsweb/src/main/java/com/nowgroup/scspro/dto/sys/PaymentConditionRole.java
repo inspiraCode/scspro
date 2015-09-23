@@ -11,51 +11,52 @@ import javax.persistence.UniqueConstraint;
 import com.nowgroup.scspro.dto.BaseDTO;
 
 @Entity
-@Table(name = "sys_payment_condition_role", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "PAY_CND_ROLE_NAME_IDX", columnNames = "PAY_CND_ROLE_NAME") })
+@Table(name = "sys_payment_condition_role", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "PAY_CND_ROLE_NAME_IDX",
+	columnNames = "PAY_CND_ROLE_NAME") })
 public class PaymentConditionRole implements BaseDTO {
-	private static final long serialVersionUID = -1944670551216075792L;
+    private static final long serialVersionUID = -1944670551216075792L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "PAY_CND_ROLE_ID", unique = true, nullable = false)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PAY_CND_ROLE_ID", unique = true, nullable = false)
+    private int id;
 
-	@Column(name = "PAY_CND_ROLE_NAME", unique = true, nullable = false)
-	private String name;
+    @Column(name = "PAY_CND_ROLE_NAME", unique = true, nullable = false)
+    private String name;
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+	return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (!(obj instanceof PaymentConditionRole))
-			return false;
+    public void setName(String name) {
+	this.name = name;
+    }
 
-		PaymentConditionRole oRole = (PaymentConditionRole) obj;
-		if (this.id == oRole.getId())
-			return true;
-		return false;
-	}
-	
-	@Override
-	public int hashCode() {
-		int tmp = 0;
-		tmp = (id + name).hashCode();
-		return tmp;
-	}
+    @Override
+    public boolean equals(Object obj) {
+	if (obj == null)
+	    return false;
+	if (!(obj instanceof PaymentConditionRole))
+	    return false;
+
+	PaymentConditionRole oRole = (PaymentConditionRole) obj;
+	if (this.id == oRole.getId())
+	    return true;
+	return false;
+    }
+
+    @Override
+    public int hashCode() {
+	int tmp = 0;
+	tmp = (id + name).hashCode();
+	return tmp;
+    }
 }

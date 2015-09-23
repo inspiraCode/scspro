@@ -11,5 +11,5 @@ import com.nowgroup.scspro.dto.NamableDTO;
  * @param <T>
  */
 public interface NamableDAO<T extends NamableDTO> extends BaseDAO<T> {
-	T getByName(String name) throws ItemByNameException;
+    T getByName(String name) throws ItemByNameException;
 }

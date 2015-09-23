@@ -8,7 +8,7 @@ import com.nowgroup.scspro.dto.sys.Role;
 
 @Repository
 public class RoleDAOImpl extends BaseHibernateDAO<Role> implements RoleDAO {
-	public RoleDAOImpl() {
-		super(Role.class);
-	}
+    public RoleDAOImpl() {
+	super(Role.class);
+    }
 }

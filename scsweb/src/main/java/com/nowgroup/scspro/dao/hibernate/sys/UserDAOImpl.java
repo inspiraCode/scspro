@@ -8,9 +8,9 @@ import com.nowgroup.scspro.dto.sys.User;
 
 @Repository
 public class UserDAOImpl extends NamableHibernateDAO<User> implements UserDAO {
-	
-	public UserDAOImpl(){
-		super(User.class);
-	}
+
+    public UserDAOImpl() {
+	super(User.class);
+    }
 
 }

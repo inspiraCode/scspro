@@ -35,124 +35,124 @@ import com.nowgroup.scspro.dto.sys.Storage;
 @Entity
 @Table(name = "prod_receipt", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "RECEIPT_FOLIO_IDX", columnNames = "RECEIPT_FOLIO") })
 public class Receipt implements BaseDTO {
-	private static final long serialVersionUID = 8455979846759458905L;
+    private static final long serialVersionUID = 8455979846759458905L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "RECEIPT_ID", nullable = true, unique = true)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "RECEIPT_ID", nullable = true, unique = true)
+    private int id;
 
-	@Field
-	@Column(name = "RECEIPT_FOLIO", nullable = false, unique = true)
-	private String folio;
+    @Field
+    @Column(name = "RECEIPT_FOLIO", nullable = false, unique = true)
+    private String folio;
 
-	@IndexedEmbedded
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "cross_receipt_company", catalog = "supply_chain", joinColumns = { @JoinColumn(name = "CRC_RECEIPT_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "CROSS_COMPANY_ROLE_ID", nullable = false, updatable = false) }, uniqueConstraints = { @UniqueConstraint(name = "RECEIPT_COMPANY_UIDX", columnNames = {
-			"CRC_RECEIPT_ID", "CROSS_COMPANY_ROLE_ID" }) })
-	private Set<CompanyScope> companies;
+    @IndexedEmbedded
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "cross_receipt_company", catalog = "supply_chain", joinColumns = { @JoinColumn(name = "CRC_RECEIPT_ID", nullable = false,
+	    updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "CROSS_COMPANY_ROLE_ID", nullable = false, updatable = false) },
+	    uniqueConstraints = { @UniqueConstraint(name = "RECEIPT_COMPANY_UIDX", columnNames = { "CRC_RECEIPT_ID", "CROSS_COMPANY_ROLE_ID" }) })
+    private Set<CompanyScope> companies;
 
-	@IndexedEmbedded
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "RECEIPT_STORAGE", nullable = false)
-	private Storage storage;
+    @IndexedEmbedded
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RECEIPT_STORAGE", nullable = false)
+    private Storage storage;
 
-	@Field(analyze = Analyze.NO)
-	@DateBridge(resolution = Resolution.DAY)
-	@Temporal(TemporalType.DATE)
-	private Date receiptDate = new Date();
+    @Field(analyze = Analyze.NO)
+    @DateBridge(resolution = Resolution.DAY)
+    @Temporal(TemporalType.DATE)
+    private Date receiptDate = new Date();
 
-	@Field
-	@Column(name = "RECEIPT_COMMENTS", nullable = true)
-	private String comments;
+    @Field
+    @Column(name = "RECEIPT_COMMENTS", nullable = true)
+    private String comments;
 
-	@Field
-	@Column(name = "RECEIPT_BY", nullable = false)
-	private String receiptBy;
+    @Field
+    @Column(name = "RECEIPT_BY", nullable = false)
+    private String receiptBy;
 
-	@IndexedEmbedded
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "log_receipt", catalog = "supply_chain", joinColumns = { @JoinColumn(name = "RECEIPT_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "PROD_LOG_ID", nullable = false, updatable = false) })
-	private Set<DbLog> dbLog;
+    @IndexedEmbedded
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "log_receipt", catalog = "supply_chain", joinColumns = { @JoinColumn(name = "RECEIPT_ID", nullable = false, updatable = false) },
+	    inverseJoinColumns = { @JoinColumn(name = "PROD_LOG_ID", nullable = false, updatable = false) })
+    private Set<DbLog> dbLog;
 
-	public Receipt() {
-	}
+    public Receipt() {
+    }
 
-	public Receipt(int id, String folio, Set<CompanyScope> companies,
-			Storage storage, Date receiptDate, String comments, String receiptBy) {
-		this.id = id;
-		this.folio = folio;
-		this.companies = companies;
-		this.storage = storage;
-		this.receiptDate = receiptDate;
-		this.comments = comments;
-		this.receiptBy = receiptBy;
-	}
+    public Receipt(int id, String folio, Set<CompanyScope> companies, Storage storage, Date receiptDate, String comments, String receiptBy) {
+	this.id = id;
+	this.folio = folio;
+	this.companies = companies;
+	this.storage = storage;
+	this.receiptDate = receiptDate;
+	this.comments = comments;
+	this.receiptBy = receiptBy;
+    }
 
-	public Receipt(String folio, Set<CompanyScope> companies, Storage storage,
-			Date receiptDate, String comments, String receiptBy) {
-		this.folio = folio;
-		this.companies = companies;
-		this.storage = storage;
-		this.receiptDate = receiptDate;
-		this.comments = comments;
-		this.receiptBy = receiptBy;
-	}
+    public Receipt(String folio, Set<CompanyScope> companies, Storage storage, Date receiptDate, String comments, String receiptBy) {
+	this.folio = folio;
+	this.companies = companies;
+	this.storage = storage;
+	this.receiptDate = receiptDate;
+	this.comments = comments;
+	this.receiptBy = receiptBy;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public String getFolio() {
-		return folio;
-	}
+    public String getFolio() {
+	return folio;
+    }
 
-	public void setFolio(String folio) {
-		this.folio = folio;
-	}
+    public void setFolio(String folio) {
+	this.folio = folio;
+    }
 
-	public Set<CompanyScope> getCompanies() {
-		return companies;
-	}
+    public Set<CompanyScope> getCompanies() {
+	return companies;
+    }
 
-	public void setCompanies(Set<CompanyScope> companies) {
-		this.companies = companies;
-	}
+    public void setCompanies(Set<CompanyScope> companies) {
+	this.companies = companies;
+    }
 
-	public Storage getStorage() {
-		return storage;
-	}
+    public Storage getStorage() {
+	return storage;
+    }
 
-	public void setStorage(Storage storage) {
-		this.storage = storage;
-	}
+    public void setStorage(Storage storage) {
+	this.storage = storage;
+    }
 
-	public Date getReceiptDate() {
-		return receiptDate;
-	}
+    public Date getReceiptDate() {
+	return receiptDate;
+    }
 
-	public void setReceiptDate(Date receiptDate) {
-		this.receiptDate = receiptDate;
-	}
+    public void setReceiptDate(Date receiptDate) {
+	this.receiptDate = receiptDate;
+    }
 
-	public String getComments() {
-		return comments;
-	}
+    public String getComments() {
+	return comments;
+    }
 
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
+    public void setComments(String comments) {
+	this.comments = comments;
+    }
 
-	public String getReceiptBy() {
-		return receiptBy;
-	}
+    public String getReceiptBy() {
+	return receiptBy;
+    }
 
-	public void setReceiptBy(String receiptBy) {
-		this.receiptBy = receiptBy;
-	}
+    public void setReceiptBy(String receiptBy) {
+	this.receiptBy = receiptBy;
+    }
 
 }

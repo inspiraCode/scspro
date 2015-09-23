@@ -11,19 +11,19 @@ import com.nowgroup.scspro.service.sys.RoleService;
 @Service
 @Transactional
 public class RoleServiceImpl implements RoleService {
-	@Autowired
-	private RoleDAO roleDAO;
+    @Autowired
+    private RoleDAO roleDAO;
 
-	public Role getRole(int id) {
-		return roleDAO.get(id);
-	}
+    public Role getRole(int id) {
+	return roleDAO.get(id);
+    }
 
-	public RoleDAO getRoleDAO() {
-		return roleDAO;
-	}
+    public RoleDAO getRoleDAO() {
+	return roleDAO;
+    }
 
-	public void setRoleDAO(RoleDAO roleDAO) {
-		this.roleDAO = roleDAO;
-	}
+    public void setRoleDAO(RoleDAO roleDAO) {
+	this.roleDAO = roleDAO;
+    }
 
 }

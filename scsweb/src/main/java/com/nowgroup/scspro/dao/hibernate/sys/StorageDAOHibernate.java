@@ -7,9 +7,8 @@ import com.nowgroup.scspro.dao.sys.StorageDAO;
 import com.nowgroup.scspro.dto.sys.Storage;
 
 @Repository("storageDAO")
-public class StorageDAOHibernate extends BaseHibernateDAO<Storage> implements
-		StorageDAO {
-	public StorageDAOHibernate() {
-		super(Storage.class);
-	}
+public class StorageDAOHibernate extends BaseHibernateDAO<Storage> implements StorageDAO {
+    public StorageDAOHibernate() {
+	super(Storage.class);
+    }
 }

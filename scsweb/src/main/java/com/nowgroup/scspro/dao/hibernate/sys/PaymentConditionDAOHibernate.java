@@ -7,9 +7,8 @@ import com.nowgroup.scspro.dao.sys.PaymentConditionDAO;
 import com.nowgroup.scspro.dto.sys.PaymentCondition;
 
 @Repository("paymentConditionDAO")
-public class PaymentConditionDAOHibernate extends
-		BaseHibernateDAO<PaymentCondition> implements PaymentConditionDAO {
-	public PaymentConditionDAOHibernate() {
-		super(PaymentCondition.class);
-	}
+public class PaymentConditionDAOHibernate extends BaseHibernateDAO<PaymentCondition> implements PaymentConditionDAO {
+    public PaymentConditionDAOHibernate() {
+	super(PaymentCondition.class);
+    }
 }

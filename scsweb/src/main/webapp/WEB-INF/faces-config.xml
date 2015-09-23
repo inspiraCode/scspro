@@ -81,38 +81,29 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/pages/secure/company/company.xhtml</from-view-id>
+        <from-view-id>/pages/secure/cat/company/company.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{companyBean.uploadCompany}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/pages/secure/company/companies-list.xhtml</to-view-id>
+            <to-view-id>/pages/secure/cat/company/list.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/pages/secure/storage/storage.xhtml</from-view-id>
+        <from-view-id>/pages/secure/sys/storage/storage.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{storageBean.uploadStorage}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/pages/secure/storage/storages-list.xhtml</to-view-id>
+            <to-view-id>/pages/secure/sys/storage/list.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/pages/secure/storage/pay-cnd.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{paymentConditionBean.uploadPaymentCondition}</from-action>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/pages/secure/storage/pay-cnd-list.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/pages/secure/measurement-unit/measurement-unit.xhtml</from-view-id>
+        <from-view-id>/pages/secure/sys/measurement-unit/measurement-unit.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{measurementUnitBean.uploadMeasurementUnit}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/pages/secure/measurement-unit/measurement-unit-list.xhtml</to-view-id>
+            <to-view-id>/pages/secure/sys/measurement-unit/list.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

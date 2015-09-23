@@ -14,19 +14,19 @@ import com.nowgroup.scspro.service.cat.CompanyRoleService;
 @Transactional(readOnly = true)
 public class CompanyRoleServiceImpl implements CompanyRoleService {
 
-	@Autowired
-	private CompanyRoleDAO companyRoleDAO;
+    @Autowired
+    private CompanyRoleDAO companyRoleDAO;
 
-	public List<CompanyRole> getCompanyRoles() {
-		return companyRoleDAO.getAll();
-	}
+    public List<CompanyRole> getCompanyRoles() {
+	return companyRoleDAO.getAll();
+    }
 
-	public CompanyRoleDAO getCompanyRoleDAO() {
-		return companyRoleDAO;
-	}
+    public CompanyRoleDAO getCompanyRoleDAO() {
+	return companyRoleDAO;
+    }
 
-	public void setCompanyRoleDAO(CompanyRoleDAO companyRoleDAO) {
-		this.companyRoleDAO = companyRoleDAO;
-	}
+    public void setCompanyRoleDAO(CompanyRoleDAO companyRoleDAO) {
+	this.companyRoleDAO = companyRoleDAO;
+    }
 
 }
