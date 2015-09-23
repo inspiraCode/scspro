@@ -290,6 +290,7 @@ INSERT INTO `supply_chain`.`geo_country` (`COUNTRY_ID`, `COUNTRY_NAME`, `COUNTRY
 INSERT INTO `supply_chain`.`geo_country` (`COUNTRY_ID`, `COUNTRY_NAME`, `COUNTRY_CODE`) VALUES ('247', 'Zambia', 'ZMB');
 INSERT INTO `supply_chain`.`geo_country` (`COUNTRY_ID`, `COUNTRY_NAME`, `COUNTRY_CODE`) VALUES ('248', 'Zimbabwe', 'ZWE');
 INSERT INTO `supply_chain`.`geo_country` (`COUNTRY_ID`, `COUNTRY_NAME`, `COUNTRY_CODE`) VALUES ('249', 'Aland Islands', 'ALA');
+INSERT INTO `supply_chain`.`geo_country` (`COUNTRY_ID`, `COUNTRY_NAME`, `COUNTRY_CODE`) VALUES ('250', 'Unknown', '000');
 /** INSERT ALL STATES **/
 INSERT INTO `supply_chain`.`geo_state` (`STATE_ID`, `STATE_NAME`, `STATE_CODE`, `STATE_COUNTRY`) VALUES ('1', 'Alberta', 'AB', '39');
 INSERT INTO `supply_chain`.`geo_state` (`STATE_ID`, `STATE_NAME`, `STATE_CODE`, `STATE_COUNTRY`) VALUES ('2', 'British Columbia', 'BC', '39');
@@ -513,7 +514,7 @@ INSERT INTO `supply_chain`.`geo_state` (`STATE_ID`, `STATE_NAME`, `STATE_CODE`, 
 INSERT INTO `supply_chain`.`geo_state` (`STATE_ID`, `STATE_NAME`, `STATE_CODE`, `STATE_COUNTRY`) VALUES ('220', 'West Virginia', 'WV', '235');
 INSERT INTO `supply_chain`.`geo_state` (`STATE_ID`, `STATE_NAME`, `STATE_CODE`, `STATE_COUNTRY`) VALUES ('221', 'Wisconsin', 'WI', '235');
 INSERT INTO `supply_chain`.`geo_state` (`STATE_ID`, `STATE_NAME`, `STATE_CODE`, `STATE_COUNTRY`) VALUES ('222', 'Wyoming', 'WY', '235');
-
+INSERT INTO `supply_chain`.`geo_state` (`STATE_ID`, `STATE_NAME`, `STATE_CODE`, `STATE_COUNTRY`) VALUES ('223', 'Unknown', '00', '250');
 
 /** INSERT DEFAULT STORAGE **/
 INSERT INTO `supply_chain`.`sys_storage` (`STORAGE_ID`,`STORAGE_CODE`,`STORAGE_NAME`,`STORAGE_STREET_ADDRESS`,`STORAGE_CITY`,`STORAGE_STATE`) VALUES(1,'101','NG Laredo','14414 Import Rd.','Laredo','214');
