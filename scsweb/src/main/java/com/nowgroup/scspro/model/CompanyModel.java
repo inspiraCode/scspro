@@ -6,6 +6,7 @@ public class CompanyModel extends Company {
     private static final long serialVersionUID = -2147292143916341207L;
 
     private String displayRoles;
+    private String displayCountry;
     private boolean selected = false;
 
     public CompanyModel(Company company) {
@@ -66,5 +67,13 @@ public class CompanyModel extends Company {
 
     public void setSelected(boolean selected) {
 	this.selected = selected;
+    }
+
+    public String getDisplayCountry() {
+	return displayCountry;
+    }
+
+    public void setDisplayCountry(String displayCountry) {
+	this.displayCountry = displayCountry;
     }
 }

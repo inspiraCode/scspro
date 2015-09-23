@@ -13,11 +13,13 @@ import org.apache.log4j.Logger;
 
 import com.nowgroup.scspro.dto.cat.Company;
 import com.nowgroup.scspro.dto.cat.CompanyScope;
+import com.nowgroup.scspro.dto.geo.Country;
 import com.nowgroup.scspro.dto.geo.State;
 import com.nowgroup.scspro.faces.beans.BaseFacesReporteableBean;
 import com.nowgroup.scspro.model.CompanyModel;
 import com.nowgroup.scspro.service.cat.CompanyScopeService;
 import com.nowgroup.scspro.service.cat.CompanyService;
+import com.nowgroup.scspro.service.geo.StateService;
 
 @ManagedBean
 @SessionScoped
@@ -31,6 +33,9 @@ public class CompanyListBean extends BaseFacesReporteableBean {
 
     @ManagedProperty("#{companyScopeServiceImpl}")
     private CompanyScopeService companyScopeServiceImpl;
+
+    @ManagedProperty("#{geoStateServiceImpl}")
+    private StateService geoStateServiceImpl;
 
     @ManagedProperty("#{i18n_companies}")
     private ResourceBundle companyMsgBundle;
@@ -73,6 +78,13 @@ public class CompanyListBean extends BaseFacesReporteableBean {
 	    if (model.getDisplayRoles().length() > 2) {
 		model.setDisplayRoles(model.getDisplayRoles().substring(2));
 	    }
+
+	    State geoStateInDb = getCompanyServiceImpl().getStateInCompanyId(model.getId());
+	    if (null != geoStateInDb) {
+		Country countryInDb = getGeoStateServiceImpl().getCountryInState(geoStateInDb.getId());
+		model.setDisplayCountry(countryInDb.getName());
+	    }
+
 	    companiesList.add(model);
 	}
 	forceDownload = false;
@@ -142,5 +154,13 @@ public class CompanyListBean extends BaseFacesReporteableBean {
 
     public void setForceDownload(boolean forceDownload) {
 	this.forceDownload = forceDownload;
+    }
+
+    public StateService getGeoStateServiceImpl() {
+	return geoStateServiceImpl;
+    }
+
+    public void setGeoStateServiceImpl(StateService geoStateServiceImpl) {
+	this.geoStateServiceImpl = geoStateServiceImpl;
     }
 }

@@ -25,10 +25,10 @@
             <h:commandLink id="removeSelectedButton" action="#{companyListBean.removeSelected}" onclick="return confirm('#{i18n_companies['company.removeSelected.confirmation']}');" styleClass="btn btn-warning" style="margin-left:10px;margin-bottom:30px;">
                 <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.removeSelected']}" />
             </h:commandLink>
-            <h:commandLink id="pdfExportButton" action="#{companyReportBean.PDF()}" styleClass="btn btn-success" style="margin-left:10px;margin-bottom:30px;">
+            <h:commandLink id="pdfExportButton" onclick="showLoading=false;" action="#{companyListBean.pdfReport(companyListBean.companies, 'companies-list', i18n_companies)}" styleClass="btn btn-info" style="margin-left:10px;margin-bottom:30px;">
                 <i class="fa fa-file-pdf-o"></i><h:outputText value=" #{i18n_global['global.export.pdf']}" />
             </h:commandLink>
-            <h:commandLink id="xlsxExportButton" action="#{companyReportBean.XLSX()}" styleClass="btn btn-success" style="margin-left:5px;margin-bottom:30px;">
+            <h:commandLink id="xlsxExportButton" onclick="showLoading=false;" action="#{companyListBean.xlsReport(companyListBean.companies, 'companies-list', i18n_companies)}" styleClass="btn btn-success" style="margin-left:5px;margin-bottom:30px;">
                 <i class="fa fa-file-excel-o"></i><h:outputText value=" #{i18n_global['global.export.xls']}" />
             </h:commandLink>
             <div id="companiesTable-wrapper">

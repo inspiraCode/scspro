@@ -59,17 +59,32 @@
         <ui:include src="header.xhtml" />
         <ui:include src="content.xhtml" />
       </div>
-      <div id="nonAjaxLoad" style="position: fixed; top: 30%; left: 50%;">
-       <div class="throbber-loader"></div><br/>
-       <h1><small><h:outputText id="outTxtLoadingId" value=" #{i18n_global['global.loading']}" name="outTxtLoadingNm"></h:outputText></small></h1>
+      <div id="nonAjaxLoad" 
+        style="left: 0px; top:0px;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: 1000;
+                background-color: black;
+                opacity: 0.5;
+                text-align: center;
+                display: none;">
+        <div id="loadingWrapper" style="position: fixed; top: 30%; left: 50%;">
+         <div class="throbber-loader"></div><br/>
+         <h1><small><h:outputText id="outTxtLoadingId" value=" #{i18n_global['global.loading']}" name="outTxtLoadingNm"></h:outputText></small></h1>
+        </div>
       </div>
       <script>
+          var showLoading = true;
           $(document).ready(function(){
               $('#nonAjaxLoad').hide();
           });
 
           $(window).bind('beforeunload', function() {
+            if(showLoading) {
               $('#nonAjaxLoad').show(); 
+            }
+            showLoading = true;
           });
       </script>
       </f:view>
