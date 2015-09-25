@@ -11,51 +11,105 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <small><h1 class="page-header">
-                    <i class="fa fa-tags"></i><h:outputText id="outTxtTitleId" value=" #{i18n_proc_receipt['receipt.title']}" name="outTxtTitleNm"></h:outputText>
-                </h1></small>
+                <h1 class="page-header">
+                <i class="fa fa-tags"></i><h:outputText id="outTxtTitleId" value=" #{i18n_proc_receipt['receipt.title']}" name="outTxtTitleNm"></h:outputText>
+            </h1>
             </div>
         </div>
-        <h:panelGroup styleClass="alert alert-danger" style="margin-bottom:50px;" pt:role="alert" rendered="#{not empty facesContext.getMessageList()}">
-            <h:messages styleClass="alert alert-danger" layout="table"></h:messages>
-        </h:panelGroup>
+        <p:messages id="msg" />
         <!-- Form content -->
-        <h:form id="companiesListForm">
-            <h:commandLink id="addButton" action="#{companyBean.addNew}" styleClass="btn btn-primary" style="margin-bottom:30px;">
+        <h:form id="receiptsListForm">
+            <h:commandLink id="addButton" action="#{receiptBean.addNew}" styleClass="btn btn-primary" style="margin-bottom:30px;">
                 <i class="fa fa-plus"></i><h:outputText value=" #{i18n_global['global.add']}" />
             </h:commandLink>
-            <div id="companiesTable-wrapper">
-            <h:dataTable pt:id="companiesTable" value="#{companyListBean.companies}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even">
+            <h:commandLink id="removeSelectedButton" action="#{receiptListBean.removeSelected}" onclick="return confirm('#{i18n_proc_receipt['receipt.removeSelected.confirmation']}');" styleClass="btn btn-warning" style="margin-left:10px;margin-bottom:30px;">
+                <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.removeSelected']}" />
+            </h:commandLink>
+            <h:commandLink id="pdfExportButton" onclick="showLoading=false;" action="#{receiptListBean.pdfReport(receiptListBean.receipts, 'receipts-list', i18n_proc_receipt)}" styleClass="btn btn-info" style="margin-left:10px;margin-bottom:30px;">
+                <i class="fa fa-file-pdf-o"></i><h:outputText value=" #{i18n_global['global.export.pdf']}" />
+            </h:commandLink>
+            <h:commandLink id="xlsxExportButton" onclick="showLoading=false;" action="#{receiptListBean.xlsReport(receiptListBean.receipts, 'receipts-list', i18n_proc_receipt)}" styleClass="btn btn-success" style="margin-left:5px;margin-bottom:30px;">
+                <i class="fa fa-file-excel-o"></i><h:outputText value=" #{i18n_global['global.export.xls']}" />
+            </h:commandLink>
+            <div id="receiptsTable-wrapper">
+            <h:dataTable pt:id="receiptsTable" value="#{receiptListBean.receipts}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even">
                 <h:column>
-                    <f:facet name="header">id</f:facet>
-                    <h:outputText value="#{item.id}" />
+                    <f:facet name="header">folio</f:facet>
+                    <p:selectBooleanCheckbox value="#{item.selected}">
+                        <p:ajax update="msg" listener="#{receiptListBean.selectedItem(item)}" />
+                    </p:selectBooleanCheckbox>
+                    <h:outputText value=" #{item.folio}" />
                 </h:column>
                 <h:column>
-                    <f:facet name="header"><h:outputText value="#{i18n_companies['company.name']}" /></f:facet>
-                    <h:outputText value="#{item.name}" />
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.sender']}" /></f:facet>
+                    <h:outputText value="#{item.senderName}" />
                 </h:column>
                 <h:column>
-                    <f:facet name="header"><h:outputText value="#{i18n_companies['company.city']}" /></f:facet>
-                    <h:outputText value="#{item.city}" />
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.receiver']}" /></f:facet>
+                    <h:outputText value="#{item.receiverName}" />
                 </h:column>
                 <h:column>
-                    <f:facet name="header"><h:outputText value="#{i18n_companies['company.state']}" /></f:facet>
-                    <h:outputText value="#{companyListBean.getCompanyState(item.id)}" />
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.entry']}" /></f:facet>
+                    <h:outputText value="#{item.createdOn}" />
+                </h:column>
+
+                <h:column style="border-left:1px solid black;">
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.packingEntry']}" /></f:facet>
+                    <h:outputText value="#{item.packingTimestamp}" />
                 </h:column>
                 <h:column>
-                    <f:facet name="header"><h:outputText value="#{i18n_companies['company.phone']}" /></f:facet>
-                    <h:outputText value="#{item.phone}" />
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.packingList']}" /></f:facet>
+                    <h:outputText value="#{item.packingListFolio}" />
                 </h:column>
                 <h:column>
-                    <f:facet name="header"><h:outputText value="#{i18n_companies['companies.profiles']}" /></f:facet>
-                    <h:outputText value="#{item.displayRoles}" />
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.purchaseOrder']}" /></f:facet>
+                    <h:outputText value="#{item.purchaseOrderFolio}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.salesOrder']}" /></f:facet>
+                    <h:outputText value="#{item.salesOrderFolio}" />
+                </h:column>
+
+                <h:column style="border-left:1px solid black;">
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.inventory']}" /></f:facet>
+                    <h:outputText value="#{item.inventoryFolio}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.invoice']}" /></f:facet>
+                    <h:outputText value="#{item.invoiceFolio}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.packQty']}" /></f:facet>
+                    <h:outputText value="#{item.quantity} #{item.packingType}" />
+                </h:column>
+                
+                <h:column style="border-left:1px solid black;">
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.inventoryEntry']}" /></f:facet>
+                    <h:outputText value="#{item.inventoryTimestamp}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.physicalRev']}" /></f:facet>
+                    <h:outputText value="#{item.physicalRevisionTimestamp}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.legalRev']}" /></f:facet>
+                    <h:outputText value="#{item.legalRevisionTimestamp}" />
+                </h:column>
+
+                <h:column style="border-left:1px solid black;">
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.guide']}" /></f:facet>
+                    <h:outputText value="#{item.guide}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.freighter']}" /></f:facet>
+                    <h:outputText value="#{item.freighterName}" />
                 </h:column>
                 
                 <h:column>
-                    <h:commandLink id="editButton" action="#{companyBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
+                    <h:commandLink id="editButton" action="#{receiptBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
                         <i class="fa fa-pencil"></i><h:outputText value=" #{i18n_global['global.edit']}" />
                     </h:commandLink>
-                    <h:commandLink id="removeButton" action="#{companyBean.remove(item)}" onclick="return confirm('#{i18n_companies['company.remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
+                    <h:commandLink id="removeButton" action="#{receiptBean.remove(item)}" onclick="return confirm('#{i18n_proc_receipt['receipt.remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
                         <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.remove']}" />
                     </h:commandLink>
                 </h:column>
@@ -69,7 +123,7 @@
          <!-- Page-Level Demo Scripts - Tables - Use for reference -->
         <script>
         $(document).ready(function() {
-            $('#companiesTable').DataTable({
+            $('#receiptsTable').DataTable({
                 responsive: true,
                 "language":{
                     "lengthMenu":"#{i18n_global['global.dt.lengthMenu']}",

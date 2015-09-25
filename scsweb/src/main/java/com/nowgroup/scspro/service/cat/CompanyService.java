@@ -24,4 +24,6 @@ public interface CompanyService {
 
     List<CompanyScope> getCompanyScope(int id);
 
+    List<Company> getCompaniesByScope(String scope);
+
 }

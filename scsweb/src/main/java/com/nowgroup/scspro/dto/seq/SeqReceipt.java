@@ -1,4 +1,4 @@
-package com.nowgroup.scspro.dto;
+package com.nowgroup.scspro.dto.seq;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,10 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.nowgroup.scspro.dto.BaseDTO;
+
 @Entity
 @Table(name = "seq_receipt", catalog = "supply_chain")
 public class SeqReceipt implements BaseDTO {
     private static final long serialVersionUID = 7633468126979032209L;
+    
+    public static final String RECEIPT_SEQUENCE_PREFIX = "RC";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

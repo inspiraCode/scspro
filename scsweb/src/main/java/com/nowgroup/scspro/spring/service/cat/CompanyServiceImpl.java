@@ -98,6 +98,10 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 	return result;
     }
+    
+    public List<Company> getCompaniesByScope(String scope) {
+	return getCompanyDAO().getCompaniesByScope(scope);
+    }
 
     public List<Company> getCompanies() {
 	return getCompanyDAO().getAll();

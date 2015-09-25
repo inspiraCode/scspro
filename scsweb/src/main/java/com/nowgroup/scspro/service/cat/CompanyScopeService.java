@@ -9,4 +9,6 @@ public interface CompanyScopeService {
     int addScope(CompanyScope scope);
 
     CompanyRole getRoleInCompanyScope(int id);
+
+    CompanyScope getByCompanyAndRole(int companyId, String scopeName);
 }

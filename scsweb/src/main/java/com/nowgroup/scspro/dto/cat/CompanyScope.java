@@ -20,6 +20,12 @@ import com.nowgroup.scspro.dto.BaseDTO;
 @Table(name = "cross_company_role", catalog = "supply_chain")
 public class CompanyScope implements BaseDTO {
     private static final long serialVersionUID = -1440418445301190014L;
+    
+    public static final String SENDER_SCOPE = "sender";
+    public static final String RECEIVER_SCOPE = "receiver";
+    public static final String SELLER_SCOPE = "seller";
+    public static final String PURCHASER_SCOPE = "purchaser";
+    public static final String FREIGHTER_SCOPE = "freighter";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -96,42 +96,18 @@
 	"buffers":
 	[
 		{
-			"file": "scsweb/src/main/webapp/templates/default/leftMenu.xhtml",
+			"file": "scsweb/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
 			"settings":
 			{
-				"buffer_size": 6333,
+				"buffer_size": 8322,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "dbScripts/02_geo.sql",
+			"file": "dbScripts/05_prod_receipt.sql",
 			"settings":
 			{
-				"buffer_size": 65030,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scsweb/src/main/webapp/pages/secure/cat/company/list.xhtml",
-			"settings":
-			{
-				"buffer_size": 5929,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scsweb/src/main/webapp/pages/secure/cat/company/company.xhtml",
-			"settings":
-			{
-				"buffer_size": 3321,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scsweb/src/main/webapp/pages/public/login.xhtml",
-			"settings":
-			{
-				"buffer_size": 5079,
+				"buffer_size": 7548,
 				"line_ending": "Windows"
 			}
 		},
@@ -144,10 +120,10 @@
 			}
 		},
 		{
-			"file": "scsweb/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
+			"file": "scsweb/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
 			"settings":
 			{
-				"buffer_size": 3236,
+				"buffer_size": 9055,
 				"line_ending": "Windows"
 			}
 		}
@@ -195,22 +171,28 @@
 	],
 	"file_history":
 	[
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/03_cat_company.sql",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/company.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/05_prod_receipt.sql",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/list.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/templates/default/leftMenu.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/02_geo.sql",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/templates/default/main.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/login.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/export.xhtml",
 		"/C/apache/readme_first.html",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/error.xhtml",
 		"/C/Users/torredie/Documents/projects/scspro/web/target/scspro/templates/default/leftMenu.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/login.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/session-expired.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/user-expired.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/reg_confirm.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/register.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/templates/default/header.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/01_sys.sql",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/05_prod_receipt.sql",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/templates/default/leftMenu.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/04_cat_un.sql",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/02_geo.sql",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/03_cat_company.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/08_prod_receipt.sql",
 		"/C/apache/apache-tomcat-8.0.26/logs/scspro.log",
 		"/C/Users/torredie/Documents/projects/scspro/database/02_geo.sql",
@@ -316,17 +298,11 @@
 		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/resources/css/sb-admin-2.css",
 		"/C/apache/apache-tomcat-8.0.26/logs/catalina.2015-09-12.log",
 		"/C/Users/torredie/Documents/projects/scspro/startbootstrap-sb-admin-2-1.0.7/pages/panels-wells.html",
-		"/C/Users/torredie/Documents/projects/scspro/startbootstrap-sb-admin-2-1.0.7/pages/tables.html",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/templates/default/header.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/company.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/company-tab-general.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/companies-list.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/companies.xhtml",
-		"/C/apache/apache-tomcat-8.0.26/logs/catalina.2015-09-11.log"
+		"/C/Users/torredie/Documents/projects/scspro/startbootstrap-sb-admin-2-1.0.7/pages/tables.html"
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
@@ -340,6 +316,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"=\"\">",
+			"i18n_companies",
+			"companyBean",
+			"company.",
+			"companies.",
+			"i18n_companies",
+			"companies",
+			"companyListBean",
+			"receiptsListForm",
+			"i18n_companies",
 			"cat_measurement_unit_role",
 			"					",
 			".\"",
@@ -428,6 +414,16 @@
 		"regex": false,
 		"replace_history":
 		[
+			"i18n_proc_receipt",
+			"receiptBean",
+			"receipt.",
+			"i18n_proc_receipt",
+			"companies",
+			"companyBean",
+			"companiesTable",
+			"companies",
+			"receiptListBean",
+			"i18n_proc_receipt",
 			"measurementRole",
 			"measurementUnitBean",
 			"measurementUnit",
@@ -471,54 +467,54 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scsweb/src/main/webapp/templates/default/leftMenu.xhtml",
+					"file": "scsweb/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6333,
+						"buffer_size": 8322,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2240,
-								2244
+								3000,
+								3000
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/XML/XML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 657.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "dbScripts/02_geo.sql",
+					"file": "dbScripts/05_prod_receipt.sql",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 65030,
+						"buffer_size": 7548,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								64790,
-								64790
+								1174,
+								1195
 							]
 						],
 						"settings":
@@ -527,103 +523,15 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 9454.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "scsweb/src/main/webapp/pages/secure/cat/company/list.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5929,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1762,
-								1762
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 60.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "scsweb/src/main/webapp/pages/secure/cat/company/company.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3321,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								329,
-								329
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "scsweb/src/main/webapp/pages/public/login.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5079,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								5079
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 2,
 					"file": "scsweb/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
 					"semi_transient": false,
 					"settings":
@@ -635,8 +543,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								3341,
+								3353
 							]
 						],
 						"settings":
@@ -646,27 +554,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 480.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "scsweb/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
+					"buffer": 3,
+					"file": "scsweb/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3236,
+						"buffer_size": 9055,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								477,
-								477
+								1153,
+								1173
 							]
 						],
 						"settings":
@@ -676,7 +584,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 660.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -724,7 +632,7 @@
 	"project": "scspro.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 80.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -733,6 +641,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"sql",
+				"dbScripts\\05_prod_receipt.sql"
+			],
+			[
+				"05",
+				"dbScripts\\05_prod_receipt.sql"
+			],
 			[
 				"left",
 				"scspro\\web\\target\\scspro\\templates\\default\\leftMenu.xhtml"
@@ -752,14 +668,6 @@
 			[
 				"inde",
 				"scspro\\startbootstrap-sb-admin-1.0.3\\index.html"
-			],
-			[
-				"05",
-				"scspro\\database\\05_cat_payment_condition.sql"
-			],
-			[
-				"sql",
-				"scspro\\database\\03_cat_company.sql"
 			],
 			[
 				"app.js",
@@ -849,7 +757,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 262.0,
 	"status_bar_visible": true,
 	"template_settings":

@@ -1,5 +1,6 @@
 package com.nowgroup.scspro.spring.service.cat;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import com.nowgroup.scspro.service.cat.CompanyScopeService;
 @Service
 @Transactional(readOnly = true)
 public class CompanyScopeServiceImpl implements CompanyScopeService {
+    private static final Logger log = Logger.getLogger(CompanyScopeServiceImpl.class.getName());
 
     @Autowired
     private CompanyScopeDAO companyScopeDAO;
@@ -44,6 +46,12 @@ public class CompanyScopeServiceImpl implements CompanyScopeService {
 	result.setId(dbScope.getCompanyRole().getId());
 	result.setName(dbScope.getCompanyRole().getName());
 	return result;
+    }
+
+    public CompanyScope getByCompanyAndRole(int companyId, String scopeName) {
+	CompanyScope dbScope = companyScopeDAO.getByCompanyAndRole(companyId, scopeName);
+	log.debug("got scope from database: " + dbScope);
+	return dbScope;
     }
 
 }

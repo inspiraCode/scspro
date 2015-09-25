@@ -23,6 +23,7 @@
  				<value>com.nowgroup.scspro.dto.cross</value>
  				<value>com.nowgroup.scspro.dto.geo</value>
  				<value>com.nowgroup.scspro.dto.prod</value>
+ 				<value>com.nowgroup.scspro.dto.seq</value>
  				<value>com.nowgroup.scspro.dto.sys</value>
  			</list>
  		</property>

@@ -45,6 +45,7 @@ CREATE TABLE `supply_chain`.`cross_company_role` (
 
 INSERT INTO `supply_chain`.`cat_company_role` (`COMPANY_ROLE_NAME`) VALUES ('purchaser');
 INSERT INTO `supply_chain`.`cat_company_role` (`COMPANY_ROLE_NAME`) VALUES ('seller');
+INSERT INTO `supply_chain`.`cat_company_role` (`COMPANY_ROLE_NAME`) VALUES ('sender');
 INSERT INTO `supply_chain`.`cat_company_role` (`COMPANY_ROLE_NAME`) VALUES ('receiver');
 INSERT INTO `supply_chain`.`cat_company_role` (`COMPANY_ROLE_NAME`) VALUES ('exporter');
 INSERT INTO `supply_chain`.`cat_company_role` (`COMPANY_ROLE_NAME`) VALUES ('importer');

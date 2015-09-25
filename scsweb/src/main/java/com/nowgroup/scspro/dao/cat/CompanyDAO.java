@@ -1,8 +1,12 @@
 package com.nowgroup.scspro.dao.cat;
 
+import java.util.List;
+
 import com.nowgroup.scspro.dao.common.BaseDAO;
 import com.nowgroup.scspro.dto.cat.Company;
 
 public interface CompanyDAO extends BaseDAO<Company> {
-    // What varies from other DAOs goes here.
+    public final static String QUERY_BY_SCOPE = "select company.id from Company company join company.companyScope scope join scope.companyRole role  where role.name = ?";
+    
+    List<Company> getCompaniesByScope(String scope);
 }

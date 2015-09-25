@@ -1,5 +1,6 @@
 package com.nowgroup.scspro.dto.cat;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,7 +27,7 @@ import com.nowgroup.scspro.dto.geo.State;
 @Indexed
 @Entity
 @Table(name = "cat_company", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(name = "COMPANY_NAME_IDX", columnNames = "COMPANY_NAME") })
-public class Company implements BaseDTO {
+public class Company implements BaseDTO, Comparable<Company> {
     private static final long serialVersionUID = -5789578134137973419L;
 
     @Id
@@ -218,5 +219,18 @@ public class Company implements BaseDTO {
 	sb.append(", web : '" + web + "'");
 	sb.append("}");
 	return sb.toString();
+    }
+
+    public int compareTo(Company o) {
+	return Comparators.NAME.compare(this, o);
+    }
+    
+    public static class Comparators {
+	public static Comparator<Company> NAME = new Comparator<Company>(){
+	    
+	    public int compare(Company o1, Company o2) {
+		return o1.name.compareTo(o2.name);
+	    }
+	};
     }
 }

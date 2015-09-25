@@ -1,6 +1,7 @@
 package com.nowgroup.scspro.dto.prod;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -51,7 +52,11 @@ public class Receipt implements BaseDTO {
     @JoinTable(name = "cross_receipt_company", catalog = "supply_chain", joinColumns = { @JoinColumn(name = "CRC_RECEIPT_ID", nullable = false,
 	    updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "CROSS_COMPANY_ROLE_ID", nullable = false, updatable = false) },
 	    uniqueConstraints = { @UniqueConstraint(name = "RECEIPT_COMPANY_UIDX", columnNames = { "CRC_RECEIPT_ID", "CROSS_COMPANY_ROLE_ID" }) })
-    private Set<CompanyScope> companies;
+    private Set<CompanyScope> companies = new HashSet<CompanyScope>();
+
+    @Field
+    @Column(name = "ARRIVAL_FOLIO")
+    private String arrivalFolio;
 
     @IndexedEmbedded
     @ManyToOne(fetch = FetchType.LAZY)
@@ -70,6 +75,12 @@ public class Receipt implements BaseDTO {
     @Field
     @Column(name = "RECEIPT_BY", nullable = false)
     private String receiptBy;
+
+    @Field(analyze = Analyze.NO)
+    @DateBridge(resolution = Resolution.HOUR)
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "CREATED_ON", nullable = true, insertable = false, updatable = false)
+    private Date createdOn;
 
     @IndexedEmbedded
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -153,6 +164,22 @@ public class Receipt implements BaseDTO {
 
     public void setReceiptBy(String receiptBy) {
 	this.receiptBy = receiptBy;
+    }
+
+    public Date getCreatedOn() {
+	return createdOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+	this.createdOn = createdOn;
+    }
+
+    public String getArrivalFolio() {
+	return arrivalFolio;
+    }
+
+    public void setArrivalFolio(String arrivalFolio) {
+	this.arrivalFolio = arrivalFolio;
     }
 
 }
