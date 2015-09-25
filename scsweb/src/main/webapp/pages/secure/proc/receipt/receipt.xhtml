@@ -115,7 +115,43 @@
                     </div>
                 </div>
                 <!-- /HEADER DATA -->
-                <!-- INCLUDE TABS BELOW -->
+                <!-- TABS CONTROLLER -->
+                <div class="row" style="margin-top:10px;">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#freight" data-toggle="tab">#{i18n_proc_receipt['receipt.freight']}</a>
+                        </li>
+                        <li><a href="#goods" data-toggle="tab">#{i18n_proc_receipt['receipt.goods']}</a>
+                        </li>
+                        <li><a href="#documents" data-toggle="tab">#{i18n_proc_receipt['receipt.documents']}</a>
+                        </li>
+                        <li><a href="#inventory" data-toggle="tab">#{i18n_proc_receipt['receipt.inventory']}</a>
+                        </li>
+                        <li><a href="#follow" data-toggle="tab">#{i18n_proc_receipt['receipt.followUp']}</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="freight">
+                            <!-- /.navbar-top-links -->
+                            <!-- <ui:include src="receipt-tab-freight.xhtml" /> -->
+                            <h1>UNDER CONSTRUCTION</h1>
+                        </div>
+                        <div class="tab-pane fade" id="goods">
+                            <h1>UNDER CONSTRUCTION</h1>
+                        </div>
+                        <div class="tab-pane fade" id="documents">
+                            <h1>UNDER CONSTRUCTION</h1>
+                        </div>
+                        <div class="tab-pane fade" id="inventory">
+                            <h1>UNDER CONSTRUCTION</h1>
+                        </div>
+                        <div class="tab-pane fade" id="follow">
+                            <h1>UNDER CONSTRUCTION</h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- /TABS CONTROLLER -->
             </fieldset>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         </h:form>
