@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+	<session-factory>
+		<!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- Show SQL -->
+        <!-- <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>  -->
+        
+        <!-- SEARCH ENGINE CONFIGURATION -->
+        <property name="hibernate.search.default.directory_provider">org.hibernate.search.store.impl.FSDirectoryProvider</property>
+		<property name="hibernate.search.default.indexBase">./lucene/indexes</property>
+		<property name="hibernate.search.default.batch.merge_factor">10</property>
+		<property name="hibernate.search.default.batch.max_buffered_docs">10</property>
+		
+		<!-- TODO: Configure cache handler (ehcache) -->
+		<!-- <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="hibernate.cache.provider_class" value="net.sf.ehcache.hibernate.SingletonEhCacheProvider"/> -->
+	</session-factory>
+</hibernate-configuration>

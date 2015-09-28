@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition>
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search">
+                    <div class="input-group custom-search-form">
+                        <h:form id="searchForm">
+                        <h:inputText styleClass="form-control" id="searchText" value="" pt:placeholder="#{i18n_menu['menu.search']}"></h:inputText>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                        </h:form>
+                    </div>
+                    <!-- /input-group -->
+                </li>
+                <li>
+                    <a href="/scspro/pages/secure/index.xhtml"><i class="fa fa-dashboard fa-fw"></i>&#160;<h:outputText id="outTxtDashboardId" value="#{i18n_menu['menu.dashboard']}" name="outTxtDashboardNm"></h:outputText></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-th-list fa-fw"></i>&#160;<h:outputText id="outTxtCatalogsId" value="#{i18n_menu['menu.catalogs']}" name="outTxtCatalogsNm"></h:outputText><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/scspro/pages/secure/cat/company/list.xhtml"><h:outputText id="outTxtCompaniesId" value="#{i18n_menu['menu.catalogs.companies']}" name="outTxtCompaniesNm"></h:outputText></a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href="/scspro/pages/secure/proc/receipt/list.xhtml"><i class="fa fa-tags fa-fw"></i>&#160;<h:outputText id="outTxtReceiptId" value="#{i18n_menu['menu.receipt']}" name="outTxtReceiptNm"></h:outputText></a>
+                </li>
+                <li>
+                    <a href="/scspro/pages/secure/packing/packing-list.xhtml"><i class="fa fa-cubes fa-fw"></i>&#160;<h:outputText id="outTxtPackingListId" value="#{i18n_menu['menu.packing']}" name="outTxtPackingListNm"></h:outputText></a>
+                </li>
+                <li>
+                    <a href="/scspro/pages/secure/invoice/invoice-list.xhtml"><i class="fa fa-check fa-fw"></i>&#160;<h:outputText id="outTxtInvoiceId" value="#{i18n_menu['menu.invoice']}" name="outTxtInvoiceNm"></h:outputText></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>&#160;<h:outputText id="outTxtShippingId" value="#{i18n_menu['menu.shipping.cart']}" name="outTxtShippingNm"></h:outputText><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/scspro/pages/secure/shipping/assignment-list.xhtml"><h:outputText id="outTxtShippingAssignmentId" value="#{i18n_menu['menu.shipping.assignment']}" name="outTxtShippingAssignmentNm"></h:outputText></a>
+                        </li>
+                        <li>
+                            <a href="/scspro/pages/secure/shipping/documentation-list.xhtml"><h:outputText id="outTxtShippingDocsId" value="#{i18n_menu['menu.shipping.documentation']}" name="outTxtShippingDocsNm"></h:outputText></a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href="/scspro/pages/secure/shipping/shipment-list.xhtml"><i class="fa fa-truck fa-fw"></i>&#160;<h:outputText id="outTxtShipmentId" value="#{i18n_menu['menu.shipment']}" name="outTxtShipmentNm"></h:outputText></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-money fa-fw"></i>&#160;<h:outputText id="outTxtFinanceId" value="#{i18n_menu['menu.finance']}" name="outTxtFinanceNm"></h:outputText></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text fa-fw"></i>&#160;<h:outputText id="outTxtSupportDocumentsId" value="#{i18n_menu['menu.support.documents']}" name="outTxtSupportDocumentsNm"></h:outputText></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-line-chart fa-fw"></i>&#160;<h:outputText id="outTxtReportsId" value="#{i18n_menu['menu.reports']}" name="outTxtReportsNm"></h:outputText></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-gears fa-fw"></i>&#160;<h:outputText id="outTxtSystemId" value="#{i18n_menu['menu.system']}" name="outTxtSystemNm"></h:outputText><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/scspro/pages/secure/sys/measurement-unit/list.xhtml"><h:outputText id="outTxtMeasurementUnitsId" value="#{i18n_menu['menu.catalogs.measurement']}" name="outTxtMeasurementUnitsNm"></h:outputText></a>
+                        </li>
+                        <li>
+                            <a href="/scspro/pages/secure/storage/list.xhtml"><h:outputText id="outTxtStoragesId" value="#{i18n_menu['menu.catalogs.storages']}" name="outTxtStoragesNm"></h:outputText></a>
+                        </li>
+                        <li>
+                            <a href="shipping-assignment.xhtml"><h:outputText id="outTxtSystemUsersId" value="#{i18n_menu['menu.system.users']}" name="outTxtSystemUsersNm"></h:outputText></a>
+                        </li>
+
+                    </ul>
+
+                    <!-- /.nav-second-level -->
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+</ui:composition>
+
+</html>

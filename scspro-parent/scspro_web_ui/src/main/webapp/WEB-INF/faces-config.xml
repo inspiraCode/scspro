@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd" version="2.2">
+    <application>
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+        <resource-bundle>
+            <base-name>com.nowgroup.scspro.faces.i18n.global</base-name>
+            <var>i18n_global</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>com.nowgroup.scspro.faces.i18n.login</base-name>
+            <var>i18n_login</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>com.nowgroup.scspro.faces.i18n.register</base-name>
+            <var>i18n_register</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>com.nowgroup.scspro.faces.i18n.menu</base-name>
+            <var>i18n_menu</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>com.nowgroup.scspro.faces.i18n.cat.companies</base-name>
+            <var>i18n_companies</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>com.nowgroup.scspro.faces.i18n.cat.storages</base-name>
+            <var>i18n_storages</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>com.nowgroup.scspro.faces.i18n.cat.pay_cnd</base-name>
+            <var>i18n_pay_cnd</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>com.nowgroup.scspro.faces.i18n.cat.measurement_unit</base-name>
+            <var>i18n_measurement_unit</var>
+        </resource-bundle>
+        
+        <resource-bundle>
+            <base-name>com.nowgroup.scspro.faces.i18n.proc.receipt</base-name>
+            <var>i18n_proc_receipt</var>
+        </resource-bundle>
+        
+        <locale-config>
+            <default-locale>es</default-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+    </application>
+    
+    <!-- ************************************************************************ -->
+    <!-- NAVIGATION RULES -->
+    <!-- ************************************************************************ -->
+    <!-- navigation-rule for login.xhtml -->
+    <navigation-rule>
+    	<from-view-id>/pages/public/login.xhtml</from-view-id>
+    	<!-- navigation-case for method login() -->
+    	<navigation-case>
+    		<from-action>#{loginMgmtBean.login}</from-action>
+    		<from-outcome>correct</from-outcome>
+    		<to-view-id>/pages/secure/index.xhtml</to-view-id>
+    		<redirect/>
+    	</navigation-case>
+    	<!-- navigation-case for method login() -->
+    	<navigation-case>
+    		<from-action>#{loginMgmtBean.login}</from-action>
+    		<from-outcome>incorrect</from-outcome>
+    		<to-view-id>/pages/public/login.xhtml</to-view-id>
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{localeBean.changeLanguage}</from-action>
+    		<from-outcome>changedLanguage</from-outcome>
+    		<to-view-id>/pages/public/login.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-action>#{loginMgmtBean.logout}</from-action>
+            <from-outcome>loggedout</from-outcome>
+            <to-view-id>/pages/public/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/secure/cat/company/company.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{companyBean.uploadCompany}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/secure/cat/company/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/secure/sys/storage/storage.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{storageBean.uploadStorage}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/secure/sys/storage/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/secure/sys/measurement-unit/measurement-unit.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{measurementUnitBean.uploadMeasurementUnit}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/secure/sys/measurement-unit/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

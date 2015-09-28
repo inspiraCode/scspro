@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://xmlns.jcp.org/jsf/html" 
+    xmlns:f="http://xmlns.jcp.org/jsf/core" 
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/default/main.xhtml">
+    <ui:define name="content">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                <i class="fa fa-tags"></i><h:outputText rendered="#{receiptBean.receipt.id==0}" value=" #{i18n_proc_receipt['receipt.title.add']}"></h:outputText>
+                <h:outputText rendered="#{receiptBean.receipt.id>0}" value=" #{receiptBean.receipt.folio} (#{receiptBean.receipt.id})"></h:outputText>
+                </h1>
+            </div>
+        </div>
+        <p:messages id="msg" />
+        <!-- Form content -->
+        <h:form>
+            <fieldset> 
+                <!-- HEADER BUTTONS -->
+                <div class="row">
+                    <h:commandLink id="btnSaveId" action="#{receiptBean.uploadReceipt}" styleClass="btn btn-success" style="margin-right:10px;">
+                        <i class="fa fa-save"></i><h:outputText value=" #{i18n_global['global.save']}" />
+                    </h:commandLink>
+                    <h:commandLink id="btnDeleteId" action="#{receiptBean.remove}" rendered="#{receiptBean.receipt.id>0}" onclick="return confirm('#{i18n_proc_receipt['receipt.remove.confirmation']}');" styleClass="btn btn-danger" style="margin-right:30px;">
+                        <i class="fa fa-trash-o"></i><h:outputText value=" #{i18n_global['global.remove']}" />
+                    </h:commandLink>
+                    <h:commandLink id="btnGoBackId" action="#{receiptBean.showList}" styleClass="btn btn-primary">
+                        <i class="fa fa-arrow-left"></i><h:outputText value=" #{i18n_global['global.back']}" />
+                    </h:commandLink>
+                </div>
+                <!-- /HEADER BUTTONS -->
+                <!-- HEADER DATA -->
+                <div class="row" style="margin-top:10px;">
+                    <div class="control-group col-md-8">
+                        <!-- Sender Selection -->
+                        <h:outputLabel for="selSender" value="#{i18n_proc_receipt['receipt.sender']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:selectOneMenu id="selSender" value="#{receiptBean.senderId}">
+                                <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
+                                <f:selectItems value="#{companyClassifierBean.senderCompanies}" var="company" itemValue="#{company.id}" itemLabel="#{company.name}" />
+                                <f:ajax listener="#{receiptBean.senderAjaxListener}" render="lblSender selSeller lblSeller msg" />
+                            </h:selectOneMenu>
+                            <h:outputText class="text-success" id="lblSender" value="#{receiptBean.senderName}" style="margin-left:15px;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group col-md-8">
+                        <!-- Receiver Selection -->
+                        <h:outputLabel for="selReceiver" value="#{i18n_proc_receipt['receipt.receiver']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:selectOneMenu id="selReceiver" value="#{receiptBean.receiverId}">
+                                <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
+                                <f:selectItems value="#{companyClassifierBean.receiverCompanies}"  var="company" itemValue="#{company.id}" itemLabel="#{company.name}" />
+                                <f:ajax listener="#{receiptBean.receiverAjaxListener}" render="lblReceiver selPurchaser lblPurchaser msg" />
+                            </h:selectOneMenu>
+                            <h:outputText class="text-success" id="lblReceiver" value="#{receiptBean.receiverName}" style="margin-left:15px;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group col-md-12">
+                        <!-- Seller Selection -->
+                        <h:outputLabel for="selSeller" value="#{i18n_proc_receipt['receipt.seller']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:selectOneMenu id="selSeller" value="#{receiptBean.sellerId}">
+                                <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
+                                <f:selectItems value="#{companyClassifierBean.sellerCompanies}"  var="company" itemValue="#{company.id}" itemLabel="#{company.name}" />
+                                <f:ajax listener="#{receiptBean.sellerAjaxListener}" render="lblSeller" style="margin-left:15px;" />
+                            </h:selectOneMenu>
+                            <h:outputText class="text-success" id="lblSeller" value="#{receiptBean.sellerName}" style="margin-left:15px;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group col-md-12">
+                        <!-- Purchaser Selection -->
+                        <h:outputLabel for="selPurchaser" value="#{i18n_proc_receipt['receipt.purchaser']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:selectOneMenu id="selPurchaser" value="#{receiptBean.purchaserId}">
+                                <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
+                                <f:selectItems value="#{companyClassifierBean.purchaserCompanies}"  var="company" itemValue="#{company.id}" itemLabel="#{company.name}" />
+                                <f:ajax listener="#{receiptBean.purchaserAjaxListener}" render="lblPurchaser" />
+                            </h:selectOneMenu>
+                            <h:outputText class="text-success" id="lblPurchaser" value="#{receiptBean.purchaserName}" style="margin-left:15px;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group col-md-4">
+                        <!-- Company Name -->
+                        <h:outputLabel for="textArrivalFolio" value="#{i18n_proc_receipt['receipt.arrival']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:inputText styleClass="form-control" id="textArrivalFolio" value="#{receiptBean.receipt.arrivalFolio}" pt:placeholder="#{i18n_proc_receipt['receipt.arrival']}"></h:inputText>
+                        </div>
+                    </div>
+                    <div class="control-group col-md-4 has-warning">
+                        <!-- Company Name -->
+                        <h:outputLabel for="textReceiptFolio" value="#{i18n_proc_receipt['receipt.folio']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:inputText styleClass="form-control " id="textReceiptFolio" value="#{receiptBean.receipt.folio}" pt:placeholder="#{i18n_proc_receipt['receipt.folio']}"></h:inputText>
+                        </div>
+                    </div>
+                    <div class="control-group col-md-4">
+                        <!-- Company Name -->
+                        <h:outputLabel for="dtpReceiptDate" value="#{i18n_proc_receipt['receipt.receiptDate']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <p:calendar id="dtpReceiptDate" value="#{receiptBean.receipt.receiptDate}" showOn="button" />
+                        </div>
+                    </div>
+                </div>
+                <!-- /HEADER DATA -->
+                <!-- TABS CONTROLLER -->
+                <div class="row" style="margin-top:10px;">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#freight" data-toggle="tab">#{i18n_proc_receipt['receipt.freight']}</a>
+                        </li>
+                        <li><a href="#goods" data-toggle="tab">#{i18n_proc_receipt['receipt.goods']}</a>
+                        </li>
+                        <li><a href="#documents" data-toggle="tab">#{i18n_proc_receipt['receipt.documents']}</a>
+                        </li>
+                        <li><a href="#inventory" data-toggle="tab">#{i18n_proc_receipt['receipt.inventory']}</a>
+                        </li>
+                        <li><a href="#follow" data-toggle="tab">#{i18n_proc_receipt['receipt.followUp']}</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="freight">
+                            <!-- /.navbar-top-links -->
+                            <ui:include src="receipt-tab-freight.xhtml" />
+                        </div>
+                        <div class="tab-pane fade" id="goods">
+                            <h1>UNDER CONSTRUCTION</h1>
+                            <p>Intended to describe the received merchandise.</p>
+                        </div>
+                        <div class="tab-pane fade" id="documents">
+                            <h1>UNDER CONSTRUCTION</h1>
+                            <p>Intended to show packing list details received with merchandise.</p>
+                        </div>
+                        <div class="tab-pane fade" id="inventory">
+                            <h1>UNDER CONSTRUCTION</h1>
+                            <p>Intended to show inventory records related with the receipt.</p>
+                        </div>
+                        <div class="tab-pane fade" id="follow">
+                            <h1>UNDER CONSTRUCTION</h1>
+                            <p>Intended to show invoices, shipment plans, packing listas and shipments related with the receipt.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /TABS CONTROLLER -->
+            </fieldset>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        </h:form>
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.css"/>
+    </ui:define>
+</ui:composition>
+
+</html>

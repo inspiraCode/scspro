@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.nowgroup</groupId>
+    <artifactId>scspro</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>com.nowgroup.scspro</groupId>
+  <artifactId>scspro_dao_hibernate</artifactId>
+  <name>scspro-dao-hibernate</name>
+  <description>Supply Chain Software Professional - Hibernate DAO implementation</description>
+  
+  <properties>
+  	<spring.version>4.2.1.RELEASE</spring.version>
+  	<!-- Slf4j -->
+	<slf4j.version>1.7.10</slf4j.version>
+	<!-- Log4j -->
+	<log4j.version>2.2</log4j.version>
+  </properties>
+  <build>
+  	<finalName>scspro-dao-hibernate</finalName>
+  </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.nowgroup.scspro</groupId>
+  		<artifactId>scspro_dao</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.nowgroup.scspro</groupId>
+  		<artifactId>scspro_dto</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-webmvc</artifactId>
+  		<version>${spring.version}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-orm</artifactId>
+  		<version>${spring.version}</version>
+  	</dependency>
+  	
+  	<!-- REQUIREMENTS FOR HIBERNATE INTEGRATION WITH SPRING -->
+	<dependency>
+		<groupId>commons-dbcp</groupId>
+		<artifactId>commons-dbcp</artifactId>
+		<version>20030825.184428</version>
+		<exclusions>
+			<exclusion>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>commons-pool</groupId>
+				<artifactId>commons-pool</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>xerces</groupId>
+				<artifactId>xerces</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>xerces</groupId>
+				<artifactId>xercesImpl</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>xml-apis</groupId>
+				<artifactId>xml-apis</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>javassist</groupId>
+		<artifactId>javassist</artifactId>
+		<version>3.12.1.GA</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-pool</groupId>
+		<artifactId>commons-pool</artifactId>
+		<version>20030825.183949</version>
+		<exclusions>
+			<exclusion>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>commons-collections</groupId>
+		<artifactId>commons-collections</artifactId>
+		<version>20040616</version>
+	</dependency>
+  </dependencies>
+</project>

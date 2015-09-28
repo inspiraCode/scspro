@@ -96,34 +96,10 @@
 	"buffers":
 	[
 		{
-			"file": "scsweb/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
+			"file": "scsweb/pom.xml",
 			"settings":
 			{
-				"buffer_size": 8322,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "dbScripts/05_prod_receipt.sql",
-			"settings":
-			{
-				"buffer_size": 7548,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scsweb/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
-			"settings":
-			{
-				"buffer_size": 7407,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scsweb/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
-			"settings":
-			{
-				"buffer_size": 9055,
+				"buffer_size": 7934,
 				"line_ending": "Windows"
 			}
 		}
@@ -171,16 +147,33 @@
 	],
 	"file_history":
 	[
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/03_cat_company.sql",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/company.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro-web-ui/src/main/webapp/templates/default/header.xhtml",
+		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/resources/META-INF/spring/jdbc.properties",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/05_prod_receipt.sql",
+		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/pom.xml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/service/cat/CompanyRoleService.java",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/pom.xml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/service/prod/ReceiptService.java",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/service/sys/UserService.java",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/authentication/ScsproUserDetails.java",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/spring/service/cat/CompanyRoleServiceImpl.java",
+		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/resources/META-INF/persistence.xml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/company.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/sys/storage/list.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/templates/default/header.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/resources/bootstrap/css/bootstrap.css",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/resources/bootstrap/css/bootstrap-theme.css",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/01_sys.sql",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/03_cat_company.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/list.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/templates/default/leftMenu.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/02_geo.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/templates/default/main.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/login.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/export.xhtml",
 		"/C/apache/readme_first.html",
@@ -190,8 +183,6 @@
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/user-expired.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/reg_confirm.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/public/register.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/templates/default/header.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/01_sys.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/04_cat_un.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/08_prod_receipt.sql",
 		"/C/apache/apache-tomcat-8.0.26/logs/scspro.log",
@@ -283,22 +274,7 @@
 		"/C/Users/torredie/Documents/RCU/my docs hp1/RCU_AME/SVN/trunk/signedSOAP/wsdl/PingSvc-v1.wsdl",
 		"/C/Temp/wsdl/ACFBase_2008_12.xsd",
 		"/C/Temp/wsdl/ACFTypes.xsd",
-		"/C/Users/torredie/Documents/RCU/my docs hp1/RCU_AME/SVN/trunk/signedSOAP/wsdl/wcfFiles/output.config",
-		"/C/Users/torredie/Documents/RCU/my docs hp1/RCU_AME/SVN/trunk/signedSOAP/certs/keystore_cer_generation.txt",
-		"/C/Users/torredie/Documents/RCU/my docs hp1/RCU_AME/SVN/trunk/Test file.txt",
-		"/C/Users/torredie/Documents/RCU/my docs hp1/RCU_AME/SVN/trunk/docs",
-		"/C/Users/torredie/Documents/RCU/my",
-		"/C/Users/torredie/Documents/RCU/my docs hp1/RCU_AME/SVN/trunk/hp1/RCU_AME/SVN/trunk/Test",
-		"/C/Users/torredie/Documents/RCU/my docs hp1/RCU_AME/SVN/trunk/file.txt",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/storage/storages-edit-form.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/implementingFrom",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/storage/companies-list.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/database/03_cat_storage.sql",
-		"/C/apache/apache-tomcat-8.0.26/logs/catalina.2015-09-13.log",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/resources/css/sb-admin-2.css",
-		"/C/apache/apache-tomcat-8.0.26/logs/catalina.2015-09-12.log",
-		"/C/Users/torredie/Documents/projects/scspro/startbootstrap-sb-admin-2-1.0.7/pages/panels-wells.html",
-		"/C/Users/torredie/Documents/projects/scspro/startbootstrap-sb-admin-2-1.0.7/pages/tables.html"
+		"/C/Users/torredie/Documents/RCU/my docs hp1/RCU_AME/SVN/trunk/signedSOAP/wsdl/wcfFiles/output.config"
 	],
 	"find":
 	{
@@ -316,6 +292,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"faces",
+			"web",
+			"spring-tx",
+			"spring-",
+			"txn",
+			"i18n_companies",
 			"=\"\">",
 			"i18n_companies",
 			"companyBean",
@@ -472,122 +454,31 @@
 			[
 				{
 					"buffer": 0,
-					"file": "scsweb/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
+					"file": "scsweb/pom.xml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8322,
+						"buffer_size": 7934,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3000,
-								3000
+								5990,
+								5999
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 657.0,
+						"translation.y": 3504.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "dbScripts/05_prod_receipt.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7548,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1174,
-								1195
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 300.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "scsweb/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7407,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3341,
-								3353
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 480.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "scsweb/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9055,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1153,
-								1173
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 660.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]

@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.nowgroup</groupId>
+  <artifactId>scspro</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>scspro</name>
+  <description>supply chain software professional</description>
+  <modules>
+  	<module>scspro_dto</module>
+  	<module>scspro_dao</module>
+  	<module>scspro_dao_hibernate</module>
+  	<module>scspro_service</module>
+  	<module>scspro_spring_security</module>
+  	<module>scspro_spring_service</module>
+  	<module>scspro_jsf_beans</module>
+  	<module>scspro_web_ui</module>
+  </modules>
+  <properties>
+  	<java.version>1.8</java.version>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  	
+  	<plugin.compiler.version>3.3</plugin.compiler.version>
+  	<slf4j.version>1.7.12</slf4j.version>
+  	<!-- Log4j -->
+	<log4j.version>2.2</log4j.version>
+  </properties>
+  <repositories>
+  	<repository>
+  		<id>JBoss repository</id>
+  		<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+  	</repository>
+  </repositories>
+  <dependencies>
+	  <!-- Logging with Log4j2 -->
+		<!-- Log4j 2 -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- Log4j 1 to Log4j2 -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-1.2-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- Apache Commons to Log4j2 -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jcl</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- Slf4j to Log4j2 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- JUL to Log4j2 -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jul</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+  </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<version>${plugin.compiler.version}</version>
+			<configuration>
+				<source>${java.version}</source>
+				<target>${java.version}</target>
+				<compilerArgument>-Xlint:all</compilerArgument>
+				<showWarnings>true</showWarnings>
+				<showDeprecation>true</showDeprecation>
+			</configuration>
+  		</plugin>
+		<plugin>
+			<groupId>org.apache.tomcat.maven</groupId>
+			<artifactId>tomcat7-maven-plugin</artifactId>
+			<version>2.2</version>
+			<configuration>
+				<path>/${project.build.finalName}</path>
+				<update>true</update>
+				<url>http://localhost:8080/manager/text</url>
+				<username>tomcat</username>
+				<password>tomcat</password>
+			</configuration>
+		</plugin>
+  	</plugins>
+  </build>
+</project>

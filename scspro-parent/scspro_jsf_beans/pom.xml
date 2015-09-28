@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.nowgroup</groupId>
+    <artifactId>scspro</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>com.nowgroup.scspro</groupId>
+  <artifactId>scspro_jsf_beans</artifactId>
+  <name>scspro-jsf-beans</name>
+  <description>supply chain software professional - Java Server Faces Beans.</description>
+  <properties>
+  	<jsf.version>2.2.12</jsf.version>
+  </properties>
+  <dependencies>
+  	<!-- Servlet stream for reports -->
+  	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+		<version>3.0-alpha-1</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!-- Java Server Faces Context handlers -->
+  	<dependency>
+		<groupId>com.sun.faces</groupId>
+		<artifactId>jsf-impl</artifactId>
+		<version>${jsf.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.sun.faces</groupId>
+		<artifactId>jsf-api</artifactId>
+		<version>${jsf.version}</version>
+	</dependency>
+	
+	<!-- JASPER REPORTS -->
+	<dependency>
+		<groupId>net.sf.jasperreports</groupId>
+		<artifactId>jasperreports</artifactId>
+		<version>6.1.1</version>
+	</dependency>
+	<dependency>
+		<groupId>com.nowgroup.scspro</groupId>
+		<artifactId>scspro_dto</artifactId>
+		<version>1.0</version>
+	</dependency>
+	<dependency>
+		<groupId>com.nowgroup</groupId>
+		<artifactId>scspro_spring_security</artifactId>
+		<version>1.0</version>
+	</dependency>
+	
+	<!-- PRIMEFACES -->
+	<dependency>
+		<groupId>org.primefaces</groupId>
+		<artifactId>primefaces</artifactId>
+		<version>5.2</version>
+	</dependency>
+	<dependency>
+		<groupId>com.nowgroup.scspro</groupId>
+		<artifactId>scspro_service</artifactId>
+		<version>1.0</version>
+	</dependency>
+  </dependencies>
+  <build>
+  	<finalName>scspro-jsf</finalName>
+  </build>
+  <url>http://maven.apache.org</url>
+  <repositories>
+	<repository>
+		<id>prime-repo</id>
+		<name>PrimeFaces Maven Repository</name>
+		<url>http://repository.primefaces.org</url>
+		<layout>default</layout>
+	</repository>
+</repositories>
+</project>

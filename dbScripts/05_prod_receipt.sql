@@ -41,8 +41,8 @@ CREATE TABLE `supply_chain`.`cross_receipt_company` (
 
 
 -- IDUN 2275 = UNDEFINED
-DROP TABLE IF EXISTS `supply_chain`.`prod_receipt_goods`;
-CREATE TABLE `supply_chain`.`prod_receipt_goods` (
+DROP TABLE IF EXISTS `supply_chain`.`prod_receipt_merchandise`;
+CREATE TABLE `supply_chain`.`prod_receipt_merchandise` (
   `PRG_ID` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `PRG_RECEIPT_ID` INT NOT NULL COMMENT '',
   `PRG_ITEM` VARCHAR(4) NOT NULL COMMENT '',
@@ -67,8 +67,8 @@ CREATE TABLE `supply_chain`.`prod_receipt_goods` (
     ON UPDATE RESTRICT
   );
 
-DROP TABLE IF EXISTS `supply_chain`.`prod_receipt_transport`;
-CREATE TABLE `supply_chain`.`prod_receipt_transport` (
+DROP TABLE IF EXISTS `supply_chain`.`prod_receipt_freight`;
+CREATE TABLE `supply_chain`.`prod_receipt_freight` (
   `PRT_ID` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `PRT_RECEIPT_ID` INT NOT NULL COMMENT '',
   `PRT_GUIDE` VARCHAR(50) NOT NULL COMMENT '',

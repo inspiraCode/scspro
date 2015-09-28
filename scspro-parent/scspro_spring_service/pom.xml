@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.nowgroup</groupId>
+    <artifactId>scspro</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>com.nowgroup.scspro</groupId>
+  <artifactId>scspro_spring_service</artifactId>
+  <name>scspro-spring-service</name>
+  <description>supply chain software professional - spring service implementation</description>
+  <properties>
+  	<spring.security.version>4.0.2.RELEASE</spring.security.version>
+  </properties>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.nowgroup.scspro</groupId>
+  		<artifactId>scspro_dto</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.nowgroup.scspro</groupId>
+  		<artifactId>scspro_service</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.nowgroup.scspro</groupId>
+  		<artifactId>scspro_dao</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.nowgroup.scspro</groupId>
+  		<artifactId>scspro_dao_hibernate</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+	<dependency>
+		<groupId>com.nowgroup</groupId>
+		<artifactId>scspro_spring_security</artifactId>
+		<version>1.0</version>
+	</dependency>
+  </dependencies>
+  <build>
+  	<finalName>scspro-spring-service</finalName>
+  </build>
+</project>
