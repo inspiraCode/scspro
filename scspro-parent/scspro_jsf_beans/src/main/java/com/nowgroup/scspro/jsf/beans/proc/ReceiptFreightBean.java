@@ -35,14 +35,14 @@ public class ReceiptFreightBean extends BaseFacesBean {
 	publishWarning("NOT IMPLEMENTED YET");
 	return "";
     }
-    
-    public String remove(ReceiptFreight item){
+
+    public String remove(ReceiptFreight item) {
 	// TODO: Implement
 	publishWarning("NOT IMPLEMENTED YET");
 	return "";
     }
-    
-    public String upload(){
+
+    public String upload() {
 	// TODO: Implement
 	publishWarning("NOT IMPLEMENTED YET");
 	return "";

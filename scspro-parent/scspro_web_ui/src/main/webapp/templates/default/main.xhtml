@@ -42,7 +42,6 @@
           <h:outputStylesheet name="css/sb-admin-2.css" />
           <h:outputStylesheet name="css/timeline.css" />
           <h:outputStylesheet name="css/plugins/morris.css" />
-
           <h:outputScript name="bootstrap/js/bootstrap.js" />
         </f:facet>
         
@@ -93,19 +92,6 @@
          <h1><small><h:outputText id="outTxtLoadingId" value=" #{i18n_global['global.loading']}" name="outTxtLoadingNm"></h:outputText></small></h1>
         </div>
       </div>
-      <script>
-          var showLoading = true;
-          $(document).ready(function(){
-              $('#nonAjaxLoad').hide();
-          });
-
-          $(window).bind('beforeunload', function() {
-            if(showLoading) {
-              $('#nonAjaxLoad').show(); 
-            }
-            showLoading = true;
-          });
-      </script>
       </f:view>
     </h:body>
 </html>

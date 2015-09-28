@@ -7,7 +7,7 @@
 <ui:composition>
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
+            <ul class="nav metismenu" id="side-menu">
                 <li class="sidebar-search">
                     <div class="input-group custom-search-form">
                         <h:form id="searchForm">
@@ -26,8 +26,8 @@
                     <a href="/scspro/pages/secure/index.xhtml"><i class="fa fa-dashboard fa-fw"></i>&#160;<h:outputText id="outTxtDashboardId" value="#{i18n_menu['menu.dashboard']}" name="outTxtDashboardNm"></h:outputText></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-th-list fa-fw"></i>&#160;<h:outputText id="outTxtCatalogsId" value="#{i18n_menu['menu.catalogs']}" name="outTxtCatalogsNm"></h:outputText><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                    <a href="#" aria-expanded="false"><i class="fa fa-th-list fa-fw"></i>&#160;<h:outputText id="outTxtCatalogsId" value="#{i18n_menu['menu.catalogs']}" name="outTxtCatalogsNm"></h:outputText><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" aria-expanded="false">
                         <li>
                             <a href="/scspro/pages/secure/cat/company/list.xhtml"><h:outputText id="outTxtCompaniesId" value="#{i18n_menu['menu.catalogs.companies']}" name="outTxtCompaniesNm"></h:outputText></a>
                         </li>
@@ -44,8 +44,8 @@
                     <a href="/scspro/pages/secure/invoice/invoice-list.xhtml"><i class="fa fa-check fa-fw"></i>&#160;<h:outputText id="outTxtInvoiceId" value="#{i18n_menu['menu.invoice']}" name="outTxtInvoiceNm"></h:outputText></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>&#160;<h:outputText id="outTxtShippingId" value="#{i18n_menu['menu.shipping.cart']}" name="outTxtShippingNm"></h:outputText><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                    <a href="#" aria-expanded="false"><i class="fa fa-shopping-cart fa-fw"></i>&#160;<h:outputText id="outTxtShippingId" value="#{i18n_menu['menu.shipping.cart']}" name="outTxtShippingNm"></h:outputText><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" aria-expanded="false">
                         <li>
                             <a href="/scspro/pages/secure/shipping/assignment-list.xhtml"><h:outputText id="outTxtShippingAssignmentId" value="#{i18n_menu['menu.shipping.assignment']}" name="outTxtShippingAssignmentNm"></h:outputText></a>
                         </li>
@@ -68,8 +68,8 @@
                     <a href="#"><i class="fa fa-line-chart fa-fw"></i>&#160;<h:outputText id="outTxtReportsId" value="#{i18n_menu['menu.reports']}" name="outTxtReportsNm"></h:outputText></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-gears fa-fw"></i>&#160;<h:outputText id="outTxtSystemId" value="#{i18n_menu['menu.system']}" name="outTxtSystemNm"></h:outputText><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                    <a href="#" aria-expanded="false"><i class="fa fa-gears fa-fw"></i>&#160;<h:outputText id="outTxtSystemId" value="#{i18n_menu['menu.system']}" name="outTxtSystemNm"></h:outputText><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" aria-expanded="false">
                         <li>
                             <a href="/scspro/pages/secure/sys/measurement-unit/list.xhtml"><h:outputText id="outTxtMeasurementUnitsId" value="#{i18n_menu['menu.catalogs.measurement']}" name="outTxtMeasurementUnitsNm"></h:outputText></a>
                         </li>

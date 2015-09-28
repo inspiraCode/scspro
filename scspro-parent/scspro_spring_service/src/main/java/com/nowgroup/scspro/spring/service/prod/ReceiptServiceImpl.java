@@ -23,21 +23,21 @@ public class ReceiptServiceImpl extends BaseHibernateIndexableService<Receipt> i
     private ReceiptDAO receiptDAO;
     private ReceiptSequenceDAO sequenceDAO;
     private UserDAO userDAO;
-    
+
     @Transactional(readOnly = false)
     public String getSequence(String storageCode) throws ItemByNameException {
 	Calendar now = Calendar.getInstance();
 	int year = now.get(Calendar.YEAR) - 2000;
 	int doy = now.get(Calendar.DAY_OF_YEAR);
-	
+
 	int userId = userId();
-	
+
 	SeqReceipt seq = new SeqReceipt();
 	seq.setSeqBy(userId);
-	
+
 	int seqCounter = getSequenceDAO().sequenceByUser(seq);
 
-	return storageCode + userId() + SeqReceipt.RECEIPT_SEQUENCE_PREFIX + year + doy + seqCounter;
+	return storageCode + userId() + SeqReceipt.RECEIPT_SEQUENCE_PREFIX + year + doy + String.format("%03d", seqCounter);
     }
 
     private int userId() throws ItemByNameException {
