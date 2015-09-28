@@ -19,6 +19,7 @@ import com.nowgroup.scspro.jsf.beans.BaseFacesReporteableBean;
 import com.nowgroup.scspro.model.cat.CompanyModel;
 import com.nowgroup.scspro.service.cat.CompanyScopeService;
 import com.nowgroup.scspro.service.cat.CompanyService;
+import com.nowgroup.scspro.service.geo.CountryService;
 import com.nowgroup.scspro.service.geo.StateService;
 
 @ManagedBean
@@ -36,6 +37,9 @@ public class CompanyListBean extends BaseFacesReporteableBean {
 
     @ManagedProperty("#{geoStateService}")
     private StateService geoStateServiceImpl;
+
+    @ManagedProperty("#{countryService}")
+    private CountryService geoCountryService;
 
     @ManagedProperty("#{i18n_companies}")
     private ResourceBundle companyMsgBundle;
@@ -79,10 +83,14 @@ public class CompanyListBean extends BaseFacesReporteableBean {
 		model.setDisplayRoles(model.getDisplayRoles().substring(2));
 	    }
 
-	    State geoStateInDb = getCompanyServiceImpl().getStateInCompanyId(model.getId());
-	    if (null != geoStateInDb) {
-		Country countryInDb = getGeoStateServiceImpl().getCountryInState(geoStateInDb.getId());
-		model.setDisplayCountry(countryInDb.getName());
+	    int geoStateIdInDb = getCompanyServiceImpl().getStateIdInCompanyId(model.getId());
+	    if (0 != geoStateIdInDb) {
+		int countryIdInDb = getGeoStateServiceImpl().getCountryIdInState(geoStateIdInDb);
+		if (0 != countryIdInDb) {
+		    Country countryInDb = getGeoCountryService().get(countryIdInDb);
+		    log.debug("received ID from database, getting the country: " + geoStateIdInDb);
+		    model.setDisplayCountry(countryInDb.getName());
+		}
 	    }
 
 	    companiesList.add(model);
@@ -94,7 +102,10 @@ public class CompanyListBean extends BaseFacesReporteableBean {
     public String getCompanyState(int id) {
 	String result = "";
 
-	State geoStateInDb = getCompanyServiceImpl().getStateInCompanyId(id);
+	int geoStateIdInDb = getCompanyServiceImpl().getStateIdInCompanyId(id);
+	State geoStateInDb = null;
+	if (geoStateIdInDb != 0)
+	    geoStateInDb = getGeoStateServiceImpl().get(geoStateIdInDb);
 
 	result = geoStateInDb == null || geoStateInDb.getName() == null ? "" : geoStateInDb.getName();
 	return result;
@@ -162,5 +173,13 @@ public class CompanyListBean extends BaseFacesReporteableBean {
 
     public void setGeoStateServiceImpl(StateService geoStateServiceImpl) {
 	this.geoStateServiceImpl = geoStateServiceImpl;
+    }
+
+    public CountryService getGeoCountryService() {
+	return geoCountryService;
+    }
+
+    public void setGeoCountryService(CountryService geoCountryService) {
+	this.geoCountryService = geoCountryService;
     }
 }

@@ -133,7 +133,6 @@ CREATE TABLE `supply_chain`.`sys_log` (
   PRIMARY KEY (`PROD_LOG_ID`)  COMMENT ''
   );
 
-DROP TABLE IF EXISTS `supply_chain`.`seq_pack_inventory`;
 DROP TABLE IF EXISTS `supply_chain`.`seq_receipt`;
 CREATE TABLE `supply_chain`.`seq_receipt` (
   `SEQ_ID` INT NOT NULL AUTO_INCREMENT COMMENT '',

@@ -25,7 +25,7 @@
         <dependent-module archiveName="scspro_spring_security-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/scspro_spring_security/scspro_spring_security">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="scspro_web_ui"/>
         <property name="java-output-path" value="/scspro_web_ui/target/classes"/>
+        <property name="context-root" value="scspro"/>
     </wb-module>
 </project-modules>

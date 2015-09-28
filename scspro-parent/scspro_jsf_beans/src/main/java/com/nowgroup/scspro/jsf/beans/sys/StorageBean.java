@@ -65,7 +65,8 @@ public class StorageBean implements Serializable {
 	    State storageState = getStorageServiceImpl().getStateInStorage(storage.getId());
 	    log.debug("to state from storage manager: " + storageState);
 	    this.setStateId(storageState.getId());
-	    Country storageCountry = getGeoStateManager().getCountryInState(storageState.getId());
+	    int countryId = getGeoStateManager().getCountryIdInState(storageState.getId());
+	    Country storageCountry = getCountryManager().get(countryId);
 	    this.setCountryId(storageCountry.getId());
 	    if (getStates() == null || !getStates().contains(storageState)) {
 		setStates(new ArrayList<State>());
@@ -144,7 +145,8 @@ public class StorageBean implements Serializable {
 	if (item.getState() != null) {
 	    log.debug("assigned state in storage item: " + item.getState());
 	    int stateId = item.getState().getId();
-	    Country dbCountry = getGeoStateManager().getCountryInState(stateId);
+	    int countryId = getGeoStateManager().getCountryIdInState(stateId);
+	    Country dbCountry = getCountryManager().get(countryId);
 	    log.debug("assigned country in storage item: " + dbCountry.getId());
 
 	    this.setStateId(item.getState().getId());

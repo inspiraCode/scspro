@@ -13,15 +13,15 @@
     </bean>
     
     <!-- GEO CATALOGS -->
-    <bean id="countryService" class="com.nowgroup.scspro.spring.service.cat.CountryServiceImpl">
+    <bean id="countryService" class="com.nowgroup.scspro.spring.service.geo.CountryServiceImpl">
     	<property name="countryDAO" ref="countryDAO"/>
     </bean>
-    <bean id="geoStateService" class="com.nowgroup.scspro.spring.service.cat.StateServiceImpl">
+    <bean id="geoStateService" class="com.nowgroup.scspro.spring.service.geo.StateServiceImpl">
     	<property name="stateDAO" ref="stateDAO"/>
     </bean>
     
     <!-- PROD RECEIPT -->
-    <bean id="receiptService" class="com.nowgroup.scspro.spring.service.cat.ReceiptServiceImpl">
+    <bean id="receiptService" class="com.nowgroup.scspro.spring.service.prod.ReceiptServiceImpl">
     	<property name="receiptDAO" ref="receiptDAO"/>
     	<property name="sequenceDAO" ref="receiptSequenceDAO"/>
     	<property name="userDAO" ref="userDAOImpl"/>
@@ -32,22 +32,22 @@
     <bean id="receiptMerchandiseDAO" class="com.nowgroup.scspro.dao.hibernate.prod.ReceiptMerchandiseDAOHibernate"/>  -->
     
     <!-- SYS -->
-    <bean id="measurementUnitRoleService" class="com.nowgroup.scspro.spring.service.cat.MeasurementUnitRoleServiceImpl">
+    <bean id="measurementUnitRoleService" class="com.nowgroup.scspro.spring.service.sys.MeasurementUnitRoleServiceImpl">
     	<property name="measurementUnitRoleDAO" ref="measurementUnitRoleDAO"/>
     </bean>
-    <bean id="measurementUnitService" class="com.nowgroup.scspro.spring.service.cat.MeasurementUnitServiceImpl">
+    <bean id="measurementUnitService" class="com.nowgroup.scspro.spring.service.sys.MeasurementUnitServiceImpl">
     	<property name="measurementUnitDAO" ref="measurementUnitDAO"/>
     </bean>
-    <bean id="paymentConditionService" class="com.nowgroup.scspro.spring.service.cat.PaymentConditionServiceImpl">
+    <bean id="paymentConditionService" class="com.nowgroup.scspro.spring.service.sys.PaymentConditionServiceImpl">
     	<property name="paymentConditionDAO" ref="paymentConditionDAO"/>
     </bean>
-    <bean id="roleServiceImpl" class="com.nowgroup.scspro.spring.service.cat.RoleServiceImpl">
+    <bean id="roleServiceImpl" class="com.nowgroup.scspro.spring.service.sys.RoleServiceImpl">
     	<property name="roleDAO" ref="roleDAOImpl"/>
     </bean>
-    <bean id="storageService" class="com.nowgroup.scspro.spring.service.cat.StorageServiceImpl">
+    <bean id="storageService" class="com.nowgroup.scspro.spring.service.sys.StorageServiceImpl">
     	<property name="storageDAO" ref="storageDAO"/>
     </bean>
-    <bean id="userServiceImpl" class="com.nowgroup.scspro.spring.service.cat.UserServiceImpl">
+    <bean id="userServiceImpl" class="com.nowgroup.scspro.spring.service.sys.UserServiceImpl">
     	<property name="userDAO" ref="userDAOImpl"/>
     	<property name="encoder" ref="encoder"/>
     </bean>

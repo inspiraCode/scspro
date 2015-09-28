@@ -39,21 +39,21 @@
             <!-- Country -->
             <h:outputLabel id="outLblCompanyCountryId" for="companyCountry" value="#{i18n_companies['company.country']}: " name="outLblCompanyCountryNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <p:selectOneMenu id="companyCountry" value="#{companyBean.countryId}" style="width:90%">
+                <h:selectOneMenu id="companyCountry" value="#{companyBean.countryId}">
                     <f:selectItem itemLabel="#{i18n_companies['company.country.selectOne']}" itemValue="0" noSelectionOption="true" />
-                    <f:selectItems value="#{companyBean.countries}" />
-                    <p:ajax listener="#{companyBean.onCountryChange}" update="companyState" />
-                </p:selectOneMenu>
+                    <f:selectItems value="#{companyBean.countries}"  var="country" itemValue="#{country.id}" itemLabel="#{country.name}" />
+                    <f:ajax listener="#{companyBean.countryAjaxListener}" render="companyState msg" />
+                </h:selectOneMenu>
             </div>
         </div>
         <div class="control-group col-md-6">
             <!-- Company Alias -->
             <h:outputLabel id="outLblCompanyStateId" for="companyState" value="#{i18n_companies['company.state']}: " name="outLblCompanyStateNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <p:selectOneMenu id="companyState" value="#{companyBean.stateId}" style="width:90%">
+                <h:selectOneMenu id="companyState" value="#{companyBean.stateId}" style="width:90%">
                     <f:selectItem itemLabel="#{i18n_companies['company.state.selectOne']}" itemValue="0" noSelectionOption="true" />
-                    <f:selectItems value="#{companyBean.states}" />
-                </p:selectOneMenu>
+                    <f:selectItems value="#{companyBean.states}"  var="state" itemValue="#{state.id}" itemLabel="#{state.name}" />
+                </h:selectOneMenu>
             </div>
         </div>
     </div>

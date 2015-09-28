@@ -15,7 +15,6 @@ import com.nowgroup.scspro.dao.cat.CompanyDAO;
 import com.nowgroup.scspro.dao.cat.CompanyScopeDAO;
 import com.nowgroup.scspro.dto.cat.Company;
 import com.nowgroup.scspro.dto.cat.CompanyScope;
-import com.nowgroup.scspro.dto.geo.State;
 import com.nowgroup.scspro.service.cat.CompanyService;
 import com.nowgroup.scspro.spring.service.BaseSpringService;
 
@@ -68,14 +67,17 @@ public class CompanyServiceImpl extends BaseSpringService<Company> implements Co
 	}
     }
 
-    public State getStateInCompanyId(int id) {
-	State s = null;
+    public int getStateIdInCompanyId(int id) {
 	Company c = getCompanyDAO().get(id);
-	if (null != c) {
-	    s = c.getState();
+	int result = 0;
+	try {
+	    if (null != c && null != c.getState()) {
+		result = c.getState().getId();
+	    }
+	} catch (Exception e) {
+	    log.warn(e.getMessage());
 	}
-
-	return s;
+	return result;
     }
 
     public List<CompanyScope> getCompanyScope(int id) {

@@ -12,6 +12,7 @@ import javax.faces.component.ContextCallback;
 import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlPanelGroup;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
 import org.primefaces.event.DragDropEvent;
@@ -85,16 +86,20 @@ public class CompanyBean extends BaseFacesBean {
 	if (null != company.getState()) {
 	    // Query state and country independently because of the lazy object
 	    // and the transaction requirements
-	    State companyState = getCompanyServiceImpl().getStateInCompanyId(company.getId());
-	    log.debug("got state from state manager: " + companyState);
-	    this.setStateId(companyState.getId());
-	    Country companyCountry = getGeoStateService().getCountryInState(companyState.getId());
+	    int companyStateId = getCompanyServiceImpl().getStateIdInCompanyId(company.getId());
+	    log.debug("got state ID from state manager: " + companyStateId);
+	    this.setStateId(companyStateId);
+	    
+	    int countryId = getGeoStateService().getCountryIdInState(companyStateId);
+	    Country companyCountry = getCountryServiceImpl().get(countryId);
+	    
 	    this.setCountryId(companyCountry.getId());
 	    // check if state is available in country list
 
-	    if (getStates() == null || !getStates().contains(companyState.getId())) {
+	    State stateInDb = getGeoStateService().get(companyStateId);
+	    if (getStates() == null || !getStates().contains(stateInDb)) {
 		setStates(new ArrayList<State>());
-		getStates().add(companyState);
+		getStates().add(stateInDb);
 	    }
 	} else {
 	    this.setStateId(0);
@@ -128,8 +133,8 @@ public class CompanyBean extends BaseFacesBean {
 
 	return "list";
     }
-
-    public void onCountryChange() {
+    
+    public void countryAjaxListener(AjaxBehaviorEvent event) {
 	if (countryId != 0)
 	    states = getCountryServiceImpl().getStatesByCountry(countryId);
 	else

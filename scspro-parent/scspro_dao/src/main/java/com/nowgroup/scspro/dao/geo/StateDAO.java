@@ -1,7 +1,6 @@
 package com.nowgroup.scspro.dao.geo;
 
 import com.nowgroup.scspro.dao.BaseDAO;
-import com.nowgroup.scspro.dto.geo.Country;
 import com.nowgroup.scspro.dto.geo.State;
 
 public interface StateDAO extends BaseDAO<State> {
@@ -13,5 +12,5 @@ public interface StateDAO extends BaseDAO<State> {
      * @param stateId
      * @return
      */
-    Country getCountryInState(int stateId);
+    int getCountryIdInState(int stateId);
 }

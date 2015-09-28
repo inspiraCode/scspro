@@ -4,7 +4,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.nowgroup.scspro.dao.BaseDAO;
 import com.nowgroup.scspro.dao.hibernate.geo.StateDAOHibernate;
-import com.nowgroup.scspro.dto.geo.Country;
 import com.nowgroup.scspro.dto.geo.State;
 import com.nowgroup.scspro.service.geo.StateService;
 import com.nowgroup.scspro.spring.service.BaseSpringService;
@@ -13,9 +12,8 @@ import com.nowgroup.scspro.spring.service.BaseSpringService;
 public class StateServiceImpl extends BaseSpringService<State> implements StateService {
     private StateDAOHibernate stateDAO;
 
-    public Country getCountryInState(int stateId) {
-	Country dbCountry = stateDAO.getCountryInState(stateId);
-	return dbCountry;
+    public int getCountryIdInState(int stateId) {
+	return stateDAO.getCountryIdInState(stateId);
     }
 
     public StateDAOHibernate getStateDAO() {
