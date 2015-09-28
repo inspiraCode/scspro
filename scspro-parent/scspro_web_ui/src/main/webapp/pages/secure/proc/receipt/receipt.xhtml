@@ -40,7 +40,7 @@
                         <!-- Sender Selection -->
                         <h:outputLabel for="selSender" value="#{i18n_proc_receipt['receipt.sender']}: " styleClass="control-label"></h:outputLabel>
                         <div class="controls">
-                            <h:selectOneMenu id="selSender" value="#{receiptBean.senderId}">
+                            <h:selectOneMenu id="selSender" value="#{receiptBean.senderId}" styleClass="form-control">
                                 <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
                                 <f:selectItems value="#{companyClassifierBean.senderCompanies}" var="company" itemValue="#{company.id}" itemLabel="#{company.name}" />
                                 <f:ajax listener="#{receiptBean.senderAjaxListener}" render="lblSender selSeller lblSeller msg" />
@@ -54,7 +54,7 @@
                         <!-- Receiver Selection -->
                         <h:outputLabel for="selReceiver" value="#{i18n_proc_receipt['receipt.receiver']}: " styleClass="control-label"></h:outputLabel>
                         <div class="controls">
-                            <h:selectOneMenu id="selReceiver" value="#{receiptBean.receiverId}">
+                            <h:selectOneMenu id="selReceiver" value="#{receiptBean.receiverId}" styleClass="form-control">
                                 <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
                                 <f:selectItems value="#{companyClassifierBean.receiverCompanies}"  var="company" itemValue="#{company.id}" itemLabel="#{company.name}" />
                                 <f:ajax listener="#{receiptBean.receiverAjaxListener}" render="lblReceiver selPurchaser lblPurchaser msg" />
@@ -68,7 +68,7 @@
                         <!-- Seller Selection -->
                         <h:outputLabel for="selSeller" value="#{i18n_proc_receipt['receipt.seller']}: " styleClass="control-label"></h:outputLabel>
                         <div class="controls">
-                            <h:selectOneMenu id="selSeller" value="#{receiptBean.sellerId}">
+                            <h:selectOneMenu id="selSeller" value="#{receiptBean.sellerId}" styleClass="form-control">
                                 <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
                                 <f:selectItems value="#{companyClassifierBean.sellerCompanies}"  var="company" itemValue="#{company.id}" itemLabel="#{company.name}" />
                                 <f:ajax listener="#{receiptBean.sellerAjaxListener}" render="lblSeller" style="margin-left:15px;" />
@@ -82,7 +82,7 @@
                         <!-- Purchaser Selection -->
                         <h:outputLabel for="selPurchaser" value="#{i18n_proc_receipt['receipt.purchaser']}: " styleClass="control-label"></h:outputLabel>
                         <div class="controls">
-                            <h:selectOneMenu id="selPurchaser" value="#{receiptBean.purchaserId}">
+                            <h:selectOneMenu id="selPurchaser" value="#{receiptBean.purchaserId}" styleClass="form-control">
                                 <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
                                 <f:selectItems value="#{companyClassifierBean.purchaserCompanies}"  var="company" itemValue="#{company.id}" itemLabel="#{company.name}" />
                                 <f:ajax listener="#{receiptBean.purchaserAjaxListener}" render="lblPurchaser" />

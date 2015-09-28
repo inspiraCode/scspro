@@ -30,7 +30,7 @@ public class SeqReceipt implements BaseDTO {
     
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="SEQ_WHEN", updatable = false, insertable=false, nullable = true)
-    private Date seqWhen = new Date();
+    private Date seqWhen;
 
     public int getSeqBy() {
 	return seqBy;
