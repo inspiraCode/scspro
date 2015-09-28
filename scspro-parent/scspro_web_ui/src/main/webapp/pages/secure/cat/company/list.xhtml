@@ -78,25 +78,7 @@
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.css"/>
          <!-- Page-Level Demo Scripts - Tables - Use for reference -->
         <script>
-        $(document).ready(function() {
-            $('#companiesTable').DataTable({
-                responsive: true,
-                "language":{
-                    "lengthMenu":"#{i18n_global['global.dt.lengthMenu']}",
-                    "zeroRecords":"#{i18n_global['global.dt.zeroRecords']}",
-                    "info":"#{i18n_global['global.dt.info']}",
-                    "infoEmpty":"#{i18n_global['global.dt.infoEmpty']}",
-                    "infoFiltered":"#{i18n_global['global.dt.infoFiltered']}",
-                    "search":"#{i18n_global['global.dt.search']}",
-                    "paginate" : {
-                        "first" : "#{i18n_global['global.dt.pagination.first']}",
-                        "last" : "#{i18n_global['global.dt.pagination.last']}",
-                        "next" : "#{i18n_global['global.dt.pagination.next']}",
-                        "previous" : "#{i18n_global['global.dt.pagination.previous']}"
-                    }
-                }
-            });
-        });
+            $('#companiesTable').DataTable(globalDataTableConfig);
         </script>
 
 

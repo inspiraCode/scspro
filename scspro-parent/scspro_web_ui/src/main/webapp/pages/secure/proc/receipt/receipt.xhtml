@@ -36,7 +36,7 @@
                 <!-- /HEADER BUTTONS -->
                 <!-- HEADER DATA -->
                 <div class="row" style="margin-top:10px;">
-                    <div class="control-group col-md-8">
+                    <div class="control-group col-md-6">
                         <!-- Sender Selection -->
                         <h:outputLabel for="selSender" value="#{i18n_proc_receipt['receipt.sender']}: " styleClass="control-label"></h:outputLabel>
                         <div class="controls">
@@ -48,9 +48,7 @@
                             <h:outputText class="text-success" id="lblSender" value="#{receiptBean.senderName}" style="margin-left:15px;" />
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="control-group col-md-8">
+                    <div class="control-group col-md-6">
                         <!-- Receiver Selection -->
                         <h:outputLabel for="selReceiver" value="#{i18n_proc_receipt['receipt.receiver']}: " styleClass="control-label"></h:outputLabel>
                         <div class="controls">
@@ -64,7 +62,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="control-group col-md-12">
+                    <div class="control-group col-md-6">
                         <!-- Seller Selection -->
                         <h:outputLabel for="selSeller" value="#{i18n_proc_receipt['receipt.seller']}: " styleClass="control-label"></h:outputLabel>
                         <div class="controls">
@@ -76,9 +74,7 @@
                             <h:outputText class="text-success" id="lblSeller" value="#{receiptBean.sellerName}" style="margin-left:15px;" />
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="control-group col-md-12">
+                    <div class="control-group col-md-6">
                         <!-- Purchaser Selection -->
                         <h:outputLabel for="selPurchaser" value="#{i18n_proc_receipt['receipt.purchaser']}: " styleClass="control-label"></h:outputLabel>
                         <div class="controls">
@@ -116,7 +112,7 @@
                 </div>
                 <!-- /HEADER DATA -->
                 <!-- TABS CONTROLLER -->
-                <div class="row" style="margin-top:10px;">
+                <div class="row" style="margin-top:15px;">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#freight" data-toggle="tab">#{i18n_proc_receipt['receipt.freight']}</a>
@@ -137,8 +133,7 @@
                             <ui:include src="receipt-tab-freight.xhtml" />
                         </div>
                         <div class="tab-pane fade" id="goods">
-                            <h1>UNDER CONSTRUCTION</h1>
-                            <p>Intended to describe the received merchandise.</p>
+                            <ui:include src="receipt-tab-merchandise.xhtml" />
                         </div>
                         <div class="tab-pane fade" id="documents">
                             <h1>UNDER CONSTRUCTION</h1>

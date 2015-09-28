@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 
 import com.nowgroup.scspro.dto.ItemByNameException;
 import com.nowgroup.scspro.dto.cat.Company;
+import com.nowgroup.scspro.dto.cat.CompanyRole;
 import com.nowgroup.scspro.dto.cat.CompanyScope;
 import com.nowgroup.scspro.jsf.beans.BaseFacesReporteableBean;
 import com.nowgroup.scspro.model.prod.ReceiptModel;
@@ -31,7 +32,7 @@ public class ReceiptBean extends BaseFacesReporteableBean {
     private int receiverId;
     private int sellerId;
     private int purchaserId;
-    
+
     private String receiptGuide;
     private Date guideDate;
     private String receiptVehicle;
@@ -46,7 +47,7 @@ public class ReceiptBean extends BaseFacesReporteableBean {
 
     @ManagedProperty("#{companyService}")
     private CompanyService companyService;
-    
+
     @ManagedProperty("#{receiptService}")
     private ReceiptService receiptService;
 
@@ -77,27 +78,40 @@ public class ReceiptBean extends BaseFacesReporteableBean {
     }
 
     public String remove(ReceiptModel receiptModel) throws Exception {
-	// TODO: Implement
-	publishWarning("NOT IMPLEMENTED YET");
-	return "";
+	try {
+	    getReceiptService().delete(receiptModel.demodelize());
+	    // TODO: Force download list
+	} catch (Exception e) {
+	    log.error(e.getMessage(), e);
+	    publishError(msg.getString("receipt.remove.error"));
+	    publishError(e.getLocalizedMessage());
+	}
+	return "list";
     }
 
     public String uploadReceipt() throws Exception {
-	// TODO: Implement
-	publishWarning("NOT IMPLEMENTED YET");
-	return "";
-    }
+	try {
+	    if (getReceipt().getId() != 0) {
+		getReceiptService().update(receipt.demodelize());
+	    } else {
+		getReceiptService().add(receipt.demodelize());
+	    }
+	} catch (org.springframework.dao.DataIntegrityViolationException e) {
+	    log.error(e.getMessage(), e);
+	    publishError(msg.getString("receipt.save.duplicate"));
+	    return "";
+	} catch (Exception e) {
+	    log.error(e.getMessage(), e);
+	    publishError(msg.getString("receipt.save.error"));
+	    publishError(e.getLocalizedMessage());
+	    return "";
+	}
 
-    public String remove() {
-	// TODO: Implement
-	publishWarning("NOT IMPLEMENTED YET");
-	return "";
+	return "list";
     }
 
     public String showList() {
-	// TODO: Implement
-	publishWarning("NOT IMPLEMENTED YET");
-	return "";
+	return "list";
     }
 
     public void senderAjaxListener(AjaxBehaviorEvent event) {
@@ -166,7 +180,7 @@ public class ReceiptBean extends BaseFacesReporteableBean {
 	    receipt.setSellerName(dbCompany.getAlias());
 	}
     }
-    
+
     public void freighterAjaxListener(AjaxBehaviorEvent event) {
 	if (freighterId != 0) {
 	    Company dbCompany = companyService.get(freighterId);
@@ -176,7 +190,8 @@ public class ReceiptBean extends BaseFacesReporteableBean {
 
     private void removeCompanyFromReceipt(String companyScope) {
 	for (CompanyScope scope : receipt.getCompanies()) {
-	    if (scope.getCompanyRole().getName().equals(companyScope)) {
+	    CompanyRole dbRole = getCompanyScope().getRoleInCompanyScope(scope.getId());
+	    if (companyScope.equals(dbRole.getName())) {
 		receipt.getCompanies().remove(scope);
 		return;
 	    }
@@ -304,43 +319,43 @@ public class ReceiptBean extends BaseFacesReporteableBean {
     }
 
     public Date getGuideDate() {
-        return guideDate;
+	return guideDate;
     }
 
     public void setGuideDate(Date guideDate) {
-        this.guideDate = guideDate;
+	this.guideDate = guideDate;
     }
 
     public String getReceiptVehicle() {
-        return receiptVehicle;
+	return receiptVehicle;
     }
 
     public void setReceiptVehicle(String receiptVehicle) {
-        this.receiptVehicle = receiptVehicle;
+	this.receiptVehicle = receiptVehicle;
     }
 
     public int getFreighterId() {
-        return freighterId;
+	return freighterId;
     }
 
     public void setFreighterId(int freighterId) {
-        this.freighterId = freighterId;
+	this.freighterId = freighterId;
     }
 
     public int getPaymentConditionId() {
-        return paymentConditionId;
+	return paymentConditionId;
     }
 
     public void setPaymentConditionId(int paymentConditionId) {
-        this.paymentConditionId = paymentConditionId;
+	this.paymentConditionId = paymentConditionId;
     }
 
     public String getReceiptFreightComments() {
-        return receiptFreightComments;
+	return receiptFreightComments;
     }
 
     public void setReceiptFreightComments(String receiptFreightComments) {
-        this.receiptFreightComments = receiptFreightComments;
+	this.receiptFreightComments = receiptFreightComments;
     }
 
     public String getFreighterName() {
