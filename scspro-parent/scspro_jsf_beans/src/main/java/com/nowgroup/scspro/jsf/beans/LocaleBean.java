@@ -23,7 +23,7 @@ public class LocaleBean implements Serializable {
     static {
 	languages = new LinkedHashMap<String, String>();
 	languages.put("English", "en");
-	languages.put("Espa�ol", "es");
+	languages.put("Español", "es");
     }
 
     public Map<String, String> getAvailableLanguages() {

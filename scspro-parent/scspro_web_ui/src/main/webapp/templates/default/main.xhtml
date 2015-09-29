@@ -28,48 +28,26 @@
             <meta name="msapplication-TileColor" content="#da532c"/>
             <meta name="theme-color" content="#ffffff"/>
  
-            <title>SCS Pro</title>
-            <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-            <h:outputScript name="js/plugins/morris/raphael.min.js" />
+            <title><ui:insert name="title">SCS Pro</ui:insert></title>
             <!-- Custom Theme JavaScript -->
+            <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
             <h:outputScript name="js/sb-admin-2.js" />
             <link rel="stylesheet" href="http://css-spinners.com/css/spinner/throbber.css" type="text/css"/>
         </f:facet>
  
         <f:facet name="middle">
-          <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
-          <h:outputStylesheet name="metisMenu/css/metisMenu.css" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
           <h:outputStylesheet name="css/sb-admin-2.css" />
-          <h:outputStylesheet name="css/timeline.css" />
-          <h:outputStylesheet name="css/plugins/morris.css" />
-
-          <h:outputScript name="bootstrap/js/bootstrap.js" />
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         </f:facet>
         
         <f:facet name="last">
           <!-- Metis Menu Plugin JavaScript -->
-          <h:outputScript name="metisMenu/js/metisMenu.js" />
-          <h:outputStylesheet name="css/font-awesome.css" />
-          <script>
-          var globalDataTableConfig = {
-              responsive: true,
-              "language":{
-                  "lengthMenu":"#{i18n_global['global.dt.lengthMenu']}",
-                  "zeroRecords":"#{i18n_global['global.dt.zeroRecords']}",
-                  "info":"#{i18n_global['global.dt.info']}",
-                  "infoEmpty":"#{i18n_global['global.dt.infoEmpty']}",
-                  "infoFiltered":"#{i18n_global['global.dt.infoFiltered']}",
-                  "search":"#{i18n_global['global.dt.search']}",
-                  "paginate" : {
-                      "first" : "#{i18n_global['global.dt.pagination.first']}",
-                      "last" : "#{i18n_global['global.dt.pagination.last']}",
-                      "next" : "#{i18n_global['global.dt.pagination.next']}",
-                      "previous" : "#{i18n_global['global.dt.pagination.previous']}"
-                  }
-              }
-          };
-          </script>
+          <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.2.0/metisMenu.min.css" />
+          <script src="//cdn.jsdelivr.net/jquery.metismenu/2.2.0/metisMenu.min.js"></script>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
         </f:facet>
+        <ui:insert name="content-header"/>
     </h:head>
  
     <h:body>

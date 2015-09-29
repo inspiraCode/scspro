@@ -6,6 +6,19 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <ui:composition template="/templates/default/main.xhtml">
+    <ui:define name="title">SCS PRO - Dashboard</ui:define>
+    <ui:define name="content-header">
+        <!--<h:outputStylesheet name="css/plugins/morris.css" /> -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"/>
+        <!-- <h:outputScript name="js/plugins/morris/raphael.min.js" /> -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <!-- <h:outputScript name="js/plugins/morris/morris.js" /> -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+        
+        <!-- Morris Charts JavaScript -->
+        <h:outputScript name="js/plugins/morris/morris-data.js" />
+        <!-- <h:outputStylesheet name="css/timeline.css" /> -->
+    </ui:define>
     <ui:define name="content">
         <!-- Page Heading -->
         <div class="row">
@@ -270,9 +283,6 @@
             </div>
         </div>
         <!-- /.row -->
-        <!-- Morris Charts JavaScript -->
-        <h:outputScript name="js/plugins/morris/morris.js" />
-        <h:outputScript name="js/plugins/morris/morris-data.js" />
     </ui:define>
 </ui:composition>
 

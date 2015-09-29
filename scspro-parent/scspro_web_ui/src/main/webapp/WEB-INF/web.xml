@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="SCSPRO" metadata-complete="true" version="2.5">
   <display-name>Supply Chain Software Professional</display-name>
-  <error-page>
+  <!-- <error-page>
     <error-code>403</error-code>
     <location>/pages/public/error.xhtml</location>
   </error-page>
@@ -20,7 +20,7 @@
   <error-page>
     <exception-type>java.lang.Exception</exception-type>
     <location>/pages/public/error.xhtml</location>
-  </error-page>
+  </error-page> -->
   <context-param>
     <description>Sprig Security Facelets Tag Library</description>
     <param-name>javax.faces.FACELETS_LIBRARIES</param-name>

@@ -7,6 +7,33 @@
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/templates/default/main.xhtml">
+    <ui:define name="title">SCS PRO - #{i18n_companies['companies.title']}</ui:define>
+    <ui:define name="content-header">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" />
+        <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                var companiesTableConfig = {
+                  responsive : true,
+                  "language" : {
+                    "lengthMenu" : "#{i18n_global['global.dt.lengthMenu']}",
+                    "zeroRecords" : "#{i18n_global['global.dt.zeroRecords']}",
+                    "info" : "#{i18n_global['global.dt.info']}",
+                    "infoEmpty" : "#{i18n_global['global.dt.infoEmpty']}",
+                    "infoFiltered" : "#{i18n_global['global.dt.infoFiltered']}",
+                    "search" : "#{i18n_global['global.dt.search']}",
+                    "paginate" : {
+                      "first" : "#{i18n_global['global.dt.pagination.first']}",
+                      "last" : "#{i18n_global['global.dt.pagination.last']}",
+                      "next" : "#{i18n_global['global.dt.pagination.next']}",
+                      "previous" : "#{i18n_global['global.dt.pagination.previous']}"
+                    }
+                  }
+                };
+                $('#companiesTable').DataTable(companiesTableConfig);
+            });
+        </script>
+    </ui:define>
     <ui:define name="content">
         <!-- Page Heading -->
         <div class="row">
@@ -73,15 +100,6 @@
             </div>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         </h:form>
-
-        <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.css"/>
-         <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-        <script>
-            $('#companiesTable').DataTable(globalDataTableConfig);
-        </script>
-
-
     </ui:define>
 </ui:composition>
 
