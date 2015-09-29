@@ -95,54 +95,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
-			"settings":
-			{
-				"buffer_size": 11071,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
-			"settings":
-			{
-				"buffer_size": 6969,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
-			"settings":
-			{
-				"buffer_size": 5346,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
-			"settings":
-			{
-				"buffer_size": 5440,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
-			"settings":
-			{
-				"buffer_size": 8109,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
-			"settings":
-			{
-				"buffer_size": 6964,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -186,18 +138,33 @@
 	],
 	"file_history":
 	[
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/index.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/pages/secure/index.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/register.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/login.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/reg_confirm.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/session-expired.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/error.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/templates/default/main.xhtml",
+		"/C/jetty/logs/.donotdelete",
+		"/C/jetty/resources/log4j.properties",
+		"/C/jetty/webapps/README.TXT",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
+		"/C/Program Files/SmartBear/SoapUI-5.1.3/bin/SoapUI-5.2.0.vmoptions",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
+		"/C/Users/torredie/Documents/projects/scspro/DataTables-1.10.9/datatables.css",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/05_prod_receipt.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/spring/service/cat/CompanyRoleServiceImpl.java",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/spring/service/cat/CompanyScopeServiceImpl.java",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/spring/service/cat/CompanyServiceImpl.java",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/register.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/service/prod/ReceiptService.java",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/dao/common/CodableDAO.java",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/dao/common/NamableDAO.java",
@@ -298,26 +265,11 @@
 		"/C/apache/Apache24/htdocs/services/api.php",
 		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/java/com/aberaty/domain/dao/hibernate/common/AberatyHibernateDaoSupport.java",
 		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/java/com/aberaty/authentication/dao/PermissionDao.java",
-		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/java/com/aberaty/domain/dao/common/BaseDao.java",
-		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/java/com/aberaty/domain/common/BaseDomain.java",
-		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/java/com/aberaty/authentication/model/domain/User.java",
-		"/C/Users/torredie/Documents/RCU/svn-rcu-amer-demos/java/mutualAuthenticated/readme.txt",
-		"/C/Users/torredie/Documents/projects/inspira/inspiraschool/mysql_schema/sys_user_sample.sql",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/resources/05-cat-payment_condition-domain.hbm.xml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/resources/03-cat-company-domain.hbm.xml",
-		"/C/Users/torredie/Documents/projects/scspro/database/07_prod_receipt.sql",
-		"/C/Users/torredie/Documents/projects/scspro/database/06_cat_measurement_unit - Copy.sql",
-		"/C/Users/torredie/Documents/projects/scspro/startbootstrap-sb-admin-1.0.3/index.html",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/measurement-unit/measurement-unit-list.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/measurement-unit/measurement-unit.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/measurement-unit/tab-general.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/measurement-unit/tab-profile.xhtml",
-		"/C/apache/apache-tomcat-8.0.26/logs/catalina.2015-09-15.log",
-		"/C/apache/apache-tomcat-8.0.26/logs/manager.2015-09-15.log"
+		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/java/com/aberaty/domain/dao/common/BaseDao.java"
 	],
 	"find":
 	{
-		"height": 43.0
+		"height": 58.0
 	},
 	"find_in_files":
 	{
@@ -331,6 +283,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"        \n",
+			"            \n",
 			"faces",
 			"web",
 			"spring-tx",
@@ -488,189 +442,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11071,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8707,
-								8707
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2690.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6969,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6866,
-								6866
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1790.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5346,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3184,
-								3205
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 900.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5440,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5373,
-								5373
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1240.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8109,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8042,
-								8042
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2070.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6964,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6938,
-								6938
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1920.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -723,6 +496,18 @@
 		"selected_items":
 		[
 			[
+				"inde",
+				"scspro-parent\\scspro_web_ui\\target\\scspro\\pages\\secure\\index.xhtml"
+			],
+			[
+				"main",
+				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\templates\\default\\main.xhtml"
+			],
+			[
+				"index",
+				"scspro-parent\\scspro_web_ui\\target\\scspro\\pages\\secure\\index.xhtml"
+			],
+			[
 				"sql",
 				"dbScripts\\05_prod_receipt.sql"
 			],
@@ -735,20 +520,12 @@
 				"scspro\\web\\target\\scspro\\templates\\default\\leftMenu.xhtml"
 			],
 			[
-				"main",
-				"scspro\\web\\target\\scspro\\templates\\default\\main.xhtml"
-			],
-			[
 				"heade",
 				"scspro\\web\\target\\scspro\\templates\\default\\header.xhtml"
 			],
 			[
 				"hea",
 				"scspro\\web\\target\\scspro\\templates\\default\\header.xhtml"
-			],
-			[
-				"inde",
-				"scspro\\startbootstrap-sb-admin-1.0.3\\index.html"
 			],
 			[
 				"app.js",
@@ -781,10 +558,6 @@
 			[
 				"main.js",
 				"enrollment/app/scripts/controllers/main.js"
-			],
-			[
-				"index",
-				"enrollment/app/index.html"
 			],
 			[
 				"api",
