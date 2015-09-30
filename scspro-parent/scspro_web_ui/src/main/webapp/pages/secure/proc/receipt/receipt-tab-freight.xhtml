@@ -74,7 +74,7 @@
                 <h:commandButton value="#{i18n_global['global.save']}" styleClass="btn btn-outline btn-primary">
                     <f:ajax listener="#{receiptFreightBean.addFreightAjaxListener}" execute="@form" render="@form msg" />
                 </h:commandButton>
-                <h:commandButton value="#{i18n_global['global.remove']}" styleClass="btn btn-outline btn-warning">
+                <h:commandButton value="#{i18n_global['global.removeSelected']}" styleClass="btn btn-outline btn-warning">
                     <f:ajax listener="#{receiptFreightBean.removeFreightAjaxListener}" render="receiptFreightTableContainer msg" />
                 </h:commandButton>
             </div>

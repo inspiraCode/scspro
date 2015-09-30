@@ -1,5 +1,6 @@
 package com.nowgroup.scspro.dto.prod;
 
+import java.util.Comparator;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -27,7 +28,7 @@ import com.nowgroup.scspro.dto.sys.PaymentCondition;
 @Entity
 @Table(name = "prod_receipt_freight", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = { "PRT_RECEIPT_ID", "PRT_GUIDE" }),
 	@UniqueConstraint(columnNames = { "PRT_GUIDE", "PRT_FREIGHTER" }) })
-public class ReceiptFreight implements BaseDTO {
+public class ReceiptFreight implements BaseDTO, Comparable<ReceiptFreight> {
     private static final long serialVersionUID = 6289097662510497688L;
 
     @Id
@@ -131,7 +132,39 @@ public class ReceiptFreight implements BaseDTO {
     }
 
     @Override
+    public boolean equals(Object obj) {
+	if (obj == null)
+	    return false;
+	if (!(obj instanceof ReceiptFreight))
+	    return false;
+
+	ReceiptFreight rf = (ReceiptFreight) obj;
+	if (this.id == rf.getId())
+	    return true;
+	return false;
+    }
+
+    @Override
     public String toString() {
 	return "{id:" + id + ";guide:" + guide + ";vehicle:" + vehicle + ";comments:" + comments + ";date:" + guideDate + ";}";
+    }
+
+    @Override
+    public int compareTo(ReceiptFreight o) {
+	return Comparators.ID.compare(this, o);
+    }
+
+    public static class Comparators {
+	public static Comparator<ReceiptFreight> ID = new Comparator<ReceiptFreight>() {
+
+	    public int compare(ReceiptFreight o1, ReceiptFreight o2) {
+		return o1.id - o2.id;
+	    }
+	};
+	public static Comparator<ReceiptFreight> GUIDE = new Comparator<ReceiptFreight>() {
+	    public int compare(ReceiptFreight o1, ReceiptFreight o2) {
+		return o1.getGuide().compareTo(o2.getGuide());
+	    }
+	};
     }
 }

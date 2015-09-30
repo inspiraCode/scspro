@@ -26,6 +26,7 @@ public class ReceiptFreightBean extends BaseFacesBean {
     private static final long serialVersionUID = 5094500901820048978L;
     private static final Logger log = Logger.getLogger(PaymentConditionBean.class.getName());
 
+    private int receiptFreightId = 0;
     private String receiptGuide = "";
     private Date guideDate = new Date();
     private String vehicle;
@@ -34,6 +35,8 @@ public class ReceiptFreightBean extends BaseFacesBean {
     private int paymentConditionId;
     private String receiptFreightComments;
     private List<ReceiptFreightModel> receiptFreights = new ArrayList<ReceiptFreightModel>();
+    private List<ReceiptFreightModel> selectedFreights = new ArrayList<ReceiptFreightModel>();
+    private int internalID = 0;
 
     private ReceiptFreightModel receiptFreight;
 
@@ -51,6 +54,7 @@ public class ReceiptFreightBean extends BaseFacesBean {
 	freighterName = "";
 	paymentConditionId = 0;
 	receiptFreightComments = "";
+	receiptFreightId = 0;
     }
 
     private boolean guideInFreight() {
@@ -89,9 +93,18 @@ public class ReceiptFreightBean extends BaseFacesBean {
 
     }
 
+    public String selectedItem(ReceiptFreightModel item) {
+	if (item.isSelected())
+	    selectedFreights.add(item);
+	else
+	    selectedFreights.remove(item);
+
+	return "";
+    }
+
     public String add() {
 	log.info("ReceiptFreightBean.add() - BEGIN");
-	if (guideInFreight()) {
+	if (receiptFreightId != 0 && guideInFreight()) {
 	    // TODO: Internationalize
 	    publishWarning("Guide already added to receipt.");
 	    log.info("ReceiptFreightBean.add() - VALIDATION FAILED");
@@ -99,6 +112,7 @@ public class ReceiptFreightBean extends BaseFacesBean {
 	}
 	// Implement
 	ReceiptFreightModel newRf = new ReceiptFreightModel();
+	newRf.setId(receiptFreightId == 0 ? --internalID : receiptFreightId);
 	newRf.setGuide(receiptGuide);
 	newRf.setGuideDate(guideDate);
 	newRf.setVehicle(vehicle);
@@ -118,16 +132,35 @@ public class ReceiptFreightBean extends BaseFacesBean {
 	    log.debug("Receipt Freight to be added at receiptFreights list: " + newRf);
 	}
 
-	// TODO: If receiptId != 0 then first add in database.
-	receiptFreights.add(newRf);
+	// TODO: If receiptId > 0 then first add in database.
+	if (!receiptFreights.contains(newRf))
+	    receiptFreights.add(newRf);
+	else {
+	    ReceiptFreightModel existent = receiptFreights.get(receiptFreights.indexOf(newRf));
+	    existent.setId(receiptFreightId);
+	    existent.setComments(newRf.getComments());
+	    existent.setFreighter(newRf.getFreighter());
+	    existent.setFreighterName(newRf.getFreighterName());
+	    existent.setGuide(newRf.getGuide());
+	    existent.setGuideDate(newRf.getGuideDate());
+	    existent.setPaymentCondition(newRf.getPaymentCondition());
+	    existent.setReceipt(newRf.getReceipt());
+	    existent.setVehicle(newRf.getVehicle());
+	}
 	log.debug("new size of receiptFreight items: " + receiptFreights.size());
 	log.info("ReceiptFreightBean.add() - END");
 	return "";
     }
 
-    public String edit(ReceiptFreight item) {
-	// TODO: Implement
-	publishWarning("NOT IMPLEMENTED YET");
+    public String edit(ReceiptFreightModel item) {
+	receiptFreightId = item.getId();
+	receiptGuide = item.getGuide();
+	guideDate = item.getGuideDate();
+	vehicle = item.getVehicle();
+	freighterId = item.getFreighter().getId();
+	freighterName = item.getFreighterName();
+	paymentConditionId = item.getPaymentCondition().getId();
+	receiptFreightComments = item.getComments();
 	return "";
     }
 
@@ -256,5 +289,13 @@ public class ReceiptFreightBean extends BaseFacesBean {
 
     public void setReceiptFreight(ReceiptFreightModel receiptFreight) {
 	this.receiptFreight = receiptFreight;
+    }
+
+    public List<ReceiptFreightModel> getSelectedFreights() {
+	return selectedFreights;
+    }
+
+    public void setSelectedFreights(List<ReceiptFreightModel> selectedFreights) {
+	this.selectedFreights = selectedFreights;
     }
 }

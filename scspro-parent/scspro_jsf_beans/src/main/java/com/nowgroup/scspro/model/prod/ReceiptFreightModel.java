@@ -5,11 +5,11 @@ import com.nowgroup.scspro.dto.prod.ReceiptFreight;
 public class ReceiptFreightModel extends ReceiptFreight {
     private static final long serialVersionUID = 800661619500619839L;
     private String freighterName;
-    private boolean selected;
-    
-    public ReceiptFreight demodelize(){
+    private boolean selected = false;
+
+    public ReceiptFreight demodelize() {
 	ReceiptFreight result = new ReceiptFreight();
-	result.setId(getId());
+	result.setId(getId() < 0 ? 0 : getId());
 	result.setComments(getComments());
 	result.setFreighter(getFreighter());
 	result.setGuide(getGuide());
@@ -19,10 +19,11 @@ public class ReceiptFreightModel extends ReceiptFreight {
 	result.setVehicle(getVehicle());
 	return result;
     }
-    
+
     public String getFreighterName() {
 	return freighterName;
     }
+
     public void setFreighterName(String freighterName) {
 	this.freighterName = freighterName;
     }
