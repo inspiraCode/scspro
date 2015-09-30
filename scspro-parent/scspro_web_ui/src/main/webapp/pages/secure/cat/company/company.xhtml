@@ -7,6 +7,7 @@
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/templates/default/main.xhtml">
+	<ui:define name="title">SCS PRO - #{i18n_companies['companies.title']} #{companyBean.company.id>0?companyBean.company.id:i18n_companies['companies.title.add']} </ui:define>
     <ui:define name="content">
         <!-- Page Heading -->
         <div class="row">
@@ -17,7 +18,7 @@
                 </h1>
             </div>
         </div>
-        <p:messages id="msg" style="text-decoration: overline;" />
+        <p:messages id="msg" />
         <!-- Form content -->
         <h:form>
             <fieldset> 

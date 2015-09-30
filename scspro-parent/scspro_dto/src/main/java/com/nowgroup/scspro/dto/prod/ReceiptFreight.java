@@ -129,4 +129,9 @@ public class ReceiptFreight implements BaseDTO {
     public void setComments(String comments) {
 	this.comments = comments;
     }
+
+    @Override
+    public String toString() {
+	return "{id:" + id + ";guide:" + guide + ";vehicle:" + vehicle + ";comments:" + comments + ";date:" + guideDate + ";}";
+    }
 }

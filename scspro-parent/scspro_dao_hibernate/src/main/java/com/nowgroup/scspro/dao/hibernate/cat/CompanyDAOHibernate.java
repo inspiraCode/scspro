@@ -3,14 +3,12 @@ package com.nowgroup.scspro.dao.hibernate.cat;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.nowgroup.scspro.dao.cat.CompanyDAO;
 import com.nowgroup.scspro.dao.hibernate.BaseHibernateDAO;
 import com.nowgroup.scspro.dto.cat.Company;
 
 public class CompanyDAOHibernate extends BaseHibernateDAO<Company> implements CompanyDAO {
-    private static final Logger log = Logger.getLogger(CompanyDAOHibernate.class.getName());
+    //private static final Logger log = Logger.getLogger(CompanyDAOHibernate.class.getName());
 
     public CompanyDAOHibernate() {
 	super(Company.class);
@@ -21,7 +19,6 @@ public class CompanyDAOHibernate extends BaseHibernateDAO<Company> implements Co
 	List<Integer> find = (List<Integer>) getHibernateTemplate().find(QUERY_BY_SCOPE, scope);
 	List<Company> result = new LinkedList<Company>();
 	for(int iCompany : find) {
-	    log.debug("found " + scope + " company with id: " + iCompany);
 	    Company company = get(iCompany);
 	    result.add(company);
 	} 

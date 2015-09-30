@@ -46,6 +46,25 @@
           <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.2.0/metisMenu.min.css" />
           <script src="//cdn.jsdelivr.net/jquery.metismenu/2.2.0/metisMenu.min.js"></script>
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+          <script>
+            var globalDataTableConfig = {
+                responsive : true,
+                "language" : {
+                  "lengthMenu" : "#{i18n_global['global.dt.lengthMenu']}",
+                  "zeroRecords" : "#{i18n_global['global.dt.zeroRecords']}",
+                  "info" : "#{i18n_global['global.dt.info']}",
+                  "infoEmpty" : "#{i18n_global['global.dt.infoEmpty']}",
+                  "infoFiltered" : "#{i18n_global['global.dt.infoFiltered']}",
+                  "search" : "#{i18n_global['global.dt.search']}",
+                  "paginate" : {
+                    "first" : "#{i18n_global['global.dt.pagination.first']}",
+                    "last" : "#{i18n_global['global.dt.pagination.last']}",
+                    "next" : "#{i18n_global['global.dt.pagination.next']}",
+                    "previous" : "#{i18n_global['global.dt.pagination.previous']}"
+                  }
+                }
+              };
+          </script>
         </f:facet>
         <ui:insert name="content-header"/>
     </h:head>
@@ -71,6 +90,19 @@
          <h1><small><h:outputText id="outTxtLoadingId" value=" #{i18n_global['global.loading']}" name="outTxtLoadingNm"></h:outputText></small></h1>
         </div>
       </div>
+      <script>
+      	var showLoading = true;
+		$(document).ready(function(){
+		    $('#nonAjaxLoad').hide();
+		});
+
+		$(window).bind('beforeunload', function(){
+		    if(showLoading) {
+			    $('#nonAjaxLoad').show(); 
+			}
+			showLoading = true;
+		});
+      </script>
       </f:view>
     </h:body>
 </html>

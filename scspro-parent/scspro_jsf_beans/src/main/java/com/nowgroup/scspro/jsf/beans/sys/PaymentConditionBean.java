@@ -1,6 +1,5 @@
 package com.nowgroup.scspro.jsf.beans.sys;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -13,11 +12,12 @@ import javax.faces.context.FacesContext;
 import org.apache.log4j.Logger;
 
 import com.nowgroup.scspro.dto.sys.PaymentCondition;
+import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
 import com.nowgroup.scspro.service.sys.PaymentConditionService;
 
 @ManagedBean
 @SessionScoped
-public class PaymentConditionBean implements Serializable {
+public class PaymentConditionBean extends BaseFacesBean {
     private static final long serialVersionUID = -2957129988064896266L;
     private static final Logger log = Logger.getLogger(PaymentConditionBean.class.getName());
 

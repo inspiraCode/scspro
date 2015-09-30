@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14434160693900" configfile="/scspro_web_ui/src/main/webapp/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14434160693900" configfile="/scspro_web_ui/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="pages/public/login.xhtml" x="338" y="178" id="pf14435912709220" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf14435912709221 pf14435912709222 pf14435912709223" inlinks="pf14435912709222 pf14435912709223 pf14435912709224" path="/pages/public/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/index.xhtml" x="554" y="178" id="pf14435912709225" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14435912709221" path="/pages/secure/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="178" id="pf14435912709226" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14435912709224" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/cat/company/company.xhtml" x="122" y="562" id="pf14435912709227" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14435912709228" path="/pages/secure/cat/company/company.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/cat/company/list.xhtml" x="338" y="562" id="pf14435912709229" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14435912709228" path="/pages/secure/cat/company/list.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/storage/storage.xhtml" x="122" y="946" id="pf144359127092210" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf144359127092211" path="/pages/secure/sys/storage/storage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/storage/list.xhtml" x="338" y="946" id="pf144359127092212" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf144359127092211" path="/pages/secure/sys/storage/list.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/measurement-unit/measurement-unit.xhtml" x="122" y="1330" id="pf144359127092213" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf144359127092214" path="/pages/secure/sys/measurement-unit/measurement-unit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/measurement-unit/list.xhtml" x="338" y="1330" id="pf144359127092215" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf144359127092214" path="/pages/secure/sys/measurement-unit/list.xhtml"/>
+  <links id="pf14435912709221" target="pf14435912709225" source="pf14435912709220" outcome="correct" redirect="true" fromaction="#{loginMgmtBean.login}"/>
+  <links id="pf14435912709224" target="pf14435912709220" source="pf14435912709226" outcome="loggedout" redirect="true" fromaction="#{loginMgmtBean.logout}"/>
+  <links id="pf14435912709228" target="pf14435912709229" source="pf14435912709227" outcome="success" redirect="true" fromaction="#{companyBean.uploadCompany}"/>
+  <links id="pf144359127092211" target="pf144359127092212" source="pf144359127092210" outcome="success" redirect="true" fromaction="#{storageBean.uploadStorage}"/>
+  <links id="pf144359127092214" target="pf144359127092215" source="pf144359127092213" outcome="success" redirect="true" fromaction="#{measurementUnitBean.uploadMeasurementUnit}"/>
+  <links id="pf14435912709222" target="pf14435912709220" source="pf14435912709220" outcome="incorrect" fromaction="#{loginMgmtBean.login}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf14435912709223" target="pf14435912709220" source="pf14435912709220" outcome="changedLanguage" fromaction="#{localeBean.changeLanguage}">
+    <bendPoints d1Height="-66" d2Height="-66"/>
+    <bendPoints d1Width="-94" d1Height="-66" d2Width="-94" d2Height="-66"/>
+    <bendPoints d1Width="-94" d2Width="-94"/>
+  </links>
+</pageflow:Pageflow>

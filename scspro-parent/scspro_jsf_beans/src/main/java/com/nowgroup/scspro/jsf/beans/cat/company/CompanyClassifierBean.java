@@ -8,8 +8,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
-import org.apache.log4j.Logger;
-
 import com.nowgroup.scspro.dto.cat.Company;
 import com.nowgroup.scspro.dto.cat.CompanyScope;
 import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
@@ -19,7 +17,7 @@ import com.nowgroup.scspro.service.cat.CompanyService;
 @RequestScoped
 public class CompanyClassifierBean extends BaseFacesBean {
     private static final long serialVersionUID = -8484705273446991914L;
-    private static final Logger logger = Logger.getLogger(CompanyClassifierBean.class.getName());
+    //private static final Logger logger = Logger.getLogger(CompanyClassifierBean.class.getName());
 
     @ManagedProperty("#{companyService}")
     private CompanyService companyServiceImpl;
@@ -47,7 +45,6 @@ public class CompanyClassifierBean extends BaseFacesBean {
     private List<Company> getCompaniesByScope(String scope) {
 	List<Company> result = new LinkedList<Company>();
 	for (Company company : getCompanyServiceImpl().getCompaniesByScope(scope)) {
-	    logger.debug(company);
 	    result.add(company);
 	}
 	Collections.sort(result);

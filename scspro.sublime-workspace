@@ -95,6 +95,38 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
+			"settings":
+			{
+				"buffer_size": 7498,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
+			"settings":
+			{
+				"buffer_size": 7376,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
+			"settings":
+			{
+				"buffer_size": 11330,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
+			"settings":
+			{
+				"buffer_size": 3460,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -139,29 +171,30 @@
 	"file_history":
 	[
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/pages/secure/index.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/index.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/pages/secure/index.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/register.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/login.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/reg_confirm.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/session-expired.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/error.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/templates/default/main.xhtml",
 		"/C/jetty/logs/.donotdelete",
 		"/C/jetty/resources/log4j.properties",
 		"/C/jetty/webapps/README.TXT",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
 		"/C/Program Files/SmartBear/SoapUI-5.1.3/bin/SoapUI-5.2.0.vmoptions",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
 		"/C/Users/torredie/Documents/projects/scspro/DataTables-1.10.9/datatables.css",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/05_prod_receipt.sql",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/spring/service/cat/CompanyRoleServiceImpl.java",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/spring/service/cat/CompanyScopeServiceImpl.java",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/spring/service/cat/CompanyServiceImpl.java",
@@ -264,8 +297,7 @@
 		"/C/apache/Apache24/htdocs/services/jwt_helper.php",
 		"/C/apache/Apache24/htdocs/services/api.php",
 		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/java/com/aberaty/domain/dao/hibernate/common/AberatyHibernateDaoSupport.java",
-		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/java/com/aberaty/authentication/dao/PermissionDao.java",
-		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/java/com/aberaty/domain/dao/common/BaseDao.java"
+		"/C/Users/torredie/Documents/projects/aberaty/git/aberaty/web-platform/src/main/java/com/aberaty/authentication/dao/PermissionDao.java"
 	],
 	"find":
 	{
@@ -442,8 +474,129 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7498,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4718,
+								4718
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1020.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7376,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5188,
+								5248
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1320.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5353,
+								5362
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3460,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								587,
+								587
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],

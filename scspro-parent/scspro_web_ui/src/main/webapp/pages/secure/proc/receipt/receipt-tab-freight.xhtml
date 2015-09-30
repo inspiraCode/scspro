@@ -6,113 +6,109 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
         xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" 
         xmlns:p="http://primefaces.org/ui">
-    <div class="row">
-        <div class="control-group col-md-12">
-            <!-- Company Name -->
-            <div class="controls">
-                <h:outputLabel for="receiptGuide" value="#{i18n_proc_receipt['receipt.guide']}: " styleClass="control-label col-md-4" />
-                <h:outputLabel for="dtpGuideDate" value="#{i18n_proc_receipt['receipt.guideDate']}: " styleClass="control-label col-md-4" />
-                <h:outputLabel for="receiptVehicle" value="#{i18n_proc_receipt['receipt.vehicle']}: " styleClass="control-label col-md-4" />
+    <h:form id="form-receipt-freight">
+        <div class="row">
+            <div class="control-group col-md-12">
+                <!-- Company Name -->
+                <div class="controls">
+                    <h:outputLabel for="receiptGuide" value="#{i18n_proc_receipt['receipt.guide']}: " styleClass="control-label col-md-4" />
+                    <h:outputLabel for="dtpGuideDate" value="#{i18n_proc_receipt['receipt.guideDate']}: " styleClass="control-label col-md-4" />
+                    <h:outputLabel for="receiptVehicle" value="#{i18n_proc_receipt['receipt.vehicle']}: " styleClass="control-label col-md-4" />
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="control-group col-md-12">
-            <div class="controls col-md-4">
-                <h:inputText styleClass="form-control" id="receiptGuide" value="#{receiptFreightBean.receiptGuide}" pt:placeholder="#{i18n_proc_receipt['receipt.guide']}" />
-            </div>
-            <div class="controls col-md-4">
-                <p:calendar id="dtpGuideDate" value="#{receiptFreightBean.guideDate}" showOn="button" />
-            </div>
-            <div class="controls col-md-4">
-                <h:inputText styleClass="form-control" id="receiptVehicle" value="#{receiptFreightBean.vehicle}" pt:placeholder="#{i18n_proc_receipt['receipt.vehicle']}" />
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="control-group col-md-12">
-            <div class="controls">
-                <h:outputLabel for="selFreighter" value="#{i18n_proc_receipt['receipt.freighter']}: " styleClass="control-label col-md-8" />
-                <h:outputLabel for="selPayment" value="#{i18n_proc_receipt['receipt.paymentCondition']}: " styleClass="control-label col-md-4" />
+        <div class="row">
+            <div class="control-group col-md-12">
+                <div class="controls col-md-4">
+                    <h:inputText styleClass="form-control" id="receiptGuide" value="#{receiptFreightBean.receiptGuide}" pt:placeholder="#{i18n_proc_receipt['receipt.guide']}" />
+                </div>
+                <div class="controls col-md-4">
+                    <p:calendar id="dtpGuideDate" value="#{receiptFreightBean.guideDate}" showOn="button" />
+                </div>
+                <div class="controls col-md-4">
+                    <h:inputText styleClass="form-control" id="receiptVehicle" value="#{receiptFreightBean.vehicle}" pt:placeholder="#{i18n_proc_receipt['receipt.vehicle']}" />
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="control-group col-md-12">
-            <div class="controls col-md-4">
-                <h:selectOneMenu id="selFreighter" value="#{receiptFreightBean.freighterId}" styleClass="form-control">
-                    <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
-                    <f:selectItems value="#{companyClassifierBean.freighterCompanies}"  var="company" itemValue="#{company.id}" itemLabel="#{company.name}" />
-                    <f:ajax listener="#{receiptFreightBean.freighterAjaxListener}" render="lblFreighter" />
-                </h:selectOneMenu>
-            </div>
-            <div class="controls col-md-4" style="padding-left:5px;">
-                <h:outputText class="text-success" id="lblFreighter" value="#{receiptFreightBean.freighterName}"/>
-            </div>
-            <div class="controls col-md-4">
-                <h:selectOneMenu id="selPayment" value="#{receiptFreightBean.paymentConditionId}" styleClass="form-control">
-                    <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
-                    <f:selectItems value="#{paymetConditionClassifierBean.paymentConditions}"  var="payCond" itemValue="#{payCond.id}" itemLabel="#{payCond.description}" />
-                </h:selectOneMenu>
+        <div class="row">
+            <div class="control-group col-md-12">
+                <div class="controls">
+                    <h:outputLabel for="selFreighter" value="#{i18n_proc_receipt['receipt.freighter']}: " styleClass="control-label col-md-8" />
+                    <h:outputLabel for="selPayment" value="#{i18n_proc_receipt['receipt.paymentCondition']}: " styleClass="control-label col-md-4" />
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" style="margin-top:5px;">
-        <div class="control-group col-md-12">
-            <!-- Company Name -->
-            <div class="controls col-md-2" style="text-align:right;padding-right:5px;">
-                <h:outputLabel for="receiptFreightComments" value="#{i18n_proc_receipt['receipt.comments']}: " styleClass="control-label" />
+        <div class="row">
+            <div class="control-group col-md-12">
+                <div class="controls col-md-4">
+                    <h:selectOneMenu id="selFreighter" value="#{receiptFreightBean.freighterId}" styleClass="form-control">
+                        <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
+                        <f:selectItems value="#{companyClassifierBean.freighterCompanies}"  var="company" itemValue="#{company.id}" itemLabel="#{company.name}" />
+                        <f:ajax listener="#{receiptFreightBean.freighterAjaxListener}" render="lblFreighter msg" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="controls col-md-4" style="padding-left:5px;">
+                    <h:outputText class="text-success" id="lblFreighter" value="#{receiptFreightBean.freighterName}"/>
+                </div>
+                <div class="controls col-md-4">
+                    <h:selectOneMenu id="selPayment" value="#{receiptFreightBean.paymentConditionId}" styleClass="form-control">
+                        <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
+                        <f:selectItems value="#{paymentConditionBean.paymentConditions}"  var="payCond" itemValue="#{payCond.id}" itemLabel="#{payCond.description}" />
+                    </h:selectOneMenu>
+                </div>
             </div>
-            <div class="controls col-md-10">
-                <h:inputText styleClass="form-control" id="receiptFreightComments" value="#{receiptFreightBean.receiptFreightComments}" pt:placeholder="#{i18n_proc_receipt['receipt.comments']}" />
+        </div>
+        <div class="row" style="margin-top:5px;">
+            <div class="control-group col-md-12">
+                <!-- Company Name -->
+                <div class="controls col-md-2" style="text-align:right;padding-right:5px;">
+                    <h:outputLabel for="receiptFreightComments" value="#{i18n_proc_receipt['receipt.comments']}: " styleClass="control-label" />
+                </div>
+                <div class="controls col-md-10">
+                    <h:inputText styleClass="form-control" id="receiptFreightComments" value="#{receiptFreightBean.receiptFreightComments}" pt:placeholder="#{i18n_proc_receipt['receipt.comments']}" />
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" style="margin-top:10px;">
-        <div class="control-group col-md-12">
-            <h:commandButton value="#{i18n_global['global.save']}" styleClass="btn btn-outline btn-primary">
-                <f:ajax listener="#{receiptFreightBean.freighterAjaxListener}" render="" />
-            </h:commandButton>
-            <h:commandButton value="#{i18n_global['global.remove']}" styleClass="btn btn-outline btn-warning">
-                <f:ajax listener="#{receiptFreightBean.freighterRemoveAjaxListener}" render="" />
-            </h:commandButton>
+        <div class="row" style="margin-top:10px;">
+            <div class="control-group col-md-12">
+                <h:commandButton value="#{i18n_global['global.save']}" styleClass="btn btn-outline btn-primary">
+                    <f:ajax listener="#{receiptFreightBean.addFreightAjaxListener}" execute="@form" render="@form msg" />
+                </h:commandButton>
+                <h:commandButton value="#{i18n_global['global.remove']}" styleClass="btn btn-outline btn-warning">
+                    <f:ajax listener="#{receiptFreightBean.removeFreightAjaxListener}" render="receiptFreightTableContainer msg" />
+                </h:commandButton>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div id="receiptFreightTable-wrapper">
-            <h:dataTable pt:id="receiptFreightTable" value="#{receiptFreightBean.receiptFreights}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even">
-                <h:column>
-                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.freighter']}" /></f:facet>
-                    <p:selectBooleanCheckbox value="#{item.selected}">
-                        <p:ajax update="msg" listener="#{receiptFreightBean.selectedItem(item)}" />
-                    </p:selectBooleanCheckbox>
-                    <h:outputText value=" #{item.freighterName}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.vehicle']}" /></f:facet>
-                    <h:outputText value="#{item.vehicle}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.guide']}" /></f:facet>
-                    <h:outputText value="#{item.guide}" />
-                </h:column>
-                
-                <h:column>
-                    <h:commandLink id="editButton" action="#{receiptFreightBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
-                        <i class="fa fa-pencil"></i><h:outputText value=" #{i18n_global['global.edit']}" />
-                    </h:commandLink>
-                    <h:commandLink id="removeButton" action="#{receiptFreightBean.remove(item)}" onclick="return confirm('#{i18n_proc_receipt['receipt.remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
-                        <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.remove']}" />
-                    </h:commandLink>
-                </h:column>
-            </h:dataTable>
+        <div class="row">
+            <h:panelGroup id="receiptFreightTableContainer" layout="block">
+                <h:dataTable pt:id="receiptFreightTable" value="#{receiptFreightBean.receiptFreights}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even">
+                    <h:column>
+                        <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.freighter']}" /></f:facet>
+                        <p:selectBooleanCheckbox value="#{item.selected}">
+                            <p:ajax update="msg" listener="#{receiptFreightBean.selectedItem(item)}" />
+                        </p:selectBooleanCheckbox>
+                        <h:outputText value=" #{item.freighterName}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.vehicle']}" /></f:facet>
+                        <h:outputText value="#{item.vehicle}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.guide']}" /></f:facet>
+                        <h:outputText value="#{item.guide}" />
+                    </h:column>
+                    
+                    <h:column>
+                        <h:commandLink id="editButton" action="#{receiptFreightBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
+                            <i class="fa fa-pencil"></i><h:outputText value=" #{i18n_global['global.edit']}" />
+                        </h:commandLink>
+                        <h:commandLink id="removeButton" action="#{receiptFreightBean.remove(item)}" onclick="return confirm('#{i18n_proc_receipt['receipt.remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
+                            <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.remove']}" />
+                        </h:commandLink>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
         </div>
-    </div>
-
-    <script>
-    $(document).ready(function(){
-        $('#receiptFreightTable').DataTable(globalDataTableConfig);
-    });    
-    </script>
-
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    </h:form>
 </html>

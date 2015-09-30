@@ -18,11 +18,7 @@ public abstract class BaseSpringService<T extends BaseDTO> implements BaseServic
     }
 
     public List<T> getAll() {
-	if (daoFactory == null) {
-	    log.warn("DAO Factory is null, should force instantiation.");
-	} else {
-	    log.debug("DAO Factory evaluated: " + daoFactory);
-	}
+	log.debug("Retrieving all records from database for " + daoFactory.getClass().getName());
 	List<T> result = daoFactory.getAll();
 	return result != null ? (List<T>) result : null;
     }

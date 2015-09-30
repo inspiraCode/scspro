@@ -23,15 +23,15 @@
             <var>i18n_companies</var>
         </resource-bundle>
         <resource-bundle>
-            <base-name>com.nowgroup.scspro.faces.i18n.cat.storages</base-name>
+            <base-name>com.nowgroup.scspro.faces.i18n.sys.storages</base-name>
             <var>i18n_storages</var>
         </resource-bundle>
         <resource-bundle>
-            <base-name>com.nowgroup.scspro.faces.i18n.cat.pay_cnd</base-name>
+            <base-name>com.nowgroup.scspro.faces.i18n.sys.pay_cnd</base-name>
             <var>i18n_pay_cnd</var>
         </resource-bundle>
         <resource-bundle>
-            <base-name>com.nowgroup.scspro.faces.i18n.cat.measurement_unit</base-name>
+            <base-name>com.nowgroup.scspro.faces.i18n.sys.measurement_unit</base-name>
             <var>i18n_measurement_unit</var>
         </resource-bundle>
         

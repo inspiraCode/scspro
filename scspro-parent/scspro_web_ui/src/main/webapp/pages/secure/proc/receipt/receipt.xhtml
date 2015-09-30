@@ -7,6 +7,17 @@
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/templates/default/main.xhtml">
+    <ui:define name="title">SCS PRO - #{i18n_proc_receipt['receipt.title']} #{receiptBean.receipt.id>0?receiptBean.receipt.folio:i18n_proc_receipt['receipt.title.add']} </ui:define>
+    <ui:define name="content-header">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" />
+        <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $('#receiptFreightTable').DataTable(globalDataTableConfig);
+            $('#receiptGoodsTable').DataTable(globalDataTableConfig);
+        });    
+        </script>
+    </ui:define>
     <ui:define name="content">
         <!-- Page Heading -->
         <div class="row">
@@ -19,7 +30,7 @@
         </div>
         <p:messages id="msg" />
         <!-- Form content -->
-        <h:form>
+        <h:form id="form-receipt">
             <fieldset> 
                 <!-- HEADER BUTTONS -->
                 <div class="row">
@@ -110,50 +121,49 @@
                         </div>
                     </div>
                 </div>
-                <!-- /HEADER DATA -->
-                <!-- TABS CONTROLLER -->
-                <div class="row" style="margin-top:15px;">
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#freight" data-toggle="tab">#{i18n_proc_receipt['receipt.freight']}</a>
-                        </li>
-                        <li><a href="#goods" data-toggle="tab">#{i18n_proc_receipt['receipt.goods']}</a>
-                        </li>
-                        <li><a href="#documents" data-toggle="tab">#{i18n_proc_receipt['receipt.documents']}</a>
-                        </li>
-                        <li><a href="#inventory" data-toggle="tab">#{i18n_proc_receipt['receipt.inventory']}</a>
-                        </li>
-                        <li><a href="#follow" data-toggle="tab">#{i18n_proc_receipt['receipt.followUp']}</a>
-                        </li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="freight">
-                            <!-- /.navbar-top-links -->
-                            <ui:include src="receipt-tab-freight.xhtml" />
-                        </div>
-                        <div class="tab-pane fade" id="goods">
-                            <ui:include src="receipt-tab-merchandise.xhtml" />
-                        </div>
-                        <div class="tab-pane fade" id="documents">
-                            <h1>UNDER CONSTRUCTION</h1>
-                            <p>Intended to show packing list details received with merchandise.</p>
-                        </div>
-                        <div class="tab-pane fade" id="inventory">
-                            <h1>UNDER CONSTRUCTION</h1>
-                            <p>Intended to show inventory records related with the receipt.</p>
-                        </div>
-                        <div class="tab-pane fade" id="follow">
-                            <h1>UNDER CONSTRUCTION</h1>
-                            <p>Intended to show invoices, shipment plans, packing listas and shipments related with the receipt.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /TABS CONTROLLER -->
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </fieldset>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         </h:form>
-        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.css"/>
+        <!-- /HEADER DATA -->
+        <!-- TABS CONTROLLER -->
+        <div class="row" style="margin-top:15px;">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#freight" data-toggle="tab">#{i18n_proc_receipt['receipt.freight']}</a>
+                </li>
+                <li><a href="#goods" data-toggle="tab">#{i18n_proc_receipt['receipt.goods']}</a>
+                </li>
+                <li><a href="#documents" data-toggle="tab">#{i18n_proc_receipt['receipt.documents']}</a>
+                </li>
+                <li><a href="#inventory" data-toggle="tab">#{i18n_proc_receipt['receipt.inventory']}</a>
+                </li>
+                <li><a href="#follow" data-toggle="tab">#{i18n_proc_receipt['receipt.followUp']}</a>
+                </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="freight">
+                    <!-- /.navbar-top-links -->
+                    <ui:include src="receipt-tab-freight.xhtml" />
+                </div>
+                <div class="tab-pane fade" id="goods">
+                    <ui:include src="receipt-tab-merchandise.xhtml" />
+                </div>
+                <div class="tab-pane fade" id="documents">
+                    <h1>UNDER CONSTRUCTION</h1>
+                    <p>Intended to show packing list details received with merchandise.</p>
+                </div>
+                <div class="tab-pane fade" id="inventory">
+                    <h1>UNDER CONSTRUCTION</h1>
+                    <p>Intended to show inventory records related with the receipt.</p>
+                </div>
+                <div class="tab-pane fade" id="follow">
+                    <h1>UNDER CONSTRUCTION</h1>
+                    <p>Intended to show invoices, shipment plans, packing listas and shipments related with the receipt.</p>
+                </div>
+            </div>
+        </div>
+        <!-- /TABS CONTROLLER -->
     </ui:define>
 </ui:composition>
 
