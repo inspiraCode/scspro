@@ -3,8 +3,9 @@ package com.nowgroup.scspro.model.prod;
 import java.util.Date;
 
 import com.nowgroup.scspro.dto.prod.Receipt;
+import com.nowgroup.scspro.model.Modeleable;
 
-public class ReceiptModel extends Receipt {
+public class ReceiptModel extends Receipt implements Modeleable<Receipt> {
     private static final long serialVersionUID = 8389106011970442297L;
 
     private String senderName;

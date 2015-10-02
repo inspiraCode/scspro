@@ -1,8 +1,9 @@
 package com.nowgroup.scspro.model.prod;
 
 import com.nowgroup.scspro.dto.prod.ReceiptFreight;
+import com.nowgroup.scspro.model.Modeleable;
 
-public class ReceiptFreightModel extends ReceiptFreight {
+public class ReceiptFreightModel extends ReceiptFreight implements Modeleable<ReceiptFreight> {
     private static final long serialVersionUID = 800661619500619839L;
     private String freighterName;
     private boolean selected = false;

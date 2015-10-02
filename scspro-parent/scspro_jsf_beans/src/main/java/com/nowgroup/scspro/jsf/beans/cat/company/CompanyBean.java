@@ -23,9 +23,11 @@ import com.nowgroup.scspro.dto.cat.CompanyScope;
 import com.nowgroup.scspro.dto.geo.Country;
 import com.nowgroup.scspro.dto.geo.State;
 import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
+import com.nowgroup.scspro.model.Modeleable;
 import com.nowgroup.scspro.model.cat.CompanyModel;
 import com.nowgroup.scspro.model.cat.CompanyRoleModel;
 import com.nowgroup.scspro.model.cat.CompanyScopeModel;
+import com.nowgroup.scspro.service.BaseService;
 import com.nowgroup.scspro.service.cat.CompanyRoleService;
 import com.nowgroup.scspro.service.cat.CompanyScopeService;
 import com.nowgroup.scspro.service.cat.CompanyService;
@@ -34,12 +36,16 @@ import com.nowgroup.scspro.service.geo.StateService;
 
 @ManagedBean
 @SessionScoped
-public class CompanyBean extends BaseFacesBean {
+public class CompanyBean extends BaseFacesBean<Company> {
+    
+    public CompanyBean() {
+	super(new CompanyModel());
+    }
+
     private static final long serialVersionUID = 923379298131353402L;
 
     private static Logger log = Logger.getLogger(CompanyBean.class.getName());
 
-    private CompanyModel company = new CompanyModel();
     private int countryId = 0;
     private int stateId = 0;
     private int newIndex = 0;
@@ -69,30 +75,37 @@ public class CompanyBean extends BaseFacesBean {
     @ManagedProperty("#{i18n_companies}")
     private ResourceBundle companyMsgBundle;
 
-    @ManagedProperty("#{companyListBean}")
-    private CompanyListBean listBean;
-
     @PostConstruct
     public void init() {
 	countries = getCountryServiceImpl().getAll();
     }
+    
+    public String getCompanyState(int id) {
+	String result = "";
 
-    public Company getCompany() {
-	return company;
+	int geoStateIdInDb = getCompanyServiceImpl().getStateIdInCompanyId(id);
+	State geoStateInDb = null;
+	if (geoStateIdInDb != 0)
+	    geoStateInDb = getGeoStateService().get(geoStateIdInDb);
+
+	result = geoStateInDb == null || geoStateInDb.getName() == null ? "" : geoStateInDb.getName();
+	return result;
     }
-
-    public void setCompany(CompanyModel company) {
-	this.company = company;
+    
+    @Override
+    public void setModel(Modeleable<Company> model) {
+	super.setModel(model);
+	Company company = model.demodelize();
 	if (null != company.getState()) {
 	    // Query state and country independently because of the lazy object
 	    // and the transaction requirements
 	    int companyStateId = getCompanyServiceImpl().getStateIdInCompanyId(company.getId());
 	    log.debug("got state ID from state manager: " + companyStateId);
 	    this.setStateId(companyStateId);
-	    
+
 	    int countryId = getGeoStateService().getCountryIdInState(companyStateId);
 	    Country companyCountry = getCountryServiceImpl().get(countryId);
-	    
+
 	    this.setCountryId(companyCountry.getId());
 	    // check if state is available in country list
 
@@ -107,33 +120,15 @@ public class CompanyBean extends BaseFacesBean {
 	}
     }
 
-    public String addNew() {
-	this.company = new CompanyModel();
-	rolesList = new ArrayList<CompanyScopeModel>();
+    @Override
+    public String addNew() throws InstantiationException, IllegalAccessException {
 	this.setStateId(0);
 	this.setCountryId(0);
-
+	
 	states = null;
-	return "company";
+	return super.addNew();
     }
 
-    public String showList() {
-	return "list";
-    }
-
-    public String remove(CompanyModel item) {
-	try {
-	    companyServiceImpl.delete(item.deModelize());
-	    listBean.setForceDownload(true);
-	} catch (Exception e) {
-	    log.error(e.getMessage(), e);
-	    publishError(companyMsgBundle.getString("company.remove.error"));
-	    publishError(e.getLocalizedMessage());
-	}
-
-	return "list";
-    }
-    
     public void countryAjaxListener(AjaxBehaviorEvent event) {
 	if (countryId != 0)
 	    states = getCountryServiceImpl().getStatesByCountry(countryId);
@@ -141,43 +136,18 @@ public class CompanyBean extends BaseFacesBean {
 	    states = new ArrayList<State>();
     }
 
-    public String uploadCompany() {
-	log.debug("Uploading company to database: " + company);
-
+    @Override
+    public String upload() {
+	log.debug("Uploading company to database: " + getModel());
+	Company entity = getModel().demodelize();
+	
 	if (this.stateId > 0) {
-	    getCompany().setState(new State());
-	    getCompany().getState().setId(stateId);
-	    getCompany().getState().setCountry(new Country());
-	    getCompany().getState().getCountry().setId(countryId);
+	    entity.setState(new State());
+	    entity.getState().setId(stateId);
+	    entity.getState().setCountry(new Country());
+	    entity.getState().getCountry().setId(countryId);
 	}
-
-	try {
-	    if (getCompany().getId() != 0) {
-		log.debug("Updating existing record");
-		getCompanyServiceImpl().update(company.deModelize());
-	    } else {
-		log.debug("Adding new record");
-		log.debug("roles in record: " + company.getCompanyScope().size());
-		getCompanyServiceImpl().add(company.deModelize());
-	    }
-	    log.debug("Company Successfully uploaded");
-	    listBean.setForceDownload(true);
-	    return "success";
-	} catch (org.springframework.dao.DataIntegrityViolationException e) {
-	    log.error(e.getMessage(), e);
-	    publishError(companyMsgBundle.getString("company.save.duplicate"));
-	    return "";
-	} catch (Exception e) {
-	    log.error(e.getMessage(), e);
-	    publishError(companyMsgBundle.getString("company.save.error"));
-	    publishError(e.getLocalizedMessage());
-	    return "";
-	}
-    }
-
-    public String edit(CompanyModel item) {
-	this.setCompany(item);
-	return "company";
+	return super.upload();
     }
 
     public List<CompanyScopeModel> getRolesList() {
@@ -186,9 +156,10 @@ public class CompanyBean extends BaseFacesBean {
 	    setCompanyMsgBundle(context.getApplication().getResourceBundle(context, "i18n_companies"));
 	    log.debug("Got forced resource bundle: " + companyMsgBundle);
 	}
-	if (this.getCompany().getId() != 0) {
+	Company company = getModel().demodelize();
+	if (company.getId() != 0) {
 	    rolesList = new ArrayList<CompanyScopeModel>();
-	    List<CompanyScope> scopes = getCompanyServiceImpl().getCompanyScope(this.getCompany().getId());
+	    List<CompanyScope> scopes = getCompanyServiceImpl().getCompanyScope(company.getId());
 
 	    for (CompanyScope scope : scopes) {
 		String translate = getCompanyScopeServiceImpl().getRoleInCompanyScope(scope.getId()).getName();
@@ -217,7 +188,7 @@ public class CompanyBean extends BaseFacesBean {
 	// Retrieve all roles from database
 	List<CompanyRole> allRoles = companyRoleServiceImpl.getAll();
 
-	if (this.getCompany().getId() == 0) {
+	if (getModel().demodelize().getId() == 0) {
 	    // Handle locally
 	    for (CompanyScopeModel usedScope : getRolesList()) {
 		allRoles.remove(usedScope.getCompanyRole());
@@ -270,7 +241,7 @@ public class CompanyBean extends BaseFacesBean {
     }
 
     private void removeRole(CompanyScopeModel item) {
-	if (this.getCompany().getId() != 0)
+	if (getModel().demodelize().getId() != 0)
 	    removeRoleCompany(item);
 	else {
 	    removeLocalCompanyRole(item);
@@ -279,7 +250,7 @@ public class CompanyBean extends BaseFacesBean {
     }
 
     private void removeLocalCompanyRole(CompanyScopeModel item) {
-	company.getCompanyScope().remove(item.deModelize());
+	getModel().demodelize().getCompanyScope().remove(item.demodelize());
     }
 
     private void removeRoleCompany(CompanyScopeModel item) {
@@ -314,7 +285,7 @@ public class CompanyBean extends BaseFacesBean {
     }
 
     private void addRole(CompanyRoleModel item) {
-	if (this.getCompany().getId() != 0)
+	if (getModel().demodelize().getId() != 0)
 	    addRoleCompany(item);
 	else {
 	    addLocalCompanyRole(item);
@@ -323,19 +294,19 @@ public class CompanyBean extends BaseFacesBean {
 
     private void addLocalCompanyRole(CompanyRoleModel item) {
 	CompanyScopeModel addedScope = new CompanyScopeModel();
-	addedScope.setCompany(company);
+	addedScope.setCompany(getModel().demodelize());
 	addedScope.setCompanyRole(item.deModelize());
 	addedScope.setId(--newIndex);
 	addedScope.setDisplayName(item.getDisplayName());
 
-	company.getCompanyScope().add(addedScope);
+	getModel().demodelize().getCompanyScope().add(addedScope);
 	rolesList.add(addedScope);
     }
 
     private void addRoleCompany(CompanyRoleModel item) {
 	// company exists, create a CompanyScope in database with role
 	CompanyScope newScope = new CompanyScope();
-	newScope.setCompany(company);
+	newScope.setCompany(getModel().demodelize());
 	newScope.setCompanyRole(item.deModelize());
 	int newScopeId = companyScopeServiceImpl.add(newScope);
 	newScope.setId(newScopeId);
@@ -389,6 +360,7 @@ public class CompanyBean extends BaseFacesBean {
     }
 
     public void setCompanyServiceImpl(CompanyService companyServiceImpl) {
+	super.setService((BaseService<Company>) companyServiceImpl);
 	this.companyServiceImpl = companyServiceImpl;
     }
 
@@ -421,7 +393,7 @@ public class CompanyBean extends BaseFacesBean {
     }
 
     public void setCompanyMsgBundle(ResourceBundle companyMsgBundle) {
-	log.debug("Setting company message bundle: " + companyMsgBundle.getBaseBundleName());
+	super.setMsgBundle(companyMsgBundle);
 	this.companyMsgBundle = companyMsgBundle;
     }
 
@@ -431,13 +403,5 @@ public class CompanyBean extends BaseFacesBean {
 
     public void setCompanyScopeServiceImpl(CompanyScopeService companyScopeServiceImpl) {
 	this.companyScopeServiceImpl = companyScopeServiceImpl;
-    }
-
-    public CompanyListBean getListBean() {
-	return listBean;
-    }
-
-    public void setListBean(CompanyListBean listBean) {
-	this.listBean = listBean;
     }
 }

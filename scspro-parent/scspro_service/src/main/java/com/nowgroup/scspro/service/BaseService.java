@@ -14,4 +14,6 @@ public interface BaseService<T extends BaseDTO> {
     void update(T object);
 
     void delete(T object);
+    
+    void deleteAll(List<T> items);
 }

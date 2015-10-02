@@ -1,8 +1,9 @@
 package com.nowgroup.scspro.model.cat;
 
 import com.nowgroup.scspro.dto.cat.Company;
+import com.nowgroup.scspro.model.Modeleable;
 
-public class CompanyModel extends Company {
+public class CompanyModel extends Company implements Modeleable<Company> {
     private static final long serialVersionUID = -2147292143916341207L;
 
     private String displayRoles;
@@ -27,7 +28,7 @@ public class CompanyModel extends Company {
 	this.setWeb(company.getWeb());
     }
 
-    public Company deModelize() {
+    public Company demodelize() {
 	Company result = new Company();
 	result.setId(this.getId());
 	result.setName(this.getName());

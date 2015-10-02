@@ -5,13 +5,13 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 import com.nowgroup.scspro.dto.sys.User;
-import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
+import com.nowgroup.scspro.jsf.beans.PublisherFacesBean;
 import com.nowgroup.scspro.model.sys.UserModel;
 import com.nowgroup.scspro.service.sys.UserService;
 
 @ManagedBean
 @RequestScoped
-public class UserController extends BaseFacesBean {
+public class UserController extends PublisherFacesBean {
     private static final long serialVersionUID = 2278327556692461132L;
 
     @ManagedProperty("#{userServiceImpl}")

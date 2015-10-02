@@ -13,10 +13,12 @@ public abstract class BaseSpringService<T extends BaseDTO> implements BaseServic
     private static Logger log = Logger.getLogger(BaseSpringService.class.getName());
     private BaseDAO<T> daoFactory;
 
+    @Override
     public T get(int id) {
 	return (T) daoFactory.get(id);
     }
 
+    @Override
     public List<T> getAll() {
 	log.debug("Retrieving all records from database for " + daoFactory.getClass().getName());
 	List<T> result = daoFactory.getAll();
@@ -24,6 +26,7 @@ public abstract class BaseSpringService<T extends BaseDTO> implements BaseServic
     }
 
     @Transactional(readOnly = false)
+    @Override
     public int add(T object) {
 	return daoFactory.add(object);
     }
@@ -34,8 +37,17 @@ public abstract class BaseSpringService<T extends BaseDTO> implements BaseServic
     }
 
     @Transactional(readOnly = false)
+    @Override
     public void delete(T object) {
 	daoFactory.delete(object);
+    }
+
+    @Transactional(readOnly = false)
+    @Override
+    public void deleteAll(List<T> items) {
+	for (T item : items) {
+	    delete(item);
+	}
     }
 
     public BaseDAO<T> getDaoFactory() {

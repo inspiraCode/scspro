@@ -81,6 +81,11 @@ public class MeasurementUnitServiceImpl extends BaseSpringService<MeasurementUni
 	getMeasurementUnitDAO().update(muInDb);
     }
 
+    @Override
+    public List<MeasurementUnit> getMeasurementUnitsByUsage(String usage) {
+	return getMeasurementUnitDAO().getMeasurementUnitByUsage(usage);
+    }
+
     public MeasurementUnitDAOHibernate getMeasurementUnitDAO() {
 	return measurementUnitDAO;
     }

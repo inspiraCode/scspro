@@ -1,6 +1,5 @@
 package com.nowgroup.scspro.jsf.beans.sys;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,6 +20,7 @@ import org.primefaces.event.DragDropEvent;
 
 import com.nowgroup.scspro.dto.sys.MeasurementUnit;
 import com.nowgroup.scspro.dto.sys.MeasurementUnitRole;
+import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
 import com.nowgroup.scspro.model.sys.MeasurementUnitModel;
 import com.nowgroup.scspro.model.sys.MeasurementUnitRoleModel;
 import com.nowgroup.scspro.service.sys.MeasurementUnitRoleService;
@@ -28,7 +28,7 @@ import com.nowgroup.scspro.service.sys.MeasurementUnitService;
 
 @ManagedBean
 @SessionScoped
-public class MeasurementUnitBean implements Serializable {
+public class MeasurementUnitBean extends BaseFacesBean<MeasurementUnit> {
     private static final long serialVersionUID = 3950374829927416797L;
     private static Logger log = Logger.getLogger(MeasurementUnitBean.class.getName());
 
@@ -44,6 +44,10 @@ public class MeasurementUnitBean implements Serializable {
 
     @ManagedProperty("#{i18n_measurement_unit}")
     private ResourceBundle measurementUnitBundle;
+    
+    public MeasurementUnitBean() {
+	super(new MeasurementUnitModel());
+    }
 
     public List<MeasurementUnitModel> getMeasurementUnitList() {
 	if (measurementUnitBundle == null) {

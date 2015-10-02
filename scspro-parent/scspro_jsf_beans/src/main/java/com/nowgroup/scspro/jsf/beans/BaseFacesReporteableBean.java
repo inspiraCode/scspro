@@ -26,8 +26,13 @@ import net.sf.jasperreports.export.SimpleXlsxReportConfiguration;
 import org.apache.log4j.Logger;
 
 import com.nowgroup.scspro.dto.BaseDTO;
+import com.nowgroup.scspro.model.Modeleable;
 
-public abstract class BaseFacesReporteableBean extends BaseFacesBean {
+public abstract class BaseFacesReporteableBean<T extends BaseDTO> extends BaseFacesBean<T> {
+    public BaseFacesReporteableBean(Modeleable<T> modelType) {
+	super(modelType);
+    }
+
     private static final long serialVersionUID = -6643286985981902407L;
     private static Logger log = Logger.getLogger(BaseFacesReporteableBean.class.getName());
     private JasperPrint jasperPrint;

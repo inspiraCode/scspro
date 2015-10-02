@@ -1,5 +1,6 @@
 package com.nowgroup.scspro.jsf.beans.cat.company;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,12 +11,11 @@ import javax.faces.bean.RequestScoped;
 
 import com.nowgroup.scspro.dto.cat.Company;
 import com.nowgroup.scspro.dto.cat.CompanyScope;
-import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
 import com.nowgroup.scspro.service.cat.CompanyService;
 
 @ManagedBean
 @RequestScoped
-public class CompanyClassifierBean extends BaseFacesBean {
+public class CompanyClassifierBean implements Serializable {
     private static final long serialVersionUID = -8484705273446991914L;
     //private static final Logger logger = Logger.getLogger(CompanyClassifierBean.class.getName());
 

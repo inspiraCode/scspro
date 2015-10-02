@@ -1,11 +1,13 @@
 package com.nowgroup.scspro.model.cat;
 
 import com.nowgroup.scspro.dto.cat.CompanyScope;
+import com.nowgroup.scspro.model.Modeleable;
 
-public class CompanyScopeModel extends CompanyScope {
+public class CompanyScopeModel extends CompanyScope implements Modeleable<CompanyScope> {
     private static final long serialVersionUID = -790177733979297790L;
 
     private String displayName;
+    private boolean selected;
 
     public CompanyScopeModel() {
     }
@@ -16,7 +18,7 @@ public class CompanyScopeModel extends CompanyScope {
 	this.setCompanyRole(scope.getCompanyRole());
     }
 
-    public CompanyScope deModelize() {
+    public CompanyScope demodelize() {
 	CompanyScope result = new CompanyScope();
 	result.setId(this.getId());
 	result.setCompany(this.getCompany());
@@ -30,6 +32,16 @@ public class CompanyScopeModel extends CompanyScope {
 
     public void setDisplayName(String displayName) {
 	this.displayName = displayName;
+    }
+
+    @Override
+    public void setSelected(boolean selected) {
+	this.selected = selected;
+    }
+
+    @Override
+    public boolean isSelected() {
+	return selected;
     }
 
 }

@@ -96,10 +96,13 @@
 	"buffers":
 	[
 		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
+			"contents": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" \n        xmlns:h=\"http://xmlns.jcp.org/jsf/html\" \n        xmlns:f=\"http://xmlns.jcp.org/jsf/core\" \n        xmlns:ui=\"http://xmlns.jcp.org/jsf/facelets\" \n        xmlns:pt=\"http://xmlns.jcp.org/jsf/passthrough\" \n        xmlns:p=\"http://primefaces.org/ui\">\n    <h:form id=\"form-receipt-merchandise\">\n        <div class=\"row\">\n            <div class=\"control-group col-md-12\">\n                <!-- Company Name -->\n                <div class=\"controls\">\n                    <h:outputLabel for=\"itemSeq\" value=\"#{i18n_proc_receipt['receipt.itemSeq']}: \" styleClass=\"control-label col-md-3\" />\n                    <h:outputLabel for=\"goodsQty\" value=\"#{i18n_proc_receipt['receipt.quantiy']}: \" styleClass=\"control-label col-md-3\" />\n                    <h:outputLabel for=\"goodsMu\" value=\"#{i18n_proc_receipt['receipt.measurementUnit']}: \" styleClass=\"control-label col-md-3\" />\n                    <h:outputLabel for=\"goodsWooden\" value=\"#{i18n_proc_receipt['receipt.wooden']}: \" styleClass=\"control-label col-md-3\" />\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"control-group col-md-12\">\n                <div class=\"controls col-md-3\">\n                    <h:inputText styleClass=\"form-control\" id=\"itemSeq\" value=\"#{receiptMerchandiseBean.itemSeq}\" pt:placeholder=\"#{i18n_proc_receipt['receipt.itemSeq']}\" />\n                </div>\n                <div class=\"controls col-md-3\">\n                    <h:inputText styleClass=\"form-control\" id=\"goodsQty\" value=\"#{receiptMerchandiseBean.quantity}\" pt:placeholder=\"#{i18n_proc_receipt['receipt.quantiy']}\" />\n                </div>\n                <div class=\"controls col-md-3\">\n                    <h:selectOneMenu id=\"goodsMu\" value=\"#{receiptMerchandiseBean.measurementUnitId}\" styleClass=\"form-control\">\n                        <f:selectItem itemLabel=\"#{i18n_proc_receipt['receipt.selectOne']}\" itemValue=\"0\" noSelectionOption=\"true\" />\n                        <f:selectItems value=\"#{measurementUnitClassifierBean.loadMeasurementUnits}\"  var=\"muItem\" itemValue=\"#{muItem.id}\" itemLabel=\"#{muItem.code} - #{muItem.name}\" />\n                    </h:selectOneMenu>\n                </div>\n                <div class=\"controls col-md-3\">\n                    <h:selectBooleanCheckbox value=\"#{receiptMerchandiseBean.wooden}\" />\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"control-group col-md-12\">\n                <div class=\"controls\">\n                    <h:outputLabel for=\"goodsWeightPounds\" value=\"#{i18n_proc_receipt['receipt.pounds']}: \" styleClass=\"control-label col-md-3\" />\n                    <h:outputLabel for=\"goodsWeightKilos\" value=\"#{i18n_proc_receipt['receipt.kilos']}: \" styleClass=\"control-label col-md-3\" />\n                    <h:outputLabel for=\"goodsNU\" value=\"#{i18n_proc_receipt['receipt.kilos']}: \" styleClass=\"control-label col-md-3\" />\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"control-group col-md-12\">\n                <div class=\"controls col-md-3\">\n                    <h:inputText styleClass=\"form-control\" id=\"goodsWeightPounds\" value=\"#{receiptMerchandiseBean.goodsWeightPounds}\" pt:placeholder=\"#{i18n_proc_receipt['receipt.pounds']}\" />\n                </div>\n                <div class=\"controls col-md-3\">\n                    <h:inputText styleClass=\"form-control\" id=\"goodsWeightKilos\" value=\"#{receiptMerchandiseBean.goodsWeightKilos}\" pt:placeholder=\"#{i18n_proc_receipt['receipt.kilos']}\" />\n                </div>\n                <div class=\"controls col-md-3\">\n                    <h:selectOneMenu id=\"goodsNU\" value=\"#{receiptMerchandiseBean.measurementUnitId}\" styleClass=\"form-control\">\n                        <f:selectItem itemLabel=\"#{i18n_proc_receipt['receipt.selectOne']}\" itemValue=\"0\" noSelectionOption=\"true\" />\n                        <f:selectItems value=\"#{measurementUnitClassifierBean.loadMeasurementUnits}\"  var=\"muItem\" itemValue=\"#{muItem.id}\" itemLabel=\"#{muItem.code} - #{muItem.name}\" />\n                    </h:selectOneMenu>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\" style=\"margin-top:5px;\">\n            <div class=\"control-group col-md-12\">\n                <!-- Company Name -->\n                <div class=\"controls col-md-2\" style=\"text-align:right;padding-right:5px;\">\n                    <h:outputLabel for=\"receiptGoodsComments\" value=\"#{i18n_proc_receipt['receipt.comments']}: \" styleClass=\"control-label\" />\n                </div>\n                <div class=\"controls col-md-10\">\n                    <h:inputText styleClass=\"form-control\" id=\"receiptGoodsComments\" value=\"#{receiptMerchandiseBean.comments}\" pt:placeholder=\"#{i18n_proc_receipt['receipt.comments']}\" />\n                    <!-- ADD WOODEN -->\n                </div>\n            </div>\n        </div>\n        <div class=\"row\" style=\"margin-top:10px;\">\n            <div class=\"control-group col-md-12\">\n                <h:commandButton value=\"#{i18n_global['global.save']}\" styleClass=\"btn btn-outline btn-primary\">\n                    <f:ajax listener=\"#{receiptMerchandiseBean.saveAjaxListener}\" render=\"receiptGoodsTable-wrapper msg\" />\n                </h:commandButton>\n                <h:commandButton value=\"#{i18n_global['global.remove']}\" styleClass=\"btn btn-outline btn-warning\">\n                    <f:ajax listener=\"#{receiptMerchandiseBean.removeAjaxListener}\" render=\"receiptGoodsTable-wrapper msg\" />\n                </h:commandButton>\n            </div>\n        </div>\n        <div class=\"row\">\n            <h:panelGroup id=\"receiptGoodsTable-wrapper\" layout=\"block\">\n                <h:dataTable pt:id=\"receiptGoodsTable\" value=\"#{receiptMerchandiseBean.receiptGoods}\" var=\"item\" styleClass=\"table table-striped table-bordered table-hover compact\" rowClasses=\"odd, even\">\n                    <h:column>\n                        <f:facet name=\"header\"><h:outputText value=\"#{i18n_proc_receipt['receipt.freighter']}\" /></f:facet>\n                        <p:selectBooleanCheckbox value=\"#{item.selected}\">\n                            <p:ajax update=\"msg\" listener=\"#{receiptMerchandiseBean.selectedItem(item)}\" />\n                        </p:selectBooleanCheckbox>\n                        <h:outputText value=\" #{item.item}\" />\n                    </h:column>\n                    <h:column>\n                        <f:facet name=\"header\"><h:outputText value=\"#{i18n_proc_receipt['receipt.quantity']}\" /></f:facet>\n                        <h:outputText value=\"#{item.quantity}\" />\n                    </h:column>\n                    <h:column>\n                        <f:facet name=\"header\"><h:outputText value=\"#{i18n_proc_receipt['receipt.measurementUnit']}\" /></f:facet>\n                        <h:outputText value=\"#{item.displayMeasurementUnit}\" />\n                    </h:column>\n                    <h:column>\n                        <f:facet name=\"header\"><h:outputText value=\"#{i18n_proc_receipt['receipt.pounds']}\" /></f:facet>\n                        <h:outputText value=\"#{item.pounds}\" />\n                    </h:column>\n                    <h:column>\n                        <f:facet name=\"header\"><h:outputText value=\"#{i18n_proc_receipt['receipt.kilos']}\" /></f:facet>\n                        <h:outputText value=\"#{item.kilos}\" />\n                    </h:column>\n                    \n                    <h:column>\n                        <h:commandLink id=\"editGoodsButton\" action=\"#{receiptMerchandiseBean.edit(item)}\" styleClass=\"btn btn-primary\" style=\"margin-right:10px;margin-bottom:5px;margin-top:5px;\">\n                            <i class=\"fa fa-pencil\"></i><h:outputText value=\" #{i18n_global['global.edit']}\" />\n                        </h:commandLink>\n                        <h:commandLink id=\"removeGoodsButton\" action=\"#{receiptMerchandiseBean.remove(item)}\" onclick=\"return confirm('#{i18n_proc_receipt['receipt.remove.confirmation']}');\" styleClass=\"btn btn-primary\" style=\"margin-bottom:5px;margin-top:5px;\">\n                            <i class=\"fa fa-times\"></i><h:outputText value=\" #{i18n_global['global.remove']}\" />\n                        </h:commandLink>\n                    </h:column>\n                </h:dataTable>\n            </h:panelGroup>\n        </div>\n    </h:form>\n</html>\n",
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
+			"file_size": 7876,
+			"file_write_time": 130882156845652097,
 			"settings":
 			{
-				"buffer_size": 7506,
+				"buffer_size": 8453,
 				"line_ending": "Windows"
 			}
 		}
@@ -146,9 +149,11 @@
 	],
 	"file_history":
 	[
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/01_sys.sql",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/pages/secure/index.xhtml",
@@ -166,7 +171,6 @@
 		"/C/jetty/logs/.donotdelete",
 		"/C/jetty/resources/log4j.properties",
 		"/C/jetty/webapps/README.TXT",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
 		"/C/Program Files/SmartBear/SoapUI-5.1.3/bin/SoapUI-5.2.0.vmoptions",
 		"/C/Users/torredie/Documents/projects/scspro/DataTables-1.10.9/datatables.css",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
@@ -197,7 +201,6 @@
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/templates/default/header.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/resources/bootstrap/css/bootstrap.css",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/resources/bootstrap/css/bootstrap-theme.css",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/01_sys.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/03_cat_company.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/webapp/pages/secure/cat/company/list.xhtml",
@@ -291,6 +294,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"receiptFreightBean",
 			"        \n",
 			"            \n",
 			"faces",
@@ -397,6 +401,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"receiptMerchandiseBean",
 			"i18n_proc_receipt",
 			"receiptBean",
 			"receipt.",
@@ -455,19 +460,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7506,
+						"buffer_size": 8453,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6971,
-								6977
+								3799,
+								3821
 							]
 						],
 						"settings":
@@ -477,7 +482,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1380.0,
+						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -535,6 +540,10 @@
 		"selected_items":
 		[
 			[
+				"sql",
+				"dbScripts\\01_sys.sql"
+			],
+			[
 				"inde",
 				"scspro-parent\\scspro_web_ui\\target\\scspro\\pages\\secure\\index.xhtml"
 			],
@@ -545,10 +554,6 @@
 			[
 				"index",
 				"scspro-parent\\scspro_web_ui\\target\\scspro\\pages\\secure\\index.xhtml"
-			],
-			[
-				"sql",
-				"dbScripts\\05_prod_receipt.sql"
 			],
 			[
 				"05",

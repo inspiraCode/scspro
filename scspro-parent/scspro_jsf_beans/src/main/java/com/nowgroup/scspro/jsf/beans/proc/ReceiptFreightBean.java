@@ -23,7 +23,7 @@ import com.nowgroup.scspro.service.sys.PaymentConditionService;
 
 @ManagedBean
 @SessionScoped
-public class ReceiptFreightBean extends BaseFacesBean {
+public class ReceiptFreightBean extends BaseFacesBean<ReceiptFreight> {
     private static final long serialVersionUID = 5094500901820048978L;
     private static final Logger log = Logger.getLogger(PaymentConditionBean.class.getName());
 
@@ -50,6 +50,10 @@ public class ReceiptFreightBean extends BaseFacesBean {
     @ManagedProperty("#{i18n_proc_receipt}")
     private ResourceBundle msg;
 
+    public ReceiptFreightBean() {
+	super(new ReceiptFreightModel());
+    }
+    
     private void clean() {
 	receiptGuide = "";
 	guideDate = new Date();

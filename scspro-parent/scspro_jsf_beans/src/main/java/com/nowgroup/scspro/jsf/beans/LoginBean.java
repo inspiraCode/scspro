@@ -13,7 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 @ManagedBean(name = "loginMgmtBean")
 @RequestScoped
-public class LoginBean extends BaseFacesBean {
+public class LoginBean extends PublisherFacesBean {
     private static final long serialVersionUID = 1201695543385512094L;
     private static final Logger logger = Logger.getLogger(LoginBean.class.getName());
     private String userName = null;

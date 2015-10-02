@@ -12,6 +12,11 @@
     	<property name="companyRoleDAO" ref="companyRoleDAO"/>
     </bean>
     
+    <!-- United Nations Labels Catalog -->
+    <bean id="UNLabelService" class="com.nowgroup.scspro.spring.service.cat.UNLabelServiceIMpl">
+    	<property name="unDAO" ref="UNLabelDAO" />
+    </bean>
+    
     <!-- GEO CATALOGS -->
     <bean id="countryService" class="com.nowgroup.scspro.spring.service.geo.CountryServiceImpl">
     	<property name="countryDAO" ref="countryDAO"/>

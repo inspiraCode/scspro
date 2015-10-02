@@ -1,5 +1,6 @@
 package com.nowgroup.scspro.dto.sys;
 
+import java.util.Comparator;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -24,7 +25,7 @@ import com.nowgroup.scspro.dto.BaseDTO;
 @Indexed
 @Entity
 @Table(name = "sys_measurement_unit", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "MU_NAME") })
-public class MeasurementUnit implements BaseDTO {
+public class MeasurementUnit implements BaseDTO, Comparable<MeasurementUnit> {
     private static final long serialVersionUID = 2287186741350117934L;
 
     @Id
@@ -77,5 +78,21 @@ public class MeasurementUnit implements BaseDTO {
 
     public void setRoles(Set<MeasurementUnitRole> roles) {
 	this.roles = roles;
+    }
+
+    @Override
+    public int compareTo(MeasurementUnit o) {
+	return Comparators.NAME.compare(this, o);
+    }
+
+    public static class Comparators {
+	public static Comparator<MeasurementUnit> NAME = new Comparator<MeasurementUnit>() {
+
+	    @Override
+	    public int compare(MeasurementUnit o1, MeasurementUnit o2) {
+		return o1.name.compareTo(o2.name);
+	    }
+
+	};
     }
 }

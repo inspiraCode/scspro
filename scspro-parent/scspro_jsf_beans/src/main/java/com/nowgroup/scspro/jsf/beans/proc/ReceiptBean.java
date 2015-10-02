@@ -14,6 +14,7 @@ import com.nowgroup.scspro.dto.ItemByNameException;
 import com.nowgroup.scspro.dto.cat.Company;
 import com.nowgroup.scspro.dto.cat.CompanyRole;
 import com.nowgroup.scspro.dto.cat.CompanyScope;
+import com.nowgroup.scspro.dto.prod.Receipt;
 import com.nowgroup.scspro.jsf.beans.BaseFacesReporteableBean;
 import com.nowgroup.scspro.model.prod.ReceiptModel;
 import com.nowgroup.scspro.service.cat.CompanyScopeService;
@@ -22,7 +23,7 @@ import com.nowgroup.scspro.service.prod.ReceiptService;
 
 @ManagedBean
 @SessionScoped
-public class ReceiptBean extends BaseFacesReporteableBean {
+public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
     private static final long serialVersionUID = -3491798031008285552L;
     private final static String STORAGE_CODE = "101";
     private static final Logger log = Logger.getLogger(ReceiptBean.class.getName());
@@ -54,6 +55,10 @@ public class ReceiptBean extends BaseFacesReporteableBean {
     @ManagedProperty("#{i18n_proc_receipt}")
     private ResourceBundle msg;
 
+    public ReceiptBean() {
+	super(new ReceiptModel());
+    }
+    
     public String addNew() {
 	this.receipt = new ReceiptModel();
 	try {

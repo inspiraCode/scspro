@@ -18,7 +18,7 @@ import com.nowgroup.scspro.dto.BaseDTO;
 @Table(name = "cat_company_role", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "COMPANY_ROLE_NAME") })
 public class CompanyRole implements BaseDTO {
     private static final long serialVersionUID = -7159142805459683720L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "COMPANY_ROLE_ID", unique = true, nullable = false)

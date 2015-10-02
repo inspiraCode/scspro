@@ -19,6 +19,13 @@ import com.nowgroup.scspro.dto.BaseDTO;
 public class MeasurementUnitRole implements BaseDTO {
     private static final long serialVersionUID = -2817028189475229567L;
 
+    public static final String WEIGHT_USAGE = "weight";
+    public static final String PACK_USAGE = "pack";
+    public static final String LOAD_USAGE = "load";
+    public static final String LENGTH_USAGE = "length";
+    public static final String AREA_USAGE = "area";
+    public static final String VOLUME_USAGE = "volume";
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MU_ROLE_ID", nullable = false, unique = true)

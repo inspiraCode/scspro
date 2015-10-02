@@ -12,4 +12,6 @@ public interface MeasurementUnitService extends BaseService<MeasurementUnit> {
     void addMeasurementUnitRole(int id, MeasurementUnitRole mur);
 
     void removeMeasurementUnitRole(int id, MeasurementUnitRole mur);
+    
+    List<MeasurementUnit> getMeasurementUnitsByUsage(String usage);
 }

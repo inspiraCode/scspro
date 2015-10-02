@@ -22,4 +22,5 @@ public class BaseSpringNamableService<T extends NamableDTO> extends BaseSpringSe
 	super.setDaoFactory((BaseDAO<T>) daoFactory);
 	this.daoFactory = daoFactory;
     }
+    
 }

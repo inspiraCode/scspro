@@ -5,6 +5,9 @@
     <bean id="companyRoleDAO" class="com.nowgroup.scspro.dao.hibernate.cat.CompanyRoleDAOHibernate"/>
     <bean id="companyScopeDAO" class="com.nowgroup.scspro.dao.hibernate.cat.CompanyScopeDAOHibernate"/>
     
+    <!-- United Nations Labels Catalog -->
+    <bean id="UNLabelDAO" class="com.nowgroup.scspro.dao.hibernate.cat.UNLabelDAOHibernate" />
+    
     <!-- GEO CATALOGS -->
     <bean id="countryDAO" class="com.nowgroup.scspro.dao.hibernate.geo.CountryDAOHibernate"/>
     <bean id="stateDAO" class="com.nowgroup.scspro.dao.hibernate.geo.StateDAOHibernate"/>
