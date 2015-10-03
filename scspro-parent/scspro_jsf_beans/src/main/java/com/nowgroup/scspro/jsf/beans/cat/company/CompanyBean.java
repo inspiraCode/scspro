@@ -37,7 +37,7 @@ import com.nowgroup.scspro.service.geo.StateService;
 @ManagedBean
 @SessionScoped
 public class CompanyBean extends BaseFacesBean<Company> {
-    
+
     public CompanyBean() {
 	super(new CompanyModel());
     }
@@ -79,7 +79,7 @@ public class CompanyBean extends BaseFacesBean<Company> {
     public void init() {
 	countries = getCountryServiceImpl().getAll();
     }
-    
+
     public String getCompanyState(int id) {
 	String result = "";
 
@@ -91,7 +91,24 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	result = geoStateInDb == null || geoStateInDb.getName() == null ? "" : geoStateInDb.getName();
 	return result;
     }
-    
+
+    public String getDisplayRoles(int id) {
+	String result = "";
+
+	List<CompanyScope> scopes = getCompanyServiceImpl().getCompanyScope(id);
+
+	for (CompanyScope scope : scopes) {
+	    String translate = getCompanyScopeServiceImpl().getRoleInCompanyScope(scope.getId()).getName();
+	    String translated = companyMsgBundle.getString("companies.profiles." + translate.toLowerCase());
+	    result += translated + ", ";
+	}
+	
+	if(result.length()>2)
+	    result = result.substring(0, result.length()-2);
+	
+	return result;
+    }
+
     @Override
     public void setModel(Modeleable<Company> model) {
 	super.setModel(model);
@@ -124,7 +141,7 @@ public class CompanyBean extends BaseFacesBean<Company> {
     public String addNew() throws InstantiationException, IllegalAccessException {
 	this.setStateId(0);
 	this.setCountryId(0);
-	
+
 	states = null;
 	return super.addNew();
     }
@@ -140,7 +157,7 @@ public class CompanyBean extends BaseFacesBean<Company> {
     public String upload() {
 	log.debug("Uploading company to database: " + getModel());
 	Company entity = getModel().demodelize();
-	
+
 	if (this.stateId > 0) {
 	    entity.setState(new State());
 	    entity.getState().setId(stateId);
@@ -167,8 +184,8 @@ public class CompanyBean extends BaseFacesBean<Company> {
 		CompanyScopeModel scopeModel = new CompanyScopeModel(scope);
 
 		log.debug("translating from " + translate);
-		String translated = companyMsgBundle.getString("companies.profiles." + translate.toLowerCase());
-		scopeModel.setDisplayName(translated);
+		//String translated = companyMsgBundle.getString("companies.profiles." + translate.toLowerCase());
+		//scopeModel.setDisplayName(translated);
 
 		rolesList.add(scopeModel);
 	    }
@@ -297,7 +314,7 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	addedScope.setCompany(getModel().demodelize());
 	addedScope.setCompanyRole(item.deModelize());
 	addedScope.setId(--newIndex);
-	addedScope.setDisplayName(item.getDisplayName());
+	//addedScope.setDisplayName(item.getDisplayName());
 
 	getModel().demodelize().getCompanyScope().add(addedScope);
 	rolesList.add(addedScope);
@@ -311,7 +328,7 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	int newScopeId = companyScopeServiceImpl.add(newScope);
 	newScope.setId(newScopeId);
 	CompanyScopeModel newScopeModel = new CompanyScopeModel(newScope);
-	newScopeModel.setDisplayName(item.getName());
+	//newScopeModel.setDisplayName(item.getName());
 	rolesList.add(newScopeModel);
     }
 

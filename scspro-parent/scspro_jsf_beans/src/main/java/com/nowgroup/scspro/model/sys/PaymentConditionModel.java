@@ -18,6 +18,15 @@ public class PaymentConditionModel extends PaymentCondition implements Modeleabl
 	
 	return result;
     }
+    
+    @Override
+    public Modeleable<PaymentCondition> getModel(PaymentCondition base) {
+	this.setId(base.getId());
+	this.setCode(base.getCode());
+	this.setDescription(base.getDescription());
+	this.setSelected(false);
+        return this;
+    }
 
     @Override
     public void setSelected(boolean selected) {

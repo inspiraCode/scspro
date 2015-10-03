@@ -5,16 +5,7 @@ import com.nowgroup.scspro.model.Modeleable;
 
 public class MeasurementUnitRoleModel extends MeasurementUnitRole implements Modeleable<MeasurementUnitRole> {
     private static final long serialVersionUID = -6232864824037970322L;
-    private String displayName;
     private boolean selected;
-
-    public String getDisplayName() {
-	return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-	this.displayName = displayName;
-    }
 
     @Override
     public MeasurementUnitRole demodelize() {
@@ -23,7 +14,15 @@ public class MeasurementUnitRoleModel extends MeasurementUnitRole implements Mod
 	result.setName(getName());
 	return result;
     }
-
+    
+    @Override
+    public Modeleable<MeasurementUnitRole> getModel(MeasurementUnitRole base) {
+	this.setId(base.getId());
+	this.setName(base.getName());
+	this.setSelected(false);
+        return this;
+    }
+    
     @Override
     public void setSelected(boolean selected) {
 	this.selected = selected;

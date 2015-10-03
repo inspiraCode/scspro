@@ -1,7 +1,6 @@
 package com.nowgroup.scspro.jsf.beans;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -18,7 +17,7 @@ public abstract class BaseFacesBean<T extends BaseDTO> extends PublisherFacesBea
     private Class<Modeleable<T>> modelType;
 
     private BaseService<T> service;
-    private List<T> localList = new ArrayList<T>();
+    private List<Modeleable<T>> localList = new LinkedList<Modeleable<T>>();
     private List<Modeleable<T>> selectedList = new LinkedList<Modeleable<T>>();
     private Modeleable<T> model;
     private boolean forceDownload;
@@ -54,9 +53,15 @@ public abstract class BaseFacesBean<T extends BaseDTO> extends PublisherFacesBea
 	return service.get(id);
     }
 
-    public List<T> getAll() {
-	if (localList.isEmpty() || forceDownload)
-	    return service.getAll();
+    public List<Modeleable<T>> getAll() throws InstantiationException, IllegalAccessException {
+	if (localList.isEmpty() || forceDownload){
+	    localList.clear();
+	    for(T item : service.getAll()){
+		log.debug("adding " + item + " to localList model.");
+		localList.add(modelType.newInstance().getModel(item));
+	    }
+	    return localList;
+	}
 	else
 	    return localList;
     }

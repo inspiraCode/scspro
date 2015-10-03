@@ -30,6 +30,15 @@ public class CompanyRoleModel extends CompanyRole implements Modeleable<CompanyR
 	result.setName(getName());
 	return result;
     }
+    
+    @Override
+    public Modeleable<CompanyRole> getModel(CompanyRole base) {
+	this.setDisplayName("");
+	this.setId(base.getId());
+	this.setName(base.getName());
+	this.setSelected(false);
+	return this;
+    }
 
     @Override
     public void setSelected(boolean selected) {

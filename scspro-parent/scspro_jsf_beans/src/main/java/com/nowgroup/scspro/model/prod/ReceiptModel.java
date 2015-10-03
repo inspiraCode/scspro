@@ -1,14 +1,12 @@
 package com.nowgroup.scspro.model.prod;
 
-import java.util.Date;
-
 import com.nowgroup.scspro.dto.prod.Receipt;
 import com.nowgroup.scspro.model.Modeleable;
 
 public class ReceiptModel extends Receipt implements Modeleable<Receipt> {
     private static final long serialVersionUID = 8389106011970442297L;
 
-    private String senderName;
+    /*private String senderName;
     private String receiverName;
     private String purchaserName;
     private String sellerName;
@@ -24,7 +22,7 @@ public class ReceiptModel extends Receipt implements Modeleable<Receipt> {
     private Date physicalRevisionTimestamp;
     private Date legalRevisionTimestamp;
     private String guide;
-    private String freighterName;
+    private String freighterName;*/
     
     private boolean selected;
 
@@ -42,7 +40,25 @@ public class ReceiptModel extends Receipt implements Modeleable<Receipt> {
 	return receipt;
     }
     
-    public String getSenderName() {
+    @Override
+    public Modeleable<Receipt> getModel(Receipt base) {
+	
+	this.setArrivalFolio(base.getArrivalFolio());
+	this.setComments(base.getComments());
+	this.getCompanies().clear();
+	this.getCompanies().addAll(base.getCompanies());
+	this.setFolio(base.getFolio());
+	this.setId(base.getId());
+	this.setReceiptBy(base.getReceiptBy());
+	this.setReceiptDate(base.getReceiptDate());
+	this.setSelected(false);
+	this.setStorage(base.getStorage());
+	this.setCreatedOn(base.getCreatedOn());
+	
+        return this;
+    }
+    
+   /* public String getSenderName() {
 	return senderName;
     }
 
@@ -160,7 +176,7 @@ public class ReceiptModel extends Receipt implements Modeleable<Receipt> {
 
     public void setFreighterName(String freighterName) {
 	this.freighterName = freighterName;
-    }
+    }*/
 
     public boolean isSelected() {
 	return selected;
@@ -169,7 +185,7 @@ public class ReceiptModel extends Receipt implements Modeleable<Receipt> {
     public void setSelected(boolean selected) {
 	this.selected = selected;
     }
-
+/*
     public String getPurchaserName() {
 	return purchaserName;
     }
@@ -184,6 +200,6 @@ public class ReceiptModel extends Receipt implements Modeleable<Receipt> {
 
     public void setSellerName(String sellerName) {
 	this.sellerName = sellerName;
-    }
+    }*/
 
 }

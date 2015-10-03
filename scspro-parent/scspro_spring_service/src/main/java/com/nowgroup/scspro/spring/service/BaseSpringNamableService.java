@@ -9,10 +9,10 @@ import com.nowgroup.scspro.dto.NamableDTO;
 public class BaseSpringNamableService<T extends NamableDTO> extends BaseSpringService<T> {
     private NamableHibernateDAO<T> daoFactory;
 
-    public T getByName(String name)  throws ItemByNameException {
+    public T getByName(String name) throws ItemByNameException {
 	return daoFactory.getByName(name);
     }
-    
+
     @Override
     public BaseHibernateDAO<T> getDaoFactory() {
 	return daoFactory;
@@ -22,5 +22,4 @@ public class BaseSpringNamableService<T extends NamableDTO> extends BaseSpringSe
 	super.setDaoFactory((BaseDAO<T>) daoFactory);
 	this.daoFactory = daoFactory;
     }
-    
 }

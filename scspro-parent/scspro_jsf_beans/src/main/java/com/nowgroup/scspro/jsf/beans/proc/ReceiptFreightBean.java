@@ -123,7 +123,7 @@ public class ReceiptFreightBean extends BaseFacesBean<ReceiptFreight> {
 	    Company freighter = getFreighter(freighterId);
 	    if (freighter != null) {
 		existent.setFreighter(freighter);
-		existent.setFreighterName(freighter.getAlias());
+		//existent.setFreighterName(freighter.getAlias());
 	    }
 
 	    existent.setGuide(receiptGuide);
@@ -153,7 +153,7 @@ public class ReceiptFreightBean extends BaseFacesBean<ReceiptFreight> {
 	    Company freighter = getFreighter(freighterId);
 	    if (freighter != null) {
 		newRf.setFreighter(freighter);
-		newRf.setFreighterName(freighter.getAlias());
+		//newRf.setFreighterName(freighter.getAlias());
 	    }
 
 	    PaymentCondition payment = getPaymentCondition(paymentConditionId);
@@ -175,7 +175,7 @@ public class ReceiptFreightBean extends BaseFacesBean<ReceiptFreight> {
 	guideDate = item.getGuideDate();
 	vehicle = item.getVehicle();
 	freighterId = item.getFreighter().getId();
-	freighterName = item.getFreighterName();
+	//freighterName = item.getFreighterName();
 	paymentConditionId = item.getPaymentCondition().getId();
 	receiptFreightComments = item.getComments();
 	return "";

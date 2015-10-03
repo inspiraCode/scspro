@@ -41,7 +41,8 @@
             <div class="control-group col-md-12">
                 <div class="controls">
                     <h:outputLabel for="goodsWeightPounds" value="#{i18n_proc_receipt['receipt.pounds']}: " styleClass="control-label col-md-3" />
-                    <h:outputLabel for="goodsWeightKilos" value="#{i18n_proc_receipt['receipt.kilos']}: " styleClass="control-label col-md-4" />
+                    <h:outputLabel for="goodsWeightKilos" value="#{i18n_proc_receipt['receipt.kilos']}: " styleClass="control-label col-md-3" />
+                    <h:outputLabel for="goodsNU" value="#{i18n_proc_receipt['receipt.kilos']}: " styleClass="control-label col-md-3" />
                 </div>
             </div>
         </div>
@@ -52,6 +53,12 @@
                 </div>
                 <div class="controls col-md-3">
                     <h:inputText styleClass="form-control" id="goodsWeightKilos" value="#{receiptMerchandiseBean.goodsWeightKilos}" pt:placeholder="#{i18n_proc_receipt['receipt.kilos']}" />
+                </div>
+                <div class="controls col-md-3">
+                    <h:selectOneMenu id="goodsNU" value="#{receiptMerchandiseBean.measurementUnitId}" styleClass="form-control">
+                        <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
+                        <f:selectItems value="#{measurementUnitClassifierBean.loadMeasurementUnits}"  var="muItem" itemValue="#{muItem.id}" itemLabel="#{muItem.code} - #{muItem.name}" />
+                    </h:selectOneMenu>
                 </div>
             </div>
         </div>

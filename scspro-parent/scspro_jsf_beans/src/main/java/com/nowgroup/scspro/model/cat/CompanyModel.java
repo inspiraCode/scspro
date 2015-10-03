@@ -5,28 +5,8 @@ import com.nowgroup.scspro.model.Modeleable;
 
 public class CompanyModel extends Company implements Modeleable<Company> {
     private static final long serialVersionUID = -2147292143916341207L;
-
-    private String displayRoles;
-    private String displayCountry;
     private boolean selected = false;
 
-    public CompanyModel(Company company) {
-	this.setId(company.getId());
-	this.setName(company.getName());
-	this.setAlias(company.getAlias());
-
-	this.setAddressStreet(company.getAddressStreet());
-	this.setAddressAdditional(company.getAddressAdditional());
-	this.setCity(company.getCity());
-	this.setState(company.getState());
-	this.setZip(company.getZip());
-
-	this.setPhone(company.getPhone());
-	this.setPhoneSecondary(company.getPhoneSecondary());
-	this.setFax(company.getFax());
-	this.setEmail(company.getEmail());
-	this.setWeb(company.getWeb());
-    }
 
     public Company demodelize() {
 	Company result = new Company();
@@ -51,15 +31,29 @@ public class CompanyModel extends Company implements Modeleable<Company> {
 	return result;
     }
 
+    @Override
+    public Modeleable<Company> getModel(Company base) {
+	CompanyModel result = new CompanyModel();
+	result.setId(base.getId());
+	result.setName(base.getName());
+	result.setAlias(base.getAlias());
+
+	result.setAddressStreet(base.getAddressStreet());
+	result.setAddressAdditional(base.getAddressAdditional());
+	result.setCity(base.getCity());
+	result.setState(base.getState());
+	result.setZip(base.getZip());
+
+	result.setPhone(base.getPhone());
+	result.setPhoneSecondary(base.getPhoneSecondary());
+	result.setFax(base.getFax());
+	result.setEmail(base.getEmail());
+	result.setWeb(base.getWeb());
+	result.setSelected(false);
+	return result;
+    }
+
     public CompanyModel() {
-    }
-
-    public String getDisplayRoles() {
-	return displayRoles;
-    }
-
-    public void setDisplayRoles(String displayRoles) {
-	this.displayRoles = displayRoles;
     }
 
     public boolean isSelected() {
@@ -68,13 +62,5 @@ public class CompanyModel extends Company implements Modeleable<Company> {
 
     public void setSelected(boolean selected) {
 	this.selected = selected;
-    }
-
-    public String getDisplayCountry() {
-	return displayCountry;
-    }
-
-    public void setDisplayCountry(String displayCountry) {
-	this.displayCountry = displayCountry;
     }
 }

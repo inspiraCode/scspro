@@ -33,6 +33,29 @@ public class UNLabelModel extends UNLabel implements Modeleable<UNLabel> {
     }
 
     @Override
+    public Modeleable<UNLabel> getModel(UNLabel base) {
+	this.setBulk(base.getBulk());
+	this.setCargoAircraftOnly(base.getCargoAircraftOnly());
+	this.setDescriptions(base.getDescriptions());
+	this.setExceptions(base.getExceptions());
+	this.setHazardScore(base.getHazardScore());
+	this.setHazardType(base.getHazardType());
+	this.setId(base.getId());
+	this.setLabels(base.getLabels());
+	this.setMatterName(base.getMatterName());
+	this.setNiu(base.getNiu());
+	this.setNonBulk(base.getNonBulk());
+	this.setNumbers(base.getNumbers());
+	this.setPassengerAircraftRail(base.getPassengerAircraftRail());
+	this.setPg(base.getPg());
+	this.setSelected(false);
+	this.setSpecial(base.getSpecial());
+	this.setVesselLocation(base.getVesselLocation());
+
+	return this;
+    }
+
+    @Override
     public void setSelected(boolean selected) {
 	this.selected = selected;
     }

@@ -6,7 +6,6 @@ import com.nowgroup.scspro.model.Modeleable;
 public class CompanyScopeModel extends CompanyScope implements Modeleable<CompanyScope> {
     private static final long serialVersionUID = -790177733979297790L;
 
-    private String displayName;
     private boolean selected;
 
     public CompanyScopeModel() {
@@ -25,13 +24,14 @@ public class CompanyScopeModel extends CompanyScope implements Modeleable<Compan
 	result.setCompanyRole(this.getCompanyRole());
 	return result;
     }
-
-    public String getDisplayName() {
-	return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-	this.displayName = displayName;
+    
+    @Override
+    public Modeleable<CompanyScope> getModel(CompanyScope base) {
+	this.setCompany(base.getCompany());
+	this.setCompanyRole(base.getCompanyRole());
+	this.setId(base.getId());
+	this.setSelected(false);
+	return this;
     }
 
     @Override
@@ -43,5 +43,4 @@ public class CompanyScopeModel extends CompanyScope implements Modeleable<Compan
     public boolean isSelected() {
 	return selected;
     }
-
 }

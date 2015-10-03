@@ -13,7 +13,7 @@
     </bean>
     
     <!-- United Nations Labels Catalog -->
-    <bean id="UNLabelService" class="com.nowgroup.scspro.spring.service.cat.UNLabelServiceIMpl">
+    <bean id="UNLabelService" class="com.nowgroup.scspro.spring.service.cat.UNLabelServiceImpl">
     	<property name="unDAO" ref="UNLabelDAO" />
     </bean>
     

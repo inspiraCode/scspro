@@ -8,4 +8,6 @@ public interface Modeleable<T extends BaseDTO> {
     void setSelected(boolean selected);
 
     boolean isSelected();
+    
+    Modeleable<T> getModel(T base);
 }

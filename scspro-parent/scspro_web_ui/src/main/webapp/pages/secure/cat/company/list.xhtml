@@ -49,21 +49,21 @@
             <h:commandLink id="addButton" action="#{companyBean.addNew}" styleClass="btn btn-primary" style="margin-bottom:30px;">
                 <i class="fa fa-plus"></i><h:outputText value=" #{i18n_global['global.add']}" />
             </h:commandLink>
-            <h:commandLink id="removeSelectedButton" action="#{companyListBean.removeSelected}" onclick="return confirm('#{i18n_companies['company.removeSelected.confirmation']}');" styleClass="btn btn-warning" style="margin-left:10px;margin-bottom:30px;">
+            <h:commandLink id="removeSelectedButton" action="#{companyBean.removeSelected}" onclick="return confirm('#{i18n_companies['company.removeSelected.confirmation']}');" styleClass="btn btn-warning" style="margin-left:10px;margin-bottom:30px;">
                 <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.removeSelected']}" />
             </h:commandLink>
-            <h:commandLink id="pdfExportButton" onclick="showLoading=false;" action="#{companyListBean.pdfReport(companyListBean.companies, 'companies-list', i18n_companies)}" styleClass="btn btn-info" style="margin-left:10px;margin-bottom:30px;">
+            <h:commandLink id="pdfExportButton" onclick="showLoading=false;" action="#{companyBean.pdfReport(companyBean.companies, 'companies-list', i18n_companies)}" styleClass="btn btn-info" style="margin-left:10px;margin-bottom:30px;">
                 <i class="fa fa-file-pdf-o"></i><h:outputText value=" #{i18n_global['global.export.pdf']}" />
             </h:commandLink>
-            <h:commandLink id="xlsxExportButton" onclick="showLoading=false;" action="#{companyListBean.xlsReport(companyListBean.companies, 'companies-list', i18n_companies)}" styleClass="btn btn-success" style="margin-left:5px;margin-bottom:30px;">
+            <h:commandLink id="xlsxExportButton" onclick="showLoading=false;" action="#{companyBean.xlsReport(companyBean.companies, 'companies-list', i18n_companies)}" styleClass="btn btn-success" style="margin-left:5px;margin-bottom:30px;">
                 <i class="fa fa-file-excel-o"></i><h:outputText value=" #{i18n_global['global.export.xls']}" />
             </h:commandLink>
             <div id="companiesTable-wrapper">
-            <h:dataTable pt:id="companiesTable" value="#{companyListBean.companies}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even">
+            <h:dataTable pt:id="companiesTable" value="#{companyBean.all}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even">
                 <h:column>
                     <f:facet name="header">id</f:facet>
                     <p:selectBooleanCheckbox value="#{item.selected}">
-                        <p:ajax update="msg" listener="#{companyListBean.selectedItem(item)}" />
+                        <p:ajax update="msg" listener="#{companyBean.selectedItem(item)}" />
                     </p:selectBooleanCheckbox>
                     <h:outputText value=" #{item.id}" />
                 </h:column>
@@ -77,7 +77,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header"><h:outputText value="#{i18n_companies['company.state']}" /></f:facet>
-                    <h:outputText value="#{companyListBean.getCompanyState(item.id)}" />
+                    <h:outputText value="#{companyBean.getCompanyState(item.id)}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header"><h:outputText value="#{i18n_companies['company.phone']}" /></f:facet>
@@ -85,7 +85,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header"><h:outputText value="#{i18n_companies['companies.profiles']}" /></f:facet>
-                    <h:outputText value="#{item.displayRoles}" />
+                    <h:outputText value="#{companyBean.getDisplayRoles(item.id)}" />
                 </h:column>
                 
                 <h:column>

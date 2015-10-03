@@ -127,7 +127,7 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 	    receipt.getCompanies().add(profile);
 
 	    Company sender = companyService.get(senderId);
-	    receipt.setSenderName(sender.getAlias());
+	    //receipt.setSenderName(sender.getAlias());
 
 	    CompanyScope sellerProfile = companyScope.getByCompanyAndRole(senderId, CompanyScope.SELLER_SCOPE);
 	    if (sellerProfile != null) {
@@ -135,7 +135,7 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 		sellerId = senderId;
 		receipt.getCompanies().add(sellerProfile);
 		Company dbCompany = companyService.get(sellerId);
-		receipt.setSellerName(dbCompany.getAlias());
+		//receipt.setSellerName(dbCompany.getAlias());
 	    } else {
 		publishWarning(msg.getString("receipt.senderNotSeller"));
 	    }
@@ -149,7 +149,7 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 	    receipt.getCompanies().add(profile);
 
 	    Company dbCompany = companyService.get(receiverId);
-	    receipt.setReceiverName(dbCompany.getAlias());
+	    //receipt.setReceiverName(dbCompany.getAlias());
 
 	    CompanyScope purchaserProfile = companyScope.getByCompanyAndRole(receiverId, CompanyScope.PURCHASER_SCOPE);
 	    if (purchaserProfile != null) {
@@ -157,7 +157,7 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 		purchaserId = receiverId;
 		receipt.getCompanies().add(purchaserProfile);
 		dbCompany = companyService.get(purchaserId);
-		receipt.setPurchaserName(dbCompany.getAlias());
+		//receipt.setPurchaserName(dbCompany.getAlias());
 	    } else {
 		publishWarning(msg.getString("receipt.receiverNotPurchaser"));
 	    }
@@ -171,7 +171,7 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 	    receipt.getCompanies().add(profile);
 
 	    Company dbCompany = companyService.get(purchaserId);
-	    receipt.setPurchaserName(dbCompany.getAlias());
+	   // receipt.setPurchaserName(dbCompany.getAlias());
 	}
     }
 
@@ -182,7 +182,7 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 	    receipt.getCompanies().add(profile);
 
 	    Company dbCompany = companyService.get(sellerId);
-	    receipt.setSellerName(dbCompany.getAlias());
+	   // receipt.setSellerName(dbCompany.getAlias());
 	}
     }
 
@@ -214,7 +214,7 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
     public int getSenderId() {
 	return senderId;
     }
-
+/*
     public void setSenderId(int senderId) {
 	if (receiverId == 0)
 	    setSenderName("");
@@ -250,7 +250,7 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 	    setPurchaserName("");
 	this.purchaserId = purchaserId;
     }
-
+    
     public String getSenderName() {
 	return getReceipt().getSenderName();
     }
@@ -282,7 +282,7 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
     public void setReceiverName(String receiverName) {
 	getReceipt().setReceiverName(receiverName);
     }
-
+*/
     public CompanyScopeService getCompanyScope() {
 	return companyScope;
     }
