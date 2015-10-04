@@ -24,14 +24,10 @@ public class CompanyScopeModel extends CompanyScope implements Modeleable<Compan
 	result.setCompanyRole(this.getCompanyRole());
 	return result;
     }
-    
+
     @Override
     public Modeleable<CompanyScope> getModel(CompanyScope base) {
-	this.setCompany(base.getCompany());
-	this.setCompanyRole(base.getCompanyRole());
-	this.setId(base.getId());
-	this.setSelected(false);
-	return this;
+	return new CompanyScopeModel(base);
     }
 
     @Override

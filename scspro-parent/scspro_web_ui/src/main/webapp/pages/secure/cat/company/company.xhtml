@@ -7,14 +7,14 @@
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/templates/default/main.xhtml">
-	<ui:define name="title">SCS PRO - #{i18n_companies['companies.title']} #{companyBean.company.id>0?companyBean.company.id:i18n_companies['companies.title.add']} </ui:define>
+	<ui:define name="title">SCS PRO - #{i18n_companies['companies.title']} #{companyBean.model.id>0?companyBean.model.id:i18n_companies['companies.title.add']} </ui:define>
     <ui:define name="content">
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                <i class="fa fa-industry"></i><h:outputText rendered="#{companyBean.company.id==0}" id="outTxtTitleId" value=" #{i18n_companies['companies.title.add']}" name="outTxtTitleNm"></h:outputText>
-                <h:outputText rendered="#{companyBean.company.id>0}" id="outTxtTitle2Id" value=" #{companyBean.company.name} (#{companyBean.company.id})" name="outTxtTitle2Nm"></h:outputText>
+                <i class="fa fa-industry"></i><h:outputText rendered="#{companyBean.model.id==0}" id="outTxtTitleId" value=" #{i18n_companies['companies.title.add']}" name="outTxtTitleNm"></h:outputText>
+                <h:outputText rendered="#{companyBean.model.id>0}" id="outTxtTitle2Id" value=" #{companyBean.model.name} (#{companyBean.model.id})" name="outTxtTitle2Nm"></h:outputText>
                 </h1>
             </div>
         </div>
@@ -23,10 +23,10 @@
         <h:form>
             <fieldset> 
                 <div class="row">
-                    <h:commandLink id="btnSaveId" action="#{companyBean.uploadCompany}" styleClass="btn btn-success" style="margin-right:10px;">
+                    <h:commandLink id="btnSaveId" action="#{companyBean.upload}" styleClass="btn btn-success" style="margin-right:10px;">
                         <i class="fa fa-save"></i><h:outputText value=" #{i18n_global['global.save']}" />
                     </h:commandLink>
-                    <h:commandLink id="btnDeleteId" action="#{companyBean.remove(companyBean.company)}" rendered="#{companyBean.company.id>0}" onclick="return confirm('#{i18n_companies['company.remove.confirmation']}');" styleClass="btn btn-danger" style="margin-right:30px;">
+                    <h:commandLink id="btnDeleteId" action="#{companyBean.delete(companyBean.model)}" rendered="#{companyBean.model.id>0}" onclick="return confirm('#{i18n_companies['company.remove.confirmation']}');" styleClass="btn btn-danger" style="margin-right:30px;">
                         <i class="fa fa-trash-o"></i><h:outputText value=" #{i18n_global['global.remove']}" />
                     </h:commandLink>
                     <h:commandLink id="btnGoBackId" action="#{companyBean.showList}" styleClass="btn btn-primary">

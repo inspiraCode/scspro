@@ -5,16 +5,7 @@ import com.nowgroup.scspro.model.Modeleable;
 
 public class CompanyRoleModel extends CompanyRole implements Modeleable<CompanyRole> {
     private static final long serialVersionUID = 9034795124912189107L;
-    private String displayName;
     private boolean selected;
-
-    public String getDisplayName() {
-	return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-	this.displayName = displayName;
-    }
 
     public CompanyRole deModelize() {
 	CompanyRole result = new CompanyRole();
@@ -30,10 +21,9 @@ public class CompanyRoleModel extends CompanyRole implements Modeleable<CompanyR
 	result.setName(getName());
 	return result;
     }
-    
+
     @Override
     public Modeleable<CompanyRole> getModel(CompanyRole base) {
-	this.setDisplayName("");
 	this.setId(base.getId());
 	this.setName(base.getName());
 	this.setSelected(false);

@@ -17,7 +17,7 @@
                 <ui:repeat var="item" value="#{companyBean.availableRolesList}" rendered="#{not empty companyBean.availableRolesList}">
                     <h:panelGroup id="item" styleClass="btn btn-primary" style="margin:5px;">
                         <f:attribute name="companyRole" value="#{item}"/>
-                        <h:outputText value="#{item.displayName}" />
+                        <h:outputText value="#{companyBean.getDisplayName(item)}" />
                     </h:panelGroup>
                     <p:draggable for="item" revert="true" cursor="move" opacity="0.3" helper="clone" />
                 </ui:repeat>
@@ -34,7 +34,7 @@
                 <ui:repeat var="item" value="#{companyBean.rolesList}" rendered="#{not empty companyBean.rolesList}">
                     <h:panelGroup id="item" styleClass="btn btn-success" style="margin:5px;">
                         <f:attribute name="companyRole" value="#{item}"/>
-                        <h:outputText value="#{item.displayName}" />
+                        <h:outputText value="#{companyBean.getDisplayName(item)}" />
                     </h:panelGroup>
                     <p:draggable for="item" revert="true" cursor="move" opacity="0.3" helper="clone"  />
                 </ui:repeat>

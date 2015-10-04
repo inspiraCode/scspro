@@ -54,15 +54,14 @@ public abstract class BaseFacesBean<T extends BaseDTO> extends PublisherFacesBea
     }
 
     public List<Modeleable<T>> getAll() throws InstantiationException, IllegalAccessException {
-	if (localList.isEmpty() || forceDownload){
+	if (localList.isEmpty() || forceDownload) {
 	    localList.clear();
-	    for(T item : service.getAll()){
+	    for (T item : service.getAll()) {
 		log.debug("adding " + item + " to localList model.");
 		localList.add(modelType.newInstance().getModel(item));
 	    }
 	    return localList;
-	}
-	else
+	} else
 	    return localList;
     }
 
@@ -76,14 +75,16 @@ public abstract class BaseFacesBean<T extends BaseDTO> extends PublisherFacesBea
 	    else
 		update(entity);
 
-	    result = "uploaded";
+	    result = "success";
 	} catch (org.springframework.dao.DataIntegrityViolationException e) {
 	    log.error(e.getMessage(), e);
 	    publishError(getMsgBundle().getString("save.duplicate"));
+	    result = "failure";
 	} catch (Exception e) {
 	    log.error(e.getMessage(), e);
 	    publishError(getMsgBundle().getString("save.error"));
 	    publishError(e.getLocalizedMessage());
+	    result = "failure";
 	}
 	log.info("UPLOAD END --");
 	return result;
@@ -103,28 +104,29 @@ public abstract class BaseFacesBean<T extends BaseDTO> extends PublisherFacesBea
 	try {
 	    service.delete(model.demodelize());
 	    forceDownload = true;
-	    return "deleted";
+	    return "success";
 	} catch (Exception e) {
 	    log.error(e.getMessage(), e);
 	    publishError(msgBundle.getString("delete.error"));
 	    publishError(e.getMessage());
-	    return "";
+	    return "failure";
 	}
 
     }
 
     public String addNew() throws InstantiationException, IllegalAccessException {
+	log.debug("Adding new item, loading window...");
 	model = modelType.newInstance();
-	return "addNew";
+	return "success";
     }
 
     public String edit(Modeleable<T> model) {
 	this.setModel(model);
-	return "edit";
+	return "success";
     }
 
     public String showList() {
-	return "list";
+	return "success";
     }
 
     public BaseService<T> getService() {

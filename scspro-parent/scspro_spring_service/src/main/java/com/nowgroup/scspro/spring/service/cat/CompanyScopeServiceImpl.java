@@ -39,6 +39,7 @@ public class CompanyScopeServiceImpl extends BaseSpringService<CompanyScope> imp
 
     public CompanyRole getRoleInCompanyScope(int id) {
 	CompanyScope dbScope = this.companyScopeDAO.get(id);
+	if(dbScope == null) return null;
 	CompanyRole result = dbScope.getCompanyRole();
 	result.setId(dbScope.getCompanyRole().getId());
 	result.setName(dbScope.getCompanyRole().getName());

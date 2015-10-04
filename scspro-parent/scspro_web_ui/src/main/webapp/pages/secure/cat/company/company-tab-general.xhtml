@@ -11,7 +11,7 @@
             <!-- Company Name -->
             <h:outputLabel id="outLblCompanyNameId" for="companyName" value="#{i18n_companies['company.name']}: " name="outLblCompanyNameNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <h:inputText styleClass="form-control" id="companyName" value="#{companyBean.company.name}" pt:placeholder="#{i18n_companies['company.name']}"></h:inputText>
+                <h:inputText styleClass="form-control" id="companyName" value="#{companyBean.model.name}" pt:placeholder="#{i18n_companies['company.name']}"></h:inputText>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
             <!-- Company Alias -->
             <h:outputLabel id="outLblCompanyAliasId" for="alias" value="#{i18n_companies['company.alias']}: " name="outLblCompanyAliasNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <h:inputText styleClass="form-control" id="alias" value="#{companyBean.company.alias}" pt:placeholder="#{i18n_companies['company.alias']}"></h:inputText>
+                <h:inputText styleClass="form-control" id="alias" value="#{companyBean.model.alias}" pt:placeholder="#{i18n_companies['company.alias']}"></h:inputText>
             </div>
         </div>
     </div>
@@ -29,8 +29,8 @@
             <!-- Address -->
             <h:outputLabel id="outLblAddressId" for="address" value="#{i18n_companies['company.address']}: " name="outLblAddressNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <h:inputText styleClass="form-control col-md-10" id="address" value="#{companyBean.company.addressStreet}" pt:placeholder="#{i18n_companies['company.address.street']}"></h:inputText>
-                <h:inputText styleClass="form-control col-md-10" id="addressAdditional" value="#{companyBean.company.addressAdditional}" pt:placeholder="#{i18n_companies['company.address.additional']}"></h:inputText>
+                <h:inputText styleClass="form-control col-md-10" id="address" value="#{companyBean.model.addressStreet}" pt:placeholder="#{i18n_companies['company.address.street']}"></h:inputText>
+                <h:inputText styleClass="form-control col-md-10" id="addressAdditional" value="#{companyBean.model.addressAdditional}" pt:placeholder="#{i18n_companies['company.address.additional']}"></h:inputText>
             </div>
         </div>
     </div>
@@ -62,14 +62,14 @@
             <!-- Company City -->
             <h:outputLabel id="outLblCompanyCityId" for="companyCity" value="#{i18n_companies['company.city']}: " name="outLblCompanyCityNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <h:inputText styleClass="form-control" id="companyCity" value="#{companyBean.company.city}" pt:placeholder="#{i18n_companies['company.city']}"></h:inputText>
+                <h:inputText styleClass="form-control" id="companyCity" value="#{companyBean.model.city}" pt:placeholder="#{i18n_companies['company.city']}"></h:inputText>
             </div>
         </div>
         <div class="control-group col-md-4">
             <!-- Company Zip -->
             <h:outputLabel id="outLblCompanyZipId" for="companyZip" value="#{i18n_companies['company.zip']}: " name="outLblCompanyZipNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <h:inputText styleClass="form-control" id="companyZip" value="#{companyBean.company.zip}" pt:placeholder="#{i18n_companies['company.zip']}"></h:inputText>
+                <h:inputText styleClass="form-control" id="companyZip" value="#{companyBean.model.zip}" pt:placeholder="#{i18n_companies['company.zip']}"></h:inputText>
             </div>
         </div>
     </div>
@@ -78,21 +78,21 @@
             <!-- Company Phone -->
             <h:outputLabel id="outLblCompanyPhoneId" for="companyPhone" value="#{i18n_companies['company.phone']}: " name="outLblCompanyPhoneNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <h:inputText styleClass="form-control" id="companyPhone" value="#{companyBean.company.phone}" pt:placeholder="#{i18n_companies['company.phone']}"></h:inputText>
+                <h:inputText styleClass="form-control" id="companyPhone" value="#{companyBean.model.phone}" pt:placeholder="#{i18n_companies['company.phone']}"></h:inputText>
             </div>
         </div>
         <div class="control-group col-md-4">
             <!-- Company Phone Secondary -->
             <h:outputLabel id="outLblCompanyPhoneSecId" for="companyPhoneSec" value="#{i18n_companies['company.phone.secondary']}: " name="outLblCompanyPhoneSecNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <h:inputText styleClass="form-control" id="companyPhoneSec" value="#{companyBean.company.phoneSecondary}" pt:placeholder="#{i18n_companies['company.phone.secondary']}"></h:inputText>
+                <h:inputText styleClass="form-control" id="companyPhoneSec" value="#{companyBean.model.phoneSecondary}" pt:placeholder="#{i18n_companies['company.phone.secondary']}"></h:inputText>
             </div>
         </div>
         <div class="control-group col-md-4">
             <!-- Company Fax -->
             <h:outputLabel id="outLblCompanyFaxId" for="companyFax" value="#{i18n_companies['company.fax']}: " name="outLblCompanyFaxNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <h:inputText styleClass="form-control" id="companyFax" value="#{companyBean.company.fax}" pt:placeholder="#{i18n_companies['company.fax']}"></h:inputText>
+                <h:inputText styleClass="form-control" id="companyFax" value="#{companyBean.model.fax}" pt:placeholder="#{i18n_companies['company.fax']}"></h:inputText>
             </div>
         </div>
     </div>
@@ -101,14 +101,14 @@
             <!-- Company Email -->
             <h:outputLabel id="outLblCompanyEmail" for="companyEmail" value="#{i18n_companies['company.email']}: " name="outLblCompanyEmailNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <h:inputText styleClass="form-control" id="companyEmail" value="#{companyBean.company.email}" pt:type="email" pt:placeholder="#{i18n_companies['company.email']}"></h:inputText>
+                <h:inputText styleClass="form-control" id="companyEmail" value="#{companyBean.model.email}" pt:type="email" pt:placeholder="#{i18n_companies['company.email']}"></h:inputText>
             </div>
         </div>
         <div class="control-group col-md-6">
             <!-- Company Web -->
             <h:outputLabel id="outLblCompanyWebId" for="companyWeb" value="#{i18n_companies['company.web']}: " name="outLblCompanyWebNm" styleClass="control-label"></h:outputLabel>
             <div class="controls">
-                <h:inputText styleClass="form-control" id="companyWeb" value="#{companyBean.company.web}" pt:placeholder="#{i18n_companies['company.web']}"></h:inputText>
+                <h:inputText styleClass="form-control" id="companyWeb" value="#{companyBean.model.web}" pt:placeholder="#{i18n_companies['company.web']}"></h:inputText>
             </div>
         </div>
     </div>

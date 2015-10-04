@@ -81,11 +81,24 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
+        <from-view-id>/pages/secure/cat/company/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{companyBean.addNew}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/secure/cat/company/company.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
         <from-view-id>/pages/secure/cat/company/company.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{companyBean.uploadCompany}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/pages/secure/cat/company/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/pages/secure/cat/company/company.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
@@ -93,8 +106,14 @@
         <from-view-id>/pages/secure/sys/storage/storage.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{storageBean.uploadStorage}</from-action>
-            <from-outcome>success</from-outcome>
+            <from-outcome>good</from-outcome>
             <to-view-id>/pages/secure/sys/storage/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{storageBean.uploadStorage}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/pages/secure/sys/storage/storage.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

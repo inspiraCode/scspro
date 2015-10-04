@@ -37,11 +37,6 @@ import com.nowgroup.scspro.service.geo.StateService;
 @ManagedBean
 @SessionScoped
 public class CompanyBean extends BaseFacesBean<Company> {
-
-    public CompanyBean() {
-	super(new CompanyModel());
-    }
-
     private static final long serialVersionUID = 923379298131353402L;
 
     private static Logger log = Logger.getLogger(CompanyBean.class.getName());
@@ -75,6 +70,10 @@ public class CompanyBean extends BaseFacesBean<Company> {
     @ManagedProperty("#{i18n_companies}")
     private ResourceBundle companyMsgBundle;
 
+    public CompanyBean() {
+	super(new CompanyModel());
+    }
+
     @PostConstruct
     public void init() {
 	countries = getCountryServiceImpl().getAll();
@@ -102,10 +101,10 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	    String translated = companyMsgBundle.getString("companies.profiles." + translate.toLowerCase());
 	    result += translated + ", ";
 	}
-	
-	if(result.length()>2)
-	    result = result.substring(0, result.length()-2);
-	
+
+	if (result.length() > 2)
+	    result = result.substring(0, result.length() - 2);
+
 	return result;
     }
 
@@ -179,14 +178,7 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	    List<CompanyScope> scopes = getCompanyServiceImpl().getCompanyScope(company.getId());
 
 	    for (CompanyScope scope : scopes) {
-		String translate = getCompanyScopeServiceImpl().getRoleInCompanyScope(scope.getId()).getName();
-		log.debug("translating role in scope: " + translate);
 		CompanyScopeModel scopeModel = new CompanyScopeModel(scope);
-
-		log.debug("translating from " + translate);
-		//String translated = companyMsgBundle.getString("companies.profiles." + translate.toLowerCase());
-		//scopeModel.setDisplayName(translated);
-
 		rolesList.add(scopeModel);
 	    }
 
@@ -223,13 +215,39 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	    CompanyRoleModel crm = new CompanyRoleModel();
 	    crm.setId(role.getId());
 	    crm.setName(role.getName());
-	    crm.setDisplayName(companyMsgBundle.getString("companies.profiles." + role.getName().toLowerCase()));
 	    log.debug("translating role: " + crm);
 
 	    availableRoles.add(crm);
 	}
 
 	return availableRoles;
+    }
+
+    public String getDisplayName(CompanyRoleModel role) {
+	return companyMsgBundle.getString("companies.profiles." + role.getName().toLowerCase());
+    }
+
+    public String getDisplayName(CompanyScopeModel scope) {
+	log.debug("translating scope: " + scope);
+	if (scope == null) {
+	    log.warn("Scope is null");
+	    return "";
+	}
+	int id = scope.getId();
+
+	String translate = "";
+	if (id < 0) {
+	    translate = scope.getCompanyRole().getName();
+	} else {
+	    CompanyRole role = getCompanyScopeServiceImpl().getRoleInCompanyScope(id);
+	    if (role == null) {
+		log.warn("Scope not found from company scope service with id:" + id);
+		return "";
+	    }
+	    translate = role.getName();
+	}
+
+	return companyMsgBundle.getString("companies.profiles." + translate.toLowerCase());
     }
 
     public void onRemoveRole(DragDropEvent event) {
