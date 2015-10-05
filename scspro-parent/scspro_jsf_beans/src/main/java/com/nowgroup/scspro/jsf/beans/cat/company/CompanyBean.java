@@ -1,6 +1,7 @@
 package com.nowgroup.scspro.jsf.beans.cat.company;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -22,7 +23,7 @@ import com.nowgroup.scspro.dto.cat.CompanyRole;
 import com.nowgroup.scspro.dto.cat.CompanyScope;
 import com.nowgroup.scspro.dto.geo.Country;
 import com.nowgroup.scspro.dto.geo.State;
-import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
+import com.nowgroup.scspro.jsf.beans.BaseFacesReporteableBean;
 import com.nowgroup.scspro.model.Modeleable;
 import com.nowgroup.scspro.model.cat.CompanyModel;
 import com.nowgroup.scspro.model.cat.CompanyRoleModel;
@@ -36,7 +37,7 @@ import com.nowgroup.scspro.service.geo.StateService;
 
 @ManagedBean
 @SessionScoped
-public class CompanyBean extends BaseFacesBean<Company> {
+public class CompanyBean extends BaseFacesReporteableBean<Company> {
     private static final long serialVersionUID = 923379298131353402L;
 
     private static Logger log = Logger.getLogger(CompanyBean.class.getName());
@@ -158,6 +159,35 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	    states = getCountryServiceImpl().getStatesByCountry(countryId);
 	else
 	    states = new ArrayList<State>();
+    }
+
+    @Override
+    public List<Modeleable<Company>> getAll() throws InstantiationException, IllegalAccessException {
+	List<Modeleable<Company>> temp = super.getAll();
+	List<CompanyModel> result = new LinkedList<CompanyModel>();
+
+	for (Modeleable<Company> item : temp) {
+	    CompanyModel itemModel = (CompanyModel) item;
+	    itemModel.setDisplayRoles(getDisplayRoles(itemModel.getId()));
+	    itemModel.setDisplayCountry(getDisplayCountry(itemModel));
+	    result.add(itemModel);
+	}
+
+	temp.clear();
+	temp.addAll(result);
+
+	return temp;
+    }
+
+    private String getDisplayCountry(CompanyModel item) {
+	int stateId = companyServiceImpl.getStateIdInCompanyId(item.getId());
+	if (stateId != 0) {
+	    int countryIdInState = geoStateService.getCountryIdInState(stateId);
+	    Country country = countryServiceImpl.get(countryIdInState);
+	    if (country != null)
+		return country.getName();
+	}
+	return "";
     }
 
     @Override

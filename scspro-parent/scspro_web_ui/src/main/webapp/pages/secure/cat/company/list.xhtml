@@ -52,10 +52,10 @@
             <h:commandLink id="removeSelectedButton" action="#{companyBean.removeSelected}" onclick="return confirm('#{i18n_companies['company.removeSelected.confirmation']}');" styleClass="btn btn-warning" style="margin-left:10px;margin-bottom:30px;">
                 <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.removeSelected']}" />
             </h:commandLink>
-            <h:commandLink id="pdfExportButton" onclick="showLoading=false;" action="#{companyBean.pdfReport(companyBean.companies, 'companies-list', i18n_companies)}" styleClass="btn btn-info" style="margin-left:10px;margin-bottom:30px;">
+            <h:commandLink id="pdfExportButton" onclick="showLoading=false;" action="#{companyBean.pdfReport(companyBean.all, 'companies-list', i18n_companies)}" styleClass="btn btn-info" style="margin-left:10px;margin-bottom:30px;">
                 <i class="fa fa-file-pdf-o"></i><h:outputText value=" #{i18n_global['global.export.pdf']}" />
             </h:commandLink>
-            <h:commandLink id="xlsxExportButton" onclick="showLoading=false;" action="#{companyBean.xlsReport(companyBean.companies, 'companies-list', i18n_companies)}" styleClass="btn btn-success" style="margin-left:5px;margin-bottom:30px;">
+            <h:commandLink id="xlsxExportButton" onclick="showLoading=false;" action="#{companyBean.xlsReport(companyBean.all, 'companies-list', i18n_companies)}" styleClass="btn btn-success" style="margin-left:5px;margin-bottom:30px;">
                 <i class="fa fa-file-excel-o"></i><h:outputText value=" #{i18n_global['global.export.xls']}" />
             </h:commandLink>
             <div id="companiesTable-wrapper">
@@ -85,7 +85,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header"><h:outputText value="#{i18n_companies['companies.profiles']}" /></f:facet>
-                    <h:outputText value="#{companyBean.getDisplayRoles(item.id)}" />
+                    <h:outputText value="#{item.displayRoles}" />
                 </h:column>
                 
                 <h:column>

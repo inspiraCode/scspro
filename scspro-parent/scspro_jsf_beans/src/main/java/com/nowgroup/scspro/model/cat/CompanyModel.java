@@ -6,6 +6,9 @@ import com.nowgroup.scspro.model.Modeleable;
 public class CompanyModel extends Company implements Modeleable<Company> {
     private static final long serialVersionUID = -2147292143916341207L;
     private boolean selected = false;
+    
+    private String displayRoles = "";
+    private String displayCountry = "";
 
     public Company demodelize() {
 	Company result = new Company();
@@ -67,5 +70,21 @@ public class CompanyModel extends Company implements Modeleable<Company> {
 
     public void setSelected(boolean selected) {
 	this.selected = selected;
+    }
+
+    public String getDisplayRoles() {
+	return displayRoles;
+    }
+
+    public void setDisplayRoles(String displayRoles) {
+	this.displayRoles = displayRoles;
+    }
+
+    public String getDisplayCountry() {
+	return displayCountry;
+    }
+
+    public void setDisplayCountry(String displayCountry) {
+	this.displayCountry = displayCountry;
     }
 }
