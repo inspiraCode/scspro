@@ -56,7 +56,10 @@ public class CompanyServiceImpl extends BaseSpringService<Company> implements Co
     @Transactional(readOnly = false)
     @Override
     public void update(Company company) {
-
+	log.debug("UPDATE Company: " + company);
+	log.debug("UPDATE Company with state: " + company.getState());
+	log.debug("UPDATE Company with scope: " + company.getCompanyScope());
+	super.update(company);
     }
 
     @PreAuthorize("hasRole('ROLE_SUPER')")

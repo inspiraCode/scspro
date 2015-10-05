@@ -80,12 +80,12 @@ public class Company implements BaseDTO, Comparable<Company> {
     private String web;
 
     @IndexedEmbedded
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "COMPANY_STATE", nullable = true)
     private State state;
 
     @IndexedEmbedded
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "company", cascade = CascadeType.ALL)
     private Set<CompanyScope> companyScope = new HashSet<CompanyScope>();
 
     public int getId() {

@@ -41,11 +41,13 @@ public abstract class BaseFacesBean<T extends BaseDTO> extends PublisherFacesBea
 	for (Modeleable<T> item : selectedList) {
 	    removeList.add(item.demodelize());
 	}
+	log.debug("delete " + removeList.size() + " items from database");
 	service.deleteAll(removeList);
 	for (Modeleable<T> item : selectedList) {
 	    localList.remove(item);
 	}
 	selectedList = new LinkedList<Modeleable<T>>();
+	forceDownload = true;
 	return "";
     }
 
@@ -91,27 +93,34 @@ public abstract class BaseFacesBean<T extends BaseDTO> extends PublisherFacesBea
     }
 
     public int add(T object) {
+	log.debug("Add - BEGIN");
 	int result = service.add(object);
 	forceDownload = true;
+	log.debug("Add - END");
 	return result;
     }
 
     public void update(T object) {
+	log.debug("Update - BEGIN");
 	service.update(object);
+	forceDownload = true;
+	log.debug("Update - END");
     }
 
+    @SuppressWarnings("unchecked")
     public String delete(T object) {
 	try {
-	    service.delete(model.demodelize());
+	    if(object instanceof Modeleable){
+		object = (T) ((Modeleable<T>) object).demodelize();
+	    }
+	    service.delete(object);
 	    forceDownload = true;
-	    return "success";
 	} catch (Exception e) {
 	    log.error(e.getMessage(), e);
 	    publishError(msgBundle.getString("delete.error"));
 	    publishError(e.getMessage());
-	    return "failure";
 	}
-
+	return "list";
     }
 
     public String addNew() throws InstantiationException, IllegalAccessException {

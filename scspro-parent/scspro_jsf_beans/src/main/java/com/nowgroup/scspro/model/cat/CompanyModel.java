@@ -7,7 +7,6 @@ public class CompanyModel extends Company implements Modeleable<Company> {
     private static final long serialVersionUID = -2147292143916341207L;
     private boolean selected = false;
 
-
     public Company demodelize() {
 	Company result = new Company();
 	result.setId(this.getId());
@@ -17,6 +16,7 @@ public class CompanyModel extends Company implements Modeleable<Company> {
 	result.setAddressStreet(this.getAddressStreet());
 	result.setAddressAdditional(this.getAddressAdditional());
 	result.setCity(this.getCity());
+
 	result.setState(this.getState());
 	result.setZip(this.getZip());
 
@@ -49,6 +49,11 @@ public class CompanyModel extends Company implements Modeleable<Company> {
 	result.setFax(base.getFax());
 	result.setEmail(base.getEmail());
 	result.setWeb(base.getWeb());
+	
+	if(!base.getCompanyScope().isEmpty()){
+	    result.setCompanyScope(base.getCompanyScope());
+	}
+	
 	result.setSelected(false);
 	return result;
     }

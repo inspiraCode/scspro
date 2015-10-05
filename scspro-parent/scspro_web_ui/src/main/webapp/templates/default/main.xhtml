@@ -92,16 +92,16 @@
       </div>
       <script>
       	var showLoading = true;
-		$(document).ready(function(){
-		    $('#nonAjaxLoad').hide();
-		});
+    		$(document).ajaxStop(function(){
+    		    $('#nonAjaxLoad').slideUp()
+    		});
 
-		$(window).bind('beforeunload', function(){
-		    if(showLoading) {
-			    $('#nonAjaxLoad').show(); 
-			}
-			showLoading = true;
-		});
+    		$(window).bind('beforeunload', function(){
+    		    if(showLoading) {
+    			    $('#nonAjaxLoad').show(); 
+    			}
+    			showLoading = true;
+    		});
       </script>
       </f:view>
     </h:body>

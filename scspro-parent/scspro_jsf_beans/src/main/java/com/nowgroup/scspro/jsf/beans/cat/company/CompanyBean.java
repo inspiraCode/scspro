@@ -82,10 +82,14 @@ public class CompanyBean extends BaseFacesBean<Company> {
     public String getCompanyState(int id) {
 	String result = "";
 
+	log.debug("Resolving state for table with Company.Id: " + id);
 	int geoStateIdInDb = getCompanyServiceImpl().getStateIdInCompanyId(id);
+	log.debug("Resolving state for table with State.Id: " + geoStateIdInDb);
 	State geoStateInDb = null;
-	if (geoStateIdInDb != 0)
+	if (geoStateIdInDb != 0) {
 	    geoStateInDb = getGeoStateService().get(geoStateIdInDb);
+	    log.debug("Found state in database: " + geoStateInDb);
+	}
 
 	result = geoStateInDb == null || geoStateInDb.getName() == null ? "" : geoStateInDb.getName();
 	return result;
@@ -116,6 +120,9 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	    // Query state and country independently because of the lazy object
 	    // and the transaction requirements
 	    int companyStateId = getCompanyServiceImpl().getStateIdInCompanyId(company.getId());
+	    if (companyStateId == 0)
+		return;
+
 	    log.debug("got state ID from state manager: " + companyStateId);
 	    this.setStateId(companyStateId);
 
@@ -142,6 +149,7 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	this.setCountryId(0);
 
 	states = null;
+	rolesList = new ArrayList<CompanyScopeModel>();
 	return super.addNew();
     }
 
@@ -158,24 +166,34 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	Company entity = getModel().demodelize();
 
 	if (this.stateId > 0) {
+	    log.debug("found state in company to upload: " + stateId);
 	    entity.setState(new State());
 	    entity.getState().setId(stateId);
 	    entity.getState().setCountry(new Country());
 	    entity.getState().getCountry().setId(countryId);
+
+	    log.debug("state added to entity model: " + entity.getState().getId());
+	    log.debug("country added to entity model: " + entity.getState().getCountry().getId());
 	}
+
+	if (!rolesList.isEmpty()) {
+	    entity.getCompanyScope().clear();
+	    entity.getCompanyScope().addAll(rolesList);
+	}
+
+	CompanyModel temp = new CompanyModel();
+	Modeleable<Company> tempModel = temp.getModel(entity);
+	log.debug("Storing model: " + tempModel);
+	super.setModel(tempModel);
 	return super.upload();
     }
 
     public List<CompanyScopeModel> getRolesList() {
-	if (companyMsgBundle == null) {
-	    FacesContext context = FacesContext.getCurrentInstance();
-	    setCompanyMsgBundle(context.getApplication().getResourceBundle(context, "i18n_companies"));
-	    log.debug("Got forced resource bundle: " + companyMsgBundle);
-	}
 	Company company = getModel().demodelize();
 	if (company.getId() != 0) {
 	    rolesList = new ArrayList<CompanyScopeModel>();
 	    List<CompanyScope> scopes = getCompanyServiceImpl().getCompanyScope(company.getId());
+	    log.debug("roles from database: " + scopes.size());
 
 	    for (CompanyScope scope : scopes) {
 		CompanyScopeModel scopeModel = new CompanyScopeModel(scope);
@@ -184,29 +202,29 @@ public class CompanyBean extends BaseFacesBean<Company> {
 
 	    return rolesList;
 	} else {
+	    log.debug("Locally resolved roles: " + rolesList.size());
 	    return rolesList;
 	}
     }
 
     public List<CompanyRoleModel> getAvailableRolesList() {
-	if (companyMsgBundle == null) {
-	    FacesContext context = FacesContext.getCurrentInstance();
-	    setCompanyMsgBundle(context.getApplication().getResourceBundle(context, "i18n_companies"));
-	    log.debug("Got forced resource bundle: " + companyMsgBundle);
-	}
 	// Retrieve all roles from database
 	List<CompanyRole> allRoles = companyRoleServiceImpl.getAll();
 
-	if (getModel().demodelize().getId() == 0) {
-	    // Handle locally
-	    for (CompanyScopeModel usedScope : getRolesList()) {
-		allRoles.remove(usedScope.getCompanyRole());
+	for (CompanyScopeModel usedScope : getRolesList()) {
+	    log.debug("Retrieve role details from database with Id:" + usedScope.getId());
+	    CompanyRole usedRole = null;
+	    if (usedScope.getId() > 0) {
+		// retrieve from database
+		usedRole = getCompanyScopeServiceImpl().getRoleInCompanyScope(usedScope.getId());
+	    } else {
+		// use locally
+		usedRole = usedScope.getCompanyRole();
 	    }
-	} else {
-	    for (CompanyScopeModel usedScope : getRolesList()) {
-		CompanyRole usedRole = getCompanyScopeServiceImpl().getRoleInCompanyScope(usedScope.getId());
-		allRoles.remove(usedRole);
-	    }
+	    log.debug("removing role from available: " + usedRole);
+
+	    if (!allRoles.remove(usedRole))
+		log.warn("Role not found in all roles to be removed: " + usedRole);
 	}
 
 	// Translate available roles.
@@ -215,8 +233,6 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	    CompanyRoleModel crm = new CompanyRoleModel();
 	    crm.setId(role.getId());
 	    crm.setName(role.getName());
-	    log.debug("translating role: " + crm);
-
 	    availableRoles.add(crm);
 	}
 
@@ -304,6 +320,7 @@ public class CompanyBean extends BaseFacesBean<Company> {
 		    CompanyRoleModel item = draggedItem != null ? (CompanyRoleModel) draggedItem.getAttributes().get("companyRole") : new CompanyRoleModel();
 
 		    try {
+			log.debug("Adding role to company: " + item);
 			addRole(item);
 			publishInfo(companyMsgBundle.getString("companies.profiles.added"));
 		    } catch (Exception e) {
@@ -330,9 +347,9 @@ public class CompanyBean extends BaseFacesBean<Company> {
     private void addLocalCompanyRole(CompanyRoleModel item) {
 	CompanyScopeModel addedScope = new CompanyScopeModel();
 	addedScope.setCompany(getModel().demodelize());
+	log.debug("Demodelizing role for scope: " + item);
 	addedScope.setCompanyRole(item.deModelize());
 	addedScope.setId(--newIndex);
-	//addedScope.setDisplayName(item.getDisplayName());
 
 	getModel().demodelize().getCompanyScope().add(addedScope);
 	rolesList.add(addedScope);
@@ -346,7 +363,6 @@ public class CompanyBean extends BaseFacesBean<Company> {
 	int newScopeId = companyScopeServiceImpl.add(newScope);
 	newScope.setId(newScopeId);
 	CompanyScopeModel newScopeModel = new CompanyScopeModel(newScope);
-	//newScopeModel.setDisplayName(item.getName());
 	rolesList.add(newScopeModel);
     }
 
