@@ -1,5 +1,7 @@
 package com.nowgroup.scspro.dto.cat;
 
+import java.util.Comparator;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,7 @@ import com.nowgroup.scspro.dto.BaseDTO;
 @Indexed
 @Entity
 @Table(name = "cat_un", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "UN_NIU") })
-public class UNLabel implements BaseDTO {
+public class UNLabel implements BaseDTO, Comparable<UNLabel> {
     private static final long serialVersionUID = 4286345478537986375L;
 
     @Id
@@ -210,5 +212,26 @@ public class UNLabel implements BaseDTO {
 
     public void setHazardType(String hazardType) {
 	this.hazardType = hazardType;
+    }
+
+    @Override
+    public int compareTo(UNLabel o) {
+	return Comparators.NAME.compare(this, o);
+    }
+
+    public static class Comparators {
+	public static Comparator<UNLabel> NAME = new Comparator<UNLabel>() {
+	    @Override
+	    public int compare(UNLabel o1, UNLabel o2) {
+		return o1.matterName.compareTo(o2.matterName);
+	    }
+	};
+
+	public static Comparator<UNLabel> NUMBERS = new Comparator<UNLabel>() {
+	    @Override
+	    public int compare(UNLabel o1, UNLabel o2) {
+		return o1.numbers.compareTo(o2.numbers);
+	    }
+	};
     }
 }

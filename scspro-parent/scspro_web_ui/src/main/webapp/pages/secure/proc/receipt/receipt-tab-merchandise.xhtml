@@ -12,7 +12,7 @@
                 <!-- Company Name -->
                 <div class="controls">
                     <h:outputLabel for="itemSeq" value="#{i18n_proc_receipt['receipt.itemSeq']}: " styleClass="control-label col-md-3" />
-                    <h:outputLabel for="goodsQty" value="#{i18n_proc_receipt['receipt.quantiy']}: " styleClass="control-label col-md-3" />
+                    <h:outputLabel for="goodsQty" value="#{i18n_proc_receipt['receipt.quantity']}: " styleClass="control-label col-md-3" />
                     <h:outputLabel for="goodsMu" value="#{i18n_proc_receipt['receipt.measurementUnit']}: " styleClass="control-label col-md-3" />
                     <h:outputLabel for="goodsWooden" value="#{i18n_proc_receipt['receipt.wooden']}: " styleClass="control-label col-md-3" />
                 </div>
@@ -24,7 +24,7 @@
                     <h:inputText styleClass="form-control" id="itemSeq" value="#{receiptMerchandiseBean.itemSeq}" pt:placeholder="#{i18n_proc_receipt['receipt.itemSeq']}" />
                 </div>
                 <div class="controls col-md-3">
-                    <h:inputText styleClass="form-control" id="goodsQty" value="#{receiptMerchandiseBean.quantity}" pt:placeholder="#{i18n_proc_receipt['receipt.quantiy']}" />
+                    <h:inputText styleClass="form-control" id="goodsQty" value="#{receiptMerchandiseBean.quantity}" pt:placeholder="#{i18n_proc_receipt['receipt.quantity']}" />
                 </div>
                 <div class="controls col-md-3">
                     <h:selectOneMenu id="goodsMu" value="#{receiptMerchandiseBean.measurementUnitId}" styleClass="form-control">
@@ -33,7 +33,7 @@
                     </h:selectOneMenu>
                 </div>
                 <div class="controls col-md-3">
-                    <h:selectBooleanCheckbox value="#{receiptMerchandiseBean.wooden}" />
+                    <h:selectBooleanCheckbox id="goodsWooden" value="#{receiptMerchandiseBean.wooden}" />
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <div class="controls">
                     <h:outputLabel for="goodsWeightPounds" value="#{i18n_proc_receipt['receipt.pounds']}: " styleClass="control-label col-md-3" />
                     <h:outputLabel for="goodsWeightKilos" value="#{i18n_proc_receipt['receipt.kilos']}: " styleClass="control-label col-md-3" />
-                    <h:outputLabel for="goodsNU" value="#{i18n_proc_receipt['receipt.kilos']}: " styleClass="control-label col-md-3" />
+                    <h:outputLabel for="goodsNU" value="#{i18n_proc_receipt['receipt.un']}: " styleClass="control-label col-md-3" />
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                 <div class="controls col-md-3">
                     <h:selectOneMenu id="goodsNU" value="#{receiptMerchandiseBean.measurementUnitId}" styleClass="form-control">
                         <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
-                        <f:selectItems value="#{measurementUnitClassifierBean.loadMeasurementUnits}"  var="muItem" itemValue="#{muItem.id}" itemLabel="#{muItem.code} - #{muItem.name}" />
+                        <f:selectItems value="#{UNLabelBean.all}"  var="labelItem" itemValue="#{labelItem.id}" itemLabel="#{labelItem.matterName} - #{labelItem.numbers} (#{labelItem.niu})" />
                     </h:selectOneMenu>
                 </div>
             </div>

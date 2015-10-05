@@ -43,6 +43,11 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
     private String freighterName;
     private String vehicle;
 
+    private String senderName;
+    private String receiverName;
+    private String sellerName;
+    private String purchaserName;
+
     @ManagedProperty("#{companyScopeService}")
     private CompanyScopeService companyScope;
 
@@ -58,7 +63,7 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
     public ReceiptBean() {
 	super(new ReceiptModel());
     }
-    
+
     public String addNew() {
 	this.receipt = new ReceiptModel();
 	try {
@@ -68,10 +73,10 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 	    publishError(msg.getString("receipt.sequenceFail"));
 	}
 
-	senderId = 0;
-	receiverId = 0;
-	sellerId = 0;
-	purchaserId = 0;
+	setSenderId(0);
+	setReceiverId(0);
+	setSellerId(0);
+	setPurchaserId(0);
 
 	return "receipt";
     }
@@ -121,21 +126,21 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 
     public void senderAjaxListener(AjaxBehaviorEvent event) {
 	// TODO: Block used receipt.
-	if (senderId != 0) {
+	if (getSenderId() != 0) {
 	    removeCompanyFromReceipt(CompanyScope.SENDER_SCOPE);
-	    CompanyScope profile = companyScope.getByCompanyAndRole(senderId, CompanyScope.SENDER_SCOPE);
+	    CompanyScope profile = companyScope.getByCompanyAndRole(getSenderId(), CompanyScope.SENDER_SCOPE);
 	    receipt.getCompanies().add(profile);
 
-	    Company sender = companyService.get(senderId);
-	    //receipt.setSenderName(sender.getAlias());
+	    Company sender = companyService.get(getSenderId());
+	    setSenderName(sender.getAlias());
 
-	    CompanyScope sellerProfile = companyScope.getByCompanyAndRole(senderId, CompanyScope.SELLER_SCOPE);
+	    CompanyScope sellerProfile = companyScope.getByCompanyAndRole(getSenderId(), CompanyScope.SELLER_SCOPE);
 	    if (sellerProfile != null) {
 		removeCompanyFromReceipt(CompanyScope.SELLER_SCOPE);
-		sellerId = senderId;
+		setSellerId(getSenderId());
 		receipt.getCompanies().add(sellerProfile);
-		Company dbCompany = companyService.get(sellerId);
-		//receipt.setSellerName(dbCompany.getAlias());
+		Company dbCompany = companyService.get(getSellerId());
+		setSellerName(dbCompany.getAlias());
 	    } else {
 		publishWarning(msg.getString("receipt.senderNotSeller"));
 	    }
@@ -143,21 +148,21 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
     }
 
     public void receiverAjaxListener(AjaxBehaviorEvent event) {
-	if (receiverId != 0) {
+	if (getReceiverId() != 0) {
 	    removeCompanyFromReceipt(CompanyScope.RECEIVER_SCOPE);
-	    CompanyScope profile = companyScope.getByCompanyAndRole(receiverId, CompanyScope.RECEIVER_SCOPE);
+	    CompanyScope profile = companyScope.getByCompanyAndRole(getReceiverId(), CompanyScope.RECEIVER_SCOPE);
 	    receipt.getCompanies().add(profile);
 
-	    Company dbCompany = companyService.get(receiverId);
-	    //receipt.setReceiverName(dbCompany.getAlias());
+	    Company dbCompany = companyService.get(getReceiverId());
+	    setReceiverName(dbCompany.getAlias());
 
-	    CompanyScope purchaserProfile = companyScope.getByCompanyAndRole(receiverId, CompanyScope.PURCHASER_SCOPE);
+	    CompanyScope purchaserProfile = companyScope.getByCompanyAndRole(getReceiverId(), CompanyScope.PURCHASER_SCOPE);
 	    if (purchaserProfile != null) {
 		removeCompanyFromReceipt(CompanyScope.PURCHASER_SCOPE);
-		purchaserId = receiverId;
+		setPurchaserId(getReceiverId());
 		receipt.getCompanies().add(purchaserProfile);
-		dbCompany = companyService.get(purchaserId);
-		//receipt.setPurchaserName(dbCompany.getAlias());
+		dbCompany = companyService.get(getPurchaserId());
+		setPurchaserName(dbCompany.getAlias());
 	    } else {
 		publishWarning(msg.getString("receipt.receiverNotPurchaser"));
 	    }
@@ -165,24 +170,24 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
     }
 
     public void purchaserAjaxListener(AjaxBehaviorEvent event) {
-	if (purchaserId != 0) {
+	if (getPurchaserId() != 0) {
 	    removeCompanyFromReceipt(CompanyScope.PURCHASER_SCOPE);
-	    CompanyScope profile = companyScope.getByCompanyAndRole(purchaserId, CompanyScope.PURCHASER_SCOPE);
+	    CompanyScope profile = companyScope.getByCompanyAndRole(getPurchaserId(), CompanyScope.PURCHASER_SCOPE);
 	    receipt.getCompanies().add(profile);
 
-	    Company dbCompany = companyService.get(purchaserId);
-	   // receipt.setPurchaserName(dbCompany.getAlias());
+	    Company dbCompany = companyService.get(getPurchaserId());
+	    setPurchaserName(dbCompany.getAlias());
 	}
     }
 
     public void sellerAjaxListener(AjaxBehaviorEvent event) {
-	if (sellerId != 0) {
+	if (getSellerId() != 0) {
 	    removeCompanyFromReceipt(CompanyScope.SELLER_SCOPE);
-	    CompanyScope profile = companyScope.getByCompanyAndRole(sellerId, CompanyScope.SELLER_SCOPE);
+	    CompanyScope profile = companyScope.getByCompanyAndRole(getSellerId(), CompanyScope.SELLER_SCOPE);
 	    receipt.getCompanies().add(profile);
 
-	    Company dbCompany = companyService.get(sellerId);
-	   // receipt.setSellerName(dbCompany.getAlias());
+	    Company dbCompany = companyService.get(getSellerId());
+	    setSellerName(dbCompany.getAlias());
 	}
     }
 
@@ -214,75 +219,76 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
     public int getSenderId() {
 	return senderId;
     }
-/*
-    public void setSenderId(int senderId) {
-	if (receiverId == 0)
-	    setSenderName("");
-	this.senderId = senderId;
-    }
 
-    public int getReceiverId() {
-	return receiverId;
-    }
+    /*
+        public void setSenderId(int senderId) {
+    	if (receiverId == 0)
+    	    setSenderName("");
+    	this.senderId = senderId;
+        }
 
-    public void setReceiverId(int receiverId) {
-	if (receiverId == 0)
-	    setReceiverName("");
-	this.receiverId = receiverId;
-    }
+        public int getReceiverId() {
+    	return receiverId;
+        }
 
-    public int getSellerId() {
-	return sellerId;
-    }
+        public void setReceiverId(int receiverId) {
+    	if (receiverId == 0)
+    	    setReceiverName("");
+    	this.receiverId = receiverId;
+        }
 
-    public void setSellerId(int sellerId) {
-	if (sellerId == 0)
-	    setSellerName("");
-	this.sellerId = sellerId;
-    }
+        public int getSellerId() {
+    	return sellerId;
+        }
 
-    public int getPurchaserId() {
-	return purchaserId;
-    }
+        public void setSellerId(int sellerId) {
+    	if (sellerId == 0)
+    	    setSellerName("");
+    	this.sellerId = sellerId;
+        }
 
-    public void setPurchaserId(int purchaserId) {
-	if (purchaserId == 0)
-	    setPurchaserName("");
-	this.purchaserId = purchaserId;
-    }
-    
-    public String getSenderName() {
-	return getReceipt().getSenderName();
-    }
+        public int getPurchaserId() {
+    	return purchaserId;
+        }
 
-    public void setSenderName(String senderName) {
-	getReceipt().setSenderName(senderName);
-    }
+        public void setPurchaserId(int purchaserId) {
+    	if (purchaserId == 0)
+    	    setPurchaserName("");
+    	this.purchaserId = purchaserId;
+        }
+        
+        public String getSenderName() {
+    	return getReceipt().getSenderName();
+        }
 
-    public String getSellerName() {
-	return getReceipt().getSellerName();
-    }
+        public void setSenderName(String senderName) {
+    	getReceipt().setSenderName(senderName);
+        }
 
-    public void setSellerName(String sellerName) {
-	getReceipt().setSellerName(sellerName);
-    }
+        public String getSellerName() {
+    	return getReceipt().getSellerName();
+        }
 
-    public String getPurchaserName() {
-	return getReceipt().getPurchaserName();
-    }
+        public void setSellerName(String sellerName) {
+    	getReceipt().setSellerName(sellerName);
+        }
 
-    public void setPurchaserName(String purchaserName) {
-	getReceipt().setPurchaserName(purchaserName);
-    }
+        public String getPurchaserName() {
+    	return getReceipt().getPurchaserName();
+        }
 
-    public String getReceiverName() {
-	return getReceipt().getReceiverName();
-    }
+        public void setPurchaserName(String purchaserName) {
+    	getReceipt().setPurchaserName(purchaserName);
+        }
 
-    public void setReceiverName(String receiverName) {
-	getReceipt().setReceiverName(receiverName);
-    }
-*/
+        public String getReceiverName() {
+    	return getReceipt().getReceiverName();
+        }
+
+        public void setReceiverName(String receiverName) {
+    	getReceipt().setReceiverName(receiverName);
+        }
+    */
     public CompanyScopeService getCompanyScope() {
 	return companyScope;
     }
@@ -377,5 +383,65 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 
     public void setVehicle(String vehicle) {
 	this.vehicle = vehicle;
+    }
+
+    public String getSenderName() {
+	return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+	this.senderName = senderName;
+    }
+
+    public String getReceiverName() {
+	return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+	this.receiverName = receiverName;
+    }
+
+    public String getSellerName() {
+	return sellerName;
+    }
+
+    public void setSellerName(String sellerName) {
+	this.sellerName = sellerName;
+    }
+
+    public String getPurchaserName() {
+	return purchaserName;
+    }
+
+    public void setPurchaserName(String purchaserName) {
+	this.purchaserName = purchaserName;
+    }
+
+    public int getReceiverId() {
+	return receiverId;
+    }
+
+    public void setReceiverId(int receiverId) {
+	this.receiverId = receiverId;
+    }
+
+    public void setSenderId(int senderId) {
+	this.senderId = senderId;
+    }
+
+    public int getSellerId() {
+	return sellerId;
+    }
+
+    public void setSellerId(int sellerId) {
+	this.sellerId = sellerId;
+    }
+
+    public int getPurchaserId() {
+	return purchaserId;
+    }
+
+    public void setPurchaserId(int purchaserId) {
+	this.purchaserId = purchaserId;
     }
 }

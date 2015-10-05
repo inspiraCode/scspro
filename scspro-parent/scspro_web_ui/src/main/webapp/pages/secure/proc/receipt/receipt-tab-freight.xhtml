@@ -53,7 +53,7 @@
                 <div class="controls col-md-4">
                     <h:selectOneMenu id="selPayment" value="#{receiptFreightBean.paymentConditionId}" styleClass="form-control">
                         <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
-                        <f:selectItems value="#{paymentConditionBean.paymentConditions}"  var="payCond" itemValue="#{payCond.id}" itemLabel="#{payCond.description}" />
+                        <f:selectItems value="#{paymentConditionBean.all}"  var="payCond" itemValue="#{payCond.id}" itemLabel="#{payCond.description}" />
                     </h:selectOneMenu>
                 </div>
             </div>

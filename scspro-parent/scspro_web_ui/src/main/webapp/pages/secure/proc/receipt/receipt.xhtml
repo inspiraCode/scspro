@@ -15,6 +15,7 @@
         $(document).ready(function(){
             $('#receiptFreightTable').DataTable(globalDataTableConfig);
             $('#receiptGoodsTable').DataTable(globalDataTableConfig);
+            $('#receiptDocsTable').DataTable(globalDataTableConfig);
         });    
         </script>
     </ui:define>
@@ -150,8 +151,7 @@
                     <ui:include src="receipt-tab-merchandise.xhtml" />
                 </div>
                 <div class="tab-pane fade" id="documents">
-                    <h1>UNDER CONSTRUCTION</h1>
-                    <p>Intended to show packing list details received with merchandise.</p>
+                    <ui:include src="receipt-tab-documents.xhtml" />
                 </div>
                 <div class="tab-pane fade" id="inventory">
                     <h1>UNDER CONSTRUCTION</h1>
