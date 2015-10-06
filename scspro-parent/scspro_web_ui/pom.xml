@@ -100,5 +100,12 @@
 		<artifactId>spring-aspects</artifactId>
 		<version>4.2.1.RELEASE</version>
 	</dependency>
+	
+	<!-- RESOLVE SQL RESULT OBJECTS LIKE BIG DECIMAL -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+	</dependency>
   </dependencies>
 </project>

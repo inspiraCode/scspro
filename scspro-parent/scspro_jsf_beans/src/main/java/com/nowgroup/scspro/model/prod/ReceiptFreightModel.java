@@ -6,6 +6,7 @@ import com.nowgroup.scspro.model.Modeleable;
 public class ReceiptFreightModel extends ReceiptFreight implements Modeleable<ReceiptFreight> {
     private static final long serialVersionUID = 800661619500619839L;
     private boolean selected = false;
+    private String freighterName;
 
     public ReceiptFreight demodelize() {
 	ReceiptFreight result = new ReceiptFreight();
@@ -41,5 +42,13 @@ public class ReceiptFreightModel extends ReceiptFreight implements Modeleable<Re
 
     public void setSelected(boolean selected) {
 	this.selected = selected;
+    }
+
+    public String getFreighterName() {
+	return freighterName;
+    }
+
+    public void setFreighterName(String freighterName) {
+	this.freighterName = freighterName;
     }
 }

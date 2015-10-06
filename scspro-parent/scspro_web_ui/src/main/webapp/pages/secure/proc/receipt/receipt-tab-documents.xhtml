@@ -11,54 +11,57 @@
             <div class="control-group col-md-12">
                 <!-- Company Name -->
                 <div class="controls">
-                    <h:outputLabel for="docFolioId" value="#{i18n_proc_receipt['receipt.folio']}: " styleClass="control-label col-md-2" />
-                    <h:outputLabel for="docDateId" value="#{i18n_proc_receipt['receipt.date']}: " styleClass="control-label col-md-2" />
+                    <h:outputLabel for="docFolioId" value="#{i18n_proc_receipt['receipt.docFolio']}: " styleClass="control-label col-md-1" />
+                    <h:outputLabel for="docDateId" value="#{i18n_proc_receipt['receipt.docDate']}: " styleClass="control-label col-md-3" />
                     <h:outputLabel for="docPOId" value="#{i18n_proc_receipt['receipt.purchaseOrder']}: " styleClass="control-label col-md-2" />
                     <h:outputLabel for="docSOId" value="#{i18n_proc_receipt['receipt.salesOrder']}: " styleClass="control-label col-md-2" />
-                    <h:outputLabel for="docQtyId" value="#{i18n_proc_receipt['receipt.quantity']}: " styleClass="control-label col-md-2" />
-                    <h:outputLabel for="docPackId" value="#{i18n_proc_receipt['receipt.measurementUnit']}: " styleClass="control-label col-md-2" />
+                    <h:outputLabel for="docQtyId" value="#{i18n_proc_receipt['receipt.quantity']}: " styleClass="control-label col-md-1" />
+                    <h:outputLabel for="docPackId" value="#{i18n_proc_receipt['receipt.measurementUnit']}: " styleClass="control-label col-md-3" />
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="control-group col-md-12">
-                <div class="controls col-md-2">
-                    <h:inputText styleClass="form-control" id="docFolioId" value="#{receiptMerchandiseBean.itemSeq}" pt:placeholder="#{i18n_proc_receipt['receipt.itemSeq']}" />
+                <div class="controls col-md-1">
+                    <h:inputText styleClass="form-control" id="docFolioId" value="#{receiptBean.docFolio}" pt:placeholder="#{i18n_proc_receipt['receipt.docFolio']}" />
+                </div>
+                <div class="controls col-md-3">
+                    <p:calendar id="docDateId" value="#{receiptFreightBean.docDate}" showOn="button" />
                 </div>
                 <div class="controls col-md-2">
-                    <h:inputText styleClass="form-control" id="docDateId" value="#{receiptMerchandiseBean.itemSeq}" pt:placeholder="#{i18n_proc_receipt['receipt.itemSeq']}" />
+                    <h:inputText styleClass="form-control" id="docPOId" value="#{receiptBean.poRef}" pt:placeholder="#{i18n_proc_receipt['receipt.purchaseOrder']}" />
                 </div>
                 <div class="controls col-md-2">
-                    <h:inputText styleClass="form-control" id="docPOId" value="#{receiptMerchandiseBean.itemSeq}" pt:placeholder="#{i18n_proc_receipt['receipt.itemSeq']}" />
+                    <h:inputText styleClass="form-control" id="docSOId" value="#{receiptBean.soRef}" pt:placeholder="#{i18n_proc_receipt['receipt.salesOrder']}" />
                 </div>
-                <div class="controls col-md-2">
-                    <h:inputText styleClass="form-control" id="docSOId" value="#{receiptMerchandiseBean.itemSeq}" pt:placeholder="#{i18n_proc_receipt['receipt.itemSeq']}" />
+                <div class="controls col-md-1">
+                    <h:inputText styleClass="form-control" id="docQtyId" value="#{receiptBean.docQty}" pt:placeholder="#{i18n_proc_receipt['receipt.quantity']}" />
                 </div>
-                <div class="controls col-md-2">
-                    <h:inputText styleClass="form-control" id="docQtyId" value="#{receiptMerchandiseBean.itemSeq}" pt:placeholder="#{i18n_proc_receipt['receipt.itemSeq']}" />
-                </div>
-                <div class="controls col-md-2">
-                    <h:inputText styleClass="form-control" id="docPackId" value="#{receiptMerchandiseBean.itemSeq}" pt:placeholder="#{i18n_proc_receipt['receipt.itemSeq']}" />
+                <div class="controls col-md-3">
+                    <h:selectOneMenu id="docPackId" value="#{receiptBean.docPackId}" styleClass="form-control">
+                        <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
+                        <f:selectItems value="#{measurementUnitClassifierBean.loadMeasurementUnits}"  var="muItem" itemValue="#{muItem.id}" itemLabel="#{muItem.code} - #{muItem.name}" />
+                    </h:selectOneMenu>
                 </div>
             </div>
         </div>
         <div class="row" style="margin-top:10px;">
-            <div class="control-group col-md-12">
-                <h:commandButton value="#{i18n_global['global.save']}" styleClass="btn btn-outline btn-primary">
-                    <f:ajax listener="#{receiptMerchandiseBean.saveAjaxListener}" render="receiptGoodsTable-wrapper msg" />
+            <div class="control-group col-md-12" style="margin-left:5px;">
+                <h:commandButton value="#{i18n_global['global.add']}" styleClass="btn btn-outline btn-primary">
+                    <f:ajax listener="#{receiptBean.saveAjaxListener}" render="receiptGoodsTable-wrapper msg" />
                 </h:commandButton>
                 <h:commandButton value="#{i18n_global['global.remove']}" styleClass="btn btn-outline btn-warning">
-                    <f:ajax listener="#{receiptMerchandiseBean.removeAjaxListener}" render="receiptGoodsTable-wrapper msg" />
+                    <f:ajax listener="#{receiptBean.removeAjaxListener}" render="receiptGoodsTable-wrapper msg" />
                 </h:commandButton>
             </div>
         </div>
         <div class="row">
             <h:panelGroup id="receiptDocsTable-wrapper" layout="block">
-                <h:dataTable pt:id="receiptDocsTable" value="#{receiptMerchandiseBean.receiptGoods}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even">
+                <h:dataTable pt:id="receiptDocsTable" value="#{receiptBean.receiptDocuments}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even" style="width:94%;margin-left:20px;margin-top:15px;margin-bottom:15px;">
                     <h:column>
                         <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.freighter']}" /></f:facet>
                         <p:selectBooleanCheckbox value="#{item.selected}">
-                            <p:ajax update="msg" listener="#{receiptMerchandiseBean.selectedItem(item)}" />
+                            <p:ajax update="msg" listener="#{receiptBean.selectedItem(item)}" />
                         </p:selectBooleanCheckbox>
                         <h:outputText value=" #{item.item}" />
                     </h:column>
@@ -80,10 +83,10 @@
                     </h:column>
                     
                     <h:column>
-                        <h:commandLink id="editGoodsButton" action="#{receiptMerchandiseBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
+                        <h:commandLink id="editGoodsButton" action="#{receiptBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
                             <i class="fa fa-pencil"></i><h:outputText value=" #{i18n_global['global.edit']}" />
                         </h:commandLink>
-                        <h:commandLink id="removeGoodsButton" action="#{receiptMerchandiseBean.remove(item)}" onclick="return confirm('#{i18n_proc_receipt['receipt.remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
+                        <h:commandLink id="removeGoodsButton" action="#{receiptBean.remove(item)}" onclick="return confirm('#{i18n_proc_receipt['receipt.remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
                             <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.remove']}" />
                         </h:commandLink>
                     </h:column>

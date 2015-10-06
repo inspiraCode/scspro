@@ -96,27 +96,44 @@
 	"buffers":
 	[
 		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
 			"settings":
 			{
-				"buffer_size": 3460,
+				"buffer_size": 13498,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
 			"settings":
 			{
-				"buffer_size": 6529,
+				"buffer_size": 7701,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/jetty/etc/jetty-logging.xml",
+			"contents": "Ticket Number	Complete?	Ticket Creation Date	Requested By	Description	Notes\nNew ticket here...					\nIMAC 100-05-15495348 	Y	2012-04-24	Averill/Asher	Please open a ticket and assign it to ITO DBs: ZUSE_SW_ORACLE 	IMAC 100-05-15495348 with Line Item assigned to ZUSE_SW_ORACLE scheduled for may 1 \n				Description:\n				Take the production PACFCL falcon schema backup that was created Sunday morning, April 8, 2012 (/b01/oracle/export/FALCON_expdp_08042012) and restore it to the falcon schema on the MOFALC .\n100-02-10147663 		2012-04-16	Healy	Please open a ticket and assign it to Unix Security: Z_MIDSEC_CL	Ticket created by WRC.\n				Description:\n				Create a new application login (“hpmft”) on BOTH USCLSACF641 and USCLSACF642. Place this new user in the groups ‘elit’ and ‘acf’. Please return the login/pwd details to Mike Healy.\nIMAC 100-05-15484511		2012-04-17	Healy	Description of the change, per Paul Szafranski:	IMAC 100-05-15484511 with Line item assigned to ZUSE_SW_UNIX has been cut with a date of April 24\n				The system’s SSH service on each server (USCLSACF631 and USCLSACF632) is servicing all interfaces (0.0.0.0).  We need to ask the system admin to reconfigure System’s SSH service to bind only to the management interface (204.172.131.171 for system USCLSACF631 and 204.172.131.173 for system USCLSACF632) and leave application interfaces (.9) and (.12) for ELIT.  It is important to separate them as such to be able to load balance ELIT SSH service properly.  Otherwise, system’s SSH service maybe conflicting with ELIT SSH service.\nIMAC 100-05-15484485		2012-04-17	Healy	Description of the change, per Paul Szafranski:	IMAC 100-05-15484485 with Line Item assigned to ZUSE_SW_UNIX scheduled for April 25 has been cut\n				We need to ask system administrator to setup system startup for elitssh service in rc on USCLSACF631 and USCLSACF632.\n				I have created a startup script to be placed in /etc/init.d on both machines:  /opt/elit/elitssh/elitssh\n				Setup of elitftp can be used as an example/template.\n				\n100-02-10127943 	Y	2012-04-11		There seems to be some type of archive log activity that was either changed or has a “runaway” job.  On usclvacf553 the /b01 disk drive is now full.  In the /b01/oracle/rman/MOFALC/FRA/MOFALC/archivelog/2012_04_10 directory there is 5GB of .arc files created yesterday	\n100-02-8992850	Y	2011-06-29		LogWatcher.EventLog-Paged/NonPaged_Pool_Memory_Shortage_[2019,_2020] is in Critical status on USCLSACF689	\nIMAC 100-05-14954099	Y	2011-05-24		DROP TRIGGER ACF_UI.AFTER_LOGON_TRIGGER;	ITO DBA\n	Y			Cold boot USCLSACF631	\nRI 100-03-796778	Y	2011-05-20 and 2011-05-14		EON Alert 26310734	\"FileSystem./b01 is in Warning status on usclsacf651\"\n100-02-8805261				Assigned to UNIX SA\n100-02-8823084	Y	2011-05-20		Storage issues	Hello WRC – would you please open a ticket for Storage Support to \n				Assigned to Tammy McCann's storage team	evaluate the storage available on our Frankenkey storage–tek \n					array.  I don’t know if it has a name or not.  \n					It is connected to USCLSACF651/652.  \n					We need to know:\n					1.       Total storage capacity\n					2.       Storage in use\n					3.       Storage available/free space (in case it’s not just 1 – 2).\n					The addresses for the devices are 204.172.131.207 and 204.172.131.208\n100-02-8781891		2011-05-11 by WRC		Problem with DBSNMP database login -- needs pwd reset for this account	Routed to ITO DBA\n100-02-8781838		2011-05-11 by WRC		ELIT process not running on USCLSACF632	Routed to UNIX SA\nNot ticketed	Y	N/A		Upgrade production database to R7.50 WP02.	Scheduled for 2011-05-18, 8AM to 2 PM Eastern\n					THIS IS THE ONE RANDY COULDN'T TAKE ACTION ON\n100-03-787611		2011-05-04		The purpose of this RFC is to change the database passwords for the logins used by the Frankenkey applications.  	Production Application Servers (641/642) and Production Database Servers (651/652)\n					Scheduled for 2011-05-11\n100-02-8737293	Y	2011-05-02		Please unlock the FSODS_TESTER account in pre-prod (Oracle RAC on USCLSACF551/552).	Assigned to ZUSE_SW_ORACLE\n100-05-14901043 IMAC	Y	2011-04-28		ITO DBA	Servers: USCLSACF551/552 (Oracle RAC database)\n					1) ACF_UI password reset to FSODS_214\n					2) DROP TRIGGER ACF_UI.AFTER_LOGON_TRIGGER;\n52827 NOTA	Y	2011-03-28		Add port 1943 to the load balancer to support SHARES	Request to Orlando Nunez\n100-02-8556252	Y	2011-03-22		re-start the Tripwire agent on USCLSACF689	\n100-03-758639 RFC	Y	2011-03-15		XML Gateway on-boarding document for Frankenkey production (SHARES)	\n100-05-14796156 IMAC	Suspended.	2011-03-03		UNIX SA to create XMLP_BLOBS directory. (PRE-PROD)	This the same as 100-05-14778554, but is for pre-prod instead of prod.\n	Will request this again at a later date.				Stinson, Roger [2:01 PM]:\n					  Alternative 2 -\n					  We request 100 MB of space for writing PDFs, however we are not responsible for space required for other files and directories within the /opt/oracle mount point.\n					  /opt/oracle/staging/XMLP_BLOBS\n					Stinson, Roger [2:05 PM]:\n					  Ideally we would want at some of time to have the NAS device have a common directory that both servers could hit.\n100-03-748110 RFC	Y	2011-02-25		Deploy new jar file to support the Auth v2 service.	This change is contained in R7.00 WP08, with QC Defects 5102, 5103.\n					Scheduled for Wednesday, March 2, from 21:00 - 22:00. Ticket is assigned to ZUSE+CSR.\n100-05-14778623 IMAC	Y	2011-02-23		Change Oracle wallet passwords and master/table encryption keys.	Work to be completed before 2011-02-12.  IMAC 100-05-14778623 with 2 Line Items has been created both assigned to ZUSE_SW_ORACLE. 1 Line Item is defined to Pre-Prod and the 2nd Line item is defined as Prod.\n100-02-8422871	Y	2011-02-20		ELIT mainframe hub down -- EON ALERT.	It came back up after the IPL window.  File resent manually.  Success.\n100-05-14778554 IMAC 	Y	2011-02-23		UNIX SA to create XMLP_BLOBS directory. (PROD)	IMAC 100-05-14778554 with Line Item assigned to ZUSE_SW_UNIX_IPC\n100-02-8419792	Y	2011-02-18		Sniffer to troubleshoot connection in prod from app server to XMLGW.	Sniffer request 1169.\n",
 			"settings":
 			{
-				"buffer_size": 1679,
-				"line_ending": "Unix"
+				"buffer_size": 6091,
+				"line_ending": "Windows",
+				"name": "Ticket Number	Complete?	Ticket Creation Date	Reque"
+			}
+		},
+		{
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-documents.xhtml",
+			"settings":
+			{
+				"buffer_size": 6700,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
+			"settings":
+			{
+				"buffer_size": 8363,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -162,21 +179,23 @@
 	],
 	"file_history":
 	[
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
+		"/C/jetty/etc/jetty-logging.xml",
 		"/C/jetty/start.ini",
 		"/C/jetty/resources/logback.xml",
 		"/C/jetty/resources/log4j.properties",
 		"/C/Users/torredie/Documents/projects/inspira/gits/Inspiraschool/studentSvc/php/api.php",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/01_sys.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/pages/secure/index.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/index.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/register.xhtml",
@@ -189,7 +208,6 @@
 		"/C/jetty/webapps/README.TXT",
 		"/C/Program Files/SmartBear/SoapUI-5.1.3/bin/SoapUI-5.2.0.vmoptions",
 		"/C/Users/torredie/Documents/projects/scspro/DataTables-1.10.9/datatables.css",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/05_prod_receipt.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/spring/service/cat/CompanyRoleServiceImpl.java",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scsweb/src/main/java/com/nowgroup/scspro/spring/service/cat/CompanyScopeServiceImpl.java",
@@ -288,8 +306,7 @@
 		"/C/apache/Apache24/conf/httpd.conf",
 		"/C/apache/Apache24/htdocs/services/secret.php",
 		"/C/apache/Apache24/htdocs/services/Rest.inc.php",
-		"/C/apache/Apache24/htdocs/services/jwt_helper.php",
-		"/C/apache/Apache24/htdocs/services/api.php"
+		"/C/apache/Apache24/htdocs/services/jwt_helper.php"
 	],
 	"find":
 	{
@@ -297,7 +314,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 117.0,
 		"where_history":
 		[
 		]
@@ -307,6 +324,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"vehicle",
+			" ;",
+			"-->\n",
+			"receiptMerchandiseBean",
+			"receiptFreightBean",
+			"paymentConditions",
+			"companyBean.company",
 			"log",
 			"companyListBean",
 			"receiptFreightBean",
@@ -416,6 +440,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"receiptBean",
+			"companyBean.model",
 			"companyBean",
 			"receiptMerchandiseBean",
 			"i18n_proc_receipt",
@@ -476,19 +502,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3460,
+						"buffer_size": 13498,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								649,
-								649
+								5603,
+								5605
 							]
 						],
 						"settings":
@@ -498,27 +524,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1644.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6529,
+						"buffer_size": 7701,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5495,
-								5510
+								5935,
+								5935
 							]
 						],
 						"settings":
@@ -528,7 +554,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1160.0,
+						"translation.y": 1620.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -536,32 +562,91 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/C/jetty/etc/jetty-logging.xml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1679,
+						"buffer_size": 6091,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1326,
-								1326
+								2406,
+								2414
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Ticket Number	Complete?	Ticket Creation Date	Reque",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-documents.xhtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6700,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1533,
+								1533
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 600.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8363,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4092,
+								4092
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 738.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

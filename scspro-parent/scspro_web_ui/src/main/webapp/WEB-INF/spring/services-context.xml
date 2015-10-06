@@ -32,8 +32,11 @@
     	<property name="userDAO" ref="userDAOImpl"/>
     </bean>
     
+    <bean id="receiptFreightService" class="com.nowgroup.scspro.spring.service.prod.ReceiptFreightServiceImpl">
+    	<property name="receiptFreightDAO" ref="receiptFreightDAO" />
+    </bean>
+    
     <!-- <bean id="receiptDocumentDAO" class="com.nowgroup.scspro.dao.hibernate.prod.ReceiptDocumentDAOHibernate"/>
-    <bean id="receiptFreightDAO" class="com.nowgroup.scspro.dao.hibernate.prod.ReceiptFreightDAOHibernate"/>
     <bean id="receiptMerchandiseDAO" class="com.nowgroup.scspro.dao.hibernate.prod.ReceiptMerchandiseDAOHibernate"/>  -->
     
     <!-- SYS -->

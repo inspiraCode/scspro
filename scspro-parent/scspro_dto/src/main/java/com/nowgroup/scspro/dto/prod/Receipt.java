@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -87,6 +88,18 @@ public class Receipt implements BaseDTO {
     @JoinTable(name = "log_receipt", catalog = "supply_chain", joinColumns = { @JoinColumn(name = "RECEIPT_ID", nullable = false, updatable = false) },
 	    inverseJoinColumns = { @JoinColumn(name = "PROD_LOG_ID", nullable = false, updatable = false) })
     private Set<DbLog> dbLog;
+
+    @IndexedEmbedded
+    @OneToMany(mappedBy = "receipt", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ReceiptDocument> documents = new HashSet<ReceiptDocument>();
+
+    @IndexedEmbedded
+    @OneToMany(mappedBy = "receipt", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ReceiptFreight> freights = new HashSet<ReceiptFreight>();
+
+    @IndexedEmbedded
+    @OneToMany(mappedBy = "receipt", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ReceiptMerchandise> merchandise = new HashSet<ReceiptMerchandise>();
 
     public Receipt() {
     }
@@ -180,6 +193,30 @@ public class Receipt implements BaseDTO {
 
     public void setArrivalFolio(String arrivalFolio) {
 	this.arrivalFolio = arrivalFolio;
+    }
+
+    public Set<ReceiptDocument> getDocuments() {
+	return documents;
+    }
+
+    public void setDocuments(Set<ReceiptDocument> documents) {
+	this.documents = documents;
+    }
+
+    public Set<ReceiptFreight> getFreights() {
+	return freights;
+    }
+
+    public void setFreights(Set<ReceiptFreight> freights) {
+	this.freights = freights;
+    }
+
+    public Set<ReceiptMerchandise> getMerchandise() {
+	return merchandise;
+    }
+
+    public void setMerchandise(Set<ReceiptMerchandise> merchandise) {
+	this.merchandise = merchandise;
     }
 
 }

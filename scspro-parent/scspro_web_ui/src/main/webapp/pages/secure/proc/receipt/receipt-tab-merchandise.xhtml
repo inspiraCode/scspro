@@ -21,19 +21,19 @@
         <div class="row">
             <div class="control-group col-md-12">
                 <div class="controls col-md-3">
-                    <h:inputText styleClass="form-control" id="itemSeq" value="#{receiptMerchandiseBean.itemSeq}" pt:placeholder="#{i18n_proc_receipt['receipt.itemSeq']}" />
+                    <h:inputText styleClass="form-control" id="itemSeq" value="#{receiptBean.itemSeq}" pt:placeholder="#{i18n_proc_receipt['receipt.itemSeq']}" />
                 </div>
                 <div class="controls col-md-3">
-                    <h:inputText styleClass="form-control" id="goodsQty" value="#{receiptMerchandiseBean.quantity}" pt:placeholder="#{i18n_proc_receipt['receipt.quantity']}" />
+                    <h:inputText styleClass="form-control" id="goodsQty" value="#{receiptBean.goodsQty}" pt:placeholder="#{i18n_proc_receipt['receipt.quantity']}" />
                 </div>
                 <div class="controls col-md-3">
-                    <h:selectOneMenu id="goodsMu" value="#{receiptMerchandiseBean.measurementUnitId}" styleClass="form-control">
+                    <h:selectOneMenu id="goodsMu" value="#{receiptBean.goodsMeasurementUnitId}" styleClass="form-control">
                         <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
                         <f:selectItems value="#{measurementUnitClassifierBean.loadMeasurementUnits}"  var="muItem" itemValue="#{muItem.id}" itemLabel="#{muItem.code} - #{muItem.name}" />
                     </h:selectOneMenu>
                 </div>
                 <div class="controls col-md-3">
-                    <h:selectBooleanCheckbox id="goodsWooden" value="#{receiptMerchandiseBean.wooden}" />
+                    <h:selectBooleanCheckbox id="goodsWooden" value="#{receiptBean.goodsWooden}" />
                 </div>
             </div>
         </div>
@@ -49,15 +49,15 @@
         <div class="row">
             <div class="control-group col-md-12">
                 <div class="controls col-md-3">
-                    <h:inputText styleClass="form-control" id="goodsWeightPounds" value="#{receiptMerchandiseBean.goodsWeightPounds}" pt:placeholder="#{i18n_proc_receipt['receipt.pounds']}" />
+                    <h:inputText styleClass="form-control" id="goodsWeightPounds" value="#{receiptBean.goodsPounds}" pt:placeholder="#{i18n_proc_receipt['receipt.pounds']}" />
                 </div>
                 <div class="controls col-md-3">
-                    <h:inputText styleClass="form-control" id="goodsWeightKilos" value="#{receiptMerchandiseBean.goodsWeightKilos}" pt:placeholder="#{i18n_proc_receipt['receipt.kilos']}" />
+                    <h:inputText styleClass="form-control" id="goodsWeightKilos" value="#{receiptBean.goodsKilos}" pt:placeholder="#{i18n_proc_receipt['receipt.kilos']}" />
                 </div>
                 <div class="controls col-md-3">
-                    <h:selectOneMenu id="goodsNU" value="#{receiptMerchandiseBean.measurementUnitId}" styleClass="form-control">
+                    <h:selectOneMenu id="goodsNU" value="#{receiptBean.goodsUNLabelId}" styleClass="form-control">
                         <f:selectItem itemLabel="#{i18n_proc_receipt['receipt.selectOne']}" itemValue="0" noSelectionOption="true" />
-                        <f:selectItems value="#{UNLabelBean.all}"  var="labelItem" itemValue="#{labelItem.id}" itemLabel="#{labelItem.matterName} - #{labelItem.numbers} (#{labelItem.niu})" />
+                        <f:selectItems value="#{UNLabelBean.getAll()}"  var="labelItem" itemValue="#{labelItem.id}" itemLabel="#{labelItem.matterName} (#{labelItem.niu})" />
                     </h:selectOneMenu>
                 </div>
             </div>
@@ -69,28 +69,27 @@
                     <h:outputLabel for="receiptGoodsComments" value="#{i18n_proc_receipt['receipt.comments']}: " styleClass="control-label" />
                 </div>
                 <div class="controls col-md-10">
-                    <h:inputText styleClass="form-control" id="receiptGoodsComments" value="#{receiptMerchandiseBean.comments}" pt:placeholder="#{i18n_proc_receipt['receipt.comments']}" />
-                    <!-- ADD WOODEN -->
+                    <h:inputText styleClass="form-control" id="receiptGoodsComments" value="#{receiptBean.goodsComments}" pt:placeholder="#{i18n_proc_receipt['receipt.comments']}" />
                 </div>
             </div>
         </div>
         <div class="row" style="margin-top:10px;">
-            <div class="control-group col-md-12">
-                <h:commandButton value="#{i18n_global['global.save']}" styleClass="btn btn-outline btn-primary">
-                    <f:ajax listener="#{receiptMerchandiseBean.saveAjaxListener}" render="receiptGoodsTable-wrapper msg" />
+            <div class="control-group col-md-12" style="margin-left:5px;">
+                <h:commandButton value="#{i18n_global['global.add']}" styleClass="btn btn-outline btn-primary">
+                    <f:ajax listener="#{receiptBean.saveAjaxListener}" render="receiptGoodsTable-wrapper msg" />
                 </h:commandButton>
                 <h:commandButton value="#{i18n_global['global.remove']}" styleClass="btn btn-outline btn-warning">
-                    <f:ajax listener="#{receiptMerchandiseBean.removeAjaxListener}" render="receiptGoodsTable-wrapper msg" />
+                    <f:ajax listener="#{receiptBean.removeAjaxListener}" render="receiptGoodsTable-wrapper msg" />
                 </h:commandButton>
             </div>
         </div>
         <div class="row">
             <h:panelGroup id="receiptGoodsTable-wrapper" layout="block">
-                <h:dataTable pt:id="receiptGoodsTable" value="#{receiptMerchandiseBean.receiptGoods}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even">
+                <h:dataTable pt:id="receiptGoodsTable" value="#{receiptBean.receiptMerchandise}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even" style="width:94%;margin-left:20px;margin-top:15px;margin-bottom:15px;">
                     <h:column>
                         <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.freighter']}" /></f:facet>
                         <p:selectBooleanCheckbox value="#{item.selected}">
-                            <p:ajax update="msg" listener="#{receiptMerchandiseBean.selectedItem(item)}" />
+                            <p:ajax update="msg" listener="#{receiptBean.selectedItem(item)}" />
                         </p:selectBooleanCheckbox>
                         <h:outputText value=" #{item.item}" />
                     </h:column>
@@ -112,10 +111,10 @@
                     </h:column>
                     
                     <h:column>
-                        <h:commandLink id="editGoodsButton" action="#{receiptMerchandiseBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
+                        <h:commandLink id="editGoodsButton" action="#{receiptBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
                             <i class="fa fa-pencil"></i><h:outputText value=" #{i18n_global['global.edit']}" />
                         </h:commandLink>
-                        <h:commandLink id="removeGoodsButton" action="#{receiptMerchandiseBean.remove(item)}" onclick="return confirm('#{i18n_proc_receipt['receipt.remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
+                        <h:commandLink id="removeGoodsButton" action="#{receiptBean.remove(item)}" onclick="return confirm('#{i18n_proc_receipt['receipt.remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
                             <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.remove']}" />
                         </h:commandLink>
                     </h:column>

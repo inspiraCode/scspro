@@ -13,9 +13,42 @@
         <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
         <script>
         $(document).ready(function(){
-            $('#receiptFreightTable').DataTable(globalDataTableConfig);
-            $('#receiptGoodsTable').DataTable(globalDataTableConfig);
-            $('#receiptDocsTable').DataTable(globalDataTableConfig);
+            $('#receiptFreightTable').DataTable({
+                "bAutoWidth": false,
+                "bPaginate": false,
+                "bFilter": false,
+                "bInfo": false,
+                "fnInitComplete": function() {
+                    $("#receiptFreightTable").css("width","94%");
+                    $("#receiptFreightTable").css("margin-left","20px");
+                    $("#receiptFreightTable").css("margin-top","15px");
+                    $("#receiptFreightTable").css("margin-bottom","15px");
+                }
+            });
+            $('#receiptGoodsTable').DataTable({
+                "bAutoWidth": false,
+                "bPaginate": false,
+                "bFilter": false,
+                "bInfo": false,
+                "fnInitComplete": function() {
+                    $("#receiptGoodsTable").css("width","94%");
+                    $("#receiptGoodsTable").css("margin-left","20px");
+                    $("#receiptGoodsTable").css("margin-top","15px");
+                    $("#receiptGoodsTable").css("margin-bottom","15px");
+                }
+            });
+            $('#receiptDocsTable').DataTable({
+                "bAutoWidth": false,
+                "bPaginate": false,
+                "bFilter": false,
+                "bInfo": false,
+                "fnInitComplete": function() {
+                    $("#receiptDocsTable").css("width","94%");
+                    $("#receiptDocsTable").css("margin-left","20px");
+                    $("#receiptDocsTable").css("margin-top","15px");
+                    $("#receiptDocsTable").css("margin-bottom","15px");
+                }
+            });
         });    
         </script>
     </ui:define>
@@ -145,13 +178,25 @@
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="freight">
                     <!-- /.navbar-top-links -->
-                    <ui:include src="receipt-tab-freight.xhtml" />
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">#{i18n_proc_receipt['receipt.freight']}</div>
+                        <ui:include src="receipt-tab-freight.xhtml" />
+                        <div class="panel-footer">Summary</div>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="goods">
-                    <ui:include src="receipt-tab-merchandise.xhtml" />
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">#{i18n_proc_receipt['receipt.goods']}</div>
+                        <ui:include src="receipt-tab-merchandise.xhtml" />
+                        <div class="panel-footer">Summary</div>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="documents">
-                    <ui:include src="receipt-tab-documents.xhtml" />
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">#{i18n_proc_receipt['receipt.documents']}</div>
+                        <ui:include src="receipt-tab-documents.xhtml" />
+                        <div class="panel-footer">Summary</div>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="inventory">
                     <h1>UNDER CONSTRUCTION</h1>

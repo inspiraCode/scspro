@@ -259,7 +259,7 @@ public class MeasurementUnitBean extends BaseFacesBean<MeasurementUnit> {
 	    murm.setName(role.getName());
 	    String murmCode = role.getName().toLowerCase();
 	    String translated = measurementUnitBundle.getString("measurement-unit.profiles." + murmCode);
-	    //murm.setDisplayName(translated);
+	    murm.setDisplayName(translated);
 	    availableRoles.add(murm);
 	}
 

@@ -14,9 +14,7 @@
     
     <!-- PROD RECEIPT -->
     <bean id="receiptDAO" class="com.nowgroup.scspro.dao.hibernate.prod.ReceiptDAOHibernate"/>
-    <bean id="receiptDocumentDAO" class="com.nowgroup.scspro.dao.hibernate.prod.ReceiptDocumentDAOHibernate"/>
     <bean id="receiptFreightDAO" class="com.nowgroup.scspro.dao.hibernate.prod.ReceiptFreightDAOHibernate"/>
-    <bean id="receiptMerchandiseDAO" class="com.nowgroup.scspro.dao.hibernate.prod.ReceiptMerchandiseDAOHibernate"/>
     
     <!-- SEQUENCE -->
     <bean id="receiptSequenceDAO" class="com.nowgroup.scspro.dao.hibernate.seq.ReceiptSequenceDAOHibernate"/>

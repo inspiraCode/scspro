@@ -215,6 +215,11 @@ public class UNLabel implements BaseDTO, Comparable<UNLabel> {
     }
 
     @Override
+    public String toString() {
+	return "{id:" + id + ";bulk:" + bulk + ";matterName:" + matterName + ";numbers:" + numbers + ";}";
+    }
+
+    @Override
     public int compareTo(UNLabel o) {
 	return Comparators.NAME.compare(this, o);
     }
