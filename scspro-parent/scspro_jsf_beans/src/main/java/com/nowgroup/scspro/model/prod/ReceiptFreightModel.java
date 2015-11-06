@@ -8,6 +8,7 @@ public class ReceiptFreightModel extends ReceiptFreight implements Modeleable<Re
     private boolean selected = false;
     private String freighterName;
 
+    @Override
     public ReceiptFreight demodelize() {
 	ReceiptFreight result = new ReceiptFreight();
 	result.setId(getId() < 0 ? 0 : getId());
@@ -36,10 +37,12 @@ public class ReceiptFreightModel extends ReceiptFreight implements Modeleable<Re
 	return this;
     }
 
+    @Override
     public boolean isSelected() {
 	return selected;
     }
 
+    @Override
     public void setSelected(boolean selected) {
 	this.selected = selected;
     }

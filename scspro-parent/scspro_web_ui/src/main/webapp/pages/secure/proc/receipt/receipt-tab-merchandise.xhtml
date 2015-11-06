@@ -76,50 +76,55 @@
         <div class="row" style="margin-top:10px;">
             <div class="control-group col-md-12" style="margin-left:5px;">
                 <h:commandButton value="#{i18n_global['global.add']}" styleClass="btn btn-outline btn-primary">
-                    <f:ajax listener="#{receiptBean.saveAjaxListener}" render="receiptGoodsTable-wrapper msg" />
+                    <f:ajax listener="#{receiptBean.addMerchandiseAjaxListener}" execute="@form" render="@form msg"  />
                 </h:commandButton>
-                <h:commandButton value="#{i18n_global['global.remove']}" styleClass="btn btn-outline btn-warning">
-                    <f:ajax listener="#{receiptBean.removeAjaxListener}" render="receiptGoodsTable-wrapper msg" />
+                <h:commandButton value="#{i18n_global['global.removeSelected']}" styleClass="btn btn-outline btn-warning">
+                    <f:ajax listener="#{receiptBean.removeSelectedMerchandiseAjaxListener}" render="receiptGoodsTableContainer msg" />
                 </h:commandButton>
             </div>
         </div>
         <div class="row">
-            <h:panelGroup id="receiptGoodsTable-wrapper" layout="block">
-                <h:dataTable pt:id="receiptGoodsTable" value="#{receiptBean.receiptMerchandise}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even" style="width:94%;margin-left:20px;margin-top:15px;margin-bottom:15px;">
+            <h:panelGroup id="receiptGoodsTableContainer" layout="block">
+                <h:dataTable pt:id="receiptGoodsTable" value="#{receiptBean.receiptMerchandise}" var="merchandise" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even" style="width:94%;margin-left:20px;margin-top:15px;margin-bottom:15px;">
                     <h:column>
-                        <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.freighter']}" /></f:facet>
-                        <p:selectBooleanCheckbox value="#{item.selected}">
-                            <p:ajax update="msg" listener="#{receiptBean.selectedItem(item)}" />
+                        <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.itemSeq']}" /></f:facet>
+                        <p:selectBooleanCheckbox value="#{merchandise.selected}">
+                            <p:ajax listener="#{receiptBean.selectMerchandise(merchandise)}" render="@this" execute="@this" />
                         </p:selectBooleanCheckbox>
-                        <h:outputText value=" #{item.item}" />
+                        <h:outputText value=" #{merchandise.item}" />
                     </h:column>
                     <h:column>
                         <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.quantity']}" /></f:facet>
-                        <h:outputText value="#{item.quantity}" />
+                        <h:outputText value="#{merchandise.quantity}" />
                     </h:column>
                     <h:column>
                         <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.measurementUnit']}" /></f:facet>
-                        <h:outputText value="#{item.displayMeasurementUnit}" />
+                        <h:outputText value="#{merchandise.loadMeasurementUnit.name}" />
                     </h:column>
                     <h:column>
                         <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.pounds']}" /></f:facet>
-                        <h:outputText value="#{item.pounds}" />
+                        <h:outputText value="#{merchandise.pounds}" />
                     </h:column>
                     <h:column>
                         <f:facet name="header"><h:outputText value="#{i18n_proc_receipt['receipt.kilos']}" /></f:facet>
-                        <h:outputText value="#{item.kilos}" />
+                        <h:outputText value="#{merchandise.kilos}" />
                     </h:column>
                     
                     <h:column>
-                        <h:commandLink id="editGoodsButton" action="#{receiptBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
+                        <h:commandLink id="editGoodsButton" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
                             <i class="fa fa-pencil"></i><h:outputText value=" #{i18n_global['global.edit']}" />
+                            <f:attribute name="item-id" value="#{merchandise.id}" />
+                            <p:ajax listener="#{receiptBean.editMerchandiseAjaxListener}" render="@form" execute="@form" />
                         </h:commandLink>
-                        <h:commandLink id="removeGoodsButton" action="#{receiptBean.remove(item)}" onclick="return confirm('#{i18n_proc_receipt['receipt.remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
+                        <h:commandLink id="removeGoodsButton" onclick="return confirm('#{i18n_proc_receipt['merchandise.remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
                             <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.remove']}" />
+                            <f:attribute name="item-id" value="#{merchandise.id}" />
+                            <p:ajax listener="#{receiptBean.removeMerchandiseAjaxListener}" render="@form" execute="@form" />
                         </h:commandLink>
                     </h:column>
                 </h:dataTable>
             </h:panelGroup>
         </div>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     </h:form>
 </html>

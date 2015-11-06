@@ -19,18 +19,24 @@ import com.nowgroup.scspro.dto.ItemByNameException;
 import com.nowgroup.scspro.dto.cat.Company;
 import com.nowgroup.scspro.dto.cat.CompanyRole;
 import com.nowgroup.scspro.dto.cat.CompanyScope;
+import com.nowgroup.scspro.dto.cat.UNLabel;
 import com.nowgroup.scspro.dto.prod.Receipt;
 import com.nowgroup.scspro.dto.prod.ReceiptDocument;
 import com.nowgroup.scspro.dto.prod.ReceiptFreight;
 import com.nowgroup.scspro.dto.prod.ReceiptMerchandise;
+import com.nowgroup.scspro.dto.sys.MeasurementUnit;
 import com.nowgroup.scspro.dto.sys.PaymentCondition;
 import com.nowgroup.scspro.jsf.beans.BaseFacesReporteableBean;
+import com.nowgroup.scspro.model.prod.ReceiptDocumentModel;
 import com.nowgroup.scspro.model.prod.ReceiptFreightModel;
+import com.nowgroup.scspro.model.prod.ReceiptMerchandiseModel;
 import com.nowgroup.scspro.model.prod.ReceiptModel;
 import com.nowgroup.scspro.service.cat.CompanyScopeService;
 import com.nowgroup.scspro.service.cat.CompanyService;
+import com.nowgroup.scspro.service.cat.UNLabelService;
 import com.nowgroup.scspro.service.prod.ReceiptFreightService;
 import com.nowgroup.scspro.service.prod.ReceiptService;
+import com.nowgroup.scspro.service.sys.MeasurementUnitService;
 import com.nowgroup.scspro.service.sys.PaymentConditionService;
 
 @ManagedBean
@@ -69,13 +75,18 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 
     // *************** DOCUMENT ITEMS  *****************
     private String docFolio;
-    private Date docDate;
+    private Date docDate = new Date();
     private String poRef;
     private String soRef;
     private int docQty;
     private int docPackId;
+    private int docPurchaserId;
+
+    private int receiptDocumentId;
+    private List<ReceiptDocumentModel> selectedDocuments = new LinkedList<ReceiptDocumentModel>();
 
     // ************** MERCHANDISE ITEMS  *******************
+    private int itemSeqHelper = 0;
     private String itemSeq;
     private int goodsQty;
     private int goodsMeasurementUnitId;
@@ -84,6 +95,9 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
     private BigDecimal goodsPounds = new BigDecimal(0);
     private int goodsUNLabelId;
     private String goodsComments;
+
+    private int receiptMerchandiseId;
+    private List<ReceiptMerchandiseModel> selectedMerchandise = new LinkedList<ReceiptMerchandiseModel>();
 
     // *************** MANAGED PROPERTIES
     @ManagedProperty("#{companyScopeService}")
@@ -100,6 +114,12 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 
     @ManagedProperty("#{paymentConditionService}")
     private PaymentConditionService paymentConditionService;
+
+    @ManagedProperty("#{UNLabelService}")
+    private UNLabelService labelService;
+
+    @ManagedProperty("#{measurementUnitService}")
+    private MeasurementUnitService measurementUnitService;
 
     @ManagedProperty("#{i18n_proc_receipt}")
     private ResourceBundle msg;
@@ -275,11 +295,238 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 	selectedFreight.clear();
     }
 
+    // ******************* MERCHANDISE ACTIONS
+    private void clearMerchandise() {
+	itemSeq = String.format("%03d", ++itemSeqHelper);
+	goodsQty = 0;
+	goodsMeasurementUnitId = 0;
+	goodsWooden = false;
+	goodsPounds = new BigDecimal(0);
+	goodsKilos = new BigDecimal(0);
+	goodsUNLabelId = 0;
+    }
+
+    public void addMerchandiseAjaxListener(AjaxBehaviorEvent event) {
+	ReceiptMerchandise merchandise = new ReceiptMerchandise();
+	if (receiptMerchandiseId != 0) {
+	    for (ReceiptMerchandise item : receipt.getMerchandise()) {
+		if (item.getId() == receiptMerchandiseId) {
+		    merchandise = item;
+		    break;
+		}
+	    }
+	} else
+	    merchandise.setId(--internalId);
+
+	if (validateMerchandise()) {
+	    log.debug("adding item " + itemSeq + " in merchandise");
+	    merchandise.setComments(goodsComments);
+	    merchandise.setItem(itemSeq);
+	    merchandise.setKilos(goodsKilos);
+	    merchandise.setPounds(goodsPounds);
+	    merchandise.setQuantity(goodsQty);
+	    merchandise.setWooden(goodsWooden);
+
+	    MeasurementUnit loadMu = measurementUnitService.get(goodsMeasurementUnitId);
+	    merchandise.setLoadMeasurementUnit(loadMu);
+
+	    UNLabel unlabel = labelService.get(goodsUNLabelId);
+	    merchandise.setUnLabel(unlabel);
+
+	    if (receiptMerchandiseId == 0)
+		receipt.getMerchandise().add(merchandise);
+
+	    clearMerchandise();
+	    publishInfo(msg.getString("merchandise.add.confirmation"));
+
+	}
+    }
+
+    private boolean validateMerchandise() {
+	if ("".equals(itemSeq)) {
+	    publishWarning(msg.getString("merchandise.sequenceRequired"));
+	    return false;
+	}
+
+	if (goodsUNLabelId == 0) {
+	    publishWarning(msg.getString("merchandise.labelRequired"));
+	    return false;
+	}
+
+	if (duplicatedSequence()) {
+	    publishWarning(msg.getString("merchandise.duplicatedSeq"));
+	    return false;
+	}
+
+	// TODO: Validate allowed ranges
+	return true;
+    }
+
+    private boolean duplicatedSequence() {
+	if (receiptMerchandiseId == 0) {
+	    for (ReceiptMerchandise merchandise : receipt.getMerchandise()) {
+		if (merchandise.getItem().equals(itemSeq)) {
+		    return true;
+		}
+	    }
+	}
+
+	return false;
+    }
+
+    public void selectMerchandise(ReceiptMerchandiseModel item) {
+	// Implement
+	for (ReceiptMerchandiseModel merchandise : selectedMerchandise) {
+	    if (merchandise.getId() == item.getId()) {
+		selectedMerchandise.remove(merchandise);
+		item.setSelected(false);
+		return;
+	    }
+	}
+	selectedMerchandise.add(item);
+	item.setSelected(true);
+    }
+
+    public void removeSelectedMerchandiseAjaxListener(AjaxBehaviorEvent event) {
+	for (ReceiptMerchandiseModel item : selectedMerchandise) {
+	    removeMerchandise(item.demodelize());
+	}
+	selectedMerchandise.clear();
+    }
+
+    public void removeMerchandiseAjaxListener(AjaxBehaviorEvent event) {
+	int itemId = Integer.parseInt(event.getComponent().getAttributes().get("item-id").toString());
+	for (ReceiptMerchandise item : receipt.getMerchandise()) {
+	    if (item.getId() == itemId) {
+		removeMerchandise(item);
+		return;
+	    }
+	}
+    }
+
+    private void removeMerchandise(ReceiptMerchandise item) {
+	for (ReceiptMerchandise merchandise : receipt.getMerchandise()) {
+	    if (merchandise.getId() == item.getId()) {
+		receipt.getFreights().remove(merchandise);
+		break;
+	    }
+	}
+    }
+
+    public void editMerchandiseAjaxListener(AjaxBehaviorEvent event) {
+	int itemId = Integer.parseInt(event.getComponent().getAttributes().get("item-id").toString());
+	ReceiptMerchandise item = new ReceiptMerchandise();
+	for (ReceiptMerchandise merchandise : receipt.getMerchandise()) {
+	    if (merchandise.getId() == itemId) {
+		item = merchandise;
+		break;
+	    }
+	}
+
+	receiptMerchandiseId = item.getId();
+
+	itemSeq = item.getItem();
+	goodsQty = item.getQuantity();
+	goodsMeasurementUnitId = item.getLoadMeasurementUnit().getId();
+	goodsWooden = item.isWooden();
+	goodsPounds = item.getPounds();
+	goodsKilos = item.getKilos();
+	goodsUNLabelId = item.getUnLabel().getId();
+
+	selectedMerchandise.clear();
+    }
+
+    // *********************** DOCUMENT ACTIONS ***********************
+    private void clearDocument() {
+	docFolio = "";
+	docDate = new Date();
+	poRef = "";
+	soRef = "";
+	docQty = 0;
+	docPackId = 0;
+
+	docPurchaserId = purchaserId;
+    }
+
+    public void addDocumentAjaxListener(AjaxBehaviorEvent event) {
+	ReceiptDocument document = new ReceiptDocument();
+	if (receiptDocumentId != 0) {
+	    for (ReceiptDocument item : receipt.getDocuments()) {
+		if (item.getId() == receiptDocumentId) {
+		    document = item;
+		    break;
+		}
+	    }
+	} else
+	    document.setId(--internalId);
+
+	if (validateDocument()) {
+	    document.setDocumentDate(docDate);
+	    document.setFolio(docFolio);
+
+	    MeasurementUnit packMU = measurementUnitService.get(docPackId);
+	    document.setPackingMU(packMU);
+
+	    Company docPurchaser = companyService.get(docPurchaserId);
+	    document.setPurchaser(docPurchaser);
+
+	    document.setPurchaseOrder(poRef);
+	    document.setQuantity(docQty);
+	    document.setSalesOrder(soRef);
+
+	    if (receiptDocumentId == 0)
+		receipt.getDocuments().add(document);
+
+	    clearDocument();
+	    // TODO: Setup translation
+	    publishInfo(msg.getString("document.add.confirmation"));
+	}
+    }
+
+    public boolean validateDocument() {
+	if (docPackId == 0) {
+	    // TODO: Setup translation
+	    publishWarning(msg.getString("document.measurementUnitRequired"));
+	    return false;
+	}
+	
+	if (docPackId == 0) {
+	    // TODO: Setup translation
+	    publishWarning(msg.getString("document.measurementUnitRequired"));
+	    return false;
+	}
+
+	if (duplicatedSequence()) {
+	    publishWarning(msg.getString("merchandise.duplicatedSeq"));
+	    return false;
+	}
+	// TODO: Implement
+	return true;
+    }
+
+    public void removeSelectedDocumentsAjaxListener(AjaxBehaviorEvent event) {
+	// TODO: Implement
+    }
+
+    public void removeDocumentAjaxListener(AjaxBehaviorEvent event) {
+	// TODO: Implement
+    }
+
+    public void removeDocument(ReceiptDocument item) {
+	// TODO: Implement
+    }
+
+    public void editDocumentAjaxListener(AjaxBehaviorEvent event) {
+	// TODO: Implement
+    }
+
     // *********************** RECEIPT NAVIGATION ACTIONS  **************
     @Override
     public String addNew() {
 	clearReceipt();
 	clearFreight();
+	itemSeqHelper = 0;
+	clearMerchandise();
 	try {
 	    receipt.setFolio(receiptService.getSequence(STORAGE_CODE));
 	} catch (ItemByNameException e) {
@@ -718,11 +965,16 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 	}
     }
 
-    public Set<ReceiptMerchandise> getReceiptMerchandise() {
+    public List<ReceiptMerchandiseModel> getReceiptMerchandise() {
 	if (receipt == null) {
-	    return new HashSet<ReceiptMerchandise>();
+	    return new LinkedList<ReceiptMerchandiseModel>();
 	} else {
-	    return receipt.getMerchandise();
+	    List<ReceiptMerchandiseModel> result = new LinkedList<ReceiptMerchandiseModel>();
+	    for (ReceiptMerchandise merchandise : receipt.getMerchandise()) {
+		ReceiptMerchandiseModel rmm = (ReceiptMerchandiseModel) new ReceiptMerchandiseModel().getModel(merchandise);
+		result.add(rmm);
+	    }
+	    return result;
 	}
     }
 
@@ -756,5 +1008,61 @@ public class ReceiptBean extends BaseFacesReporteableBean<Receipt> {
 
     public void setReceiptFreightService(ReceiptFreightService receiptFreightService) {
 	this.receiptFreightService = receiptFreightService;
+    }
+
+    public int getReceiptMerchandiseId() {
+	return receiptMerchandiseId;
+    }
+
+    public void setReceiptMerchandiseId(int receiptMerchandiseId) {
+	this.receiptMerchandiseId = receiptMerchandiseId;
+    }
+
+    public UNLabelService getLabelService() {
+	return labelService;
+    }
+
+    public void setLabelService(UNLabelService labelService) {
+	this.labelService = labelService;
+    }
+
+    public List<ReceiptMerchandiseModel> getSelectedMerchandise() {
+	return selectedMerchandise;
+    }
+
+    public void setSelectedMerchandise(List<ReceiptMerchandiseModel> selectedMerchandise) {
+	this.selectedMerchandise = selectedMerchandise;
+    }
+
+    public MeasurementUnitService getMeasurementUnitService() {
+	return measurementUnitService;
+    }
+
+    public void setMeasurementUnitService(MeasurementUnitService measurementUnitService) {
+	this.measurementUnitService = measurementUnitService;
+    }
+
+    public int getReceiptDocumentId() {
+	return receiptDocumentId;
+    }
+
+    public void setReceiptDocumentId(int receiptDocumentId) {
+	this.receiptDocumentId = receiptDocumentId;
+    }
+
+    public List<ReceiptDocumentModel> getSelectedDocuments() {
+	return selectedDocuments;
+    }
+
+    public void setSelectedDocuments(List<ReceiptDocumentModel> selectedDocuments) {
+	this.selectedDocuments = selectedDocuments;
+    }
+
+    public int getDocPurchaserId() {
+	return docPurchaserId;
+    }
+
+    public void setDocPurchaserId(int docPurchaserId) {
+	this.docPurchaserId = docPurchaserId;
     }
 }

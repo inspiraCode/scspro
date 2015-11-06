@@ -335,7 +335,7 @@ public class CompanyBean extends BaseFacesReporteableBean<Company> {
     }
 
     private void removeRoleCompany(CompanyScopeModel item) {
-	companyScopeServiceImpl.delete(item);
+	companyScopeServiceImpl.delete(item.demodelize());
 	rolesList.remove(item);
     }
 

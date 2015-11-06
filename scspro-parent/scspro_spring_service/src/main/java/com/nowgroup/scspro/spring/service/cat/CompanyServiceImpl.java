@@ -57,8 +57,6 @@ public class CompanyServiceImpl extends BaseSpringService<Company> implements Co
     @Override
     public void update(Company company) {
 	log.debug("UPDATE Company: " + company);
-	log.debug("UPDATE Company with state: " + company.getState());
-	log.debug("UPDATE Company with scope: " + company.getCompanyScope());
 	super.update(company);
     }
 
