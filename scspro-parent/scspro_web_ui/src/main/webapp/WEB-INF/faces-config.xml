@@ -49,6 +49,16 @@
     <!-- ************************************************************************ -->
     <!-- NAVIGATION RULES -->
     <!-- ************************************************************************ -->
+    <!-- global navigation rules -->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-action>#{loginMgmtBean.logout}</from-action>
+            <from-outcome>loggedout</from-outcome>
+            <to-view-id>/pages/public/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
     <!-- navigation-rule for login.xhtml -->
     <navigation-rule>
     	<from-view-id>/pages/public/login.xhtml</from-view-id>
@@ -70,15 +80,27 @@
     		<from-outcome>changedLanguage</from-outcome>
     		<to-view-id>/pages/public/login.xhtml</to-view-id>
     	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{loginMgmtBean.register}</from-action>
+    		<from-outcome>register</from-outcome>
+    		<to-view-id>/pages/public/register.xhtml</to-view-id>
+    		<redirect/>
+    	</navigation-case>
     </navigation-rule>
+    <!-- navigation-rule for register.xhtml -->
     <navigation-rule>
-        <from-view-id>*</from-view-id>
-        <navigation-case>
-            <from-action>#{loginMgmtBean.logout}</from-action>
-            <from-outcome>loggedout</from-outcome>
-            <to-view-id>/pages/public/login.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
+    	<from-view-id>/pages/public/register.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{userController.register}</from-action>
+    		<from-outcome>confirmation</from-outcome>
+    		<to-view-id>/pages/public/reg_confirm.xhtml</to-view-id>
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{userController.login}</from-action>
+    		<from-outcome>cancel</from-outcome>
+    		<to-view-id>/pages/public/login.xhtml</to-view-id>
+    		<redirect/>
+    	</navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/secure/cat/company/list.xhtml</from-view-id>

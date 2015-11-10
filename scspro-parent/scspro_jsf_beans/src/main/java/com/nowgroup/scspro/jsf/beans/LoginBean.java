@@ -45,6 +45,10 @@ public class LoginBean extends PublisherFacesBean {
 
 	return "correct";
     }
+    
+    public String register(){
+	return "register";
+    }
 
     public String cancel() {
 	return null;

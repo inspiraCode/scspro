@@ -60,7 +60,11 @@ public class UserController extends PublisherFacesBean {
 	}
 	// Add message
 	publishInfo(registrationConfirmation);
-	return "reg_confirm";
+	return "confirmation";
+    }
+    
+    public String login() {
+	return "cancel";
     }
 
     public String getRegistrationError() {

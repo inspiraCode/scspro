@@ -30,17 +30,33 @@
  
             <title><ui:insert name="title">SCS Pro</ui:insert></title>
             <!-- Custom Theme JavaScript -->
+            <!-- JQUERY CORE -->
             <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
-            <h:outputScript name="js/sb-admin-2.js" />
+            <!-- JQUERY UI -->
+            <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"/>
+
+            <!-- Optional theme -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous"/>
+
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+            <!-- FONT AWESOME -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+
+            <!-- SITE CSS -->
+            <h:outputStylesheet name="css/style.css" />
+            <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+            <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
             <link rel="stylesheet" href="http://css-spinners.com/css/spinner/throbber.css" type="text/css"/>
         </f:facet>
- 
-        <f:facet name="middle">
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-          <h:outputStylesheet name="css/sb-admin-2.css" />
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        </f:facet>
-        
+                
         <f:facet name="last">
           <!-- Metis Menu Plugin JavaScript -->
           <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.2.0/metisMenu.min.css" />

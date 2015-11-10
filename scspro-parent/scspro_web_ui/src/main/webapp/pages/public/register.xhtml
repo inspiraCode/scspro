@@ -26,22 +26,41 @@
     <meta name="msapplication-TileColor" content="#da532c"/>
     <meta name="theme-color" content="#ffffff"/>
 
-    <title>SCS Pro - Registrarse</title>
+    <title>SCS Pro - Register</title>
+    <!-- JQUERY CORE -->
     <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <h:outputStylesheet name="css/sb-admin-2.css" />
+    <!-- JQUERY UI -->
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous"/>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+
+    <!-- SITE CSS -->
+    <h:outputStylesheet name="css/style.css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </h:head>
-<h:body>
+<h:body class="login-img3-body">
     <f:view locale="#{localeBean.locale}">
 
-    <div class="container">
+    <div style="margin-top:20px;" class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><h:outputText id="outTxtTitleId" value="#{i18n_register['register.title']}: " name="outTxtTitleNm"></h:outputText></h3>
+                        <h3><h:outputText id="outTxtTitleId" value="#{i18n_register['register.title']}: " name="outTxtTitleNm"></h:outputText></h3>
                     </div>
                     <div class="panel-body">
                         <h:form>
@@ -83,7 +102,7 @@
                                     <!-- Button -->
                                     <div class="controls">
                                         <h:commandButton id="btnRegisterId" value="#{i18n_register['register.register']}" action="#{userController.register}" styleClass="btn btn-success"></h:commandButton>&nbsp;&nbsp;
-                                        <a href="login.xhtml"><h:outputText id="outTxtLoginId" value="#{i18n_register['register.login']}" name="outTxtLoginNm"></h:outputText></a>
+                                        <h:commandButton id="btnEnterId" value="#{i18n_register['register.login']}" action="#{userController.login}"  immediate="true" styleClass="btn btn-info"></h:commandButton>&nbsp;&nbsp;
                                     </div>
                                 </div>
                             </fieldset>
