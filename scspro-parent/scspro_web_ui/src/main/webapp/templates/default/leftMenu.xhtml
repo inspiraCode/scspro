@@ -20,11 +20,36 @@
                           <span class="fa arrow menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a href="/scspro/pages/secure/cat/company/list.xhtml"><h:outputText id="outTxtCompaniesId" value="#{i18n_menu['menu.catalogs.companies']}" name="outTxtCompaniesNm"></h:outputText></a></li>                          
-                          <!-- ADD MORE CATALOGS HERE
-                          <li><a class="" href="form_validation.html">Form Validation</a></li> -->
+                          <!-- MATERIALES -->
+                          <li><a href="/scspro/pages/secure/cat/material/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.materials']}"></h:outputText></a></li>
+                          <!-- FRACCIONES ARANCELARIAS -->
+                          <li><a href="/scspro/pages/secure/cat/tariff/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.tariffs']}"></h:outputText></a></li>
+                          <!-- COMPANIAS -->
+                          <li><a href="/scspro/pages/secure/cat/company/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.companies']}"></h:outputText></a></li>
+                          <!-- ADUANAS -->
+                          <li><a href="/scspro/pages/secure/cat/customs/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.customs']}"></h:outputText></a></li>
+                          <!-- AGENCIAS ADUANALES -->
+                          <li><a href="/scspro/pages/secure/cat/custom-broker/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.customBrokers']}"></h:outputText></a></li>
+                          <!-- TRATADOS COMERCIALES -->
+                          <li><a href="/scspro/pages/secure/cat/trade-agreement/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.tradeAgreements']}"></h:outputText></a></li>
+                          <!-- IDENTIFICADORES -->
+                          <li><a href="/scspro/pages/secure/cat/identifier/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.identifiers']}"></h:outputText></a></li>
+                          <!-- CONCEPTOS DE CARGO -->
+                          <li><a href="/scspro/pages/secure/cat/charge-concept/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.chargeConcepts']}"></h:outputText></a></li>
+                          <!-- UNIDADES DE MEDIDA -->
+                          <li><a href="/scspro/pages/secure/cat/measurement-unit/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.measurement']}"></h:outputText></a></li>
+                          <!-- ALMACENES -->
+                          <li><a href="/scspro/pages/secure/cat/storage/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.storages']}"></h:outputText></a></li>
+                          <!-- CONDICIONES DE PAGO -->
+                          <li><a href="/scspro/pages/secure/cat/payment/list.xhtml"><h:outputText value="#{i18n_menu['menu.catalogs.payment']}"></h:outputText></a></li>
                       </ul>
-                  </li>       
+                  </li>
+                  <li>
+                      <a href="/scspro/pages/secure/proc/transit/list.xhtml">
+                        <i class="fa fa-road fa-fw"></i>
+                        <span><h:outputText value="#{i18n_menu['menu.transit']}"></h:outputText></span>
+                      </a>
+                  </li>
                   <li>
                       <a href="/scspro/pages/secure/proc/receipt/list.xhtml">
                         <i class="fa fa-tags fa-fw"></i>
@@ -66,10 +91,27 @@
                         <span><h:outputText value="#{i18n_menu['menu.finance']}"></h:outputText></span>
                       </a>
                   </li>
-                  <li>
+                  <li class="sub-menu">
                       <a href="#">
                         <i class="fa fa-file-text fa-fw"></i>
-                        <span><h:outputText value="#{i18n_menu['menu.documents']}"></h:outputText></span>
+                        <span><h:outputText value="#{i18n_menu['menu.documentation']}"></h:outputText></span>
+                        <span class="fa arrow menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <!-- SED -->
+                          <li><a href="/scspro/pages/secure/documentation/sed/list.xhtml"><h:outputText value="#{i18n_menu['menu.documentation.sed']}"></h:outputText></a></li>
+                          <!-- PEDIMENTOS -->
+                          <li><a href="/scspro/pages/secure/documentation/pedimento/list.xhtml"><h:outputText value="#{i18n_menu['menu.documentation.pedimento']}"></h:outputText></a></li>
+                          <!-- PREFILE -->
+                          <li><a href="/scspro/pages/secure/documentation/prefile/list.xhtml"><h:outputText value="#{i18n_menu['menu.documentation.prefile']}"></h:outputText></a></li>
+                          <!-- DOCUMENTOS DE SOPORTE -->
+                          <li><a href="/scspro/pages/secure/documentation/support/list.xhtml"><h:outputText value="#{i18n_menu['menu.documentation.support']}"></h:outputText></a></li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#">
+                        <i class="fa fa-paperclip fa-fw"></i>
+                        <span><h:outputText value="#{i18n_menu['menu.file']}"></h:outputText></span>
                       </a>
                   </li>
                   <li>
@@ -85,8 +127,6 @@
                           <span class="fa arrow menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a href="/scspro/pages/secure/sys/measurement-unit/list.xhtml"><h:outputText id="outTxtMeasurementUnitsId" value="#{i18n_menu['menu.catalogs.measurement']}" name="outTxtMeasurementUnitsNm"></h:outputText></a></li>
-                          <li><a href="/scspro/pages/secure/storage/list.xhtml"><h:outputText id="outTxtStoragesId" value="#{i18n_menu['menu.catalogs.storages']}" name="outTxtStoragesNm"></h:outputText></a></li>
                           <li><a href="#"><h:outputText value="#{i18n_menu['menu.system.users']}"></h:outputText></a></li>
                       </ul>
                   </li>

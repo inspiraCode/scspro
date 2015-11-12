@@ -33,7 +33,8 @@
             <!-- JQUERY CORE -->
             <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
             <!-- JQUERY UI -->
-            <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" />
 
             <!-- Latest compiled and minified CSS -->
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"/>
@@ -58,10 +59,17 @@
         </f:facet>
                 
         <f:facet name="last">
+          <!--custome script for all page-->
+          <h:outputScript name="js/scripts.js"></h:outputScript>
+
+          <!-- nice scroll -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.0/jquery.nicescroll.min.js"></script>
+
           <!-- Metis Menu Plugin JavaScript -->
-          <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.2.0/metisMenu.min.css" />
+          <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.2.0/metisMenu.min.css" />
           <script src="//cdn.jsdelivr.net/jquery.metismenu/2.2.0/metisMenu.min.js"></script>
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" /> -->
           <script>
             var globalDataTableConfig = {
                 responsive : true,

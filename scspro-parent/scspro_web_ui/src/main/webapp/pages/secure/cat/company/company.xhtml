@@ -10,13 +10,17 @@
 	<ui:define name="title">SCS PRO - #{i18n_companies['companies.title']} #{companyBean.model.id>0?companyBean.model.id:i18n_companies['companies.title.add']} </ui:define>
     <ui:define name="content">
         <!-- Page Heading -->
+        <!--overview start-->
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                <i class="fa fa-industry"></i><h:outputText rendered="#{companyBean.model.id==0}" id="outTxtTitleId" value=" #{i18n_companies['companies.title.add']}" name="outTxtTitleNm"></h:outputText>
-                <h:outputText rendered="#{companyBean.model.id>0}" id="outTxtTitle2Id" value=" #{companyBean.model.name} (#{companyBean.model.id})" name="outTxtTitle2Nm"></h:outputText>
-                </h1>
-            </div>
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-industry"></i> <h:outputText rendered="#{companyBean.model.id==0}" value=" #{i18n_companies['companies.title.add']}"></h:outputText>
+                <h:outputText rendered="#{companyBean.model.id>0}" value=" #{companyBean.model.name} (#{companyBean.model.id})"></h:outputText></h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                <li><i class="fa fa-industry"></i><h:outputText rendered="#{companyBean.model.id==0}" value=" #{i18n_companies['companies.title.add']}"></h:outputText>
+                <h:outputText rendered="#{companyBean.model.id>0}" value=" #{companyBean.model.name} (#{companyBean.model.id})"></h:outputText></li>                          
+            </ol>
+          </div>
         </div>
         <p:messages id="msg" />
         <!-- Form content -->

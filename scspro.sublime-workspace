@@ -96,66 +96,10 @@
 	"buffers":
 	[
 		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/public/login.xhtml",
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
 			"settings":
 			{
-				"buffer_size": 5504,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/public/register.xhtml",
-			"settings":
-			{
-				"buffer_size": 9386,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/public/reg_confirm.xhtml",
-			"settings":
-			{
-				"buffer_size": 4098,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
-			"settings":
-			{
-				"buffer_size": 6647,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/content.xhtml",
-			"settings":
-			{
-				"buffer_size": 300,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/index.xhtml",
-			"settings":
-			{
-				"buffer_size": 34070,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/torredie/Documents/projects/scspro/NiceAdmin/NiceAdmin/index.html",
-			"settings":
-			{
-				"buffer_size": 50143,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
-			"settings":
-			{
-				"buffer_size": 15498,
+				"buffer_size": 6800,
 				"line_ending": "Windows"
 			}
 		},
@@ -163,7 +107,15 @@
 			"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
 			"settings":
 			{
-				"buffer_size": 5998,
+				"buffer_size": 9300,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
+			"settings":
+			{
+				"buffer_size": 15164,
 				"line_ending": "Windows"
 			}
 		}
@@ -210,27 +162,40 @@
 	],
 	"file_history":
 	[
+		"/C/apache/Apache24/conf/httpd.conf",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/content.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/index.xhtml",
+		"/C/Users/torredie/Documents/RCU/svn-rcu-amer-demos/java/mutualAuthenticated/result.txt",
+		"/C/Users/torredie/Documents/RCU/svn-rcu-amer-demos/java/mutualAuthenticated/readme.txt",
+		"/C/Users/torredie/Documents/projects/scspro/NiceAdmin/NiceAdmin/index.html",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/resources/js/scripts.js",
+		"/C/Users/torredie/Documents/RCU/certs/self_signed/test.rcu/pwd.txt",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/login.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/register.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/reg_confirm.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
 		"/C/Users/torredie/Downloads/datos-school-control.sql",
 		"/C/Users/torredie/AppData/Local/Temp/wzab08/datos-school-control.sql",
 		"/C/Users/torredie/Documents/RCU/certs/PCI/sungard/public.cert",
 		"/C/Users/torredie/Documents/RCU/certs/PCI/sungard/request.csr",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/content.xhtml",
 		"/C/Users/torredie/Documents/projects/scspro/NiceAdmin/NiceAdmin/form_component.html",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/pages/public/register.xhtml",
 		"/C/Users/torredie/Documents/projects/scspro/NiceAdmin/NiceAdmin/login.html",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/resources/css/bootstrap.min.css",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/05_prod_receipt.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-freight.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-merchandise.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/receipt-tab-documents.xhtml",
 		"/C/Users/torredie/Documents/projects/scspro/NiceAdmin/NiceAdmin/js/index.js",
 		"/C/Users/torredie/Documents/projects/scspro/NiceAdmin/NiceAdmin/js/scripts.js",
 		"/C/Users/torredie/Documents/projects/scspro/NiceAdmin/NiceAdmin/js/additional-methods.min.js",
-		"/C/Users/torredie/Documents/projects/scspro/NiceAdmin/NiceAdmin/index.html",
 		"/C/0 SCS/B SCS/Base SCS Rev 12.txt",
 		"/C/Users/torredie/Documents/RCU/certs/internal/soap-signature/public.crt",
 		"/C/Users/torredie/AppData/Local/Temp/wz0ae9/GWT921026L97.txt",
@@ -244,10 +209,6 @@
 		"/C/0 SCS/B SCS/Base SCS Rev 12",
 		"/C/Users/torredie/Documents/RCU/certs/internal/soap-signature/request.csr",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_jsf_beans/src/main/java/com/nowgroup/scspro/jsf/beans/proc/ReceiptBean.java",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
 		"/C/jetty/etc/jetty-logging.xml",
 		"/C/jetty/start.ini",
 		"/C/jetty/resources/logback.xml",
@@ -256,10 +217,6 @@
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/01_sys.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/pages/secure/index.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/index.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/register.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/login.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/reg_confirm.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/session-expired.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/error.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/templates/default/main.xhtml",
@@ -332,16 +289,11 @@
 		"/C/Temp/transfer_IDMaterial.txt",
 		"/C/Temp/transfer_IDFraccion.txt",
 		"/C/Temp/transfer.txt",
-		"/C/Temp/transfer_partida.txt",
-		"/C/Temp/transfer_IDLista.txt",
-		"/C/Temp/transfer_idfactura.txt",
-		"/C/Users/torredie/Documents/projects/inspira/gits/Inspiraschool/studentSvc/php/Rest.inc.php",
-		"/C/Users/torredie/Documents/projects/inspira/gits/Inspiraschool/enrollment/app/views/enrollment.html",
-		"/C/Users/torredie/Documents/projects/inspira/gits/Inspiraschool/enrollment/app/scripts/controllers/main.js"
+		"/C/Temp/transfer_partida.txt"
 	],
 	"find":
 	{
-		"height": 43.0
+		"height": 58.0
 	},
 	"find_in_files":
 	{
@@ -355,6 +307,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"                          \n",
+			"tooltips",
+			"title",
 			"<br>",
 			"input",
 			"img",
@@ -532,24 +487,24 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/public/login.xhtml",
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5504,
+						"buffer_size": 6800,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5153,
-								5153
+								4286,
+								4286
 							]
 						],
 						"settings":
@@ -559,87 +514,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1259.0,
+						"translation.y": 780.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/public/register.xhtml",
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9386,
+						"buffer_size": 9300,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3489,
-								3513
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 449.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/public/reg_confirm.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4098,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1962,
-								3474
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 480.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6647,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5634,
-								5641
+								4033,
+								4033
 							]
 						],
 						"settings":
@@ -649,145 +544,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1429.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/content.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 300,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								300,
-								300
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/index.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 34070,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								29147,
-								29147
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 10998.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/C/Users/torredie/Documents/projects/scspro/NiceAdmin/NiceAdmin/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 50143,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								47504,
-								47504
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 20618.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 15498,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15215,
-								15228
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5030.0,
+						"translation.y": 140.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
+					"buffer": 2,
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5998,
+						"buffer_size": 15164,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5184,
-								5184
+								13748,
+								13748
 							]
 						],
 						"settings":
@@ -797,10 +574,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4370.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -855,6 +632,34 @@
 		"selected_items":
 		[
 			[
+				"header",
+				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\templates\\default\\header.xhtml"
+			],
+			[
+				"left",
+				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\templates\\default\\leftMenu.xhtml"
+			],
+			[
+				"conten",
+				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\templates\\default\\content.xhtml"
+			],
+			[
+				"main",
+				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\templates\\default\\main.xhtml"
+			],
+			[
+				"main.",
+				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\templates\\default\\main.xhtml"
+			],
+			[
+				"scripts",
+				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\resources\\js\\scripts.js"
+			],
+			[
+				"company/list.xhtml",
+				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\pages\\secure\\cat\\company\\list.xhtml"
+			],
+			[
 				"index",
 				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\pages\\secure\\index.xhtml"
 			],
@@ -883,16 +688,8 @@
 				"scspro-parent\\scspro_web_ui\\target\\scspro\\pages\\secure\\index.xhtml"
 			],
 			[
-				"main",
-				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\templates\\default\\main.xhtml"
-			],
-			[
 				"05",
 				"dbScripts\\05_prod_receipt.sql"
-			],
-			[
-				"left",
-				"scspro\\web\\target\\scspro\\templates\\default\\leftMenu.xhtml"
 			],
 			[
 				"heade",
