@@ -18,13 +18,13 @@ import javax.faces.context.FacesContext;
 import org.apache.log4j.Logger;
 import org.primefaces.event.DragDropEvent;
 
-import com.nowgroup.scspro.dto.sys.MeasurementUnit;
-import com.nowgroup.scspro.dto.sys.MeasurementUnitRole;
+import com.nowgroup.scspro.dto.cat.MeasurementUnit;
+import com.nowgroup.scspro.dto.cat.MeasurementUnitRole;
 import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
 import com.nowgroup.scspro.model.sys.MeasurementUnitModel;
 import com.nowgroup.scspro.model.sys.MeasurementUnitRoleModel;
-import com.nowgroup.scspro.service.sys.MeasurementUnitRoleService;
-import com.nowgroup.scspro.service.sys.MeasurementUnitService;
+import com.nowgroup.scspro.service.cat.MeasurementUnitRoleService;
+import com.nowgroup.scspro.service.cat.MeasurementUnitService;
 
 @ManagedBean
 @SessionScoped

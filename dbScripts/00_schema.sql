@@ -1,1 +1,0 @@
-CREATE DATABASE `supply_chain` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_spanish_ci */;

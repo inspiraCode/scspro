@@ -6,11 +6,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import com.nowgroup.scspro.dto.sys.PaymentCondition;
+import com.nowgroup.scspro.dto.cat.PaymentCondition;
 import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
 import com.nowgroup.scspro.model.sys.PaymentConditionModel;
 import com.nowgroup.scspro.service.BaseService;
-import com.nowgroup.scspro.service.sys.PaymentConditionService;
+import com.nowgroup.scspro.service.cat.PaymentConditionService;
 
 @ManagedBean
 @SessionScoped

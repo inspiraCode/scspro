@@ -9,9 +9,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
-import com.nowgroup.scspro.dto.sys.MeasurementUnit;
-import com.nowgroup.scspro.dto.sys.MeasurementUnitRole;
-import com.nowgroup.scspro.service.sys.MeasurementUnitService;
+import com.nowgroup.scspro.dto.cat.MeasurementUnit;
+import com.nowgroup.scspro.dto.cat.MeasurementUnitRole;
+import com.nowgroup.scspro.service.cat.MeasurementUnitService;
 
 @ManagedBean
 @RequestScoped

@@ -1,6 +1,6 @@
 package com.nowgroup.scspro.model.sys;
 
-import com.nowgroup.scspro.dto.sys.MeasurementUnit;
+import com.nowgroup.scspro.dto.cat.MeasurementUnit;
 import com.nowgroup.scspro.model.Modeleable;
 
 public class MeasurementUnitModel extends MeasurementUnit implements Modeleable<MeasurementUnit> {

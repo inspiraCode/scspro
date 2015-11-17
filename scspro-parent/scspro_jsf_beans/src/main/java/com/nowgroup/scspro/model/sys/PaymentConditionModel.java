@@ -1,6 +1,6 @@
 package com.nowgroup.scspro.model.sys;
 
-import com.nowgroup.scspro.dto.sys.PaymentCondition;
+import com.nowgroup.scspro.dto.cat.PaymentCondition;
 import com.nowgroup.scspro.model.Modeleable;
 
 public class PaymentConditionModel extends PaymentCondition implements Modeleable<PaymentCondition> {

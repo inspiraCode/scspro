@@ -23,7 +23,7 @@ import org.hibernate.search.annotations.Resolution;
 
 import com.nowgroup.scspro.dto.BaseDTO;
 import com.nowgroup.scspro.dto.cat.Company;
-import com.nowgroup.scspro.dto.sys.MeasurementUnit;
+import com.nowgroup.scspro.dto.cat.MeasurementUnit;
 
 @Indexed
 @Entity

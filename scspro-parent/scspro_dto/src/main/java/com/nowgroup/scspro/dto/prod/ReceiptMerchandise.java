@@ -18,8 +18,8 @@ import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
 
 import com.nowgroup.scspro.dto.BaseDTO;
+import com.nowgroup.scspro.dto.cat.MeasurementUnit;
 import com.nowgroup.scspro.dto.cat.UNLabel;
-import com.nowgroup.scspro.dto.sys.MeasurementUnit;
 
 @Entity
 @Indexed

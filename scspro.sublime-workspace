@@ -96,10 +96,13 @@
 	"buffers":
 	[
 		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
+			"contents": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" \n    xmlns:h=\"http://xmlns.jcp.org/jsf/html\" \n    xmlns:f=\"http://xmlns.jcp.org/jsf/core\" \n    xmlns:ui=\"http://xmlns.jcp.org/jsf/facelets\" \n    xmlns:pt=\"http://xmlns.jcp.org/jsf/passthrough\"\n    xmlns:p=\"http://primefaces.org/ui\">\n<ui:composition template=\"/templates/default/main.xhtml\">\n    <ui:define name=\"title\">SCS PRO - #{i18n_material['companies.title']}</ui:define>\n    <ui:define name=\"content-header\">\n        <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css\" />\n        <script src=\"https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js\"></script>\n        <script>\n            $(document).ready(function(){\n                var materialTableConfig = {\n                  responsive : true,\n                  \"language\" : {\n                    \"lengthMenu\" : \"#{i18n_global['global.dt.lengthMenu']}\",\n                    \"zeroRecords\" : \"#{i18n_global['global.dt.zeroRecords']}\",\n                    \"info\" : \"#{i18n_global['global.dt.info']}\",\n                    \"infoEmpty\" : \"#{i18n_global['global.dt.infoEmpty']}\",\n                    \"infoFiltered\" : \"#{i18n_global['global.dt.infoFiltered']}\",\n                    \"search\" : \"#{i18n_global['global.dt.search']}\",\n                    \"paginate\" : {\n                      \"first\" : \"#{i18n_global['global.dt.pagination.first']}\",\n                      \"last\" : \"#{i18n_global['global.dt.pagination.last']}\",\n                      \"next\" : \"#{i18n_global['global.dt.pagination.next']}\",\n                      \"previous\" : \"#{i18n_global['global.dt.pagination.previous']}\"\n                    }\n                  }\n                };\n                $('#companiesTable').DataTable(materialTableConfig);\n            });\n        </script>\n    </ui:define>\n    <ui:define name=\"content\">\n        <!--overview start-->\n        <div class=\"row\">\n          <div class=\"col-lg-12\">\n            <h3 class=\"page-header\"><i class=\"fa fa-wrench\"></i> <h:outputText value=\" #{i18n_menu['menu.catalogs.materials']}\"></h:outputText></h3>\n            <ol class=\"breadcrumb\">\n                <li><i class=\"fa fa-home\"></i><a href=\"index.html\">#{i18n_menu['menu.home']}</a></li>\n                <li><i class=\"fa fa-th-list\"></i>#{i18n_menu['menu.catalogs']}</li>                          \n                <li><i class=\"fa fa-wrench\"></i>#{i18n_menu['menu.catalogs.materials']}</h:outputText></li>                          \n            </ol>\n          </div>\n        </div>\n        <!-- /.row -->\n        <p:messages id=\"msg\" />\n        <!-- Form content -->\n        <h:form id=\"materialListForm\">\n            <h:commandLink id=\"addButton\" action=\"#{materialBean.addNew}\" styleClass=\"btn btn-primary\" style=\"margin-bottom:30px;\">\n                <i class=\"fa fa-plus\"></i><h:outputText value=\" #{i18n_global['global.add']}\" />\n            </h:commandLink>\n            <h:commandLink id=\"removeSelectedButton\" action=\"#{materialBean.removeSelected}\" onclick=\"return confirm('#{i18n_material['removeSelected.confirmation']}');\" styleClass=\"btn btn-warning\" style=\"margin-left:10px;margin-bottom:30px;\">\n                <i class=\"fa fa-times\"></i><h:outputText value=\" #{i18n_global['global.removeSelected']}\" />\n            </h:commandLink>\n            <h:commandLink id=\"pdfExportButton\" onclick=\"showLoading=false;\" action=\"#{materialBean.pdfReport(materialBean.all, 'material-list', i18n_material)}\" styleClass=\"btn btn-info\" style=\"margin-left:10px;margin-bottom:30px;\">\n                <i class=\"fa fa-file-pdf-o\"></i><h:outputText value=\" #{i18n_global['global.export.pdf']}\" />\n            </h:commandLink>\n            <h:commandLink id=\"xlsxExportButton\" onclick=\"showLoading=false;\" action=\"#{materialBean.xlsReport(materialBean.all, 'material-list', i18n_material)}\" styleClass=\"btn btn-success\" style=\"margin-left:5px;margin-bottom:30px;\">\n                <i class=\"fa fa-file-excel-o\"></i><h:outputText value=\" #{i18n_global['global.export.xls']}\" />\n            </h:commandLink>\n            <div id=\"companiesTable-wrapper\">\n            <h:dataTable pt:id=\"companiesTable\" value=\"#{materialBean.all}\" var=\"item\" styleClass=\"table table-striped table-bordered table-hover compact\" rowClasses=\"odd, even\">\n                <h:column>\n                    <f:facet name=\"header\">id</f:facet>\n                    <p:selectBooleanCheckbox value=\"#{item.selected}\">\n                        <p:ajax update=\"msg\" listener=\"#{materialBean.selectedItem(item)}\" />\n                    </p:selectBooleanCheckbox>\n                    <h:outputText value=\" #{item.id}\" />\n                </h:column>\n                <h:column>\n                    <f:facet name=\"header\"><h:outputText value=\"#{i18n_material['company.name']}\" /></f:facet>\n                    <h:outputText value=\"#{item.name}\" />\n                </h:column>\n                <h:column>\n                    <f:facet name=\"header\"><h:outputText value=\"#{i18n_material['company.city']}\" /></f:facet>\n                    <h:outputText value=\"#{item.city}\" />\n                </h:column>\n                <h:column>\n                    <f:facet name=\"header\"><h:outputText value=\"#{i18n_material['company.state']}\" /></f:facet>\n                    <h:outputText value=\"#{materialBean.getCompanyState(item.id)}\" />\n                </h:column>\n                <h:column>\n                    <f:facet name=\"header\"><h:outputText value=\"#{i18n_material['company.phone']}\" /></f:facet>\n                    <h:outputText value=\"#{item.phone}\" />\n                </h:column>\n                <h:column>\n                    <f:facet name=\"header\"><h:outputText value=\"#{i18n_material['companies.profiles']}\" /></f:facet>\n                    <h:outputText value=\"#{item.displayRoles}\" />\n                </h:column>\n                \n                <h:column>\n                    <h:commandLink id=\"editButton\" action=\"#{materialBean.edit(item)}\" styleClass=\"btn btn-primary\" style=\"margin-right:10px;margin-bottom:5px;margin-top:5px;\">\n                        <i class=\"fa fa-pencil\"></i><h:outputText value=\" #{i18n_global['global.edit']}\" />\n                    </h:commandLink>\n                    <h:commandLink id=\"removeButton\" action=\"#{materialBean.delete(item)}\" onclick=\"return confirm('#{i18n_material['company.remove.confirmation']}');\" styleClass=\"btn btn-primary\" style=\"margin-bottom:5px;margin-top:5px;\">\n                        <f:param name=\"item\" value=\"#{item}\" />\n                        <i class=\"fa fa-times\"></i><h:outputText value=\" #{i18n_global['global.remove']}\" />\n                    </h:commandLink>\n                </h:column>\n            </h:dataTable>\n            </div>\n            <input type=\"hidden\" name=\"${_csrf.parameterName}\" value=\"${_csrf.token}\" />\n        </h:form>\n    </ui:define>\n</ui:composition>\n\n</html>\n",
+			"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/material/list.xhtml",
+			"file_size": 7010,
+			"file_write_time": 130919365426972238,
 			"settings":
 			{
-				"buffer_size": 6800,
+				"buffer_size": 6897,
 				"line_ending": "Windows"
 			}
 		},
@@ -107,15 +110,7 @@
 			"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
 			"settings":
 			{
-				"buffer_size": 9300,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
-			"settings":
-			{
-				"buffer_size": 15164,
+				"buffer_size": 9531,
 				"line_ending": "Windows"
 			}
 		}
@@ -162,11 +157,23 @@
 	],
 	"file_history":
 	[
-		"/C/apache/Apache24/conf/httpd.conf",
+		"/C/Program Files/SmartBear/SoapUI-5.1.3/bin/SoapUI-5.2.1.vmoptions",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/00_schema.sql",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/01_sys.sql",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/supply_chain.sql",
+		"/C/Users/torredie/AppData/Roaming/Skype/My Skype Received Files/Manual Front End.txt",
+		"/C/Users/torredie/AppData/Roaming/Skype/My",
+		"/C/Program Files (x86)/Skype/Phone/Skype",
+		"/C/Program Files (x86)/Skype/Phone/Received",
+		"/C/Program Files (x86)/Skype/Phone/Files/Manual",
+		"/C/Program Files (x86)/Skype/Phone/Front",
+		"/C/Program Files (x86)/Skype/Phone/End.txt",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
+		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
+		"/C/apache/Apache24/conf/httpd.conf",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/content.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/main.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/leftMenu.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-profile.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company-tab-general.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/company.xhtml",
@@ -179,7 +186,6 @@
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/login.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/register.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/reg_confirm.xhtml",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
 		"/C/Users/torredie/Downloads/datos-school-control.sql",
 		"/C/Users/torredie/AppData/Local/Temp/wzab08/datos-school-control.sql",
 		"/C/Users/torredie/Documents/RCU/certs/PCI/sungard/public.cert",
@@ -214,7 +220,6 @@
 		"/C/jetty/resources/logback.xml",
 		"/C/jetty/resources/log4j.properties",
 		"/C/Users/torredie/Documents/projects/inspira/gits/Inspiraschool/studentSvc/php/api.php",
-		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/dbScripts/01_sys.sql",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/target/scspro/pages/secure/index.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/proc/receipt/list.xhtml",
 		"/C/Users/torredie/Documents/projects/inspira/gits/scspro/scspro-parent/scspro_web_ui/src/main/webapp/pages/public/session-expired.xhtml",
@@ -279,21 +284,11 @@
 		"/C/Users/torredie/Documents/projects/scspro/database/05_cat_payment_condition.sql",
 		"/C/Users/torredie/Documents/projects/scspro/database/04_cat_storage.sql",
 		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/proc/recibo/index.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/company/company-tab-profile.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/company/company-tab-general.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/company/company.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/templates/default/leftMenu.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/index.xhtml",
-		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/company/companies-list.xhtml",
-		"/C/Temp/scs_restore_script.sql",
-		"/C/Temp/transfer_IDMaterial.txt",
-		"/C/Temp/transfer_IDFraccion.txt",
-		"/C/Temp/transfer.txt",
-		"/C/Temp/transfer_partida.txt"
+		"/C/Users/torredie/Documents/projects/scspro/web/src/main/webapp/pages/secure/company/company-tab-profile.xhtml"
 	],
 	"find":
 	{
-		"height": 58.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
@@ -307,6 +302,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"i18n_companies",
+			"companyBean",
+			"companiesTableConfig",
+			"img",
 			"                          \n",
 			"tooltips",
 			"title",
@@ -429,6 +428,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"i18n_material",
+			"materialBean",
+			"materialTableConfig",
 			"<br />",
 			"receiptBean",
 			"companyBean.model",
@@ -492,19 +494,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/company/list.xhtml",
+					"file": "scspro-parent/scspro_web_ui/src/main/webapp/pages/secure/cat/material/list.xhtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6800,
+						"buffer_size": 6897,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4286,
-								4286
+								3013,
+								3013
 							]
 						],
 						"settings":
@@ -514,7 +516,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 780.0,
+						"translation.y": 710.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -526,15 +528,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9300,
+						"buffer_size": 9531,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4033,
-								4033
+								277,
+								277
 							]
 						],
 						"settings":
@@ -544,40 +546,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 140.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "scspro-parent/scspro_web_ui/src/main/webapp/templates/default/header.xhtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 15164,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13748,
-								13748
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4370.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -632,12 +604,12 @@
 		"selected_items":
 		[
 			[
-				"header",
-				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\templates\\default\\header.xhtml"
-			],
-			[
 				"left",
 				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\templates\\default\\leftMenu.xhtml"
+			],
+			[
+				"header",
+				"scspro-parent\\scspro_web_ui\\src\\main\\webapp\\templates\\default\\header.xhtml"
 			],
 			[
 				"conten",

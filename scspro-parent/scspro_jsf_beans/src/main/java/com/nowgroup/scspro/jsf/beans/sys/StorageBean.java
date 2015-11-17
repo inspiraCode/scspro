@@ -14,12 +14,12 @@ import javax.faces.context.FacesContext;
 
 import org.apache.log4j.Logger;
 
+import com.nowgroup.scspro.dto.cat.Storage;
 import com.nowgroup.scspro.dto.geo.Country;
 import com.nowgroup.scspro.dto.geo.State;
-import com.nowgroup.scspro.dto.sys.Storage;
+import com.nowgroup.scspro.service.cat.StorageService;
 import com.nowgroup.scspro.service.geo.CountryService;
 import com.nowgroup.scspro.service.geo.StateService;
-import com.nowgroup.scspro.service.sys.StorageService;
 
 @ManagedBean
 @SessionScoped

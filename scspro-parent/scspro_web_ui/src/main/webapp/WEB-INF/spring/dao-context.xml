@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+    <!-- CATALOGS -->
+    <bean id="materialDAO" class="com.nowgroup.scspro.dao.hibernate.cat.MaterialDAOHibernate" />
+    <bean id="tariffValidityDAO" class="com.nowgroup.scspro.dao.hibernate.cat.TariffValidityDAOHibernate" />
+    <bean id="tariffDAO" class="com.nowgroup.scspro.dao.hibernate.cat.TariffDAOHibernate" />
+    
+    <bean id="storageDAO" class="com.nowgroup.scspro.dao.hibernate.cat.StorageDAOHibernate"/>
+    
+    <bean id="measurementUnitDAO" class="com.nowgroup.scspro.dao.hibernate.cat.MeasurementUnitDAOHibernate"/>
+    <bean id="measurementUnitRoleDAO" class="com.nowgroup.scspro.dao.hibernate.cat.MeasurementUnitRoleDAOHibernate"/>
+    <bean id="paymentConditionDAO" class="com.nowgroup.scspro.dao.hibernate.cat.PaymentConditionDAOHibernate"/>
+    
     <!-- COMPANIES CATALOG -->
     <bean id="companyDAO" class="com.nowgroup.scspro.dao.hibernate.cat.CompanyDAOHibernate"/>
     <bean id="companyRoleDAO" class="com.nowgroup.scspro.dao.hibernate.cat.CompanyRoleDAOHibernate"/>
@@ -21,14 +32,6 @@
     
     <!-- SYS -->
     <bean id="dbLogDAO" class="com.nowgroup.scspro.dao.hibernate.sys.DbLogDAOHibernate"/>
-    <bean id="measurementUnitDAO" class="com.nowgroup.scspro.dao.hibernate.sys.MeasurementUnitDAOHibernate"/>
-    <bean id="measurementUnitRoleDAO" class="com.nowgroup.scspro.dao.hibernate.sys.MeasurementUnitRoleDAOHibernate"/>
-    <bean id="paymentConditionDAO" class="com.nowgroup.scspro.dao.hibernate.sys.PaymentConditionDAOHibernate"/>
     <bean id="roleDAOImpl" class="com.nowgroup.scspro.dao.hibernate.sys.RoleDAOImpl"/>
-    <bean id="storageDAO" class="com.nowgroup.scspro.dao.hibernate.sys.StorageDAOHibernate"/>
     <bean id="userDAOImpl" class="com.nowgroup.scspro.dao.hibernate.sys.UserDAOImpl"/>
-    
-    <!-- <bean id="companyServiceImpl" class="com.nowgroup.scspro.spring.service.cat.CompanyServiceImpl">
-    	<property name="companyDAO" ref="companyDAO"/>
-    </bean>  -->
 </beans>

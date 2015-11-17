@@ -22,7 +22,7 @@ import org.hibernate.search.annotations.IndexedEmbedded;
 
 import com.nowgroup.scspro.dto.BaseDTO;
 import com.nowgroup.scspro.dto.cat.Company;
-import com.nowgroup.scspro.dto.sys.PaymentCondition;
+import com.nowgroup.scspro.dto.cat.PaymentCondition;
 
 @Indexed
 @Entity

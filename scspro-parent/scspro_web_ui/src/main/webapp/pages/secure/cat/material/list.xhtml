@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://xmlns.jcp.org/jsf/html" 
+    xmlns:f="http://xmlns.jcp.org/jsf/core" 
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/default/main.xhtml">
+    <ui:define name="title">SCS PRO - #{i18n_material['companies.title']}</ui:define>
+    <ui:define name="content-header">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" />
+        <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                var materialTableConfig = {
+                  responsive : true,
+                  "language" : {
+                    "lengthMenu" : "#{i18n_global['global.dt.lengthMenu']}",
+                    "zeroRecords" : "#{i18n_global['global.dt.zeroRecords']}",
+                    "info" : "#{i18n_global['global.dt.info']}",
+                    "infoEmpty" : "#{i18n_global['global.dt.infoEmpty']}",
+                    "infoFiltered" : "#{i18n_global['global.dt.infoFiltered']}",
+                    "search" : "#{i18n_global['global.dt.search']}",
+                    "paginate" : {
+                      "first" : "#{i18n_global['global.dt.pagination.first']}",
+                      "last" : "#{i18n_global['global.dt.pagination.last']}",
+                      "next" : "#{i18n_global['global.dt.pagination.next']}",
+                      "previous" : "#{i18n_global['global.dt.pagination.previous']}"
+                    }
+                  }
+                };
+                $('#companiesTable').DataTable(materialTableConfig);
+            });
+        </script>
+    </ui:define>
+    <ui:define name="content">
+        <!--overview start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-wrench"></i> <h:outputText value=" #{i18n_menu['menu.catalogs.materials']}"></h:outputText></h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="index.html">#{i18n_menu['menu.home']}</a></li>
+                <li><i class="fa fa-th-list"></i>#{i18n_menu['menu.catalogs']}</li>                          
+                <li><i class="fa fa-wrench"></i>#{i18n_menu['menu.catalogs.materials']}</li>                          
+            </ol>
+          </div>
+        </div>
+        <!-- /.row -->
+        <p:messages id="msg" />
+        <!-- Form content -->
+        <h:form id="materialListForm">
+            <h:commandLink id="addButton" action="#{materialBean.addNew}" styleClass="btn btn-primary" style="margin-bottom:30px;">
+                <i class="fa fa-plus"></i><h:outputText value=" #{i18n_global['global.add']}" />
+            </h:commandLink>
+            <h:commandLink id="removeSelectedButton" action="#{materialBean.removeSelected}" onclick="return confirm('#{i18n_material['removeSelected.confirmation']}');" styleClass="btn btn-warning" style="margin-left:10px;margin-bottom:30px;">
+                <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.removeSelected']}" />
+            </h:commandLink>
+            <h:commandLink id="pdfExportButton" onclick="showLoading=false;" action="#{materialBean.pdfReport(materialBean.all, 'material-list', i18n_material)}" styleClass="btn btn-info" style="margin-left:10px;margin-bottom:30px;">
+                <i class="fa fa-file-pdf-o"></i><h:outputText value=" #{i18n_global['global.export.pdf']}" />
+            </h:commandLink>
+            <h:commandLink id="xlsxExportButton" onclick="showLoading=false;" action="#{materialBean.xlsReport(materialBean.all, 'material-list', i18n_material)}" styleClass="btn btn-success" style="margin-left:5px;margin-bottom:30px;">
+                <i class="fa fa-file-excel-o"></i><h:outputText value=" #{i18n_global['global.export.xls']}" />
+            </h:commandLink>
+            <div id="companiesTable-wrapper">
+            <h:dataTable pt:id="companiesTable" value="#{materialBean.all}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even">
+                <h:column>
+                    <f:facet name="header">id</f:facet>
+                    <p:selectBooleanCheckbox value="#{item.selected}">
+                        <p:ajax update="msg" listener="#{materialBean.selectedItem(item)}" />
+                    </p:selectBooleanCheckbox>
+                    <h:outputText value=" #{item.id}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_material['material.purchaser']}" /></f:facet>
+                    <h:outputText value="#{item.purchaser.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_material['material.seller']}" /></f:facet>
+                    <h:outputText value="#{item.seller.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_material['material.description']}" /></f:facet>
+                    <h:outputText value="#{materialBean.baseLanguageDescription}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_material['material.tariff']}" /></f:facet>
+                    <h:outputText value="#{item.tariff.code}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_material['material.measurement']}" /></f:facet>
+                    <h:outputText value="#{item.measurementUnit.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_material['material.picture']}" /></f:facet>
+                    <p:commandButton update=":form:materialDetail" oncomplete="PF('materialOP').show('#{component.clientId}')" icon="ui-icon-search" title="View">
+                        <f:setPropertyActionListener value="#{item}" target="#{materialBean.selectedMaterial}" />
+                    </p:commandButton>
+                    <h:outputText value="#{item.picture}" />
+                </h:column>
+                
+                <h:column>
+                    <h:commandLink id="editButton" action="#{materialBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
+                        <i class="fa fa-pencil"></i><h:outputText value=" #{i18n_global['global.edit']}" />
+                    </h:commandLink>
+                    <h:commandLink id="removeButton" action="#{materialBean.delete(item)}" onclick="return confirm('#{i18n_material['remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
+                        <f:param name="item" value="#{item}" />
+                        <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.remove']}" />
+                    </h:commandLink>
+                </h:column>
+            </h:dataTable>
+            </div>
+            <p:overlayPanel widgetVar="materialOP" showEffect="fade" hideEffect="fade" dismissable="false" showCloseIcon="true">
+                <p:outputPanel id="materialDetail" style="text-align:center;">
+                    <p:imageSwitch effect="fade" style="width:300px;height:188px">
+                        <ui:repeat value="#{materialBean.selectedMaterial.images}" var="image">
+                            <p:graphicImage value="#{materialBean.selectedMaterialImage}" width="300">
+                                <f:param name="imageName" value="image" />
+                            </p:graphicImage>
+                        </ui:repeat>
+                    </p:imageSwitch>
+                </p:outputPanel>
+            </p:overlayPanel>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>

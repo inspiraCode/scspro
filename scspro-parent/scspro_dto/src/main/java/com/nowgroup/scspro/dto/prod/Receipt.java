@@ -30,8 +30,8 @@ import org.hibernate.search.annotations.Resolution;
 
 import com.nowgroup.scspro.dto.BaseDTO;
 import com.nowgroup.scspro.dto.cat.CompanyScope;
+import com.nowgroup.scspro.dto.cat.Storage;
 import com.nowgroup.scspro.dto.sys.DbLog;
-import com.nowgroup.scspro.dto.sys.Storage;
 
 @Indexed
 @Entity
@@ -41,7 +41,7 @@ public class Receipt implements BaseDTO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "RECEIPT_ID", nullable = true, unique = true)
+    @Column(name = "RECEIPT_ID", nullable = false, unique = true)
     private int id;
 
     @Field

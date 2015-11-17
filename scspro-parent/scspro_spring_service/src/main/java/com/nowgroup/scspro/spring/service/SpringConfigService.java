@@ -10,9 +10,17 @@ public class SpringConfigService implements SysConfigService {
     @Value("${avatar.images}")
     private String avatarPath;
     
+    @Value("${material.images}")
+    private String materialImagePath;
+    
     @Override
     public String getAvatarPath() {
 	return avatarPath;
+    }
+    
+    @Override
+    public String getMaterialImagePath() {
+	return materialImagePath;
     }
 
 }

@@ -1,6 +1,6 @@
 package com.nowgroup.scspro.model.sys;
 
-import com.nowgroup.scspro.dto.sys.MeasurementUnitRole;
+import com.nowgroup.scspro.dto.cat.MeasurementUnitRole;
 import com.nowgroup.scspro.model.Modeleable;
 
 public class MeasurementUnitRoleModel extends MeasurementUnitRole implements Modeleable<MeasurementUnitRole> {

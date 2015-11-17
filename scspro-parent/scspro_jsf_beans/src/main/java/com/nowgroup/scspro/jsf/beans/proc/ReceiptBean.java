@@ -19,13 +19,13 @@ import com.nowgroup.scspro.dto.ItemByNameException;
 import com.nowgroup.scspro.dto.cat.Company;
 import com.nowgroup.scspro.dto.cat.CompanyRole;
 import com.nowgroup.scspro.dto.cat.CompanyScope;
+import com.nowgroup.scspro.dto.cat.MeasurementUnit;
+import com.nowgroup.scspro.dto.cat.PaymentCondition;
 import com.nowgroup.scspro.dto.cat.UNLabel;
 import com.nowgroup.scspro.dto.prod.Receipt;
 import com.nowgroup.scspro.dto.prod.ReceiptDocument;
 import com.nowgroup.scspro.dto.prod.ReceiptFreight;
 import com.nowgroup.scspro.dto.prod.ReceiptMerchandise;
-import com.nowgroup.scspro.dto.sys.MeasurementUnit;
-import com.nowgroup.scspro.dto.sys.PaymentCondition;
 import com.nowgroup.scspro.jsf.beans.BaseFacesReporteableBean;
 import com.nowgroup.scspro.model.prod.ReceiptDocumentModel;
 import com.nowgroup.scspro.model.prod.ReceiptFreightModel;
@@ -33,11 +33,11 @@ import com.nowgroup.scspro.model.prod.ReceiptMerchandiseModel;
 import com.nowgroup.scspro.model.prod.ReceiptModel;
 import com.nowgroup.scspro.service.cat.CompanyScopeService;
 import com.nowgroup.scspro.service.cat.CompanyService;
+import com.nowgroup.scspro.service.cat.MeasurementUnitService;
+import com.nowgroup.scspro.service.cat.PaymentConditionService;
 import com.nowgroup.scspro.service.cat.UNLabelService;
 import com.nowgroup.scspro.service.prod.ReceiptFreightService;
 import com.nowgroup.scspro.service.prod.ReceiptService;
-import com.nowgroup.scspro.service.sys.MeasurementUnitService;
-import com.nowgroup.scspro.service.sys.PaymentConditionService;
 
 @ManagedBean
 @SessionScoped
