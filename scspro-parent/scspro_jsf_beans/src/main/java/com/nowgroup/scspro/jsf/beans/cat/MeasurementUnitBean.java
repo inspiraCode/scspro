@@ -49,7 +49,7 @@ public class MeasurementUnitBean extends BaseFacesBean<MeasurementUnit> {
     public MeasurementUnitBean() {
 	super(new MeasurementUnitModel());
     }
-
+    
     public List<MeasurementUnitModel> getMeasurementUnitList() {
 	if (measurementUnitBundle == null) {
 	    FacesContext context = FacesContext.getCurrentInstance();
@@ -71,7 +71,7 @@ public class MeasurementUnitBean extends BaseFacesBean<MeasurementUnit> {
 		displayRoles = displayRoles.substring(2);
 	    }
 
-	    //mum.setDisplayRoles(displayRoles);
+	    mum.setDisplayRoles(displayRoles);
 	    result.add(mum);
 	}
 
@@ -190,7 +190,7 @@ public class MeasurementUnitBean extends BaseFacesBean<MeasurementUnit> {
 	clone.setId(item.getId());
 	clone.setName(item.getName());
 	clone.setCode(item.getCode());
-
+	
 	this.setMeasurementUnit(clone);
 	return "measurement-unit";
     }
@@ -218,7 +218,7 @@ public class MeasurementUnitBean extends BaseFacesBean<MeasurementUnit> {
 		MeasurementUnitRoleModel murm = new MeasurementUnitRoleModel();
 		murm.setId(role.getId());
 		murm.setName(role.getName());
-		//murm.setDisplayName(measurementUnitBundle.getString("measurement-unit.profiles." + role.getName().toLowerCase()));
+		murm.setDisplayName(measurementUnitBundle.getString("measurement-unit.profiles." + role.getName().toLowerCase()));
 		rolesList.add(murm);
 	    }
 	    return rolesList;

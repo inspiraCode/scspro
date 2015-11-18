@@ -33,7 +33,14 @@
                     </h:commandLink>
                 </div>
                 <div class="row" style="margin-top:10px;">
-                    <div class="control-group col-md-4">
+                    <div class="control-group col-md-6">
+                        <!-- Sender Selection -->
+                        <h:outputLabel for="textName" value="#{i18n_measurement_unit['measurementUnit.name']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:inputText styleClass="form-control" id="textName" value="#{measurementUnitBean.measurementUnit.name}" pt:placeholder="#{i18n_measurement_unit['measurementUnit.name']}"></h:inputText>
+                        </div>
+                    </div>
+                    <div class="control-group col-md-2">
                         <!-- Sender Selection -->
                         <h:outputLabel id="outLblCompanyCodeId" for="code" value="#{i18n_measurement_unit['measurementUnit.code']}: " name="outLblCompanyCodeNm" styleClass="control-label"></h:outputLabel>
                         <div class="controls">

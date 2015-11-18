@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14434160693900" configfile="/scspro_web_ui/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="pages/public/login.xhtml" x="338" y="1522" id="pf14435912709220" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" outlinks="pf14435912709221 pf14435912709222 pf14435912709223 pf14470977232110" inlinks="pf14435912709222 pf14435912709223 pf14435912709224 pf14470977232111" path="/pages/public/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/secure/index.xhtml" x="554" y="1522" id="pf14435912709225" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14435912709221" path="/pages/secure/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1330" id="pf14435912709226" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14435912709224" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/public/login.xhtml" x="338" y="1137" id="pf14435912709220" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" outlinks="pf14435912709221 pf14435912709222 pf14435912709223 pf14470977232110" inlinks="pf14435912709222 pf14435912709223 pf14435912709224 pf14470977232111" path="/pages/public/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/index.xhtml" x="554" y="1137" id="pf14435912709225" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14435912709221" path="/pages/secure/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="946" id="pf14435912709226" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14435912709224" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/secure/cat/company/company.xhtml" x="338" y="178" id="pf14435912709227" referenceLink="//@navigationRule.5/@navigationCase.1/@toViewId|" outlinks="pf14435912709228 pf14438844812614" inlinks="pf14438844812614 pf14440066373033" path="/pages/secure/cat/company/company.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/secure/cat/company/list.xhtml" x="122" y="178" id="pf14435912709229" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" outlinks="pf14440059734250 pf14440066373033" inlinks="pf14435912709228 pf14440059734250" path="/pages/secure/cat/company/list.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/storage/storage.xhtml" x="122" y="562" id="pf144359127092210" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf14478605084298 pf14478605084299" path="/pages/secure/cat/storage/storage.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/public/register.xhtml" x="122" y="1714" id="pf14470977232112" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14470977232113 pf14470977232111" inlinks="pf14470977232110" path="/pages/public/register.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="reg_confirm.xhtml" x="338" y="1906" id="pf14470977232114" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14470977232113" path="/pages/public/reg_confirm.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/secure/cat/t/list.xhtml" id="pf14477824201270" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" outlinks="pf14477824201271 pf14477824201272" inlinks="pf14477824201272" path="/pages/secure/cat/tariff/list.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/secure/cat/tariff/tariff.xhtml" id="pf14477824201273" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf14477824201271" path="/pages/secure/cat/tariff/tariff.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/secure/cat/measurement-unit/measurement-unit.xhtml" id="pf14478604962044" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf14478604962045 pf14478604962046" path="/pages/secure/cat/measurement-unit/measurement-unit.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/measurement-unit/list.xhtml" id="pf14478604962047" referenceLink="//@navigationRule.6/@navigationCase.1/@toViewId|" inlinks="pf14478604962045 pf14478604962046" path="/pages/secure/cat/measurement-unit/list.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/storage/list.xhtml" id="pf144786050842910" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf14478605084298" path="/pages/secure/cat/storage/list.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/storage/storage.xhtml" id="pf144786050842911" referenceLink="//@navigationRule.7/@navigationCase.1/@toViewId|" inlinks="pf14478605084299" path="/pages/secure/cat/storage/storage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/storage/storage.xhtml" x="122" y="562" id="pf144359127092210" referenceLink="//@navigationRule.7/@navigationCase.1/@toViewId|" outlinks="pf14478605084298 pf144787452588412" inlinks="pf144787452588412" path="/pages/secure/cat/storage/storage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/public/register.xhtml" x="122" y="1330" id="pf14470977232112" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14470977232113 pf14470977232111" inlinks="pf14470977232110" path="/pages/public/register.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="reg_confirm.xhtml" x="338" y="1521" id="pf14470977232114" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14470977232113" path="/pages/public/reg_confirm.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/cat/t/list.xhtml" x="122" y="1905" id="pf14477824201270" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" outlinks="pf14477824201271 pf14477824201272" inlinks="pf14477824201272" path="/pages/secure/cat/tariff/list.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/cat/tariff/tariff.xhtml" x="338" y="1905" id="pf14477824201273" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf14477824201271" path="/pages/secure/cat/tariff/tariff.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/cat/measurement-unit/measurement-unit.xhtml" x="122" y="2289" id="pf14478604962044" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf14478604962045 pf14478604962046" path="/pages/secure/cat/measurement-unit/measurement-unit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/measurement-unit/list.xhtml" x="338" y="2289" id="pf14478604962047" referenceLink="//@navigationRule.6/@navigationCase.1/@toViewId|" inlinks="pf14478604962045 pf14478604962046" path="/pages/secure/cat/measurement-unit/list.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/storage/list.xhtml" x="338" y="562" id="pf144786050842910" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf14478605084298" path="/pages/secure/cat/storage/list.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/sys/storage/storage.xhtml" x="122" y="2673" id="pf144786050842911" referenceLink="//@navigationRule.7/@navigationCase.1/@toViewId|" path="/pages/secure/cat/storage/storage.xhtml"/>
   <links id="pf14435912709221" target="pf14435912709225" source="pf14435912709220" outcome="correct" redirect="true" fromaction="#{loginMgmtBean.login}"/>
   <links id="pf14435912709224" target="pf14435912709220" source="pf14435912709226" outcome="loggedout" redirect="true" fromaction="#{loginMgmtBean.logout}"/>
   <links id="pf14435912709228" target="pf14435912709229" source="pf14435912709227" outcome="success" redirect="true">
@@ -27,6 +27,10 @@
   <links id="pf14470977232110" target="pf14470977232112" source="pf14435912709220" outcome="register" redirect="true" fromaction="#{loginMgmtBean.register}"/>
   <links id="pf14470977232113" target="pf14470977232114" source="pf14470977232112" outcome="confirmation" fromaction="#{userController.register}"/>
   <links id="pf14470977232111" target="pf14435912709220" source="pf14470977232112" outcome="cancel" redirect="true" fromaction="#{userController.login}"/>
+  <links id="pf14477824201271" target="pf14477824201273" source="pf14477824201270" outcome="success" redirect="true"/>
+  <links id="pf14478604962045" target="pf14478604962047" source="pf14478604962044" outcome="success" redirect="true" fromaction="#{measurementUnitBean.uploadMeasurementUnit}"/>
+  <links id="pf14478604962046" target="pf14478604962047" source="pf14478604962044" outcome="success" redirect="true" fromaction="#{measurementUnitBean.showList}"/>
+  <links id="pf14478605084298" target="pf144786050842910" source="pf144359127092210" outcome="good" redirect="true" fromaction="#{storageBean.uploadStorage}"/>
   <links id="pf14435912709222" target="pf14435912709220" source="pf14435912709220" outcome="incorrect" fromaction="#{loginMgmtBean.login}">
     <bendPoints d1Height="-36" d2Height="-36"/>
     <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
@@ -47,10 +51,14 @@
     <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
     <bendPoints d1Width="-64" d2Width="-64"/>
   </links>
-  <links id="pf14477824201271" target="pf14477824201273" source="pf14477824201270" outcome="success" redirect="true"/>
-  <links id="pf14477824201272" target="pf14477824201270" source="pf14477824201270" outcome="failure"/>
-  <links id="pf14478604962045" target="pf14478604962047" source="pf14478604962044" outcome="success" redirect="true" fromaction="#{measurementUnitBean.uploadMeasurementUnit}"/>
-  <links id="pf14478604962046" target="pf14478604962047" source="pf14478604962044" outcome="success" redirect="true" fromaction="#{measurementUnitBean.showList}"/>
-  <links id="pf14478605084298" target="pf144786050842910" source="pf144359127092210" outcome="good" redirect="true" fromaction="#{storageBean.uploadStorage}"/>
-  <links id="pf14478605084299" target="pf144786050842911" source="pf144359127092210" outcome="fail" redirect="true" fromaction="#{storageBean.uploadStorage}"/>
+  <links id="pf14477824201272" target="pf14477824201270" source="pf14477824201270" outcome="failure">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf144787452588412" target="pf144359127092210" source="pf144359127092210" outcome="fail" redirect="true" fromaction="#{storageBean.uploadStorage}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
 </pageflow:Pageflow>
