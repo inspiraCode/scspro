@@ -22,7 +22,7 @@ import com.nowgroup.scspro.dto.BaseDTO;
 
 @Indexed
 @Entity
-@Table(name = "sys_payment_condition", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "PAY_CND_CODE") })
+@Table(name = "cat_payment_condition", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "PAY_CND_CODE") })
 public class PaymentCondition implements BaseDTO {
     private static final long serialVersionUID = 4005765551264037029L;
 

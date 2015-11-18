@@ -1,4 +1,4 @@
-package com.nowgroup.scspro.jsf.beans.sys;
+package com.nowgroup.scspro.jsf.beans.cat;
 
 import java.util.ResourceBundle;
 
@@ -8,7 +8,7 @@ import javax.faces.bean.SessionScoped;
 
 import com.nowgroup.scspro.dto.cat.PaymentCondition;
 import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
-import com.nowgroup.scspro.model.sys.PaymentConditionModel;
+import com.nowgroup.scspro.model.cat.PaymentConditionModel;
 import com.nowgroup.scspro.service.BaseService;
 import com.nowgroup.scspro.service.cat.PaymentConditionService;
 

@@ -27,6 +27,10 @@
             <var>i18n_material</var>
         </resource-bundle>
         <resource-bundle>
+            <base-name>com.nowgroup.scspro.faces.i18n.cat.tariff</base-name>
+            <var>i18n_tariff</var>
+        </resource-bundle>
+        <resource-bundle>
             <base-name>com.nowgroup.scspro.faces.i18n.sys.storages</base-name>
             <var>i18n_storages</var>
         </resource-bundle>
@@ -106,6 +110,20 @@
     		<redirect/>
     	</navigation-case>
     </navigation-rule>
+    <!-- CAT TARIFF -->
+    <navigation-rule>
+        <from-view-id>/pages/secure/cat/tariff/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/secure/cat/tariff/tariff.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/pages/secure/cat/tariff/list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- CAT COMPANY -->
     <navigation-rule>
         <from-view-id>/pages/secure/cat/company/list.xhtml</from-view-id>
         <navigation-case>
@@ -131,27 +149,35 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+    <!-- CAT MEASUREMENT UNIT -->
     <navigation-rule>
-        <from-view-id>/pages/secure/sys/storage/storage.xhtml</from-view-id>
+        <from-view-id>/pages/secure/cat/measurement-unit/measurement-unit.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{measurementUnitBean.uploadMeasurementUnit}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/secure/cat/measurement-unit/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{measurementUnitBean.showList}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/secure/cat/measurement-unit/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!-- CAT STORAGE -->
+    <navigation-rule>
+        <from-view-id>/pages/secure/cat/storage/storage.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{storageBean.uploadStorage}</from-action>
             <from-outcome>good</from-outcome>
-            <to-view-id>/pages/secure/sys/storage/list.xhtml</to-view-id>
+            <to-view-id>/pages/secure/cat/storage/list.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>
             <from-action>#{storageBean.uploadStorage}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/pages/secure/sys/storage/storage.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/pages/secure/sys/measurement-unit/measurement-unit.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{measurementUnitBean.uploadMeasurementUnit}</from-action>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/pages/secure/sys/measurement-unit/list.xhtml</to-view-id>
+            <to-view-id>/pages/secure/cat/storage/storage.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

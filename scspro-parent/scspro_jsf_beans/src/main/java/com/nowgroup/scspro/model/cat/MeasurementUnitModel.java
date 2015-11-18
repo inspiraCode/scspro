@@ -1,4 +1,4 @@
-package com.nowgroup.scspro.model.sys;
+package com.nowgroup.scspro.model.cat;
 
 import com.nowgroup.scspro.dto.cat.MeasurementUnit;
 import com.nowgroup.scspro.model.Modeleable;
@@ -6,6 +6,8 @@ import com.nowgroup.scspro.model.Modeleable;
 public class MeasurementUnitModel extends MeasurementUnit implements Modeleable<MeasurementUnit> {
     private static final long serialVersionUID = -8759416234902740894L;
     private boolean selected;
+    
+    private String displayRoles;
 
     public MeasurementUnitModel() {
     }
@@ -14,6 +16,7 @@ public class MeasurementUnitModel extends MeasurementUnit implements Modeleable<
 	this.setId(source.getId());
 	this.setCode(source.getCode());
 	this.setName(source.getName());
+	this.setDisplayRoles("");
     }
 
     @Override
@@ -40,5 +43,13 @@ public class MeasurementUnitModel extends MeasurementUnit implements Modeleable<
     @Override
     public boolean isSelected() {
 	return selected;
+    }
+
+    public String getDisplayRoles() {
+	return displayRoles;
+    }
+
+    public void setDisplayRoles(String displayRoles) {
+	this.displayRoles = displayRoles;
     }
 }

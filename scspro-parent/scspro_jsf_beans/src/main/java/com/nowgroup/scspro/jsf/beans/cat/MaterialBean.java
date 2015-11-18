@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
 
@@ -17,6 +19,8 @@ import com.nowgroup.scspro.jsf.beans.BaseFacesReporteableBean;
 import com.nowgroup.scspro.model.cat.MaterialModel;
 import com.nowgroup.scspro.service.SysConfigService;
 
+@ManagedBean
+@SessionScoped
 public class MaterialBean extends BaseFacesReporteableBean<Material> {
     private static final long serialVersionUID = 2525616182718998684L;
     private static Logger log = Logger.getLogger(MaterialBean.class.getName());

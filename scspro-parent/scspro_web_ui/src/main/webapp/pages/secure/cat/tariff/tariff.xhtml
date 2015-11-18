@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://xmlns.jcp.org/jsf/html" 
+    xmlns:f="http://xmlns.jcp.org/jsf/core" 
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/default/main.xhtml">
+	<ui:define name="title">SCS PRO - #{i18n_tariff['tariff.title']} #{tariffBean.tariff.id>0?tariffBean.tariff.id:i18n_tariff['tariff.title.add']} </ui:define>
+    <ui:define name="content">
+        <!-- Page Heading -->
+        <!--overview start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-book"></i> <h:outputText rendered="#{tariffBean.tariff.id==0}" value=" #{i18n_tariff['tariff.title.add']}"></h:outputText>
+                <h:outputText rendered="#{tariffBean.tariff.id>0}" value=" #{tariffBean.tariff.code} (#{tariffBean.tariff.id})"></h:outputText></h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="index.html">#{i18n_menu['menu.home']}</a></li>
+                <li><i class="fa fa-th-list"></i>#{i18n_menu['menu.catalogs']}</li>                          
+                <li><i class="fa fa-book"></i>#{i18n_menu['menu.catalogs.tariffs']}</li>
+            </ol>
+          </div>
+        </div>
+        <p:messages id="msg" />
+        <!-- Form content -->
+        <h:form>
+            <fieldset> 
+                <!-- HEADER BUTTONS -->
+                <div class="row">
+                    <h:commandLink id="btnSaveId" action="#{tariffBean.upload}" styleClass="btn btn-success" style="margin-right:10px;">
+                        <i class="fa fa-save"></i><h:outputText value=" #{i18n_global['global.save']}" />
+                    </h:commandLink>
+                    <h:commandLink id="btnDeleteId" action="#{tariffBean.delete(tariffBean.tariff)}" rendered="#{tariffBean.tariff.id>0}" onclick="return confirm('#{i18n_tariff['company.remove.confirmation']}');" styleClass="btn btn-danger" style="margin-right:30px;">
+                        <i class="fa fa-trash-o"></i><h:outputText value=" #{i18n_global['global.remove']}" />
+                    </h:commandLink>
+                    <h:commandLink id="btnGoBackId" action="#{tariffBean.showList}" styleClass="btn btn-primary">
+                        <i class="fa fa-arrow-left"></i><h:outputText value=" #{i18n_global['global.back']}" />
+                    </h:commandLink>
+                </div>
+                <!-- /HEADER BUTTONS -->
+                <!-- HEADER DATA -->
+                <div class="row" style="margin-top:10px;">
+                    <div class="control-group col-md-4">
+                        <!-- Sender Selection -->
+                        <h:outputLabel for="textTariffCode" value="#{i18n_tariff['tariff.code']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:inputText styleClass="form-control" id="textTariffCode" value="#{tariffBean.tariff.code}" pt:placeholder="#{i18n_tariff['tariff.code']}"></h:inputText>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <div class="control-group col-md-10">
+                        <!-- Sender Selection -->
+                        <h:outputLabel for="textTariffBaseDescription" value="#{i18n_tariff['tariff.description']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:inputText styleClass="form-control" id="textTariffBaseDescription" value="#{tariffBean.tariff.description}" pt:placeholder="#{i18n_tariff['tariff.description']}"></h:inputText>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <div class="control-group col-md-10">
+                        <!-- Sender Selection -->
+                        <h:outputLabel for="textTariffDocumentorDescription" value="#{i18n_tariff['tariff.docDescription']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:inputText styleClass="form-control" id="textTariffDocumentorDescription" value="#{tariffBean.tariff.documentorDescription}" pt:placeholder="#{i18n_tariff['tariff.docDescription']}"></h:inputText>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <div class="control-group col-md-10">
+                        <!-- Sender Selection -->
+                        <h:outputLabel for="textTariffObservations" value="#{i18n_tariff['tariff.observations']}: " styleClass="control-label"></h:outputLabel>
+                        <div class="controls">
+                            <h:inputText styleClass="form-control" id="textTariffObservations" value="#{tariffBean.tariff.observations}" pt:placeholder="#{i18n_tariff['tariff.observations']}"></h:inputText>
+                        </div>
+                    </div>
+                </div>
+                <!-- /HEADER DATA -->
+            </fieldset>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        </h:form>
+        <!-- TABS CONTROLLER -->
+        <div class="row" style="margin-top:15px;">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#validityCountries" data-toggle="tab">#{i18n_tariff['tariff.validityCountries']}</a>
+                </li>
+                <li><a href="#identifiers" data-toggle="tab">#{i18n_tariff['tariff.identifiers']}</a>
+                </li>
+                <li><a href="#policies" data-toggle="tab">#{i18n_tariff['tariff.policies']}</a>
+                </li>
+                <li><a href="#licenses" data-toggle="tab">#{i18n_tariff['tariff.licenses']}</a>
+                </li>
+                <li><a href="#rates" data-toggle="tab">#{i18n_tariff['tariff.rates']}</a>
+                </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="validityCountries">
+                    <!-- /.navbar-top-links -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">#{i18n_tariff['tariff.validityCountries']}</div>
+                        <ui:include src="tariff-tab-validity.xhtml" />
+                        <div class="panel-footer">Summary</div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="identifiers">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">#{i18n_tariff['tariff.identifiers']}</div>
+                        <h1>UNDER CONSTRUCTION</h1>
+                        <p>Intended to show identifiers sub form.</p>
+                        <div class="panel-footer">Summary</div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="policies">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">#{i18n_tariff['tariff.policies']}</div>
+                        <h1>UNDER CONSTRUCTION</h1>
+                        <p>Intended to show policies sub form.</p>
+                        <div class="panel-footer">Summary</div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="licenses">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">#{i18n_tariff['tariff.licenses']}</div>
+                        <h1>UNDER CONSTRUCTION</h1>
+                        <p>Intended to show licenses sub form.</p>
+                        <div class="panel-footer">Summary</div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="rates">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">#{i18n_tariff['tariff.rates']}</div>
+                        <h1>UNDER CONSTRUCTION</h1>
+                        <p>Intended to show rates sub form.</p>
+                        <div class="panel-footer">Summary</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /TABS CONTROLLER -->
+    </ui:define>
+</ui:composition>
+
+</html>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://xmlns.jcp.org/jsf/html" 
+    xmlns:f="http://xmlns.jcp.org/jsf/core" 
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/default/main.xhtml">
+    <ui:define name="title">SCS PRO - #{i18n_tariff['tariff.title']}</ui:define>
+    <ui:define name="content-header">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" />
+        <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                var tariffTableConfig = {
+                  responsive : true,
+                  "language" : {
+                    "lengthMenu" : "#{i18n_global['global.dt.lengthMenu']}",
+                    "zeroRecords" : "#{i18n_global['global.dt.zeroRecords']}",
+                    "info" : "#{i18n_global['global.dt.info']}",
+                    "infoEmpty" : "#{i18n_global['global.dt.infoEmpty']}",
+                    "infoFiltered" : "#{i18n_global['global.dt.infoFiltered']}",
+                    "search" : "#{i18n_global['global.dt.search']}",
+                    "paginate" : {
+                      "first" : "#{i18n_global['global.dt.pagination.first']}",
+                      "last" : "#{i18n_global['global.dt.pagination.last']}",
+                      "next" : "#{i18n_global['global.dt.pagination.next']}",
+                      "previous" : "#{i18n_global['global.dt.pagination.previous']}"
+                    }
+                  }
+                };
+                $('#tariffsTable').DataTable(tariffTableConfig);
+            });
+        </script>
+    </ui:define>
+    <ui:define name="content">
+        <!--overview start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-book"></i> <h:outputText value=" #{i18n_menu['menu.catalogs.tariffs']}"></h:outputText></h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="index.html">#{i18n_menu['menu.home']}</a></li>
+                <li><i class="fa fa-th-list"></i>#{i18n_menu['menu.catalogs']}</li>                          
+                <li><i class="fa fa-book"></i>#{i18n_menu['menu.catalogs.tariffs']}</li>
+            </ol>
+          </div>
+        </div>
+        <!-- /.row -->
+        <p:messages id="msg" />
+        <!-- Form content -->
+        <h:form id="tariffListForm">
+            <h:commandLink id="addButton" action="#{tariffBean.addNew}" styleClass="btn btn-primary" style="margin-bottom:30px;">
+                <i class="fa fa-plus"></i><h:outputText value=" #{i18n_global['global.add']}" />
+            </h:commandLink>
+            <h:commandLink id="removeSelectedButton" action="#{tariffBean.removeSelected}" onclick="return confirm('#{i18n_tariff['removeSelected.confirmation']}');" styleClass="btn btn-warning" style="margin-left:10px;margin-bottom:30px;">
+                <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.removeSelected']}" />
+            </h:commandLink>
+            <h:commandLink id="pdfExportButton" onclick="showLoading=false;" action="#{tariffBean.pdfReport(tariffBean.all, 'tariff-list', i18n_tariff)}" styleClass="btn btn-info" style="margin-left:10px;margin-bottom:30px;">
+                <i class="fa fa-file-pdf-o"></i><h:outputText value=" #{i18n_global['global.export.pdf']}" />
+            </h:commandLink>
+            <h:commandLink id="xlsxExportButton" onclick="showLoading=false;" action="#{tariffBean.xlsReport(tariffBean.all, 'tariff-list', i18n_tariff)}" styleClass="btn btn-success" style="margin-left:5px;margin-bottom:30px;">
+                <i class="fa fa-file-excel-o"></i><h:outputText value=" #{i18n_global['global.export.xls']}" />
+            </h:commandLink>
+            <div id="tariffsTable-wrapper">
+            <h:dataTable pt:id="tariffsTable" value="#{tariffBean.all}" var="item" styleClass="table table-striped table-bordered table-hover compact" rowClasses="odd, even">
+                <h:column>
+                    <f:facet name="header">id</f:facet>
+                    <p:selectBooleanCheckbox value="#{item.selected}">
+                        <p:ajax update="msg" listener="#{tariffBean.selectedItem(item)}" />
+                    </p:selectBooleanCheckbox>
+                    <h:outputText value=" #{item.id}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_tariff['tariff.code']}" /></f:facet>
+                    <h:outputText value="#{item.code}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{i18n_tariff['tariff.description']}" /></f:facet>
+                    <h:outputText value="#{item.description}" />
+                </h:column>
+                
+                <h:column>
+                    <h:commandLink id="editButton" action="#{tariffBean.edit(item)}" styleClass="btn btn-primary" style="margin-right:10px;margin-bottom:5px;margin-top:5px;">
+                        <i class="fa fa-pencil"></i><h:outputText value=" #{i18n_global['global.edit']}" />
+                    </h:commandLink>
+                    <h:commandLink id="removeButton" action="#{tariffBean.delete(item)}" onclick="return confirm('#{i18n_tariff['remove.confirmation']}');" styleClass="btn btn-primary" style="margin-bottom:5px;margin-top:5px;">
+                        <f:param name="item" value="#{item}" />
+                        <i class="fa fa-times"></i><h:outputText value=" #{i18n_global['global.remove']}" />
+                    </h:commandLink>
+                </h:column>
+            </h:dataTable>
+            </div>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>

@@ -11,7 +11,7 @@ import javax.persistence.UniqueConstraint;
 import com.nowgroup.scspro.dto.BaseDTO;
 
 @Entity
-@Table(name = "sys_payment_condition_role", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "PAY_CND_ROLE_NAME") })
+@Table(name = "cat_payment_condition_role", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "PAY_CND_ROLE_NAME") })
 public class PaymentConditionRole implements BaseDTO {
     private static final long serialVersionUID = -1944670551216075792L;
 

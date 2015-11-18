@@ -34,7 +34,7 @@ public class TariffValidity implements BaseDTO {
     private Country country;
 
     @IndexedEmbedded
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "TARIFF_VALIDITY_MU", nullable = false)
     private MeasurementUnit measurementUnit;
 
@@ -92,5 +92,13 @@ public class TariffValidity implements BaseDTO {
 
     public void setDescription(String description) {
 	this.description = description;
+    }
+
+    public Tariff getTariff() {
+	return tariff;
+    }
+
+    public void setTariff(Tariff tariff) {
+	this.tariff = tariff;
     }
 }

@@ -1,4 +1,4 @@
-package com.nowgroup.scspro.model.sys;
+package com.nowgroup.scspro.model.cat;
 
 import com.nowgroup.scspro.dto.cat.PaymentCondition;
 import com.nowgroup.scspro.model.Modeleable;

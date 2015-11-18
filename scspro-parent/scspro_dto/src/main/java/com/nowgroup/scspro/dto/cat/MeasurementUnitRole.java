@@ -15,7 +15,7 @@ import com.nowgroup.scspro.dto.BaseDTO;
 
 @Indexed
 @Entity
-@Table(name = "sys_measurement_unit_role", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "MU_ROLE_NAME") })
+@Table(name = "cat_measurement_unit_role", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "MU_ROLE_NAME") })
 public class MeasurementUnitRole implements BaseDTO {
     private static final long serialVersionUID = -2817028189475229567L;
 

@@ -24,7 +24,7 @@ import com.nowgroup.scspro.dto.BaseDTO;
 
 @Indexed
 @Entity
-@Table(name = "sys_measurement_unit", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "MU_NAME") })
+@Table(name = "cat_measurement_unit", catalog = "supply_chain", uniqueConstraints = { @UniqueConstraint(columnNames = "MU_NAME") })
 public class MeasurementUnit implements BaseDTO, Comparable<MeasurementUnit> {
     private static final long serialVersionUID = 2287186741350117934L;
 
@@ -43,7 +43,7 @@ public class MeasurementUnit implements BaseDTO, Comparable<MeasurementUnit> {
 
     @IndexedEmbedded
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "sys_cross_measurement_unit_role", catalog = "supply_chain", joinColumns = { @JoinColumn(name = "MU_ID", nullable = false,
+    @JoinTable(name = "cross_measurement_unit_role", catalog = "supply_chain", joinColumns = { @JoinColumn(name = "MU_ID", nullable = false,
 	    updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "MU_ROLE_ID", nullable = false, updatable = false) },
 	    uniqueConstraints = { @UniqueConstraint(columnNames = { "MU_ID", "MU_ROLE_ID" }) })
     private Set<MeasurementUnitRole> roles;

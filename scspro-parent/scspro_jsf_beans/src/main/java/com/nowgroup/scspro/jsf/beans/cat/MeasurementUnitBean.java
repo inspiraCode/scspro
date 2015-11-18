@@ -1,4 +1,4 @@
-package com.nowgroup.scspro.jsf.beans.sys;
+package com.nowgroup.scspro.jsf.beans.cat;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,8 +21,9 @@ import org.primefaces.event.DragDropEvent;
 import com.nowgroup.scspro.dto.cat.MeasurementUnit;
 import com.nowgroup.scspro.dto.cat.MeasurementUnitRole;
 import com.nowgroup.scspro.jsf.beans.BaseFacesBean;
-import com.nowgroup.scspro.model.sys.MeasurementUnitModel;
-import com.nowgroup.scspro.model.sys.MeasurementUnitRoleModel;
+import com.nowgroup.scspro.model.cat.MeasurementUnitModel;
+import com.nowgroup.scspro.model.cat.MeasurementUnitRoleModel;
+import com.nowgroup.scspro.service.BaseService;
 import com.nowgroup.scspro.service.cat.MeasurementUnitRoleService;
 import com.nowgroup.scspro.service.cat.MeasurementUnitService;
 
@@ -81,10 +82,6 @@ public class MeasurementUnitBean extends BaseFacesBean<MeasurementUnit> {
 	this.measurementUnit = new MeasurementUnit();
 	rolesList = new ArrayList<MeasurementUnitRoleModel>();
 	return "measurement-unit";
-    }
-
-    public String showList() {
-	return "measurement-unit-list";
     }
 
     public String remove(MeasurementUnit item) {
@@ -275,6 +272,7 @@ public class MeasurementUnitBean extends BaseFacesBean<MeasurementUnit> {
     }
 
     public void setMeasurementUnitServiceImpl(MeasurementUnitService measurementUnitServiceImpl) {
+	super.setService((BaseService<MeasurementUnit>) measurementUnitServiceImpl);
 	this.measurementUnitServiceImpl = measurementUnitServiceImpl;
     }
 

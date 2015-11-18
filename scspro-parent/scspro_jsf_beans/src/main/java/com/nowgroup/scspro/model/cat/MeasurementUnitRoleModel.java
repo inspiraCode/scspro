@@ -1,4 +1,4 @@
-package com.nowgroup.scspro.model.sys;
+package com.nowgroup.scspro.model.cat;
 
 import com.nowgroup.scspro.dto.cat.MeasurementUnitRole;
 import com.nowgroup.scspro.model.Modeleable;

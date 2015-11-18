@@ -1,4 +1,4 @@
-package com.nowgroup.scspro.jsf.beans.sys;
+package com.nowgroup.scspro.jsf.beans.cat;
 
 import java.io.Serializable;
 import java.util.Collections;
