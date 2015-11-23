@@ -17,7 +17,7 @@
   	<module>scspro_web_ui</module>
   </modules>
   <properties>
-  	<java.version>1.8</java.version>
+  	<java.version>1.7</java.version>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  	
   	<plugin.compiler.version>3.3</plugin.compiler.version>
   	<slf4j.version>1.7.12</slf4j.version>

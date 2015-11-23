@@ -1,7 +1,7 @@
 package com.nowgroup.scspro.dao.hibernate.geo;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 
 import com.nowgroup.scspro.dao.geo.CountryDAO;
@@ -21,11 +21,7 @@ public class CountryDAOHibernate extends BaseHibernateDAO<Country> implements Co
 	for (State s : c.getStates()) {
 	    result.add(s);
 	}
-	result.sort(new Comparator<State>() {
-	    public int compare(State o1, State o2) {
-		return o1.getName().compareTo(o2.getName());
-	    }
-	});
+	Collections.sort(result);
 	return result;
     }
 }
