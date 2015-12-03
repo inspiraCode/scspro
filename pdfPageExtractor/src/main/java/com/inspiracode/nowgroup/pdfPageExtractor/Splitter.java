@@ -31,7 +31,7 @@ public class Splitter {
 	    if (args.length >= 3)
 		splitter.setPagesToSplit(Integer.parseInt(args[2]));
 
-	    if (args.length >= 4)
+	    if (args.length == 4)
 		splitter.setFromPage(Integer.parseInt(args[3]));
 
 	} catch (Exception e) {

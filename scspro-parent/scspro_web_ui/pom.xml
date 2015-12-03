@@ -13,6 +13,7 @@
   <properties>
   	<spring.webflow.version>2.4.2.RELEASE</spring.webflow.version>
   </properties>
+  <!-- #mvn exec:java -Dexec.mainClass="com.inspiracode.nowgroup.pdfPageExtractor.Splitter" -Dexec.args="/temp/scspro/receipt.pdf /temp/scspro/guide.pdf 2 2" -->
   <build>
   	<finalName>scspro</finalName>
   	<plugins>
