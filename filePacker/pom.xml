@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.inspiracode.scspro</groupId>
-  <artifactId>pdfPageExtractor</artifactId>
+  <artifactId>filePacker</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>pdfPageExtractor</name>
-  <description>Pdf page extractor requested for guide extraction from receipt scan.</description>
+  <name>FilePacker</name>
+  <description>File Packer for pdf and zip</description>
   <dependencies>
   	<dependency>
   		<groupId>com.lowagie</groupId>
@@ -12,7 +12,8 @@
   		<version>2.1.7</version>
   	</dependency>
   </dependencies>
-  <build><finalName>PdfPageExtractor</finalName>
+  <build>
+  	<finalName>FilePacker</finalName>
   	<plugins>
   		<plugin>
   			<groupId>org.apache.maven.plugins</groupId>
@@ -21,10 +22,22 @@
   			<configuration>
   				<archive>
   					<manifest>
-  						<mainClass>com.inspiracode.nowgroup.pdfPageExtractor.Splitter</mainClass>
+  						<mainClass>com.inspiracode.nowgroup.filePacker.Packer</mainClass>
   					</manifest>
   				</archive>
+  				<descriptorRefs>
+  					<descriptorRef>jar-with-dependencies</descriptorRef>
+  				</descriptorRefs>
   			</configuration>
+  			<executions>
+  				<execution>
+  					<id>make-assembly</id>
+  					<phase>package</phase>
+  					<goals>
+  						<goal>single</goal>
+  					</goals>
+  				</execution>
+  			</executions>
   		</plugin>
   	</plugins>
   </build>
