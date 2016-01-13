@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -85,7 +86,7 @@ public class Packer {
 		    return temp.isFile() && temp.getName().toLowerCase().endsWith("pdf");
 		}
 	    });
-
+	    Arrays.sort(pdfs);
 	    for (File pdf : pdfs) {
 		System.out.println(">>> archivo pdf encontrado para ser consolidado: " + pdf.getPath());
 		list.add(new FileInputStream(pdf));
@@ -94,7 +95,7 @@ public class Packer {
 
 	System.out.println(">>> consolidacion de PDFs en archivo: " + fileDir.getPath() + "\\" + fileDir.getName() + " " + purchaserAlias + ".pdf");
 	OutputStream out = new FileOutputStream(new File(fileDir.getPath() + "\\" + fileDir.getName() + " " + purchaserAlias + ".pdf"));
-	
+
 	Merge(list, out);
 	System.out.println(">>> PDFs Consolidados >>>>>");
     }
