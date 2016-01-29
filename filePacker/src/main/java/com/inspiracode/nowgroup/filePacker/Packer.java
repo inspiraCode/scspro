@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -55,6 +56,7 @@ public class Packer {
     public void packFiles() {
 	System.out.println("******************************************************");
 	System.out.println("*         CREANDO PAQUETES DE EXPEDIENTE             *");
+	System.out.println("*         v1.2                                       *");
 	System.out.println("******************************************************");
 	try {
 	    fileDir = new File(fileDirectory);
@@ -66,6 +68,11 @@ public class Packer {
 		}
 	    });
 	    ZipFiles(directories);
+	    Arrays.sort(directories, new Comparator<File>() {
+		public int compare(File o1, File o2) {
+		    return o1.getName().compareTo(o2.getName());
+		}
+	    });
 	    MergePDFs(directories);
 	    System.out.println("******************************************************");
 	    System.out.println("*                      TERMINADO                     *");
@@ -86,7 +93,15 @@ public class Packer {
 		    return temp.isFile() && temp.getName().toLowerCase().endsWith("pdf");
 		}
 	    });
-	    Arrays.sort(pdfs);
+	    Arrays.sort(pdfs, new Comparator<File>() {
+		public int compare(File o1, File o2) {
+		    if (o1.getName().startsWith("TRAD")) {
+			return -1;
+		    }
+
+		    return o1.getName().compareTo(o2.getName());
+		}
+	    });
 	    for (File pdf : pdfs) {
 		System.out.println(">>> archivo pdf encontrado para ser consolidado: " + pdf.getPath());
 		list.add(new FileInputStream(pdf));
